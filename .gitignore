@@ -1,0 +1,33 @@
+# Node.js / JavaScript related (opsional jika ada Node.js)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Sistem operasi
+.DS_Store
+Thumbs.db
+
+# File build / dist
+dist/
+build/
+
+# Backup / Archive
+*.zip
+*.tar
+*.gz
+*.rar
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Log files
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
