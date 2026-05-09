@@ -59,4 +59,3 @@ Lisensi: **MIT (Versi Bahasa Indonesia)**
 Link Terkait
 - 💖 [Live Demo](https://prasspro.github.io/)  
 - 💖 [Youtube](https://www.youtube.com/channel/UC7v_jAnGrc5f7cIjzdRD3QA)
-Live Demo: https://prasspro.github.io/

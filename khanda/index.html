@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="light">
+	<head>
+		<meta charset="UTF-8">
+        <title>KHANDA — Khasanah Nusantara Digital</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="description" content="Platform budaya digital Indonesia untuk pemetaan cagar budaya, arsip budaya Nusantara, cerita rakyat, warisan budaya tak benda, museum digital, GIS budaya, dan dokumentasi sejarah Indonesia">
+		<meta name="keywords" content="khasanah nusantara digital, KHANDA, budaya nusantara, pelestarian budaya, arsip budaya digital, GIS budaya, peta budaya indonesia, cagar budaya indonesia, warisan budaya nusantara, cerita rakyat indonesia, budaya kutai, situs budaya kutai, museum digital indonesia, digital heritage indonesia, budaya digital, platform budaya indonesia, pemetaan budaya, sejarah nusantara, warisan budaya tak benda, budaya indonesia, arsip sejarah indonesia, storytelling budaya, cultural heritage platform, webgis budaya, aplikasi budaya indonesia, budaya kalimantan timur, kutai kartanegara, situs sejarah indonesia, dokumentasi budaya, platform pelestarian budaya">
+		
+        <meta name="author" content="prasspro">
+        <meta name="robots" content="all, index, follow">
+        <meta http-equiv="Content-Language" content="id-ID">
+        <meta NAME="Distribution" CONTENT="Global">
+        <meta NAME="Rating" CONTENT="General">
+        <meta property="og:site_name" content="khanda.id" />
+        <meta property="og:image" content="img/icon.png" />
+        <meta property="og:image:width" content="300" />
+        <meta property="og:image:height" content="300" />
+        <meta property="og:locale" content="id_ID" />
+        <meta name="twitter:creator" content="@prasspro" />
+        <meta name="twitter:site" content="@prasspro" />
+        <meta name="twitter:text:title" content="KHANDA - Khasanah Nusantara Digital" />
+        <meta name="twitter:image" content="img/icon.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <link rel="canonical" href="khanda.id" />
+        <link rel="shortcut icon" href="img/favicon.ico" />
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+		<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+		<link href="style.css?v=1.1" rel="stylesheet">
+	</head>
+	<body>
+		
+		<!-- ================================================
+			NAVBAR — navbar-expand-lg + Offcanvas
+		================================================ -->
+		<nav class="navbar navbar-expand-lg navbar-kk transparent-light" id="mainNav">
+			<div class="container">
+				<!-- Brand -->
+				<a class="navbar-brand d-flex align-items-center gap-2" href="#/">
+					<figure class="m-0">
+						<img class="logo-dark" width="40px"; src="img/icon.png"/>
+					</figure>
+					Khasanah Nusantara Digital
+				</a>
+				<div class="offcanvas offcanvas-start" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel">
+					<!-- Header offcanvas (hanya tampil saat drawer, disembunyikan di desktop) -->
+					<div class="offcanvas-header kk-oc-header">
+						<div class="d-flex align-items-center gap-2" id="navOffcanvasLabel">
+							<i class="bi bi-globe-americas" style="color:var(--kk-gold);font-size:1.05rem"></i>
+							<span class="font-display fw-bold" style="font-size:.95rem;color:var(--kk-text)">Khasanah Nusantara Digital</span>
+						</div>
+						<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup"></button>
+					</div>
+					
+					<!-- Body offcanvas -->
+					<div class="offcanvas-body kk-oc-body">
+						<!-- Nav links utama -->
+						<ul class="navbar-nav kk-nav-links me-auto" id="navLinks">
+							<li class="nav-item">
+								<a class="nav-link" href="#/" data-page="home" onclick="closeMenu()">
+									<i class="bi bi-house me-oc-2"></i>Beranda
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#/map" data-page="map" onclick="closeMenu()">
+									<i class="bi bi-map me-oc-2"></i>Peta Budaya
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#/sites" data-page="sites" onclick="closeMenu()">
+									<i class="bi bi-building me-oc-2"></i>Daftar Situs
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#/stories" data-page="stories" onclick="closeMenu()">
+									<i class="bi bi-book me-oc-2"></i>Cerita Rakyat
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#/contribute" data-page="contribute" onclick="closeMenu()">
+									<i class="bi bi-pencil-square me-oc-2"></i>Kontribusi
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#/about" data-page="about" onclick="closeMenu()">
+									<i class="bi bi-info-circle me-oc-2"></i>Tentang
+								</a>
+							</li>
+							<!-- Separator + extra links: hanya tampil di offcanvas (mobile) -->
+							<li class="nav-item d-md-none"><hr style="border-color:var(--kk-border);margin:.35rem 0"></li>
+							<li class="nav-item d-md-none">
+								<a class="nav-link" href="#/contact" data-page="contact" onclick="closeMenu()">
+									<i class="bi bi-envelope me-oc-2"></i>Kontak
+								</a>
+							</li>
+							<li class="nav-item d-md-none">
+								<a class="nav-link" href="#/faq" data-page="faq" onclick="closeMenu()">
+									<i class="bi bi-question-circle me-oc-2"></i>FAQ
+								</a>
+							</li>
+							<li class="nav-item d-md-none">
+								<a class="nav-link" href="#/admin" data-page="admin" onclick="closeMenu()">
+									<i class="bi bi-shield-lock me-oc-2"></i>Admin
+								</a>
+							</li>
+						</ul>
+						
+						<!-- Actions kanan (theme toggle + masuk) -->
+						<div class="kk-nav-actions d-flex align-items-center gap-2">
+							<button class="btn-theme-toggle" id="themeToggle" title="Ganti Tema">
+								<i class="bi bi-moon-stars-fill"></i>
+							</button>
+							<a href="#/login" class="btn-login-nav" onclick="closeMenu()">
+								<i class="bi bi-person-circle me-1"></i>Masuk
+							</a>
+						</div>
+					</div><!-- /offcanvas-body -->
+					<!-- Footer offcanvas: hanya tampil di drawer -->
+					<div class="offcanvas-footer kk-oc-footer d-md-none py-3" style="border-top:1px solid var(--kk-border)">
+						<p style="font-size:.72rem;color:var(--kk-text-muted);text-align:center;margin:0">
+							&copy; 2026 Khasanah Nusantara Digital
+						</p>
+					</div>
+				</div><!-- /offcanvas -->
+				
+			</div><!-- /container -->
+		</nav>
+		<!-- ================================================
+			MOBILE BOTTOM NAVIGATION
+		================================================ -->
+		<nav class="mobile-bottom-nav d-lg-none" id="mobileBottomNav">
+			<a href="#/" class="mob-nav-item active" data-page="home">
+				<i class="bi bi-house-fill"></i><span>Beranda</span>
+			</a>
+			<a href="#/map" class="mob-nav-item" data-page="map">
+				<i class="bi bi-map"></i><span>Peta</span>
+			</a>
+			<a href="#/sites" class="mob-nav-item" data-page="sites">
+				<i class="bi bi-building"></i><span>Situs</span>
+			</a>
+			<a href="#/stories" class="mob-nav-item" data-page="stories">
+				<i class="bi bi-book"></i><span>Cerita</span>
+			</a>
+			<!-- Menu toggle di bottom nav untuk mobile -->
+			<button class="mob-nav-item border-0 bg-transparent" type="button"
+			data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas" aria-label="Menu">
+				<i class="bi bi-grid-3x3-gap"></i><span>Menu</span>
+			</button>
+		</nav>
+		
+		<!-- ================================================
+			PAGE: HOME
+		================================================ -->
+		<div id="page-home" class="page">
+			<!-- Hero -->
+			<section class="hero-section">
+				<div class="hero-bg" style="background-image:url('https://picsum.photos/seed/kutai-hero/1600/900')"></div>
+				<div class="hero-overlay"></div>
+				<div class="container">
+					<div class="hero-content">
+						<p class="section-label anim-up" style="color:var(--kk-gold-light)">Platform Digital Pelestarian Budaya</p>
+						<h1 class="anim-up delay-1">Khasanah <span>Nusantara Digital</span> Pilot Kutai</h1>
+						<p class="anim-up delay-2">Platform pemetaan dan digitalisasi situs budaya Kutai Kartanegara berbasis Web GIS — menjaga warisan leluhur untuk generasi yang akan datang.</p>
+						<div class="d-flex gap-3 mt-4 flex-wrap anim-up delay-3">
+							<a href="#/map" class="btn-gold"><i class="bi bi-map"></i> Jelajahi Peta</a>
+							<a href="#/sites" class="btn-outline-gold" style="color:#fff;border-color:rgba(255,255,255,.55)">
+								<i class="bi bi-building"></i> Lihat Situs
+							</a>
+						</div>
+						<div class="hero-stats anim-up delay-4">
+							<div><div class="stat-num">40+</div><div class="stat-label">Situs Budaya</div></div>
+							<div><div class="stat-num">25+</div><div class="stat-label">Cerita Rakyat</div></div>
+							<div><div class="stat-num">6</div><div class="stat-label">Kecamatan</div></div>
+							<div><div class="stat-num">100%</div><div class="stat-label">Open Access</div></div>
+						</div>
+					</div>
+				</div>
+				<div class="hero-scroll">
+					<span>Gulir</span>
+					<div class="hero-scroll-line"></div>
+				</div>
+			</section>
+			
+			<!-- Stats Counter Section -->
+			<section class="py-5" style="background:var(--kk-surface-alt)">
+				<div class="container">
+					<div class="row g-3" id="homeStatsGrid"></div>
+				</div>
+			</section>
+			
+			<!-- Features Section -->
+			<section class="py-5">
+				<div class="container">
+					<div class="text-center mb-5">
+						<p class="section-label">Fitur Unggulan</p>
+						<h2 class="section-title">Apa yang Bisa Anda Lakukan?</h2>
+						<div class="gold-line mx-auto"></div>
+						<p class="section-desc mx-auto">Platform terintegrasi untuk menjelajah, mendokumentasikan, dan melestarikan kekayaan budaya Kutai Kartanegara secara digital.</p>
+					</div>
+					<div class="row g-4" id="homeFeaturesGrid"></div>
+				</div>
+			</section>
+			
+			<!-- Featured Sites -->
+			<section class="py-5 section-alt">
+				<div class="container">
+					<div class="d-flex align-items-end justify-content-between mb-4 flex-wrap gap-2">
+						<div>
+							<p class="section-label">Warisan Budaya</p>
+							<h2 class="section-title mb-0">Situs Pilihan</h2>
+							<div class="gold-line"></div>
+						</div>
+						<a href="#/sites" class="btn-outline-gold btn-sm">Lihat Semua <i class="bi bi-arrow-right ms-1"></i></a>
+					</div>
+					<div class="row g-4" id="homeSitesGrid"></div>
+				</div>
+			</section>
+			
+			<!-- How it Works -->
+			<section class="py-5">
+				<div class="container">
+					<div class="text-center mb-5">
+						<p class="section-label">Cara Kerja</p>
+						<h2 class="section-title">Bagaimana Platform Ini Bekerja?</h2>
+						<div class="gold-line mx-auto"></div>
+					</div>
+					<div class="row g-4" id="homeProcessGrid"></div>
+				</div>
+			</section>
+			
+			<!-- Featured Stories -->
+			<section class="py-5 section-alt">
+				<div class="container">
+					<div class="d-flex align-items-end justify-content-between mb-4 flex-wrap gap-2">
+						<div>
+							<p class="section-label">Tradisi Lisan</p>
+							<h2 class="section-title mb-0">Cerita Rakyat Pilihan</h2>
+							<div class="gold-line"></div>
+						</div>
+						<a href="#/stories" class="btn-outline-gold btn-sm">Lihat Semua <i class="bi bi-arrow-right ms-1"></i></a>
+					</div>
+					<div class="row g-4" id="homeStoriesGrid"></div>
+				</div>
+			</section>
+			
+			<!-- Quotes/Testimonial -->
+			<section class="py-5">
+				<div class="container">
+					<div class="text-center mb-5">
+						<p class="section-label">Suara Mereka</p>
+						<h2 class="section-title">Apa Kata Para Pengguna?</h2>
+						<div class="gold-line mx-auto"></div>
+					</div>
+					<div class="row g-4" id="homeQuotesGrid"></div>
+				</div>
+			</section>
+			
+			<!-- CTA Section -->
+			<section class="py-5 section-alt">
+				<div class="container">
+					<div class="cta-banner">
+						<div class="row align-items-center g-4">
+							<div class="col-lg-8">
+								<h2>Ikut Lestarikan Budaya Kutai Kartanegara</h2>
+								<p>Kontribusikan pengetahuan Anda tentang situs budaya atau cerita rakyat lokal. Bersama kita jaga warisan leluhur untuk generasi mendatang.</p>
+							</div>
+							<div class="col-lg-4 text-lg-end d-flex gap-3 flex-wrap">
+								<a href="#/contribute" class="btn-gold"><i class="bi bi-plus-circle"></i> Kontribusi</a>
+								<a href="#/about" class="btn-outline-gold" style="color:#fff;border-color:rgba(255,255,255,.55)">Pelajari Lebih</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Contributors Swiper -->
+			<section class="py-5">
+				<div class="container">
+					<div class="text-center mb-4">
+						<p class="section-label">Tim Kami</p>
+						<h2 class="section-title">Kontributor Platform</h2>
+						<div class="gold-line mx-auto"></div>
+					</div>
+					<div class="swiper kk-swiper" id="contributorSwiper">
+						<div class="swiper-wrapper" id="contributorSwiperWrap"></div>
+						<div class="swiper-pagination mt-3"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- Partners Swiper -->
+			<section class="py-5 section-alt">
+				<div class="container">
+					<div class="text-center mb-4">
+						<p class="section-label">Kolaborasi</p>
+						<h2 class="section-title">Mitra Strategis</h2>
+						<div class="gold-line mx-auto"></div>
+						<p class="section-desc mx-auto">Bekerja sama dengan instansi terpercaya untuk memastikan keakuratan dan keberlangsungan platform.</p>
+					</div>
+					<div class="swiper kk-swiper" id="partnerSwiper">
+						<div class="swiper-wrapper" id="partnerSwiperWrap"></div>
+						<div class="swiper-pagination mt-3"></div>
+						<div class="swiper-button-prev"></div>
+						<div class="swiper-button-next"></div>
+					</div>
+				</div>
+			</section>
+		</div>
+		
+		<!-- ================================================
+			PAGE: MAP
+		================================================ -->
+		<div id="page-map" class="page d-none">
+			<div id="map-container">
+				<div id="leafletMap"></div>
+				<!-- Search -->
+				<div class="map-search">
+					<i class="bi bi-search map-search-icon"></i>
+					<input type="text" id="mapSearchInput" placeholder="Cari situs budaya...">
+				</div>
+				<!-- Filter toggle button -->
+				<button class="map-panel-btn" id="mapFilterBtn" title="Filter Kategori">
+					<i class="bi bi-funnel"></i>
+				</button>
+				
+				<!-- Filter Panel -->
+				<div class="map-panel collapsed" id="mapFilterPanel">
+					<h6>Filter Kategori</h6>
+					<div id="mapFilterOptions"></div>
+				</div>
+				<!-- Legend Panel -->
+				<div class="map-panel" id="mapLegendPanel">
+					<h6>Legenda</h6>
+					<div id="mapLegend"></div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: SITES LIST
+		================================================ -->
+		<div id="page-sites" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-4">
+					<div class="text-center mb-4">
+						<p class="section-label">Warisan Budaya</p>
+						<h2 class="section-title">Daftar Situs Budaya</h2>
+						<div class="gold-line mx-auto"></div>
+						<p class="section-desc mx-auto">Jelajahi situs cagar budaya dan objek diduga cagar budaya di Kabupaten Kutai Kartanegara yang telah terdigitalisasi.</p>
+					</div>
+					<!-- Toolbar -->
+					<div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+						<div class="search-wrap" style="max-width:280px;flex:1">
+							<i class="bi bi-search"></i>
+							<input type="text" id="sitesSearchInput" placeholder="Cari situs...">
+						</div>
+						<div class="d-flex align-items-center gap-2">
+							<span style="font-size:.78rem;color:var(--kk-text-muted)" id="sitesCount"></span>
+							<button class="view-toggle-btn active" id="btnGrid" title="Grid">
+								<i class="bi bi-grid-3x3-gap"></i>
+							</button>
+							<button class="view-toggle-btn" id="btnList" title="List">
+								<i class="bi bi-list-ul"></i>
+							</button>
+						</div>
+					</div>
+					<!-- Filter bar -->
+					<div class="filter-bar" id="sitesFilterBar"></div>
+					<!-- Grid / List -->
+					<div id="sitesGrid" class="row g-4"></div>
+					<!-- Load More -->
+					<div class="load-more-wrap" id="sitesLoadMoreWrap" style="display:none">
+						<button class="btn-load-more" id="sitesLoadMore">
+							<i class="bi bi-arrow-down-circle"></i> Muat Lebih Banyak
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: SITE DETAIL
+		================================================ -->
+		<div id="page-site-detail" class="page d-none"></div>
+		
+		<!-- ================================================
+			PAGE: STORIES LIST
+		================================================ -->
+		<div id="page-stories" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-4">
+					<div class="text-center mb-4">
+						<p class="section-label">Tradisi Lisan</p>
+						<h2 class="section-title">Cerita Rakyat Kutai</h2>
+						<div class="gold-line mx-auto"></div>
+						<p class="section-desc mx-auto">Kumpulan legenda, mitos, dan cerita rakyat yang hidup dalam masyarakat Kutai Kartanegara dan sekitarnya.</p>
+					</div>
+					<!-- Toolbar -->
+					<div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mb-3">
+						<div class="search-wrap" style="max-width:280px;flex:1">
+							<i class="bi bi-search"></i>
+							<input type="text" id="storiesSearchInput" placeholder="Cari cerita...">
+						</div>
+						<div class="d-flex align-items-center gap-2">
+							<span style="font-size:.78rem;color:var(--kk-text-muted)" id="storiesCount"></span>
+							<button class="view-toggle-btn active" id="btnStoriesGrid" title="Grid">
+								<i class="bi bi-grid-3x3-gap"></i>
+							</button>
+							<button class="view-toggle-btn" id="btnStoriesList" title="List">
+								<i class="bi bi-list-ul"></i>
+							</button>
+						</div>
+					</div>
+					<!-- Grid / List -->
+					<div id="storiesGrid" class="row g-4"></div>
+					<!-- Load More -->
+					<div class="load-more-wrap" id="storiesLoadMoreWrap" style="display:none">
+						<button class="btn-load-more" id="storiesLoadMore">
+							<i class="bi bi-arrow-down-circle"></i> Muat Lebih Banyak
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: STORY DETAIL
+		================================================ -->
+		<div id="page-story-detail" class="page d-none"></div>
+		
+		<!-- ================================================
+			PAGE: CONTRIBUTE
+		================================================ -->
+		<div id="page-contribute" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-4">
+					<div class="text-center mb-4">
+						<p class="section-label">Partisipasi Publik</p>
+						<h2 class="section-title">Kontribusi Data Budaya</h2>
+						<div class="gold-line mx-auto"></div>
+						<p class="section-desc mx-auto">Bagikan pengetahuan Anda tentang situs budaya atau cerita rakyat yang belum terdokumentasikan.</p>
+					</div>
+					<div class="row g-4 justify-content-center">
+						<div class="col-lg-4">
+							<div class="d-flex flex-column gap-3">
+								<div class="progress-step done"><i class="bi bi-check-circle-fill"></i><div><strong>Isi Formulir</strong><div style="font-size:.75rem">Lengkapi data situs atau cerita</div></div></div>
+								<div class="progress-step done"><i class="bi bi-check-circle-fill"></i><div><strong>Unggah Foto</strong><div style="font-size:.75rem">Dokumentasi visual yang jelas</div></div></div>
+								<div class="progress-step"><i class="bi bi-hourglass-split"></i><div><strong>Tinjauan Tim</strong><div style="font-size:.75rem">Verifikasi oleh tim ahli dan BPK</div></div></div>
+								<div class="progress-step"><i class="bi bi-globe"></i><div><strong>Publikasi</strong><div style="font-size:.75rem">Data tampil di platform</div></div></div>
+								<div class="kk-card p-3 mt-1">
+									<h6 style="font-size:.88rem;font-weight:700;margin-bottom:.6rem"><i class="bi bi-info-circle me-1" style="color:var(--kk-gold)"></i>Panduan Kontribusi</h6>
+									<ul style="font-size:.8rem;color:var(--kk-text-muted);padding-left:1.2rem;line-height:1.8;margin:0">
+										<li>Data harus dapat diverifikasi</li>
+										<li>Foto minimal resolusi 800×600px</li>
+										<li>Cantumkan sumber referensi</li>
+										<li>Cerita rakyat minimal 3 paragraf</li>
+										<li>Lokasi GPS sangat membantu</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="kk-card p-4 kk-form" id="contributeForm">
+								<div class="mb-3">
+									<label class="form-label">Jenis Kontribusi</label>
+									<select class="form-select" id="contribType">
+										<option value="">Pilih jenis...</option>
+										<option>Situs Budaya Baru</option>
+										<option>Cerita Rakyat</option>
+										<option>Pembaruan Data Situs</option>
+										<option>Foto Tambahan</option>
+										<option>Koreksi Data</option>
+									</select>
+								</div>
+								<div class="row g-3 mb-3">
+									<div class="col-md-6">
+										<label class="form-label">Nama Lengkap</label>
+										<input type="text" class="form-control" placeholder="Nama Anda">
+									</div>
+									<div class="col-md-6">
+										<label class="form-label">Email</label>
+										<input type="email" class="form-control" placeholder="email@contoh.com">
+									</div>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Judul / Nama Situs</label>
+									<input type="text" class="form-control" placeholder="Judul data yang Anda kontribusikan">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Lokasi / Kecamatan</label>
+									<input type="text" class="form-control" placeholder="Mis: Kec. Muara Kaman, Kutai Kartanegara">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Deskripsi / Isi Cerita</label>
+									<textarea class="form-control" rows="5" placeholder="Ceritakan secara detail tentang situs atau cerita rakyat ini..."></textarea>
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Sumber Referensi</label>
+									<input type="text" class="form-control" placeholder="Narasumber, buku, artikel, dll.">
+								</div>
+								<div class="mb-3">
+									<label class="form-label">Upload Foto/Dokumen</label>
+									<div class="upload-zone" id="uploadZone">
+										<i class="bi bi-cloud-arrow-up fs-2" style="color:var(--kk-gold)"></i>
+										<p class="mt-2 mb-1" style="font-size:.88rem;font-weight:600;color:var(--kk-text)">Seret file ke sini atau klik untuk memilih</p>
+										<p style="font-size:.76rem;color:var(--kk-text-muted)">JPG, PNG, atau PDF (maks. 10MB)</p>
+										<input type="file" class="d-none" id="fileInput" multiple accept=".jpg,.jpeg,.png,.pdf">
+									</div>
+								</div>
+								<div class="mb-3 form-check">
+									<input class="form-check-input" type="checkbox" id="agreeCheck">
+									<label class="form-check-label" for="agreeCheck" style="font-size:.82rem;color:var(--kk-text-muted)">
+										Saya menyatakan bahwa informasi yang saya berikan adalah benar dan dapat dipertanggungjawabkan.
+									</label>
+								</div>
+								<button class="btn-gold w-100" id="contributeSubmit">
+									<i class="bi bi-send"></i> Kirim Kontribusi
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: ABOUT
+		================================================ -->
+		<div id="page-about" class="page d-none">
+			<div class="page-pad">
+				<!-- About Hero -->
+				<div style="background:var(--kk-surface-alt);padding:4rem 0 3rem;border-bottom:1px solid var(--kk-border)">
+					<div class="container">
+						<div class="row align-items-center g-4">
+							<div class="col-lg-7">
+								<p class="section-label">Tentang Platform</p>
+								<h1 class="section-title" style="font-size:clamp(2rem,5vw,3rem)">Khasanah Nusantara Digital</h1>
+								<div class="gold-line"></div>
+								<p style="font-size:1rem;color:var(--kk-text-muted);line-height:1.75;max-width:580px">
+									Platform digital berbasis Web GIS yang dirancang untuk pelestarian, perlindungan, dan pemanfaatan warisan budaya di Kabupaten Kutai Kartanegara sebagai pilot project digitalisasi budaya Nusantara.
+								</p>
+								<div class="d-flex gap-3 mt-4 flex-wrap">
+									<a href="#/contribute" class="btn-gold"><i class="bi bi-plus-circle"></i> Ikut Berkontribusi</a>
+									<a href="#/map" class="btn-outline-gold"><i class="bi bi-map"></i> Jelajahi Peta</a>
+								</div>
+							</div>
+							<div class="col-lg-5">
+								<img src="https://picsum.photos/seed/about-knd/600/400" alt="Tentang KND" class="w-100 rounded-4" style="object-fit:cover;height:280px;border:1px solid var(--kk-border)">
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Visi Misi -->
+				<section class="py-5">
+					<div class="container">
+						<div class="row g-4">
+							<div class="col-md-6">
+								<div class="feature-card h-100">
+									<div class="feature-icon-wrap gold"><i class="bi bi-eye"></i></div>
+									<h5>Visi</h5>
+									<p>Menjadi ekosistem pelestarian budaya digital yang mandiri dan berkelanjutan, mengubah paradigma masyarakat dari sekadar penikmat budaya menjadi kontributor aktif pelindung budaya Nusantara.</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="feature-card h-100">
+									<div class="feature-icon-wrap maroon"><i class="bi bi-bullseye"></i></div>
+									<h5>Misi</h5>
+									<p>Mendigitalisasi minimal 40–60 situs budaya, menyediakan platform partisipasi publik, dan menjadi model percontohan yang dapat direplikasi di seluruh Indonesia.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Timeline Tahapan -->
+				<section class="py-5 section-alt">
+					<div class="container">
+						<div class="text-center mb-5">
+							<p class="section-label">Peta Jalan</p>
+							<h2 class="section-title">Tahapan Pelaksanaan</h2>
+							<div class="gold-line mx-auto"></div>
+						</div>
+						<div class="row justify-content-center">
+							<div class="col-lg-7">
+								<div class="timeline" id="aboutTimeline"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Mitra BPK & Pemerintah -->
+				<section class="py-5">
+					<div class="container">
+						<div class="text-center mb-5">
+							<p class="section-label">Jaringan</p>
+							<h2 class="section-title">Mitra & Kolaborator</h2>
+							<div class="gold-line mx-auto"></div>
+						</div>
+						<div class="swiper kk-swiper" id="aboutPartnerSwiper">
+							<div class="swiper-wrapper" id="aboutPartnerSwiperWrap"></div>
+							<div class="swiper-pagination mt-3"></div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Tim Pelaksana -->
+				<section class="py-5 section-alt">
+					<div class="container">
+						<div class="text-center mb-5">
+							<p class="section-label">Tim Kami</p>
+							<h2 class="section-title">Pelaksana Program</h2>
+							<div class="gold-line mx-auto"></div>
+						</div>
+						<div class="swiper kk-swiper" id="aboutTeamSwiper">
+							<div class="swiper-wrapper" id="aboutTeamSwiperWrap"></div>
+							<div class="swiper-pagination mt-3"></div>
+						</div>
+					</div>
+				</section>
+				
+				<!-- Keberlanjutan -->
+				<section class="py-5">
+					<div class="container">
+						<div class="text-center mb-5">
+							<p class="section-label">Masa Depan</p>
+							<h2 class="section-title">Rencana Keberlanjutan</h2>
+							<div class="gold-line mx-auto"></div>
+						</div>
+						<div class="row g-4">
+							<div class="col-md-4">
+								<div class="feature-card h-100 text-center">
+									<div class="feature-icon-wrap blue mx-auto"><i class="bi bi-cpu"></i></div>
+									<h5>Keberlanjutan Teknologis</h5>
+									<p>Sistem modular siap diupgrade ke Versi 2 dengan fitur audio guide dan analitik budaya tanpa membangun ulang dari awal.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="feature-card h-100 text-center">
+									<div class="feature-icon-wrap green mx-auto"><i class="bi bi-people"></i></div>
+									<h5>Keberlanjutan Data</h5>
+									<p>Fitur crowdsourcing memastikan masyarakat terus mengisi dan memperbarui data situs serta cerita rakyat secara mandiri dan organik.</p>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="feature-card h-100 text-center">
+									<div class="feature-icon-wrap gold mx-auto"><i class="bi bi-diagram-3"></i></div>
+									<h5>Keberlanjutan Ekosistem</h5>
+									<p>Sebagai pilot project, arsitektur sistem di Kutai Kartanegara dapat diadopsi dan direplikasi ke seluruh kabupaten/kota di Indonesia.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: LOGIN
+		================================================ -->
+		<div id="page-login" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-5 d-flex align-items-center justify-content-center" style="min-height:80vh">
+					<div class="login-card w-100">
+						<div class="text-center mb-4">
+							<i class="bi bi-globe-americas" style="font-size:2rem;color:var(--kk-gold)"></i>
+							<h3 class="font-display mt-2 mb-0" style="font-weight:700">Masuk ke Platform</h3>
+							<p style="font-size:.84rem;color:var(--kk-text-muted);margin-top:.4rem">Khasanah Nusantara Digital</p>
+						</div>
+						<div class="kk-form">
+							<div class="mb-3">
+								<label class="form-label">Email</label>
+								<input type="email" class="form-control" placeholder="email@contoh.com">
+							</div>
+							<div class="mb-3">
+								<label class="form-label">Kata Sandi</label>
+								<div class="input-group">
+									<input type="password" class="form-control" id="loginPassword" placeholder="••••••••">
+									<button class="btn" style="border:1.5px solid var(--kk-border);border-left:0;background:var(--kk-input-bg);color:var(--kk-text-muted)" onclick="togglePassword()">
+										<i class="bi bi-eye" id="eyeIcon"></i>
+									</button>
+								</div>
+							</div>
+							<button class="btn-gold w-100 mt-2" onclick="showToast('Login berhasil!','success')">
+								<i class="bi bi-box-arrow-in-right"></i> Masuk
+							</button>
+						</div>
+						<p class="text-center mt-3" style="font-size:.82rem;color:var(--kk-text-muted)">
+							Belum punya akun? <a href="#" style="color:var(--kk-gold)">Daftar di sini</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: ADMIN
+		================================================ -->
+		<div id="page-admin" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-4">
+					<div class="mb-4"><p class="section-label">Dasbor</p><h2 class="section-title">Admin Panel</h2><div class="gold-line"></div></div>
+					<div class="row g-3 mb-4">
+						<div class="col-6 col-lg-3"><div class="stat-card-admin"><div class="stat-icon" style="background:rgba(var(--kk-gold-rgb),.12);color:var(--kk-gold)"><i class="bi bi-building"></i></div><div class="stat-number">25</div><div class="stat-text">Total Situs</div></div></div>
+						<div class="col-6 col-lg-3"><div class="stat-card-admin"><div class="stat-icon" style="background:rgba(5,150,105,.1);color:#059669"><i class="bi bi-book"></i></div><div class="stat-number">25</div><div class="stat-text">Cerita Rakyat</div></div></div>
+						<div class="col-6 col-lg-3"><div class="stat-card-admin"><div class="stat-icon" style="background:rgba(37,99,235,.1);color:#2563EB"><i class="bi bi-people"></i></div><div class="stat-number">6</div><div class="stat-text">Kontributor</div></div></div>
+						<div class="col-6 col-lg-3"><div class="stat-card-admin"><div class="stat-icon" style="background:rgba(220,38,38,.1);color:#DC2626"><i class="bi bi-hourglass-split"></i></div><div class="stat-number">3</div><div class="stat-text">Pending Review</div></div></div>
+					</div>
+					<div class="kk-card p-3">
+						<h6 class="font-display" style="font-weight:700;font-size:1.05rem;margin-bottom:1rem">Kontribusi Terbaru</h6>
+						<div class="table-responsive">
+							<table class="table table-kk mb-0">
+								<thead><tr><th>Judul</th><th>Tipe</th><th>Kontributor</th><th>Status</th><th>Aksi</th></tr></thead>
+								<tbody>
+									<tr><td>Makam Aji Pangeran</td><td><span style="font-size:.75rem;color:var(--kk-text-muted)">Situs Baru</span></td><td>Ahmad S.</td><td><span class="badge-status" style="background:rgba(234,179,8,.15);color:#a16207">Pending</span></td><td><button class="btn btn-sm btn-outline-secondary" style="font-size:.74rem;border-color:var(--kk-border);color:var(--kk-text)" onclick="showToast('Data disetujui','success')">Setuju</button></td></tr>
+									<tr><td>Legenda Danau Semayang</td><td><span style="font-size:.75rem;color:var(--kk-text-muted)">Cerita Rakyat</span></td><td>Sari W.</td><td><span class="badge-status" style="background:rgba(234,179,8,.15);color:#a16207">Pending</span></td><td><button class="btn btn-sm btn-outline-secondary" style="font-size:.74rem;border-color:var(--kk-border);color:var(--kk-text)" onclick="showToast('Data disetujui','success')">Setuju</button></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: CONTACT
+		================================================ -->
+		<div id="page-contact" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-4">
+					<div class="text-center mb-4"><p class="section-label">Hubungi Kami</p><h2 class="section-title">Kontak</h2><div class="gold-line mx-auto"></div><p class="section-desc mx-auto">Punya pertanyaan, saran, atau ingin melaporkan masalah? Silakan hubungi tim kami.</p></div>
+					<div class="row g-4 justify-content-center">
+						<div class="col-lg-4">
+							<div class="d-flex gap-3 mb-4"><div class="flex-shrink-0" style="width:44px;height:44px;border-radius:10px;background:rgba(var(--kk-gold-rgb),.1);display:flex;align-items:center;justify-content:center;color:var(--kk-gold)"><i class="bi bi-envelope"></i></div><div><h6 style="font-size:.88rem;font-weight:700;margin-bottom:2px;color:var(--kk-text)">Email</h6><p style="font-size:.84rem;color:var(--kk-text-muted);margin:0">info@khasarahnusantara.id</p></div></div>
+							<div class="d-flex gap-3 mb-4"><div class="flex-shrink-0" style="width:44px;height:44px;border-radius:10px;background:rgba(var(--kk-gold-rgb),.1);display:flex;align-items:center;justify-content:center;color:var(--kk-gold)"><i class="bi bi-geo-alt"></i></div><div><h6 style="font-size:.88rem;font-weight:700;margin-bottom:2px;color:var(--kk-text)">Alamat</h6><p style="font-size:.84rem;color:var(--kk-text-muted);margin:0">Tenggarong, Kab. Kutai Kartanegara, Kalimantan Timur</p></div></div>
+							<div class="d-flex gap-3"><div class="flex-shrink-0" style="width:44px;height:44px;border-radius:10px;background:rgba(var(--kk-gold-rgb),.1);display:flex;align-items:center;justify-content:center;color:var(--kk-gold)"><i class="bi bi-clock"></i></div><div><h6 style="font-size:.88rem;font-weight:700;margin-bottom:2px;color:var(--kk-text)">Jam Operasional</h6><p style="font-size:.84rem;color:var(--kk-text-muted);margin:0">Senin – Jumat, 08.00 – 16.00 WITA</p></div></div>
+						</div>
+						<div class="col-lg-5">
+							<div class="kk-card p-4 kk-form">
+								<div class="mb-3"><label class="form-label">Nama</label><input type="text" class="form-control" placeholder="Nama Anda"></div>
+								<div class="mb-3"><label class="form-label">Email</label><input type="email" class="form-control" placeholder="email@contoh.com"></div>
+								<div class="mb-3"><label class="form-label">Subjek</label><input type="text" class="form-control" placeholder="Subjek pesan"></div>
+								<div class="mb-3"><label class="form-label">Pesan</label><textarea class="form-control" rows="4" placeholder="Tulis pesan Anda..."></textarea></div>
+								<button class="btn-gold w-100" onclick="showToast('Pesan berhasil dikirim!','success')"><i class="bi bi-send me-2"></i>Kirim Pesan</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			PAGE: FAQ
+		================================================ -->
+		<div id="page-faq" class="page d-none">
+			<div class="page-pad">
+				<div class="container py-4">
+					<div class="row justify-content-center">
+						<div class="col-lg-7">
+							<div class="text-center mb-4"><p class="section-label">Panduan</p><h2 class="section-title">Pertanyaan Umum</h2><div class="gold-line mx-auto"></div></div>
+							<div class="accordion faq-accordion" id="faqAccordion">
+								<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Apa itu Khasanah Nusantara Digital?</button></h2><div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Khasanah Nusantara Digital adalah platform digital berbasis Web GIS yang memetakan dan mendokumentasikan situs budaya serta cerita rakyat di Kabupaten Kutai Kartanegara secara interaktif dan partisipatif. Platform ini merupakan pilot project yang dapat direplikasi ke daerah lain di Indonesia.</div></div></div>
+								<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">Bagaimana cara menggunakan peta interaktif?</button></h2><div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Buka halaman "Peta Budaya", gunakan tombol filter di kanan peta untuk menyaring kategori situs, atau gunakan kolom pencarian untuk menemukan situs tertentu. Klik marker pada peta untuk melihat informasi singkat, lalu klik "Lihat Detail" untuk informasi lengkap.</div></div></div>
+								<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Bagaimana cara berkontribusi?</button></h2><div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Kunjungi halaman "Kontribusi", isi formulir dengan informasi situs atau cerita yang Anda ketahui, unggah foto dokumentasi, lalu kirim. Data Anda akan ditinjau oleh admin dan tim BPK Wilayah XIV sebelum dipublikasikan.</div></div></div>
+								<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Apakah data yang saya kirim langsung tampil?</button></h2><div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Tidak. Setiap kontribusi melewati proses verifikasi oleh admin dan validator dari Balai Pelestarian Kebudayaan (BPK) Wilayah XIV Kalimantan Timur untuk memastikan keakuratan dan kelayakan data.</div></div></div>
+								<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">Apakah platform ini bisa diakses melalui HP?</button></h2><div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Ya. Platform dirancang responsif dan menggunakan teknologi Progressive Web App (PWA) sehingga dapat diakses dengan nyaman melalui smartphone, tablet, maupun komputer.</div></div></div>
+								<div class="accordion-item"><h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">Siapa yang mengelola data di platform ini?</button></h2><div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Data dikelola oleh tim admin Khasanah Nusantara Digital bekerja sama dengan Balai Pelestarian Kebudayaan (BPK) Wilayah XIV Kalimantan Timur, Dinas Kebudayaan Kutai Kartanegara, dan Museum Mulawarman.</div></div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- ================================================
+			FOOTER
+		================================================ -->
+		<footer class="footer-kk" id="mainFooter">
+			<div class="container">
+				<div class="row g-4">
+					<div class="col-lg-4 col-md-6">
+						<div class="d-flex align-items-center gap-2 mb-3">
+							<i class="bi bi-globe-americas fs-4" style="color:var(--kk-gold)"></i>
+							<span class="font-display" style="font-size:1.1rem;font-weight:700;color:var(--kk-text)">Khasanah Nusantara Digital</span>
+						</div>
+						<p style="font-size:.83rem;color:var(--kk-text-muted);line-height:1.7;max-width:300px">Platform pemetaan dan digitalisasi situs budaya Kutai Kartanegara berbasis Web GIS dan partisipasi publik. Pilot Project 2026.</p>
+						<div class="d-flex gap-2 mt-3">
+							<a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+							<a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+							<a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+							<a href="#" class="social-btn"><i class="bi bi-twitter-x"></i></a>
+						</div>
+					</div>
+					<div class="col-lg-2 col-md-6 col-6">
+						<h6>Navigasi</h6>
+						<ul>
+							<li><a href="#/">Beranda</a></li>
+							<li><a href="#/map">Peta Budaya</a></li>
+							<li><a href="#/sites">Daftar Situs</a></li>
+							<li><a href="#/stories">Cerita Rakyat</a></li>
+							<li><a href="#/contribute">Kontribusi</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-2 col-md-6 col-6">
+						<h6>Informasi</h6>
+						<ul>
+							<li><a href="#/about">Tentang</a></li>
+							<li><a href="#/contact">Kontak</a></li>
+							<li><a href="#/faq">FAQ</a></li>
+							<li><a href="#/login">Masuk</a></li>
+							<li><a href="#/admin">Admin</a></li>
+						</ul>
+					</div>
+					<div class="col-lg-4 col-md-6">
+						<h6>Kontak</h6>
+						<ul>
+							<li><i class="bi bi-envelope me-2" style="color:var(--kk-gold)"></i>info@khasarahnusantara.id</li>
+							<li class="mt-2"><i class="bi bi-geo-alt me-2" style="color:var(--kk-gold)"></i>Tenggarong, Kutai Kartanegara, Kaltim</li>
+							<li class="mt-2"><i class="bi bi-clock me-2" style="color:var(--kk-gold)"></i>Senin – Jumat, 08.00 – 16.00 WITA</li>
+						</ul>
+						<div class="mt-3 p-2 rounded-3" style="background:rgba(var(--kk-gold-rgb),.07);border:1px solid rgba(var(--kk-gold-rgb),.15)">
+							<p style="font-size:.75rem;color:var(--kk-text-muted);margin:0"><i class="bi bi-shield-check me-1" style="color:var(--kk-gold)"></i>Divalidasi oleh BPK Wilayah XIV Kalimantan Timur</p>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom text-center">&copy; 2026 Khasanah Nusantara Digital. Program Pemanfaatan Hasil Kelola Dana Abadi Kebudayaan.</div>
+			</div>
+		</footer>
+		
+		<!-- Toast -->
+		<div class="toast-kk" id="toastContainer"></div>
+		
+		<!-- Scripts -->
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+		<script src="data.js?v=1.1"></script>
+		<script src="app.js?v=1.1"></script>
+	</body>
+</html>
