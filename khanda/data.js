@@ -5,565 +5,574 @@
 
 var categories = [
     { id:'semua',              label:'Semua',                  color:'#6B7280' },
-    { id:'cagar-budaya',       label:'Cagar Budaya',           color:'#DC2626' },
-    { id:'odcb',               label:'Objek Diduga Cagar Budaya', color:'#EA580C' },
+    { id:'situs-sejarah',      label:'Situs Sejarah',          color:'#EA580C' },
     { id:'bangunan-bersejarah',label:'Bangunan Bersejarah',    color:'#2563EB' },
-    { id:'makam-kerajaan',     label:'Makam Kerajaan',         color:'#7C3AED' },
+    { id:'makam',              label:'Makam',                  color:'#7C3AED' },
     { id:'museum',             label:'Museum',                 color:'#059669' },
-    { id:'tempat-ibadah',      label:'Tempat Ibadah',          color:'#D97706' },
+    { id:'tempat-ibadah',      label:'Tempat Ibadah',          color:'#20c997' },
     { id:'situs-arkeologi',    label:'Situs Arkeologi',        color:'#BE185D' }
 ];
 
 var sites = [
     {
-        id:1, slug:'keraton-kutai-kartanegara',
-        name:'Keraton Kutai Kartanegara',
-        category:'cagar-budaya',
-        status:'Cagar Budaya Nasional',
-        address:'Jl. Gajah Mada, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5022, lng:117.1536,
-        summary:'Istana kesultanan yang kini menjadi pusat budaya dan museum di jantung Kota Tenggarong.',
-        description:`Keraton Kutai Kartanegara merupakan bangunan bersejarah yang menjadi simbol kejayaan Kesultanan Kutai Kartanegara Ing Martadipura, salah satu kesultanan tertua di Kalimantan. Berdiri megah di tepi Sungai Mahakam, keraton ini telah menjadi saksi bisu berbagai peristiwa penting dalam perjalanan sejarah Kutai selama berabad-abad.
-        
-        Bangunan keraton yang ada sekarang merupakan hasil rekonstruksi dan renovasi yang dilakukan secara bertahap sejak masa pemerintahan Sultan Aji Muhammad Parikesit pada abad ke-20. Arsitekturnya memadukan unsur tradisional Kutai dengan pengaruh Melayu dan sentuhan Eropa yang menghasilkan perpaduan estetika yang unik dan memukau.
-        
-        Di dalam kompleks keraton terdapat berbagai koleksi benda-benda bersejarah yang tak ternilai harganya, meliputi perlengkapan kesultanan seperti singgasana, pakaian kebesaran, dan regalia kerajaan; koleksi senjata tradisional seperti mandau, tombak, dan perisai; serta berbagai dokumen dan naskah kuno kerajaan yang menjadi sumber informasi sejarah.
-        
-        Fungsi keraton tidak hanya sebagai museum dan tempat penyimpanan koleksi bersejarah, tetapi juga sebagai pusat pelaksanaan berbagai upacara adat dan ritual budaya Kutai yang masih dilangsungkan hingga saat ini. Setiap tahun, keraton menjadi lokasi utama penyelenggaraan Erau Adat Kutai, festival budaya terbesar di Kalimantan Timur yang menarik ribuan pengunjung dari berbagai penjuru Indonesia bahkan mancanegara.
-        
-        Kawasan keraton juga dilengkapi dengan taman yang terawat, dermaga kerajaan di tepi sungai, serta berbagai bangunan pendukung yang memperindah kompleks secara keseluruhan. Masyarakat dapat mengunjungi keraton setiap hari dan menyaksikan langsung kemegahan peradaban Kesultanan Kutai yang telah berlangsung selama berabad-abad.
-        
-        Keraton Kutai Kartanegara telah ditetapkan sebagai Cagar Budaya Nasional dan menjadi salah satu destinasi wisata budaya paling populer di Kalimantan Timur, menarik lebih dari 100.000 pengunjung setiap tahunnya.`,
-        photos:['keraton-1','keraton-2','keraton-3','keraton-4'],
-        relatedStories:[1,2]
+        "id": 1, 
+        "slug": "istana-kutai-museum-mulawarman",
+        "name": "Istana Kutai Tenggarong / Museum Mulawarman",
+        "category": "museum",
+        "status": "Cagar Budaya",
+        "address": "Jl. Diponegoro, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5040, 
+        "lng": 117.1510,
+        "summary": "Bangunan Keraton Kesultanan Kutai yang megah dan kini berfungsi sebagai museum utama penyimpan warisan sejarah peradaban Kutai.",
+        "description": "Istana Kutai Kartanegara, yang lebih dikenal dengan nama Kedaton, adalah sebuah bangunan megah yang menjadi saksi bisu kejayaan Kesultanan Kutai Ing Martadipura. Berdiri kokoh di tepi Sungai Mahakam, istana ini tidak hanya berfungsi sebagai pusat pemerintahan di masa lalu, tetapi kini telah bertransformasi menjadi ikon wisata sejarah dan cagar budaya yang paling dibanggakan masyarakat Kukar.\n\nArsitektur istana merupakan perpaduan yang sangat menarik antara gaya arsitektur tradisional Melayu dengan sentuhan Eropa. Bangunan ini dibangun dengan sistem rumah panggung tinggi, menggunakan tiang-tiang utama dari kayu ulin (Borneo ironwood) yang sangat kuat dan tahan terhadap serangan rayap maupun perubahan cuaca. Atapnya yang bertingkat dengan hiasan ornamen khas menambah kesan anggun dan wibawa.\n\nPada masa pemerintahan Sultan Aji Muhammad Sulaiman, istana ini mengalami renovasi besar dan mendapatkan pengaruh arsitektur Belanda yang terlihat pada penggunaan jendela kaca besar dan pintu dua daun. Namun, elemen adat Kutai tetap dipertahankan, seperti ukiran-ukiran bermotif flora dan fauna khas Kalimantan yang menghiasi dinding dan balustrade tangga.\n\nSejak tahun 1970-an, sebagian besar ruangan di dalam istana dialihfungsikan menjadi Museum Mulawarman. Museum ini memiliki tugas penting untuk menyimpan, merawat, dan memamerkan berbagai koleksi benda-benda bersejarah milik kesultanan, mulai dari perlengkapan upacara adat, senjata tradisional, hingga pakaian kebesaran para Sultan.\n\nKoleksi paling berharga di museum ini adalah replika tujuh buah Prasasti Yupa yang merupakan bukti tertulis keberadaan Kerajaan Kutai Martadipura pada abad ke-4 Masehi. Selain Yupa, terdapat juga koleksi keramik dinasti Ming dan Qing dari Tiongkok, yang membuktikan bahwa Kutai memiliki jalur perdagangan maritim yang ramai pada masa lampau.\n\nMuseum juga menyediakan ruang khusus koleksi etnografi yang memamerkan kebudayaan asli suku Dayak dan suku Kutai. Pengunjung dapat menyaksikan langsung peralatan berburu, alat pertanian tradisional, pakaian adat dari berbagai sub-suku, serta koleksi perhiasan yang terbuat dari manik-manik dan tulang.\n\nKeberadaan Istana dan Museum Mulawarman ini sangat vital dalam upaya pelestarian budaya, karena tidak hanya menyimpan artefak mati, tetapi juga menjadi tempat belajar interaktif tentang sejarah panjang peradaban di tepi Sungai Mahakam, dari era Hindu hingga era Kesultanan Islam.",
+        "photos": ["istana-1", "istana-2", "istana-3", "istana-4"],
+        "relatedStories": [6, 28, 39]
     },
     {
-        id:2, slug:'museum-mulawarman',
-        name:'Museum Mulawarman',
-        category:'museum',
-        status:'Cagar Budaya',
-        address:'Jl. Diponegoro, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5040, lng:117.1510,
-        summary:'Museum utama Kutai yang menyimpan koleksi peninggalan Kerajaan Kutai Martadipura.',
-        description:`Museum Mulawarman adalah museum yang menyimpan berbagai koleksi peninggalan Kerajaan Kutai Martadipura, kerajaan Hindu tertua di Nusantara yang diperkirakan berdiri sekitar abad ke-4 Masehi. Museum ini berada di kompleks Keraton Kutai Kartanegara dan menjadi pusat dokumentasi sejarah peradaban Kutai.
-        
-        Koleksi unggulan museum meliputi replika Prasasti Yupa, tujuh buah prasasti batu yang merupakan bukti tertulis paling awal pengaruh Hindu di Indonesia. Prasasti asli ditulis dalam aksara Pallawa dan bahasa Sanskerta, berisi catatan tentang Raja Mulawarman yang melaksanakan upacara sesajian besar.
-        
-        Selain replika Yupa, museum juga menyimpan berbagai artefak kerajaan berupa perhiasan emas kuno, guci porselen Dinasti Tang dan Ming, berbagai jenis tembikar, serta koleksi etnografi yang mendokumentasikan kehidupan masyarakat Kutai dari berbagai masa.
-        
-        Bagian etnografi museum menampilkan koleksi pakaian adat berbagai suku di Kutai Kartanegara, perlengkapan upacara adat, alat musik tradisional, serta berbagai peralatan kehidupan sehari-hari masyarakat Dayak dan Kutai yang mencerminkan kekayaan budaya lokal.
-        
-        Museum ini juga memiliki koleksi arsip foto dan dokumen sejarah yang mendokumentasikan perjalanan Kesultanan Kutai Kartanegara dari masa ke masa, termasuk foto-foto langka dari awal abad ke-20 yang menampilkan kehidupan di lingkungan keraton.
-        
-        Museum Mulawarman dinamai sesuai nama Raja Mulawarman, penguasa Kerajaan Kutai Martadipura yang terkenal dengan kemurahan hatinya memberikan sumbangan kepada para brahmana. Nama ini dipilih sebagai bentuk penghormatan kepada raja yang telah meninggalkan warisan bersejarah yang sangat berharga bagi peradaban Nusantara.`,
-        photos:['museum-1','museum-2','museum-3','museum-4'],
-        relatedStories:[4]
+        "id": 2, 
+        "slug": "masjid-jami-aji-amir-hasanuddin",
+        "name": "Masjid Jami’ Aji Amir Hasanuddin",
+        "category": "tempat-ibadah",
+        "status": "Cagar Budaya",
+        "address": "Jl. Kampung Baru, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5065, 
+        "lng": 117.1530,
+        "summary": "Masjid bersejarah peninggalan Kesultanan Kutai yang menjadi pusat penyebaran Islam dan memiliki arsitektur khas yang unik.",
+        "description": "Masjid Jami’ Aji Amir Hasanuddin merupakan salah satu bangunan ibadah tertua dan paling bersejarah di Tenggarong. Didirikan pada masa pemerintahan Sultan Aji Amir Hasanuddin (Sultan Kutai ke-14) pada akhir abad ke-19, masjid ini menjadi simbol kokohnya agama Islam di tanah Kutai setelah menggeser pengaruh Hindu yang bertahan selama berabad-abad.\n\nArsitektur masjid ini sangat unik dan berbeda dari masjid-masjid pada umumnya. Atapnya berbentuk piramida berundak tiga yang mirip dengan pagoda, menunjukkan adanya akulturasi budaya antara Islam, Melayu, dan Tiongkok. Pada puncak atap terdapat hiasan mustaka berupa kubah kecil yang menandakan ciri khas bangunan Islam.\n\nBangunan utama masjid ditopang oleh tiang-tiang kayu ulin berukuran besar yang kokoh. Dinding-dindingnya terbuat dari papan kayu dengan ventilasi udara tradisional yang memungkinkan sirkulasi udara tetap lancar, sangat adaptif dengan iklim tropis Kalimantan Timur yang panas dan lembab.\n\nKeunikan lain dari masjid ini terletak pada mimbar atau tempat imam berkhutbah. Mimbar tersebut dibuat dengan ukiran kayu yang sangat halus dan rumit, bercorak nisan khas Islam padang pasir, namun dipadukan dengan motif bunga teratai dan sulur-suluran khas Melayu Kutai.\n\nDi halaman masjid, tepatnya di sebelah kiri dan kanan pintu masuk, terdapat dua buah menara tempat bedug yang ditopang oleh empat tiang kayu. Bedug ini selain berfungsi untuk mengumandangkan azan pada masanya, juga berfungsi sebagai penanda waktu dan sistem peringatan dini bagi warga jika terjadi bahaya seperti kebakaran atau serangan musuh.\n\nSelama berabad-abad, Masjid Jami’ Aji Amir Hasanuddin telah menjadi pusat kegiatan keagamaan, pendidikan, dan musyawarah masyarakat. Banyak ulama besar Kutai yang pernah mengaji dan mengajar di masjid ini, menjadikannya sebagai kawah candradimuka bagi lahirnya pemimpin-pemimpin Muslim di Kalimantan Timur.\n\nMeskipun telah mengalami beberapa kali renovasi untuk memperkuat struktur bangunan, pemerintah daerah dan masyarakat sangat menjaga orisinalitas dari bentuk dan nuansa interior masjid ini. Keberadaannya berdampingan dengan Istana Kutai semakin memperkuat nilai sejarah kawasan Kesultanan di Tenggarong.",
+        "photos": ["masjid-1", "masjid-2", "masjid-3", "masjid-4"],
+        "relatedStories": [28]
     },
     {
-        id:3, slug:'candi-mulawarman-muara-kaman',
-        name:'Situs Percandian Muara Kaman',
-        category:'situs-arkeologi',
-        status:'Cagar Budaya Nasional',
-        address:'Desa Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara',
-        lat:0.0833, lng:117.3000,
-        summary:'Situs percandian Hindu kuno peninggalan Kerajaan Kutai Martadipura abad ke-4 Masehi.',
-        description:`Situs Percandian Muara Kaman adalah kawasan situs arkeologi yang terletak di Desa Muara Kaman, merupakan peninggalan Kerajaan Kutai Martadipura yang berdiri sekitar abad ke-4 Masehi. Kawasan ini diyakini sebagai pusat ibukota kerajaan Hindu pertama di Nusantara.
-        
-        Dari hasil ekskavasi yang dilakukan oleh tim arkeolog Balai Arkeologi Kalimantan, ditemukan fondasi bangunan percandian yang terbuat dari batu bata dengan ukuran besar, berbeda dengan bata masa kini. Struktur bangunan menunjukkan adanya kompleks percandian yang cukup luas dan terencana.
-        
-        Di sekitar situs juga ditemukan berbagai artefak penting, termasuk fragmen arca dewa-dewa Hindu seperti Siwa dan Wisnu, lingga-yoni yang merupakan simbol kesuburan dalam kepercayaan Hindu, serta ribuan pecahan tembikar yang menunjukkan aktivitas kehidupan masyarakat kerajaan.
-        
-        Tujuh Prasasti Yupa yang menjadi bukti tertua pengaruh Hindu di Indonesia ditemukan di sekitar kawasan ini pada abad ke-19. Penemuan ini mengubah pemahaman sejarah Indonesia secara fundamental, karena membuktikan adanya peradaban Hindu yang maju jauh sebelum berdirinya kerajaan-kerajaan besar di Jawa.
-        
-        Saat ini kawasan situs masih dalam proses penelitian arkeologi yang berkelanjutan. Setiap musim kering, tim peneliti melakukan penggalian untuk menemukan lebih banyak artefak dan memahami tata kota kerajaan kuno ini.
-        
-        Situs Percandian Muara Kaman memiliki potensi besar sebagai destinasi wisata arkeologi dan edukasi yang dapat menghubungkan masyarakat modern dengan warisan peradaban Hindu tertua di Nusantara.`,
-        photos:['candi-1','candi-2','candi-3','candi-4'],
-        relatedStories:[4,5]
+        "id": 3, 
+        "slug": "kompleks-makam-raja-kutai",
+        "name": "Kompleks Makam Raja Kutai Kartanegara",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Jl. Kesultanan, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5055, 
+        "lng": 117.1560,
+        "summary": "Area pemakaman sakral yang menjadi peristirahatan terakhir para Sultan dan keluarga besar Kesultanan Kutai Kartanegara.",
+        "description": "Kompleks Makam Raja-Raja Kutai merupakan area pemakaman yang sangat dihormati, menjadi peristirahatan terakhir para Sultan Kesultanan Kutai Kartanegara Ing Martadipura beserta keluarga dan kerabat kerajaan. Terletak tidak jauh dari kompleks Istana, area ini mencerminkan penghormatan mendalam masyarakat Kutai kepada para leluhur dan pemimpinnya.\n\nDi antara puluhan makam yang terdapat di kompleks ini, makam Sultan Aji Muhammad Sulaiman adalah salah satu yang paling mencolok. Beliau adalah Sultan yang sangat berjasa membangun kembali kejayaan Kutai di akhir abad ke-19. Makamnya memiliki nisan berbentuk pipih dengan ukiran kaligrafi Arab yang sangat indah dan detail.\n\nTerdapat pula makam Sultan Aji Muhammad Parikesit, sosok sultan terakhir Kutai yang memiliki visi kebangsaan sangat kuat. Ia memilih untuk meleburkan Kesultanan Kutai ke dalam NKRI secara damai, menjadikan makamnya sebagai ziarah historis yang mengingatkan pada perjuangan menyatukan bangsa.\n\nArsitektur nisan dan jirat (pagar makam) di kompleks ini menunjukkan evolusi seni ukir batu di Kalimantan. Pada makam-makam yang lebih tua, ukurannya cenderung sederhana dan polos, sedangkan pada makam Sultan di masa-masa akhir, pengaruh seni ukir Jawa dan Timur Tengah sangat kental terlihat pada ornamen bunga dan kaligrafinya.\n\nKompleks makam ini dibagi menjadi beberapa tingkatan berdasarkan status dan kedudukan orang yang meninggal. Makam para Sultan berada di bagian paling utama dan paling tinggi, dikelilingi oleh makam para bangsawan, kerabat dekat, dan di bagian paling luar terdapat makam para abdi setia kerajaan.\n\nKebersihan dan kelestarian kompleks makam ini terjaga dengan sangat baik berkat peran aktif keluarga kesultanan yang masih menetap di Tenggarong. Mereka secara rutin melakukan ritual bersih makam dan mendoakan para leluhur, sebuah tradisi yang tidak pernah putus sejak ratusan tahun lalu.\n\nBagi masyarakat Kutai dan wisatawan, Kompleks Makam Raja bukan sekadar tempat pemakaman, melainkan sebuah taman sejarah terbuka. Di sini, pengunjung bisa membaca kronologi panjang pemerintahan Kesultanan Kutai yang berlangsung selama lebih dari enam abad melalui deretan nisan yang tertata rapi.",
+        "photos": ["makam-1", "makam-2", "makam-3", "makam-4"],
+        "relatedStories": [2, 38]
     },
     {
-        id:4, slug:'makam-raja-raja-kutai',
-        name:'Kompleks Makam Raja-Raja Kutai',
-        category:'makam-kerajaan',
-        status:'Cagar Budaya',
-        address:'Jl. Kesultanan, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5055, lng:117.1560,
-        summary:'Kompleks pemakaman para Sultan Kesultanan Kutai Kartanegara yang terawat dan bersejarah.',
-        description:`Kompleks Makam Raja-Raja Kutai merupakan area pemakaman yang menjadi peristirahatan terakhir para Sultan Kesultanan Kutai Kartanegara Ing Martadipura. Terletak tidak jauh dari Keraton, kompleks ini mencerminkan penghormatan mendalam masyarakat Kutai kepada para leluhur dan pemimpinnya.
-        
-        Di antara makam yang terdapat di kompleks ini adalah makam Sultan Aji Muhammad Sulaiman, Sultan yang dikenal sebagai pembawa modernisasi di Kesultanan Kutai pada akhir abad ke-19. Makamnya ditandai dengan nisan yang indah berukiran kaligrafi Arab yang menunjukkan pengaruh Islam yang kuat dalam tradisi kerajaan.
-        
-        Makam Sultan Aji Muhammad Parikesit, sultan terakhir Kesultanan Kutai yang memerintah hingga masa kemerdekaan Indonesia, juga terdapat di kompleks ini. Beliau dikenal sebagai sultan yang memiliki visi kebangsaan yang kuat dan mendukung integrasi Kutai ke dalam Republik Indonesia.
-        
-        Setiap makam sultan memiliki ornamen dan arsitektur yang berbeda-beda, mencerminkan selera estetika dan pengaruh budaya pada masa masing-masing sultan memerintah. Pengunjung dapat melihat perpaduan gaya arsitektur makam Melayu, Islam, dan Kutai dalam satu kompleks.
-        
-        Kompleks makam terawat dengan baik berkat kepedulian keluarga kesultanan dan pemerintah daerah. Setiap tahun, terutama pada hari-hari besar Islam, ratusan warga datang berziarah untuk mendoakan para sultan yang telah berjasa membangun peradaban Kutai.
-        
-        Nilai historis kompleks ini sangat tinggi karena menjadi sumber informasi tentang silsilah dan kronologi kepemimpinan Kesultanan Kutai yang berlangsung selama lebih dari enam abad.`,
-        photos:['makam-1','makam-2','makam-3','makam-4'],
-        relatedStories:[2]
+        "id": 4, 
+        "slug": "situs-yupa-muara-kaman",
+        "name": "Situs Yupa Muara Kaman",
+        "category": "situs-arkeologi",
+        "status": "Cagar Budaya Nasional",
+        "address": "Desa Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara",
+        "lat": 0.0833, 
+        "lng": 117.3000,
+        "summary": "Lokasi penemuan tujuh batu prasasti Yupa, bukti tertulis tertua mengenai kerajaan Hindu pertama di Nusantara.",
+        "description": "Situs Yupa Muara Kaman adalah salah satu kawasan paling sakral dalam sejarah peradaban Indonesia. Terletak di tepi Sungai Mahakam, tepatnya di Desa Muara Kaman, situs ini adalah tempat ditemukannya tujuh buah batu prasasti (Yupa) yang menjadi bukti tertulis paling awal mengenai keberadaan kerajaan bercorak Hindu di Nusantara pada abad ke-4 Masehi.\n\nPenemuan Yupa ini bermula pada akhir abad ke-19, ketika seorang penduduk lokal menemukan batu-batu berukir aneh yang kemudian dilaporkan kepada pemerintah kolonial Belanda. Setelah diteliti oleh para ahli epigrafi, terungkaplah bahwa batu-batu tersebut berisi prasasti yang ditulis dalam bahasa Sanskerta dengan aksara Pallawa.\n\nIsi dari ketujuh Yupa tersebut pada dasarnya sama, yaitu menceritakan tentang Raja Mulawarman yang telah menggelar upacara besar (Sraddha) dengan menyumbangkan ribuan ekor sapi kepada para Brahmana. Peristiwa ini dilakukan sebagai wujud syukur karena Raja Mulawarman berhasil memperoleh kedudukan tertinggi di antara para raja di dunia.\n\nKawasan situs sendiri kini ditandai dengan sebuah tugu peringatan yang dibangun oleh pemerintah. Meskipun Yupa asli kini telah diamankan di Museum Nasional di Jakarta, suasana historis di sekitar lokasi penemuan tetap sangat kental dan membawa pengunjung ke masa kejayaan Kerajaan Kutai Martadipura.\n\nDi sekitar lokasi Yupa, para arkeolog juga menemukan fondasi-fondasi bangunan dari batu bata kuno, serta fragmen-fragmen arca perunggu dan perak yang menunjukkan bahwa kawasan ini dulunya adalah sebuah pusat kota kerajaan (Ibukota) yang cukup maju dan padat penduduknya.\n\nSitus ini menjadi rujukan utama bagi para sejarawan dan arkeolog dunia untuk mempelajari proses masuknya pengaruh Hindu di Indonesia. Keberadaannya membantah teori lama yang mengatakan bahwa peradaban Nusantara dimulai dari barat (Jawa/Sumatera), membuktikan bahwa Kalimantan Timur memiliki peradaban maju yang setara.\n\nPelestarian situs Yupa Muara Kaman sangat penting, karena selain nilainya yang sudah mendunia, situs ini juga menjadi sumber kebanggaan identitas bagi masyarakat Kutai Kartanegara bahwa tanah mereka adalah tanah pertama dimana sejarah Nusantara mulai tercatat dengan tulisan.",
+        "photos": ["yupa-1", "yupa-2", "yupa-3", "yupa-4"],
+        "relatedStories": [2, 3, 40]
     },
     {
-        id:5, slug:'masjid-sultan-aji-muhammad-sulaiman',
-        name:'Masjid Sultan Aji Muhammad Sulaiman',
-        category:'tempat-ibadah',
-        status:'Cagar Budaya',
-        address:'Jl. Jend. Sudirman, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5010, lng:117.1500,
-        summary:'Masjid bersejarah abad ke-19 yang menjadi ikon keagamaan dan arsitektur di Tenggarong.',
-        description:`Masjid Sultan Aji Muhammad Sulaiman dibangun pada masa pemerintahan Sultan Aji Muhammad Sulaiman pada akhir abad ke-19 sebagai pusat kegiatan keagamaan Kesultanan Kutai Kartanegara. Masjid ini merupakan salah satu bangunan bersejarah yang masih berdiri kokoh dan aktif digunakan hingga saat ini.
-        
-        Arsitektur masjid merupakan perpaduan unik dari tiga pengaruh budaya yang bertemu di Kutai: gaya tradisional Kutai dengan atap bertingkat yang khas, pengaruh Melayu yang terlihat pada ornamen kayu berukir, dan sentuhan arsitektur Timur Tengah yang tampak pada bentuk kubah dan menara.
-        
-        Material utama masjid adalah kayu ulin (Eusideroxylon zwageri), yang dikenal sebagai kayu besi Kalimantan karena kekerasannya yang luar biasa dan ketahanannya terhadap cuaca tropis, serangga, dan air. Kayu ulin ini telah bertahan selama lebih dari seratus tahun dan masih dalam kondisi yang baik.
-        
-        Interior masjid dihiasi dengan ukiran-ukiran halus bermotif islami dan kaligrafi Arab yang indah, dikerjakan oleh pengrajin kayu lokal yang terampil. Setiap detail ornamen mencerminkan tingginya tingkat kesenian dan kerajinan masyarakat Kutai pada masa itu.
-        
-        Masjid ini juga menyimpan berbagai benda bersejarah termasuk mushaf Al-Quran kuno, mimbar kayu berukir berusia ratusan tahun, serta berbagai perlengkapan ibadah dari masa kesultanan yang masih terjaga dengan baik.
-        
-        Hingga kini masjid ini masih aktif digunakan untuk berbagai kegiatan ibadah dan keagamaan masyarakat, menjadikannya simbol kesinambungan tradisi Islam di Kutai yang telah berlangsung selama berabad-abad.`,
-        photos:['masjid-1','masjid-2','masjid-3','masjid-4'],
-        relatedStories:[]
+        "id": 5, 
+        "slug": "museum-purbakala-muara-kaman",
+        "name": "Museum Purbakala Muara Kaman",
+        "category": "museum",
+        "status": "Cagar Budaya",
+        "address": "Desa Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara",
+        "lat": 0.0840, 
+        "lng": 117.3020,
+        "summary": "Museum khusus yang menyimpan berbagai artefak hasil ekskavasi situs Kerajaan Kutai Martadipura di sekitar Muara Kaman.",
+        "description": "Museum Purbakala Muara Kaman didirikan dengan tujuan khusus untuk menyimpan, merawat, dan memamerkan berbagai artefak hasil penggalian arkeologi di kawasan Muara Kaman dan sekitarnya. Keberadaan museum ini sangat penting untuk melengkapi cerita sejarah yang tidak bisa ditangkap hanya dengan melihat tugu peninggalan Yupa di lapangan.\n\nBangunan museum ini didesain dengan nuansa arkeologi modern namun tetap menyatu dengan lingkungan sekitar yang asri. Di dalamnya terdapat beberapa ruang pameran yang dibagi berdasarkan periode waktu dan jenis artefak, memudahkan pengunjung untuk memahami kronologi peradaban Kerajaan Kutai Martadipura secara sistematis.\n\nKoleksi utama museum ini meliputi berbagai jenis tembikar atau keramik purbakala. Mulai dari periode pre-historik (neolitikum) berupa kapak batu dan beliung, hingga tembikar berglasir dari era Kerajaan Kutai yang menunjukkan adanya perdagangan dengan dinasti-dinasti di Asia.\n\nSalah satu ruang pameran yang paling menarik perhatian adalah ruang yang menampilkan koleksi arca-agrca Hindu. Di sini pengunjung bisa melihat fragmen arca Dewa Siwa, Dewi Parwati, serta simbol-simbol religius lainnya seperti Lingga dan Yoni yang ditemukan di sekitar situs percandian. Meskipun banyak yang dalam kondisi tidak utuh, keberadaan fragmen ini membuktikan tingginya tingkat seni patung pada masanya.\n\nMuseum ini juga menyimpan koleksi barang-barang logam kuno seperti mata uang dari berbagai kerajaan, perhiasan emas sederhana, serta berbagai jenis alat upacara keagamaan yang terbuat dari perunggu. Koleksi ini memberikan gambaran tentang strata sosial dan kehidupan religius masyarakat Kutai pada abad ke-4 hingga ke-5 Masehi.\n\nTidak hanya menyajikan artefak statis, museum ini juga dilengkapi dengan diorama dan panel informasi berupa infografis yang menjelaskan proses penggalian (ekskavasi) oleh tim Balai Arkeologi. Pengunjung bisa membayangkan betapa susah payahnya para peneliti menyusun kembali puzzle sejarah peradaban ini dari dalam tanah.\n\nDengan adanya Museum Purbakala Muara Kaman, wisatawan edukasi, khususnya pelajar dan mahasiswa, memiliki kesempatan emas untuk belajar sejarah purbakala secara langsung di lokasi dimana peradaban itu pernah berdiri, menjadikannya sebagai laboratorium sejarah hidup yang sangat berharga.",
+        "photos": ["museum-purbakala-1", "museum-purbakala-2", "museum-purbakala-3", "museum-purbakala-4"],
+        "relatedStories": [3, 22]
     },
     {
-        id:6, slug:'prasasti-yupa-muara-kaman',
-        name:'Lokasi Penemuan Prasasti Yupa',
-        category:'situs-arkeologi',
-        status:'Cagar Budaya Nasional',
-        address:'Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara',
-        lat:0.0850, lng:117.3050,
-        summary:'Lokasi bersejarah penemuan tujuh Prasasti Yupa, bukti tertulis pengaruh Hindu tertua di Indonesia.',
-        description:`Lokasi penemuan Prasasti Yupa di Muara Kaman merupakan salah satu situs paling penting dalam sejarah peradaban Indonesia. Di sinilah ditemukan tujuh buah prasasti batu yang kemudian dikenal sebagai Prasasti Yupa, dokumen tertulis paling awal tentang keberadaan kerajaan Hindu di Indonesia.
-        
-        Tujuh Prasasti Yupa ditemukan oleh peneliti Belanda pada abad ke-19 dalam kondisi tertanam di tanah di sekitar kawasan Muara Kaman. Yupa adalah tiang batu yang digunakan untuk mengikat hewan kurban dalam upacara sesajian Hindu (yajna), dan pada batu-batu inilah terukir tulisan berbahasa Sanskerta dengan aksara Pallawa.
-        
-        Isi utama prasasti-prasasti tersebut adalah catatan tentang silsilah raja-raja Kerajaan Kutai Martadipura, dimulai dari Kudungga sebagai raja pertama, dilanjutkan anaknya Aswawarman, dan puncaknya Raja Mulawarman. Prasasti menyebutkan bahwa Mulawarman adalah raja yang baik hati, memberikan sumbangan 20.000 ekor sapi kepada para brahmana.
-        
-        Penemuan ini secara ilmiah membuktikan bahwa Indonesia telah memiliki peradaban tinggi setidaknya sejak abad ke-4 Masehi, jauh lebih awal dari perkiraan sebelumnya. Prasasti Yupa menjadi titik awal penulisan sejarah Indonesia yang berdasarkan bukti tertulis autentik.
-        
-        Saat ini prasasti asli disimpan di Museum Nasional Indonesia di Jakarta untuk keperluan preservasi, sementara replikanya dapat dilihat di Museum Mulawarman Tenggarong. Lokasi penemuan di Muara Kaman kini dilindungi dan menjadi bagian dari kawasan situs arkeologi yang dikelola oleh Balai Pelestarian Kebudayaan.
-        
-        Setiap tahun, para peneliti, mahasiswa, dan wisatawan dari berbagai daerah datang ke lokasi ini untuk mendalami sejarah peradaban Kutai kuno yang merupakan bagian tak terpisahkan dari narasi besar peradaban Nusantara.`,
-        photos:['yupa-1','yupa-2','yupa-3','yupa-4'],
-        relatedStories:[4,5]
+        "id": 6, 
+        "slug": "lesong-batu-muara-kaman",
+        "name": "Lesong Batu Muara Kaman",
+        "category": "situs-arkeologi",
+        "status": "Cagar Budaya",
+        "address": "Desa Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara",
+        "lat": 0.0835, 
+        "lng": 117.3015,
+        "summary": "Batu besar berbentuk lesong (alat penumbuk padi) purbakala yang menjadi bukti kehidupan agraris masyarakat Kerajaan Kutai Martadipura.",
+        "description": "Di antara berbagai artefak yang ditemukan di kawasan Muara Kaman, Lesong Batu atau yang dalam bahasa setempat sering disebut 'Lesong Batu' merupakan salah satu peninggalan yang paling unik dan mengundang tanda tanya. Lesong biasanya dibuat dari kayu dan digunakan untuk menumbuk padi supaya terlepas dari kulitnya, namun lesong ini terbuat dari satu batu padat yang dilubangi di bagian tengahnya.\n\nUkuran lesong ini cukup besar, menunjukkan bahwa ia bukan digunakan untuk keperluan rumah tangga sehari-hari dalam skala kecil, melainkan untuk aktivitas pengolahan padi dalam jumlah besar secara kolektif. Keberadaannya di kawasan situs kerajaan membuktikan bahwa masyarakat Kutai Martadipura pada abad ke-4 Masehi sudah memiliki kehidupan agraris yang terorganisir dengan baik.\n\nPembuatan lesong dari batu padat membutuhkan keterampilan dan peralatan yang sangat tinggi, mengingat kekerasan batu. Para arkeolog memperkirakan pembuatannya memakan waktu berminggu-minggu dengan teknik menahan dan mengikis batu menggunakan alat-alat dari batu yang lebih keras. Ini menunjukkan adanya spesialisasi pekerjaan (divisi kerja) pada masa itu.\n\nKeberadaan Lesong Batu ini memiliki keterkaitan erat dengan isi Prasasti Yupa yang ditemukan tidak jauh dari lokasi. Yupa menyebutkan bahwa Raja Mulawarman memberikan sumbangan berupa ribuan ekor sapi kepada para Brahmana. Lesong batu ini diperkirakan digunakan untuk menumbuk padi hasil panen raya yang diperoleh dari upacara atau perdagangan besar tersebut.\n\nSelain fungsinya sebagai alat produksi pertanian, beberapa ahli menduga bahwa Lesong Batu ini juga memiliki fungsi ritualis. Pada masyarakat tradisional Nusantara, proses pengolahan padi sering disertai dengan upacara adat untuk memohon kesuburan tanah. Lesong batu yang tahan api dan air mungkin dipilih secara sengaja agar bisa bertahan selama berabad-abad sebagai simbol kemakmuran kerajaan.\n\nSaat ini, Lesong Batu Muara Kaman telah diamankan dan dipajang di area terbuka situs, dikelilingi oleh pagar pelindung agar tidak rusak oleh cuaca atau ulah tangan yang tidak bertanggung jawab. Kehadirannya memberikan perspektif yang berbeda bagi pengunjung, bahwa peradaban besar tidak hanya ditandai dengan bangunan megah atau prasasti kerajaan, tetapi juga dari alat-alat sederhana yang menopang perut rakyatnya.\n\nBagi masyarakat Muara Kaman saat ini, Lesong Batu ini dianggap sebagai warisan leluhur yang sakti. Ada kepercayaan lokal bahwa jika seseorang mampu mengangkat batu ini dengan satu jari, maka orang tersebut akan mendapatkan rejeki yang besar. Tentu saja ini lebih pada mitos untuk mendidik generasi muda agar menghargai sejarah daripada sekadar menganggapnya sebagai batu biasa.",
+        "photos": ["lesong-1", "lesong-2", "lesong-3", "lesong-4"],
+        "relatedStories": [3, 4]
     },
     {
-        id:7, slug:'makam-datuk-panjang',
-        name:'Makam Datuk Panjang',
-        category:'makam-kerajaan',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Desa Loa Kulu, Kec. Loa Kulu, Kab. Kutai Kartanegara',
-        lat:-0.4600, lng:117.1000,
-        summary:'Makam tokoh ulama penyebar Islam yang menjadi tempat ziarah penting di Kutai Kartanegara.',
-        description:`Makam Datuk Panjang merupakan situs pemakaman yang diyakini sebagai tempat peristirahatan terakhir seorang ulama besar yang berperan penting dalam penyebaran agama Islam di wilayah Kutai Kartanegara. Keberadaan makam ini menjadi bukti bahwa Islamisasi di Kutai terjadi melalui jalur dakwah yang damai dan bertahap.
-        
-        Menurut tradisi lisan yang diwariskan secara turun-temurun, Datuk Panjang adalah seorang ulama yang datang dari Sumatera atau Semenanjung Melayu pada abad ke-17 atau ke-18. Beliau dikenal sebagai sosok yang bijaksana, sabar dalam berdakwah, dan memiliki ilmu agama yang sangat mendalam.
-        
-        Cara dakwah Datuk Panjang yang halus dan menghargai budaya lokal membuatnya diterima dengan baik oleh masyarakat dan penguasa setempat. Beliau tidak hanya mengajarkan Islam tetapi juga berbagi pengetahuan tentang berbagai hal termasuk pertanian, pengobatan tradisional, dan keterampilan hidup lainnya.
-        
-        Kompleks makam Datuk Panjang kini terdiri dari makam utama yang dikelilingi pagar dan beratap, serta beberapa makam lain di sekitarnya yang diyakini merupakan makam murid-murid dan anggota keluarganya. Area sekitar makam ditumbuhi pohon-pohon tua yang memberikan suasana teduh dan mistis.
-        
-        Setiap tahun, terutama menjelang bulan Ramadan dan pada hari-hari besar Islam, ratusan peziarah datang dari berbagai daerah di Kutai Kartanegara bahkan dari luar provinsi untuk mendoakan dan menghormati jasa Datuk Panjang dalam menyebarkan Islam di wilayah Kutai.
-        
-        Makam ini juga menjadi salah satu destinasi wisata religi yang direkomendasikan untuk memahami sejarah perkembangan Islam di Kalimantan Timur.`,
-        photos:['datuk-1','datuk-2','datuk-3','datuk-4'],
-        relatedStories:[]
+        "id": 7, 
+        "slug": "situs-tunggang-parangan",
+        "name": "Situs Tunggang Parangan",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Tenggarong Seberang, Kec. Tenggarong Seberang, Kab. Kutai Kartanegara",
+        "lat": -0.4900, 
+        "lng": 117.1200,
+        "summary": "Bekas kawasan lapangan dan tangga kerajaan yang menjadi titik awal pembangunan Kesultanan Kutai Kartanegara di Tenggarong.",
+        "description": "Situs Tunggang Parangan adalah salah satu lokasi bersejarah yang terletak di seberang Sungai Mahakam, tepatnya di kawasan yang kini dikenal sebagai Tenggarong Seberang. Nama 'Tunggang' sendiri dalam bahasa Kutai bermakna tempat untuk menambat atau menambatkan binatang tunggangan seperti gajah atau kuda, sedangkan 'Parangan' berarti pagar atau pembatas. Nama ini menggambarkan fungsi tempat itu di masa lalu.\n\nKawasan ini merupakan wilayah pertama yang diinjak dan dipersiapkan oleh Aji Imbut (Sultan Aji Muhammad Idris) ketika ia memutuskan untuk memindahkan pusat pemerintahan Kerajaan Kutai dari Kutai Lama (Muara Pahu) ke wilayah Tenggarong yang masih berupa hutan belantara pada awal abad ke-18.\n\nDalam catatan sejarah lisan, saat rombongan kerajaan tiba di muara sungai kecil yang bermuara ke Mahakam, mereka menambatkan perahu-perahu besar dan hewan tunggangan di tempat ini. Dari situlah, Aji Imbut memulai pembabatan hutan untuk membuka jalan menuju lokasi dimana Istana Kedaton akan didirikan. Tunggang Parangan berfungsi sebagai base camp pertama Kesultanan di tanah baru.\n\nSelain sebagai tempat penambatan, kawasan ini juga difungsikan sebagai lapangan latihan pasukan kerajaan (bala tentara) dan kawasan pemeliharaan gajah-gajah kerajaan. Gajah pada masa itu merupakan hewan perang dan transportasi utama yang menjadi simbol kekuatan dan wibawa seorang raja. Bekas fondasi bangunan dan tiang-tiang kayu yang ditemukan di area ini diperkirakan adalah peninggalan kandang gajah dan barak pasukan.\n\nSitus Tunggang Parangan memiliki nilai filosofis yang sangat tinggi bagi masyarakat Kutai. Ia melambangkan titik nol atau awal mula (asal) dari peradaban baru Kutai Kartanegara yang lebih gemilang. Dari tempat yang dulunya hanya semak belukar dan tempat menambat hewan, lahirlah sebuah Kesultanan yang berkuasa selama berabad-abad.\n\nMeskipun kini tampak seperti lahan kosong yang ditumbuhi semak dan beberapa pohon besar, bagi para sejarawan dan pemerhati budaya, tanah di Tunggang Parangan menyimpan getaran sejarah yang kuat. Upaya pelestarian situs ini dilakukan dengan memasang papan informasi dan menjaga area dari alih fungsi lahan.\n\nMengunjungi Tunggang Parangan memberikan pengalaman imajinatif yang menarik. Sambil menatap arus Sungai Mahakam yang tenang, pengunjung dibawa membayangkan ratusan tahun lalu, ketika sebuah armada perahu besar berlabuh di sini, membawa seorang raja visioner yang siap membabat hutan untuk membangun sebuah ibu kota baru bagi keturunannya.",
+        "photos": ["tunggang-1", "tunggang-2", "tunggang-3", "tunggang-4"],
+        "relatedStories": [5, 8, 28]
     },
     {
-        id:8, slug:'pasar-kedaton-tenggarong',
-        name:'Kawasan Pasar Kedaton',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Jl. P. Diponegoro, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5035, lng:117.1495,
-        summary:'Kawasan pasar tradisional bersejarah yang telah ada sejak masa Kesultanan Kutai Kartanegara.',
-        description:`Kawasan Pasar Kedaton adalah salah satu area perdagangan tertua di Tenggarong yang telah ada sejak masa kejayaan Kesultanan Kutai Kartanegara. Kata "Kedaton" dalam bahasa Jawa dan Kutai merujuk pada wilayah sekitar istana atau keraton, menunjukkan betapa eratnya hubungan kawasan perdagangan ini dengan pusat kekuasaan kerajaan.
-        
-        Sebagai pasar yang berada di dekat keraton, Pasar Kedaton pada masa kesultanan bukan sekadar tempat jual beli biasa, melainkan juga merupakan pusat interaksi sosial dan budaya. Di sinilah berbagai komoditas dari seluruh penjuru Kalimantan dan bahkan dari berbagai kerajaan di Nusantara diperdagangkan.
-        
-        Komoditas utama yang diperdagangkan meliputi hasil hutan seperti rotan, damar, dan kayu, hasil sungai seperti ikan dan penyu, rempah-rempah, kain tenun, dan berbagai kerajinan tangan. Para pedagang dari Bugis, Arab, Cina, dan berbagai suku di Kalimantan bertemu dan berinteraksi di kawasan ini.
-        
-        Bangunan-bangunan tua di kawasan Pasar Kedaton masih menyimpan jejak arsitektur kolonial dan peranakan yang mencerminkan percampuran budaya yang terjadi selama berabad-abad. Beberapa ruko tua masih mempertahankan fasad aslinya dengan ornamen khas abad ke-19 dan awal abad ke-20.
-        
-        Meskipun telah mengalami modernisasi, kawasan ini masih mempertahankan fungsinya sebagai pusat perdagangan yang ramai. Berbagai warung makan tradisional, toko oleh-oleh, dan pedagang kaki lima masih mewarnai kehidupan sehari-hari kawasan bersejarah ini.
-        
-        Pemerintah Kabupaten Kutai Kartanegara telah merencanakan revitalisasi kawasan Pasar Kedaton sebagai wisata sejarah dan belanja yang memadukan nilai historis dengan fungsi ekonomi modern.`,
-        photos:['pasar-1','pasar-2','pasar-3','pasar-4'],
-        relatedStories:[]
+        "id": 8, 
+        "slug": "makam-aji-imbut",
+        "name": "Makam Aji Imbut",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Desa Tenggarong Seberang, Kec. Tenggarong Seberang, Kab. Kutai Kartanegara",
+        "lat": -0.4950, 
+        "lng": 117.1150,
+        "summary": "Makam pendiri Kesultanan Kutai Kartanegara yang memimpin perpindahan ibukota dari Kutai Lama ke Tenggarong.",
+        "description": "Makam Aji Imbut merupakan salah satu makam keramat yang paling dihormati di Kutai Kartanegara. Aji Imbut, yang bergelar Sultan Aji Muhammad Idris, adalah sosok raja visioner yang dianggap sebagai pendiri Kesultanan Kutai Kartanegara Ing Martadipura (dinasti baru yang menggantikan Kerajaan Kutai Lama). Beliaulah yang mengambil keputusan epik untuk memindahkan pusat pemerintahan dari Muara Pahu ke Tenggarong.\n\nLokasi pemakaman ini berada di kawasan Tenggarong Seberang, tidak jauh dari Situs Tunggang Parangan. Memilih tempat peristirahatan terakhirnya di seberang sungai, tepat di berlawanan dengan Istana Kedaton yang beliau bangun, seolah menyimbolkan bahwa ia ingin terus mengawasi ibu kota yang telah ia rintis dari nol hingga akhir hayatnya.\n\nArsitektur makam Aji Imbut sangat khas dan berbeda dengan makam-makam Sultan penerusnya. Nisan dan jirat (pagar makam)nya terbuat dari batu pualam atau batu kapur berwarna putih kekuningan yang diperkirakan didatangkan dari luar daerah (mungkin dari Sulawesi atau Jawa) pada masanya. Ukiran pada nisan menunjukkan corak Islam yang sangat kuat dengan motif geometric dan kaligrafi sederhana.\n\nKompleks makam ini cukup luas dan tidak hanya ditempati oleh makam Aji Imbut sendiri, tetapi juga makam keluarga dan para pembesar kerajaan yang setia mendampinginya saat membangun Tenggarong. Hal ini menunjukkan bahwa kawasan seberang sungai pada awalnya adalah area pemukiman elit sebelum akhirnya fokus pemukiman bergeser ke sisi sungai tempat istana berdiri.\n\nMasyarakat Kutai memiliki keyakinan yang sangat kuat terhadap keberkahan makam ini. Setiap menjelang pelaksanaan Festival Erau, selalu diadakan ritual ziarah dan doa bersama di makam Aji Imbut. Hal ini dilakukan sebagai bentuk permohonan izin dan restu kepada leluhur agar acara adat terbesar tersebut berjalan lancar tanpa gangguan.\n\nKeberadaan Makam Aji Imbut menegaskan bahwa perpindahan ibukota bukanlah peristiwa biasa, melainkan sebuah migrasi besar yang melibatkan nyawa dan darah. Ia rela meninggalkan kenyamanan kerajaan lamanya demi mencari kehidupan baru yang lebih baik untuk keturunannya, dan makam ini menjadi tugu peringatan abadi dari pengorbanannya.\n\nPemerintah daerah bersama keluarga Kesultanan rutin melakukan pemeliharaan di area makam ini. Meskipun usianya sudah ratusan tahun, batu-batu nisan masih kokoh berdiri, menahan badai dan cuaca ekstrem Kalimantan, menunggu generasi penerus untuk terus mengenal sang pendiri tanah Kutai modern.",
+        "photos": ["aji-imbut-1", "aji-imbut-2", "aji-imbut-3", "aji-imbut-4"],
+        "relatedStories": [5, 28]
     },
     {
-        id:9, slug:'jembatan-kembar-tenggarong',
-        name:'Jembatan Mahkota II Tenggarong',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Jl. Wolter Monginsidi, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5015, lng:117.1525,
-        summary:'Jembatan ikonik yang menghubungkan dua sisi Kota Tenggarong di atas Sungai Mahakam.',
-        description:`Jembatan Mahkota II Tenggarong adalah salah satu ikon paling dikenal dari Kota Tenggarong, menghubungkan dua bagian kota yang dipisahkan oleh aliran Sungai Mahakam. Jembatan ini tidak hanya berfungsi sebagai infrastruktur transportasi, tetapi juga telah menjadi simbol kebanggaan warga Tenggarong.
-        
-        Pembangunan jembatan ini merupakan bagian dari upaya pemerintah daerah untuk mengembangkan infrastruktur dan menghubungkan kawasan-kawasan di Kutai Kartanegara yang secara geografis terpisah oleh sungai-sungai besar. Sungai Mahakam, sebagai sungai terbesar di Kalimantan Timur, selama berabad-abad menjadi pembatas alami yang sekaligus menjadi jalur transportasi utama.
-        
-        Desain jembatan mempertimbangkan kondisi geografis khas Kalimantan dengan sungai yang lebar dan arus yang deras. Konstruksi jembatan menggunakan teknologi modern yang dirancang untuk bertahan dalam kondisi iklim tropis dan beban lalu lintas yang berat.
-        
-        Pemandangan dari jembatan ini sangat menakjubkan, terutama saat matahari terbenam ketika cahaya keemasan memantul di permukaan Sungai Mahakam yang luas. Panorama Kota Tenggarong dengan Keraton Kutai Kartanegara dan berbagai bangunan bersejarah terlihat dengan jelas dari atas jembatan.
-        
-        Setiap malam, jembatan dihiasi dengan lampu-lampu berwarna yang membuatnya semakin indah dan menjadi daya tarik tersendiri bagi warga dan wisatawan yang menikmati suasana malam di tepi Sungai Mahakam.
-        
-        Jembatan Mahkota II telah menjadi latar belakang favorit untuk berbagai kegiatan fotografi dan dokumentasi wisata di Tenggarong, mencerminkan perpaduan modernitas dan warisan alam yang menjadi karakter khas Kutai Kartanegara.`,
-        photos:['jembatan-1','jembatan-2','jembatan-3','jembatan-4'],
-        relatedStories:[]
+        "id": 9, 
+        "slug": "masjid-tua-kutai-lama",
+        "name": "Masjid Tua Kutai Lama",
+        "category": "tempat-ibadah",
+        "status": "Cagar Budaya",
+        "address": "Desa Kutai Lama, Kec. Anggana, Kab. Kutai Kartanegara",
+        "lat": -0.6000, 
+        "lng": 117.2500,
+        "summary": "Masjid bersejarah peninggalan era Kerajaan Kutai Lama di Anggana yang menjadi saksi awal masuknya Islam di pesisir Mahakam.",
+        "description": "Berbeda dengan masjid-masjid megah di Tenggarong, Masjid Tua yang terletak di Desa Kutai Lama, Kecamatan Anggana ini hadir dengan wajah yang sangat sederhana namun menyimpan kedalaman sejarah yang luar biasa. Masjid ini adalah bukti nyata bahwa sebelum Kesultanan Kutai pindah ke Tenggarong, agama Islam sudah berkembang dengan baik di pesisir Mahakam.\n\nDiperkirakan dibangun pada abad ke-16 atau ke-17, Masjid Tua Kutai Lama merupakan salah satu bangunan ibadah tertua di Kalimantan Timur. Arsitekturnya sangat tradisional, berbentuk rumah panggung tinggi dengan tiang penyangga dari kayu ulin. Dindingnya terbuat dari papan kayu biasa tanpa cat, sehingga terlihat sangat menyatu dengan alam sekitar.\n\nMenariknya, bentuk atap masjid ini tidak seperti kubah melainkan menggunakan atap pelana khas rumah tradisional Kalimantan, atau ada juga yang menyebutnya mirip atap pagoda. Desain ini diduga merupakan akulturasi budaya antara Islam yang dibawa oleh pedagang asing (Arab atau Tiongkok Muslim) dengan teknik bangunan lokal masyarakat pesisir Mahakam.\n\nLokasi masjid yang berada tepat di tepi sungai membuktikan fungsi strategisnya di masa lalu. Pada zaman dahulu, masjid ini berfungsi tidak hanya sebagai tempat ibadah, tetapi juga sebagai mercusuar bagi para pelaut dan pedagang yang melintas di Sungai Mahakam. Menara azannya yang terbuat dari kayu konon juga berfungsi sebagai menara pandang untuk mengawasi pergerakan kapal.\n\nDi dalam masjid, terdapat sebuah mimbar tua yang terbuat dari kayu dengan ukiran yang sangat sederhana namun antik. Mimbar ini diperkirakan asli dari masa pembangunan masjid pertama kali. Meskipun sudah lapuk dimakan usia, mimbar ini masih kokoh dan digunakan pada saat-saat tertentu, terutama saat perayaan hari besar Islam.\n\nKehadiran Masjid Tua Kutai Lama ini membantah anggapan bahwa penyebaran Islam di Kalimantan Timur dimulai dari Tenggarong. Justru, sejarah mencatat bahwa para ulama dan pedagang Muslim lebih dahulu singgah di pelabuhan-pelabuhan pesisir seperti Anggana sebelum akhirnya pengaruhnya masuk ke istana kerajaan.\n\nKini, meskipun sudah dibangun masjid baru yang lebih luas di dekatnya, Masjid Tua Kutai Lama tetap dijaga dan dilestarikan oleh masyarakat setempat. Masjid ini tidak hanya digunakan untuk ibadah wajib, tetapi juga sering menjadi lokasi kajian sejarah dan wisata heritage, mengingatkan generasi masa kini akan perjuangan awal menyebarkan cahaya Islam di tanah Borneo.",
+        "photos": ["masjid-tua-1", "masjid-tua-2", "masjid-tua-3", "masjid-tua-4"],
+        "relatedStories": [16, 22]
     },
     {
-        id:10, slug:'dermaga-kedaton-mahakam',
-        name:'Dermaga Kedaton Mahakam',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Jl. Dermaga, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5070, lng:117.1570,
-        summary:'Dermaga bersejarah kerajaan di tepi Sungai Mahakam yang menyimpan nilai historis tinggi.',
-        description:`Dermaga Kedaton Mahakam adalah dermaga bersejarah yang terletak di tepi Sungai Mahakam, tepat di kawasan kompleks Keraton Kutai Kartanegara. Keberadaan dermaga ini tidak bisa dipisahkan dari sejarah perdagangan dan hubungan diplomatik Kesultanan Kutai dengan berbagai kerajaan dan bangsa dari seluruh penjuru dunia.
-        
-        Pada masa kejayaan Kesultanan Kutai, dermaga ini merupakan pintu gerbang utama yang menghubungkan kerajaan dengan dunia luar. Sungai Mahakam saat itu adalah jalur transportasi dan perdagangan utama yang menghubungkan pedalaman Kalimantan dengan pesisir dan selanjutnya dengan jalur perdagangan internasional.
-        
-        Kapal-kapal dagang dari berbagai penjuru, mulai dari pedagang Bugis, Cina, Arab, hingga kapal-kapal Eropa, pernah bersandar di dermaga ini. Komoditas berharga seperti hasil hutan, rempah-rempah, dan emas dari pedalaman Kalimantan ditukar dengan berbagai barang dari luar seperti kain, keramik, dan besi.
-        
-        Arsitektur dermaga memperlihatkan konstruksi khas daerah sungai Kalimantan dengan penggunaan kayu ulin yang tahan air dan bahan-bahan lokal yang kuat. Beberapa bagian dermaga lama masih dapat terlihat, memberikan gambaran tentang teknik konstruksi masa lampau.
-        
-        Kawasan sekitar dermaga juga menjadi saksi bisu berbagai momen bersejarah, termasuk kedatangan tamu-tamu kerajaan, pelaksanaan upacara adat di tepi sungai, dan berbagai kegiatan budaya yang melibatkan Sungai Mahakam sebagai elemen sentral.
-        
-        Saat ini dermaga masih digunakan untuk transportasi sungai dan menjadi salah satu spot favorit untuk menikmati keindahan Sungai Mahakam sambil mengingat kejayaan Kesultanan Kutai yang pernah menguasai jalur perdagangan sungai terpenting di Kalimantan.`,
-        photos:['dermaga-1','dermaga-2','dermaga-3','dermaga-4'],
-        relatedStories:[3]
+        "id": 10, 
+        "slug": "kompleks-makam-kutai-lama",
+        "name": "Kompleks Makam Kutai Lama",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Desa Kutai Lama, Kec. Anggana, Kab. Kutai Kartanegara",
+        "lat": -0.6020, 
+        "lng": 117.2520,
+        "summary": "Pemakaman kerajaan purba di Anggana yang menyimpan makam para Raja dan bangsawan era sebelum pemindahan ke Tenggarong.",
+        "description": "Kompleks Makam Kutai Lama yang berlokasi di Desa Kutai Lama, Anggana, adalah sebuah area pemakaman yang sarat dengan kesan misterius dan melankolis. Ini adalah tempat peristirahatan terakhir para Raja dan bangsawan dari era Kerajaan Kutai Lama, sebelum Aji Imbut memutuskan untuk memindahkan tahta ke Tenggarong.\n\nBerbeda dengan Kompleks Makam di Tenggarong yang tertata rapi dan terawat dengan fasilitas modern, Kompleks Makam Kutai Lama terkesan lebih liar dan tersembunyi. Letaknya agak menjorok ke dalam dari pemukiman warga, dikelilingi oleh pepohonan tropis yang rindang, menciptakan suasana yang sangat sepi, teduh, dan mistis.\n\nNisan-nisan di kompleks ini memiliki bentuk dan material yang berbeda dari makam-makam era Kesultanan di Tenggarong. Mayoritas nisan di sini terbuat dari batu padat yang dipahat manual, dengan bentuk yang sangat sederhana berupa batu pipih (nisan gumpalan) atau menyerupai pedang. Tidak banyak ditemukan ukiran kaligrafi rumit, menunjukkan bahwa makam-makam ini berasal dari masa transisi, yaitu saat agama Hindu mulai tergantikan oleh Islam namun teknik ukir batu Islam belum sepenuhnya dikuasai.\n\nDi antara ratusan makam yang ada, terdapat beberapa makam yang diyakini sebagai makam Raja-raja besar yang berkuasa sebelum Aji Imbut. Sayangnya, karena tidak adanya prasasti atau tulisan di atas nisan, identitas pasti dari penghuni makam masih menjadi perdebatan di kalangan sejarawan. Namun berdasarkan pola letak dan ukurannya, para ahli dapat memastikan bahwa makam-makam besar itu adalah milik bangsawan utama.\n\nKompleks makam ini juga menyimpan sebuah misteri berupa beberapa makam yang bentuknya tidak lazim. Ada makam yang panjangnya mencapai dua meter, berbeda dari panjang tubuh manusia normal. Masyarakat setempat meyakini bahwa makam panjang itu adalah makam para kesatria atau panglima perang raja yang bertubuh sangat tinggi pada masanya.\n\nKeberadaan Kompleks Makam Kutai Lama sangat penting untuk meneliti proses islamisasi di Kalimantan. Para arkeolog menemukan bahwa di beberapa makam, pengebumian masih dilakukan secara Hindu (mengarah ke utara/matahari terbit), namun di makam-makam lainnya sudah mengarah ke kiblat (barat). Ini menunjukkan adanya masa peralihan kepercayaan yang sangat dinamis.\n\nMasyarakat sekitar sangat menghormati kawasan ini. Mereka sering menyebutnya sebagai 'Makam Keramat' karena banyak terjadi peristiwa-peristiwa gaib yang dipercaya sebagai pertanda dari penghuni makam. Peziarah yang datang biasanya tidak hanya mencari berkah, tetapi juga mencari ketenangan jiwa, karena suasana di Kompleks Makam Kutai Lama memang sangat kondusif untuk kontemplasi dan introspeksi sejarah.",
+        "photos": ["makam-lama-1", "makam-lama-2", "makam-lama-3", "makam-lama-4"],
+        "relatedStories": [16, 38]
     },
     {
-        id:11, slug:'benteng-ingris-muara-kaman',
-        name:'Situs Benteng Ingris Muara Kaman',
-        category:'situs-arkeologi',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Desa Muara Kaman Ulu, Kec. Muara Kaman, Kab. Kutai Kartanegara',
-        lat:0.0770, lng:117.2950,
-        summary:'Sisa-sisa benteng kolonial Belanda/Inggris abad ke-18 di kawasan Muara Kaman bersejarah.',
-        description:`Situs Benteng Ingris di Muara Kaman adalah peninggalan kolonial yang menyimpan nilai sejarah penting tentang interaksi antara Kesultanan Kutai dengan kekuatan-kekuatan kolonial Eropa pada abad ke-18. Meskipun kini hanya tersisa reruntuhan dan beberapa struktur, situs ini tetap menjadi bukti nyata dinamika hubungan antara kerajaan lokal dan pendatang Eropa.
-        
-        Istilah "Benteng Ingris" merujuk pada bangunan pertahanan yang pernah digunakan oleh bangsa Eropa, baik Belanda (VOC) maupun Inggris (EIC), yang pada masa itu bersaing untuk menguasai jalur perdagangan di Kalimantan. Sungai Mahakam yang menjadi jalur utama perdagangan hasil hutan dan rempah menjadi magnet bagi kekuatan-kekuatan kolonial tersebut.
-        
-        Reruntuhan yang masih tersisa menunjukkan adanya konstruksi dinding bata dengan ketebalan yang cukup besar, menandakan bahwa bangunan ini dibangun untuk tujuan pertahanan serius. Di beberapa titik, masih terlihat sisa-sisa fondasi dan susunan bata kuno yang memperlihatkan teknik konstruksi Eropa abad ke-18.
-        
-        Ekskavasi yang pernah dilakukan di kawasan ini menemukan berbagai artefak seperti pecahan keramik Eropa, logam bekas senjata, uang koin kuno, dan berbagai peralatan sehari-hari yang mencerminkan kehidupan orang-orang yang pernah menghuni benteng tersebut.
-        
-        Nilai historis situs ini sangat tinggi karena menjadi titik pertemuan antara peradaban lokal Kutai dengan arus besar sejarah kolonialisme Eropa di Asia Tenggara. Penelitian lebih lanjut di situs ini dapat memberikan banyak informasi tentang dinamika hubungan diplomatik dan perdagangan antara Kesultanan Kutai dengan kekuatan-kekuatan Eropa pada masa lalu.
-        
-        Kondisi situs saat ini memerlukan perhatian serius untuk pelestariannya mengingat ancaman dari erosi sungai, pertumbuhan vegetasi liar, dan kurangnya perlindungan formal.`,
-        photos:['benteng-1','benteng-2','benteng-3','benteng-4'],
-        relatedStories:[]
+        "id": 11, 
+        "slug": "situs-kerajaan-kutai-lama",
+        "name": "Situs Kerajaan Kutai Lama",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Kutai Lama, Kec. Anggana, Kab. Kutai Kartanegara",
+        "lat": -0.6050, 
+        "lng": 117.2550,
+        "summary": "Reruntuhan pemukiman dan pusat pemerintahan asli Kerajaan Kutai sebelum pusat kekuasaan dipindahkan ke Tenggarong.",
+        "description": "Situs Kerajaan Kutai Lama yang terletak di Kecamatan Anggana merupakan tapak sejarah yang sangat penting, karena di sinilah pusat pemerintahan Kerajaan Kutai berada sebelum akhirnya mengalami pemindahan ke Tenggarong oleh Aji Imbut pada abad ke-18. Kawasan ini pernah menjadi pusat aktivitas perdagangan, pemerintahan, dan keagamaan yang ramai selama berabad-abad.\n\nBerbeda dengan Tenggarong yang dipenuhi bangunan megah, Situs Kerajaan Kutai Lama kini menyisakan mostly reruntuhan yang tersembunyi di bawah pepohonan dan semak belukar. Namun justru di balik kesunyian itu, terdapat jejak-jejak luar biasa berupa fondasi-fondasi bangunan dari batu dan bata kuno, sumur-sumur tua, serta pecahan-pecahan keramik yang tersebar di permukaan tanah.\n\nPemindahan ibukota dari Kutai Lama ke Tenggarong bukanlah tanpa alasan. Berdasarkan catatan sejarah lisan dan bukti geologis, sungai di sekitar Kutai Lama mengalami pendangkalan yang sangat parah pada masanya. Kapal-kapal besar tidak bisa lagi bersandar, menyebabkan aktivitas ekonomi kerajaan lumpuh total. Selain itu, wabah penyakit endemik juga membuat lingkungan ini tidak lagi layak huni bagi keluarga kerajaan.\n\nSaat rombongan Aji Imbut pergi membawa harta dan keluarga kerajaan ke Tenggarong, Kutai Lama perlahan ditinggalkan. Bangunan-bangunan kayu yang tidak terawat lapuk dimakan usia, sedangkan pondasi-pondasi batunya tertimbun oleh lumpur dan tanah sedimentasi sungai. Proses perpindahan ini mirip seperti kota Pompeii, dimana sebuah peradaban meninggalkan bekasnya secara tiba-tiba.\n\nPara arkeolog dari Balai Arkeologi Kalimantan Timur secara berkala melakukan survei di kawasan ini. Mereka menemukan bahwa tata kota di Kutai Lama sudah sangat maju, dengan sistem drainase yang terencana dan pembagian zona antara kawasan kerajaan, perdagangan, dan pemukiman rakyat biasa.\n\nKeberadaan Situs Kerajaan Kutai Lama ini memberikan pelajaran berharga tentang dinamika peradaban manusia dalam beradaptasi dengan alam. Sebuah kerajaan yang besar bisa saja runtuh atau dipindahkan jika mereka tidak mampu menjaga ekosistem sungai yang menjadi nafas kehidupan mereka.\n\nUpaya pelestarian situs ini memang cukup menantang karena sebagian besar tanahnya sudah beralih fungsi menjadi perkebunan dan permukiman warga. Namun, pemerintah daerah bersama tokoh masyarakat terus berupaya membatasi pembangunan di area-zone yang diduga kuat sebagai inti dari istana kerajaan kuno tersebut, agar warisan sejarah awal mula kejayaan Kutai tidak musnah selamanya.",
+        "photos": ["kutai-lama-1", "kutai-lama-2", "kutai-lama-3", "kutai-lama-4"],
+        "relatedStories": [16]
     },
     {
-        id:12, slug:'makam-aji-imbut',
-        name:'Makam Aji Imbut',
-        category:'makam-kerajaan',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Tenggarong Seberang, Kab. Kutai Kartanegara',
-        lat:-0.4880, lng:117.1400,
-        summary:'Makam tokoh penting dari garis keturunan bangsawan Kerajaan Kutai Kartanegara.',
-        description:`Makam Aji Imbut merupakan situs pemakaman yang berkaitan dengan salah satu tokoh penting dari garis keturunan bangsawan Kesultanan Kutai Kartanegara. Terletak di kawasan Tenggarong Seberang, makam ini menjadi salah satu peninggalan sejarah yang menyimpan kisah tentang struktur sosial dan politik kerajaan Kutai.
-        
-        Aji Imbut adalah salah satu nama bergelar yang diberikan kepada anggota keluarga kerajaan Kutai. Gelar "Aji" dalam tradisi Kutai menandakan status kebangsawanan yang tinggi, sementara nama "Imbut" merujuk pada identitas pribadi sang tokoh. Keberadaan makamnya yang terawat menunjukkan bahwa sang tokoh memiliki peranan penting dalam sejarah kesultanan.
-        
-        Kompleks makam berada di kawasan yang dikelilingi oleh pepohonan tropis yang rindang dan lebat, menciptakan suasana yang teduh dan sakral. Vegetasi alami yang mengelilingi makam seolah menjadi penjaga alami yang memberikan perlindungan terhadap gangguan dari luar.
-        
-        Struktur makam memperlihatkan perpaduan arsitektur Islam dan tradisi pemakaman Kutai yang unik. Nisan batu dengan ukiran kaligrafi Arab yang sudah terlihat tua dan berlumut mencerminkan usia makam yang cukup tua. Di sekitar makam utama terdapat beberapa makam kecil yang diyakini sebagai makam kerabat dan pengikut sang tokoh.
-        
-        Masyarakat setempat masih menjaga tradisi ziarah ke makam ini terutama pada hari-hari tertentu dalam kalender Islam. Mereka membawa sesajian berupa bunga, dupa, dan air wangi sebagai bentuk penghormatan kepada leluhur yang diyakini memiliki kekuatan spiritual.
-        
-        Situs ini menjadi bukti bahwa wilayah Kutai Kartanegara memiliki jejak sejarah kebangsawanan yang tersebar di berbagai penjuru, tidak hanya terpusat di Tenggarong sebagai ibukota kesultanan.`,
-        photos:['imbut-1','imbut-2','imbut-3','imbut-4'],
-        relatedStories:[]
+        "id": 12, 
+        "slug": "tugu-pembantaian-jepang-loa-kulu",
+        "name": "Tugu Pembantaian Jepang Loa Kulu",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Loa Kulu, Kec. Loa Kulu, Kab. Kutai Kartanegara",
+        "lat": -0.4900, 
+        "lng": 116.9500,
+        "summary": "Monumen peringatan tragedi kelam pembantaian ratusan warga sipil oleh tentara Jepang pada masa pendudukan Perang Dunia II.",
+        "description": "Tugu Pembantaian Jepang Loa Kulu berdiri kokoh di tengah pemukiman warga sebagai pengingat kelam yang tidak boleh dilupakan. Monumen ini didirikan untuk memperingati tragedi mengerikan yang menimpa ratusan warga sipil Loa Kulu yang dibantai tanpa belas kasihan oleh tentara Kekaisaran Jepang pada masa pendudukan sekitar tahun 1944-1945.\n\nTragedi ini bermula dari desas-desus di kalangan tentara Jepang bahwa warga Loa Kulu menyembunyikan para pejuang gerilya atau terlibat dalam aksi spionase melawan tentara Dai Nippon. Tanpa proses pengadilan yang layak, tentara Jepang langsung melakukan operasi penyisiran dan penangkapan massal terhadap laki-laki di atas usia 15 tahun.\n\nWarga yang ditangkap kemudian diikat dan dibawa ke sebuah lokasi pembantaian. Dengan kejam, mereka dieksekusi menggunakan pedang samurai atau dibantai secara massal. Tubuh mereka kemudian ditimbun dalam satu lubang besar secara bersamaan. Peristiwa ini menciptakan trauma mendalam bagi masyarakat Loa Kulu yang kehilangan sosok ayah, suami, dan putra-putra mereka dalam satu malam.\n\nSetelah Indonesia merdeka, melalui pencarian oleh keluarga korban, akhirnya ditemukan massa kuburan tersebut. Tulang-tulang korban kemudian dikumpulkan dan dimakamkan secara layak di kompleks tugu ini. Bangunan tugu itu sendiri didesain dengan corak yang cukup sederhana namun menyiratkan kesedihan, dilengkapi dengan relief yang menggambarkan penderitaan rakyat di bawah bayonet tentara Jepang.\n\nSetiap tanggal 17 Agustus dan hari-hari besar kemerdekaan lainnya, masyarakat Loa Kulu selalu menggelar ritual ziarah dan tabur bunga di tugu ini. Ini bukan sekadar upacara seremonial, melainkan proses penyembuhan trauma lintas generasi dan pembentukan karakter nasionalisme bagi generasi muda.\n\nTugu ini menjadi bukti nyata bahwa perjuangan kemerdekaan Indonesia tidak hanya terjadi di medan pertempuran, tetapi juga menyimpan cerita-cerita tragis di balik garis pertahanan musuh. Loa Kulu mungkin tidak dikenal secara nasional, tetapi di hati masyarakat Kutai, tugu ini adalah monumen kepahlawanan yang setara dengan monumen-monumen besar lainnya.\n\nPemerintah daerah menjaga keberadaan tugu ini dengan baik, menjadikannya sebagai salah satu situs sejarah wajib bagi pelajar di Kutai Kartanegara untuk mempelajari sejarah lokal tentang kekejaman perang dan harga sebuah kemerdekaan.",
+        "photos": ["tugu-loakulu-1", "tugu-loakulu-2", "tugu-loakulu-3", "tugu-loakulu-4"],
+        "relatedStories": [36]
     },
     {
-        id:13, slug:'situs-situnggal-lama',
-        name:'Situs Situnggal Lama',
-        category:'situs-arkeologi',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Desa Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara',
-        lat:0.0900, lng:117.3100,
-        summary:'Situs arkeologi di kawasan Muara Kaman dengan peninggalan struktur pemukiman kerajaan kuno.',
-        description:`Situs Situnggal Lama merupakan kawasan situs arkeologi yang terletak di wilayah Muara Kaman, tidak jauh dari Situs Percandian Muara Kaman. Nama "Situnggal" dalam bahasa setempat merujuk pada suatu tempat yang istimewa atau berbeda dari lingkungan sekitarnya, sementara "Lama" menunjukkan usia lokasi yang sudah tua.
-        
-        Ekskavasi yang dilakukan oleh tim arkeologi di kawasan ini menemukan berbagai indikator keberadaan pemukiman kerajaan dari masa yang diperkirakan bersamaan atau tidak lama setelah masa kejayaan Kerajaan Kutai Martadipura. Temuan-temuan ini memberikan gambaran tentang tata kehidupan masyarakat kerajaan kuno.
-        
-        Artefak-artefak penting yang ditemukan di situs ini meliputi pecahan keramik dari Tiongkok periode Dinasti Tang dan Song, menunjukkan adanya perdagangan internasional; berbagai jenis tembikar lokal yang mencerminkan teknologi pembuatan gerabah masa lampau; serta sisa-sisa struktur bangunan yang terbuat dari batu bata dan kayu yang sudah terurai.
-        
-        Lapisan tanah di situs ini menyimpan cerita panjang tentang aktivitas manusia dari berbagai periode. Analisis stratigrafi menunjukkan adanya setidaknya tiga lapisan budaya yang berbeda, mengindikasikan bahwa kawasan ini pernah dihuni secara berkelanjutan selama beberapa abad.
-        
-        Kondisi situs saat ini masih dalam tahap penelitian aktif. Tim arkeologi dari Balai Arkeologi Kalimantan secara periodik melakukan penggalian untuk mengumpulkan data dan artefak yang kemudian dianalisis di laboratorium. Setiap musim penggalian selalu memberikan temuan baru yang memperkaya pemahaman tentang peradaban Kutai kuno.
-        
-        Potensi situs ini untuk dikembangkan sebagai destinasi wisata arkeologi sangat besar, mengingat letaknya yang berdekatan dengan situs-situs penting lainnya di kawasan Muara Kaman yang secara keseluruhan membentuk sebuah kawasan arkeologi yang komprehensif.`,
-        photos:['situnggal-1','situnggal-2','situnggal-3','situnggal-4'],
-        relatedStories:[5]
+        "id": 13, 
+        "slug": "terowongan-batubara-belanda-loa-kulu",
+        "name": "Terowongan Batubara Belanda Loa Kulu",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Loa Kulu, Kec. Loa Kulu, Kab. Kutai Kartanegara",
+        "lat": -0.4850, 
+        "lng": 116.9400,
+        "summary": "Sisa-sisa terowongan tambang bawah tanah peninggalan kolonial Belanda yang menjadi bukti awal eksploitasi batubara di Kalimantan.",
+        "description": "Terowongan Batubara Belanda di Loa Kulu adalah saksi bisu dari sejarah panjang industrialisasi pertambangan di Kalimantan Timur. Pada akhir abad ke-19 hingga awal abad ke-20, Kalimantan Timur sudah menjadi incaran perusahaan-perusahaan Barat untuk dieksploitasi kekayaan alamnya, khususnya batubara, jauh sebelum perusahaan minyak modern masuk.\n\nTerowongan ini dibangun oleh pemerintah kolonial Hindia Belanda dengan menggunakan tenaga kerja paksa (Romusha) yang mayoritas diambil dari penduduk pribumi setempat. Pembangunan terowongan bawah tanah pada masanya merupakan sebuah proyek rekayasa sipil yang sangat berisiko tinggi, mengingat keterbatasan alat berat dan pengetahuan geologi pada saat itu.\n\nMemasuki area terowongan saat ini, pengunjung akan disambut oleh mulut gua berbentuk lengkungan yang terbuat dari susunan batu bata merah kuno. Batu-bata tersebut masih sangat kokoh menahan tekanan tanah di atasnya selama lebih dari satu abad. Di dalam lorong yang gelap dan lembab, terlihat sisa-sisa rel kereta lori kecil dari kayu dan besi yang digunakan untuk mengangkut batubara dari dalam lubang menuju tempat penampungan di sungai.\n\nKondisi di dalam terowongan memang cukup memprihatinkan dan berbahaya jika dimasuki tanpa panduan. Beberapa bagian lorong sudah mengalami longsor atau tergenang air tanah yang jernih. Namun, keadaan ini justru menambah kesan dramatis tentang betapa beratnya penderitaan pekerja paksa yang harus bekerja di dalam kegelapan dengan napas tersengal selama bertahun-tahun.\n\nDi sekitar area terowongan, masih dapat ditemukan sisa-sisa bangunan infrastruktur Belanda seperti fondasi-lokasi kantor administrasi tambang, tempat penyimpanan mesin, dan rel kereta api yang membentang mengikuti kontur sungai untuk mengangkut batubara ke kapal-kapal tongkang di Muara Mahakam.\n\nKeberadaan Terowongan Batubara Belanda ini sangat penting untuk melengkapi narasi sejarah ekonomi Kutai. Ia membuktikan bahwa sebelum Indonesia merdeka, kekayaan alam Kalimantan sudah dieksploitasi besar-besaran oleh asing, namun tidak banyak meninggalkan kesejahteraan bagi masyarakat pribumi, melainkan hanya menyisakan luka dan lubang-lubang tambang yang terbengkalai.\n\nPemerintah daerah dan kalangan pecinta sejarah terus mendorong agar terowongan ini tidak ditutup total atau dirusak oleh aktivitas tambang modern saat ini. Ia harus dijadikan sebagai situs warisan industri (Industrial Heritage) yang bisa dikembangkan menjadi wisata edukasi sejarah tambang yang unik di Kalimantan Timur.",
+        "photos": ["terowongan-1", "terowongan-2", "terowongan-3", "terowongan-4"],
+        "relatedStories": [35]
     },
     {
-        id:14, slug:'balai-adat-kutai',
-        name:'Balai Adat Kutai Kartanegara',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Jl. Wolter Monginsidi, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5030, lng:117.1545,
-        summary:'Balai adat yang menjadi pusat kegiatan tradisi dan budaya masyarakat Kutai Kartanegara.',
-        description:`Balai Adat Kutai Kartanegara merupakan bangunan yang berfungsi sebagai pusat penyelenggaraan berbagai kegiatan adat dan budaya masyarakat Kutai. Keberadaan balai adat ini mencerminkan komitmen masyarakat dan pemerintah dalam menjaga keberlangsungan tradisi dan nilai-nilai budaya leluhur.
-        
-        Bangunan balai adat dirancang dengan mempertimbangkan arsitektur tradisional Kutai yang khas, dengan atap bertingkat yang menyerupai mahkota dan ornamen-ornamen ukiran kayu yang mencerminkan motif-motif tradisional Kutai dan Dayak. Setiap detail arsitektur memiliki makna filosofis yang dalam.
-        
-        Di balai adat ini, berbagai upacara adat Kutai dilaksanakan sepanjang tahun, mulai dari upacara pernikahan adat, upacara syukuran, ritual-ritual terkait siklus pertanian, hingga berbagai pertemuan adat yang membahas masalah-masalah yang berkaitan dengan kehidupan masyarakat adat.
-        
-        Salah satu fungsi paling penting balai adat adalah sebagai tempat musyawarah para tetua adat dan pemangku adat dalam menyelesaikan berbagai perselisihan dan permasalahan sosial berdasarkan hukum adat Kutai yang telah berlaku turun-temurun.
-        
-        Balai adat juga berfungsi sebagai ruang belajar bagi generasi muda yang ingin memahami dan mewarisi tradisi budaya leluhur. Berbagai pelatihan tari tradisional, musik gamelan Kutai, seni ukir, dan tenun dilaksanakan di sini secara reguler.
-        
-        Kehadiran Balai Adat Kutai Kartanegara menjadi penting dalam konteks modernisasi yang berlangsung cepat, karena menyediakan ruang fisik dan institusional untuk mempertahankan identitas budaya Kutai di tengah arus perubahan zaman.`,
-        photos:['balai-1','balai-2','balai-3','balai-4'],
-        relatedStories:[]
+        "id": 14, 
+        "slug": "rumah-penjara-sanga-sanga",
+        "name": "Rumah Penjara Sanga-Sanga",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Kecamatan Sanga-Sanga, Kab. Kutai Kartanegara",
+        "lat": -0.5500, 
+        "lng": 117.0800,
+        "summary": "Bangunan penjara peninggalan era kolonial Belanda yang menjadi saksi bisu penderitaan pejuang dan tahanan politik.",
+        "description": "Tersembunyi di antara pepohonan rindang di kawasan Sanga-Sanga, terdapat sebuah bangunan tua yang cukup menakutkan jika mengetahui sejarahnya. Rumah Penjara Sanga-Sanga ini dibangun pada masa pemerintahan kolonial Belanda sebagai fasilitas untuk memenjarakan para tahanan, mulai dari kriminal biasa hingga para pejuang kemerdekaan yang ditangkap karena dianggap mengancam kestabilan pemerintahan Hindia Belanda.\n\nArsitektur bangunan penjara ini sangat khas dengan gaya kolonial yang bersifat utilitarian. Dindingnya dibuat dari batu bata merah yang sangat tebal (hampir setengah meter) dengan tujuan agar tahanan tidak bisa menerobos keluar. Jendela-jendelanya sangat kecil, tinggi, dan dilengkapi jeruji besi yang kuat, hanya berfungsi untuk sirkulasi udara dan masuknya sedikit cahaya, menciptakan suasana kelam di dalam sel.\n\nDi dalam bangunan, terdapat beberapa ruang sel isolasi yang sempit dan gelap. Konon, sel-sel inilah yang digunakan untuk menyiksa atau menginterogasi para tahanan politik yang tidak mau membongkar jaringan perlawanan rakyat terhadap Belanda. Beberapa saksi sejarah mengatakan bahwa dinding-dinding di area ini masih menyimpan bekas-bekas cakaran atau tulisan yang dibuat oleh tahanan menggunakan paku.\n\nKetika Jepang mengambil alih kekuasaan dari Belanda pada tahun 1942, fungsi penjara ini tidak hilang, justru penggunaannya semakin kejam. Tentara Jepang juga memanfaatkan bangunan ini untuk menahan para tawanan perang Sekutu maupun pribumi yang dicurigai sebagai mata-mata. Luka sejarah di Sanga-Sanga semakin dalam pada masa penduduran Jepang.\n\nSetelah Indonesia merdeka, bangunan ini sempat tidak terawat dan nyaris rubuh. Namun karena nilai sejarahnya yang sangat tinggi, pemerintah daerah kemudian melakukan rehabilitasi besar-besaran. Struktur atap dan sebagian dinding yang rusak diperbaiki, namun elemen-elemen asli seperti jeruji besi dan pintu kayu tebal tetap dipertahankan untuk menjaga keaslian sejarah.\n\nKini, Rumah Penjara Sanga-Sanga telah dialihfungsikan menjadi salah satu situs sejarah wajib kunjung. Di dalamnya sudah dipasang diorama dan panel informasi yang menceritakan kronologi penderitaan para pejuang di masa lalu. Nuansa mistis sering menyelimuti bangunan ini saat senja, namun itu hanya menambah kesan dramatis dari perjuangan para pahlawan.\n\nKeberadaan bangunan ini mengingatkan kita bahwa kemerdekaan yang kita nikmati saat ini, termasuk kebebasan untuk berinovasi dan menciptakan karya digital seperti aplikasi pemetaan budaya, dibangun di atas penderitaan dan pengorbanan nyawa manusia yang pernah terkurung di balik dinding tebal penjara ini.",
+        "photos": ["penjara-1", "penjara-2", "penjara-3", "penjara-4"],
+        "relatedStories": [12]
     },
     {
-        id:15, slug:'pendopo-agung-tenggarong',
-        name:'Pendopo Agung Tenggarong',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Jl. Pahlawan, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5000, lng:117.1480,
-        summary:'Pendopo kerajaan bersejarah yang kini digunakan sebagai pusat kegiatan pemerintahan dan budaya.',
-        description:`Pendopo Agung Tenggarong adalah bangunan bersejarah yang pada masa Kesultanan Kutai Kartanegara berfungsi sebagai tempat penyelenggaraan berbagai upacara resmi kerajaan dan pertemuan antara sultan dengan para pembesar dan tamu-tamu kerajaan. Keberadaannya mencerminkan tradisi kepemimpinan kerajaan Melayu yang sarat dengan protokol dan etika istana.
-        
-        Pendopo dalam tradisi kerajaan Melayu dan Jawa adalah ruang terbuka beratap yang berfungsi sebagai tempat pertemuan publik. Di Kesultanan Kutai, pendopo menjadi simbol keterbukaan sultan dalam menerima rakyatnya dan ruang di mana berbagai keputusan penting kerajaan diumumkan secara resmi.
-        
-        Arsitektur Pendopo Agung menampilkan ciri khas bangunan tradisional yang menggunakan kayu ulin sebagai material utama, dengan atap berbentuk joglo yang dimodifikasi mengikuti selera estetika Kutai. Tiang-tiang besar dari kayu ulin yang kokoh menjadi elemen struktural sekaligus elemen estetika yang menonjol.
-        
-        Berbagai ukiran halus menghiasi bagian-bagian pendopo, mulai dari motif flora dan fauna khas Kalimantan hingga motif-motif geometris yang mencerminkan pengaruh Islam. Setiap motif ukiran memiliki makna simbolis yang berkaitan dengan nilai-nilai kepemimpinan dan filosofi hidup masyarakat Kutai.
-        
-        Saat ini pendopo masih digunakan untuk berbagai kegiatan resmi pemerintahan dan budaya. Pada musim festival Erau Adat Kutai, pendopo menjadi salah satu lokasi utama penyelenggaraan berbagai rangkaian acara yang menarik ribuan penonton.
-        
-        Pemeliharaan dan pelestarian Pendopo Agung menjadi tanggung jawab bersama antara keluarga kesultanan, pemerintah daerah, dan masyarakat yang menyadari nilai sejarah dan budaya yang terkandung dalam bangunan bersejarah ini.`,
-        photos:['pendopo-1','pendopo-2','pendopo-3','pendopo-4'],
-        relatedStories:[]
+        "id": 15, 
+        "slug": "situs-gunung-selendang-sanga-sanga",
+        "name": "Situs Gunung Selendang Sanga-Sanga",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya / Situs Mitologi",
+        "address": "Kecamatan Sanga-Sanga, Kab. Kutai Kartanegara",
+        "lat": -0.5550, 
+        "lng": 117.0900,
+        "summary": "Formasi bukit unik yang dalam mitologi lokal dipercaya sebagai wujud perubahan seorang bidadari yang mengorbankan diri menjadi penghalang naga.",
+        "description": "Situs Gunung Selendang di Sanga-Sanga merupakan sebuah perpaduan sempurna antara warisan alam dan warisan budaya tak benda. Secara geologis, tempat ini adalah sebuah formasi bukit atau gundukan tanah yang memiliki kontur dan bentuk yang sangat unik, berbeda dengan bentang alam sekitarnya. Namun bagi masyarakat Sanga-Sanga, tempat ini adalah bukti nyata dari legenda yang sudah dipercaya turun-temurun.\n\nBukit ini dinamakan 'Gunung Selendang' karena bentuknya yang memanjang dan sedikit melengkung di bagian puncaknya, menyerupai selembar kain selendang yang tergeletak di permukaan tanah. Konon, menurut mitos yang sangat terkenal di kalangan masyarakat pesisir Mahakam, bukit ini dulunya adalah seorang gadis cantik bernama Putri Ayu yang berubah wujud.\n\nDalam legenda tersebut dikisahkan bahwa Sungai Mahakam di kawasan Sanga-Sanga dahulu diganggu oleh seekor naga raksasa buas yang memangsa nelayan. Putri Ayu, seorang bidadari dari kahyangan yang turun ke bumi, merasa iba dan menggunakan kekuatan gaibnya untuk menghentikan naga tersebut. Karena kekuatannya tidak cukup, ia melayangkan tubuhnya ke muara sungai untuk membentuk bendungan alami, namun tubuhnya malah berubah menjadi bukit batu yang kokoh.\n\nJika diperhatikan dengan teliti, kondisi alam di sekitar Gunung Selendang memang memiliki karakteristik yang sedikit aneh. Arus sungai di sekitar bukit ini sangat deras dan berbelit-belit, seolah-olah sungai itu 'dipaksa' membelah oleh keberadaan bukit tersebut. Fenomena alam ini diperkuat oleh keyakinan masyarakat bahwa itu adalah bekas 'pertempuran gaib' antara sang bidadari dan naga.\n\nDi kaki bukit, terdapat area yang dianggap keramat oleh warga setempat. Anda tidak akan menemukan sampah atau pohon yang ditebang sembarangan di zona tersebut. Masyarakat percaya bahwa siapa saja yang melakukan kerusakan di area Gunung Selendang akan mendapat musibah, seperti terkena penyakit kulit aneh atau perahunya terbalik saat melaut.\n\nSitus ini tidak dikelola seperti taman wisata pada umumnya, melainkan dibiarkan alami. Peziarah yang datang lebih untuk tujuan spiritual atau sekadar ingin menyaksikan langsung bagaimana sebuah cerita rakyat (folklore) bisa memiliki representasi fisik di dunia nyata.\n\nIntegrasi antara mitos Gunung Selendang dengan ekosistem sungai Mahakam menjadikan situs ini sangat potensial untuk dikembangkan sebagai destinasi wisata budaya berbasis cerita (storytelling tourism). Pengunjung tidak hanya disuguhi pemandangan alam, tetapi juga pengalaman mistis sejarah yang memperkaya imajinasi mereka.",
+        "photos": ["gunung-selendang-1", "gunung-selendang-2", "gunung-selendang-3", "gunung-selendang-4"],
+        "relatedStories": [7]
     },
     {
-        id:16, slug:'tugu-riam-kanan',
-        name:'Monumen Riam Kanan Muara Muntai',
-        category:'situs-arkeologi',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Muara Muntai, Kab. Kutai Kartanegara',
-        lat:-0.2800, lng:116.5000,
-        summary:'Monumen bersejarah di kawasan Danau Jempang yang mencatat peristiwa penting di pedalaman Kutai.',
-        description:`Monumen Riam Kanan di kawasan Muara Muntai merupakan salah satu peninggalan sejarah yang mencatat berbagai peristiwa penting di wilayah pedalaman Kutai Kartanegara. Kawasan Muara Muntai sendiri adalah salah satu kecamatan yang berbatasan langsung dengan Danau Jempang, danau terbesar di Kalimantan Timur.
-        
-        Keberadaan monumen ini berkaitan dengan sejarah panjang wilayah pedalaman Kutai yang memiliki dinamika historis tersendiri, terpisah namun tetap terhubung dengan pusat kekuasaan di Tenggarong. Wilayah pedalaman Kutai dengan sistem sungai dan danau yang kompleks merupakan kawasan yang kaya akan sumber daya alam dan memiliki populasi masyarakat yang beragam.
-        
-        Kawasan sekitar Muara Muntai dihuni oleh berbagai komunitas masyarakat, termasuk Suku Kutai asli, Suku Dayak Benuaq yang telah lama mendiami wilayah ini, serta berbagai komunitas pendatang dari berbagai suku di Nusantara. Keberagaman ini menciptakan kekayaan budaya yang unik dan menarik.
-        
-        Danau Jempang yang berada di dekat kawasan ini merupakan habitat bagi pesut Mahakam (Orcaella brevirostris), lumba-lumba air tawar yang langka dan menjadi spesies dilindungi. Keberadaan pesut Mahakam menjadi daya tarik ekowisata yang berkaitan erat dengan budaya dan kepercayaan masyarakat setempat yang menganggap pesut sebagai hewan keramat.
-        
-        Tradisi masyarakat di kawasan Muara Muntai menyimpan berbagai cerita rakyat dan ritual yang berkaitan dengan kehidupan di sekitar danau dan sungai. Upacara-upacara adat yang berkaitan dengan siklus air dan keselamatan dalam berlayar masih dilaksanakan oleh komunitas-komunitas tertentu.
-        
-        Monumen ini menjadi pengingat akan pentingnya kawasan pedalaman Kutai dalam keseluruhan narasi sejarah Kabupaten Kutai Kartanegara yang tidak hanya berpusat di wilayah pesisir sungai Mahakam bagian bawah.`,
-        photos:['riam-1','riam-2','riam-3','riam-4'],
-        relatedStories:[]
+        "id": 16, 
+        "slug": "kubur-tajau-gunung-selendang",
+        "name": "Kubur Tajau Gunung Selendang",
+        "category": "situs-arkeologi",
+        "status": "Cagar Budaya",
+        "address": "Kecamatan Sanga-Sanga, Kab. Kutai Kartanegara",
+        "lat": -0.5540, 
+        "lng": 117.0920,
+        "summary": "Situs pemakaman khusus menggunakan bejana keramik kuno (Tajau) yang merupakan tradisi unik masyarakat Kutai dan Dayak di masa lalu.",
+        "description": "Berbeda dengan kompleks makam pada umumnya yang menggunakan nisan batu atau kayu, Kubur Tajau di kawasan Gunung Selendang Sanga-Sanga merupakan fenomena arkeologi dan budaya yang sangat unik. Di sini, jenazah manusia tidak dikubur di dalam tanah secara langsung, melainkan dimasukkan ke dalam sebuah bejana keramik besar yang disebut 'Tajau'.\n\nTajau adalah bejana besar yang terbuat dari tanah liat berkualitas tinggi, umumnya berwarna cokelat kemerahan atau hitam, yang pada masa lalu didatangkan dari dinasti-dinasti Tiongkok kuno (seperti Dinasti Ming atau Qing). Awalnya, Tajau hanya digunakan sebagai wadah untuk menyimpan padi atau air. Namun seiring waktu, orang-orang kaya dan bangsawan mulai menjadikannya sebagai simbol status sosial.\n\nDalam tradisi kubur Tajau, jenazah dimasukkan ke dalam bejana tersebut dalam posisi janin (melipat). Kemudian, mulut Tajau ditutup dengan piring keramik lain dan disegel menggunakan tanah liat. Bejana itu kemudian ditanam di dalam tanah. Cara penguburan ini dipercaya sebagai bentuk penghormatan kepada roh agar jenazah tidak bersentuhan langsung dengan tanah yang dianggap kotor.\n\nSitus Kubur Tajau di Gunung Selendang ini ditemukan secara tidak sengaja oleh warga saat menggali tanah untuk membuat pondasi rumah. Temuan ini kemudian dilaporkan kepada tim arkeolog, dan saat ini area tersebut sudah diamankan. Beberapa Tajau yang ditemukan dalam kondisi utuh, sementara lainnya hanya berupa pecahan, namun pola penguburannya masih bisa diteliti.\n\nKeberadaan kubur Tajau ini membuktikan bahwa pada masanya, masyarakat pesisir Mahakam memiliki hubungan perdagangan yang sangat intens dengan kerajaan-kerajaan di luar Nusantara. Kemampuan mereka mendatangkan keramik besar dari Tiongkok yang harus menempuh pelayaran berbahaya melalui Laut Cina Selatan menunjukkan tingkat ekonomi yang tidak bisa diremehkan.\n\nSelain sebagai tempat pemakaman, kompleks Tajau ini juga sering dijadikan tempat ritual oleh masyarakat setempat. Terkadang, setelah panen atau saat menghadapi musim paceklik, warga akan memberikan sesajen di area kubur ini. Mereka meyakini bahwa roh-roh para tetua yang dimakamkan di dalam Tajau masih menjaga kesejahteraan desa.\n\nPelestarian situs ini sangat penting karena memberikan gambaran tentang pandangan hidup (cosmology) masyarakat masa lalu mengenai kehidupan dan kematian. Bagi mereka, kematian bukanlah akhir, melainkan sebuah transisi ke tahap kehidupan lain yang memerlukan 'wadah' yang layak dan sakral, yang dalam hal ini diwujudkan dalam bentuk Tajau.",
+        "photos": ["kubur-tajau-1", "kubur-tajau-2", "kubur-tajau-3", "kubur-tajau-4"],
+        "relatedStories": [20, 7]
     },
     {
-        id:17, slug:'makam-aji-siti-rumini',
-        name:'Makam Aji Siti Rumini',
-        category:'makam-kerajaan',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5100, lng:117.1600,
-        summary:'Makam putri bangsawan Kutai yang menjadi salah satu situs pemakaman bersejarah di Tenggarong.',
-        description:`Makam Aji Siti Rumini adalah situs pemakaman yang berkaitan dengan seorang putri dari kalangan bangsawan Kesultanan Kutai Kartanegara. Keberadaan makam ini menjadi bagian dari jaringan situs pemakaman kerajaan yang tersebar di wilayah Tenggarong, mencerminkan kompleksitas struktur sosial dan kekerabatan dalam sistem kerajaan Kutai.
-        
-        Dalam hierarki sosial Kesultanan Kutai, perempuan dari kalangan bangsawan memiliki posisi yang penting dan dihormati. Mereka tidak hanya berperan sebagai ibu dan istri, tetapi juga sebagai penjaga tradisi, pendidik bagi anak-anak dan anggota keluarga, serta dalam beberapa kasus sebagai penasehat dan pengambil keputusan dalam urusan internal kerajaan.
-        
-        Aji Siti Rumini, sebagaimana tercermin dari namanya yang menggunakan gelar "Aji" sebagai penanda kebangsawanan dan "Siti" yang merujuk pada nama perempuan dengan nuansa islami, kemungkinan hidup pada periode ketika Islam sudah mengakar kuat dalam kehidupan istana Kesultanan Kutai.
-        
-        Makam ini memiliki nisan yang diukir dengan kaligrafi Arab yang indah, menunjukkan pengaruh seni Islam dalam tradisi pemakaman bangsawan Kutai. Batu nisan yang sudah berlumut dan menghitam karena usia mencerminkan betapa lama makam ini telah ada dan menjadi bagian dari lanskap sejarah Tenggarong.
-        
-        Masyarakat setempat masih menghormati makam ini dan secara berkala membersihkan serta merawatnya. Tradisi ziarah ke makam-makam leluhur bangsawan masih dipertahankan sebagai bentuk penghormatan kepada para pendahulu yang telah membangun dan mempertahankan kebudayaan Kutai.
-        
-        Situs ini menjadi bagian dari rute napak tilas sejarah Kesultanan Kutai yang dapat membantu pengunjung memahami kompleksitas kehidupan di lingkungan istana Kutai pada masa lampau.`,
-        photos:['rumini-1','rumini-2','rumini-3','rumini-4'],
-        relatedStories:[]
+        "id": 17, 
+        "slug": "makam-aji-pangeran-sinom-panji-mendapa",
+        "name": "Makam Aji Pangeran Sinom Panji Mendapa",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Jl. Diponegoro, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5060, 
+        "lng": 117.1570,
+        "summary": "Makam salah satu tokoh bangsawan berpengaruh yang berjasa dalam konsolidasi kekuasaan dan keilmuan di era awal Kesultanan Kutai.",
+        "description": "Di dalam kompleks pemakaman kerajaan yang luas, Makam Aji Pangeran Sinom Panji Mendapa memiliki keistimewaan tersendiri, baik dari segi bentuk arsitektur maupun nilai sejarah tokoh yang dimakamkan di dalamnya. Aji Pangeran Sinom Panji Mendapa bukan seorang Sultan, melainkan seorang perdana menteri atau patih yang memiliki pengaruh besar dalam pemerintahan Kesultanan Kutai pada zamannya.\n\nNama 'Sinom Panji Mendapa' sendiri berasal dari bahasa Jawa Kuno yang memiliki makna mendalam, menunjukkan adanya pengaruh budaya Hindu-Jawa yang masih kental pada awal berdirinya Kesultanan Kutai. 'Sinom' merujuk pada jenis metrum dalam puisi Jawa, sementara 'Mendapa' berarti pendopo atau balai pertemuan. Hal ini mengindikasikan bahwa tokoh ini bukan hanya ahli dalam pemerintahan, tetapi juga seorang sastrawan atau cendekiawan yang luas bacaannya.\n\nMakam ini memiliki ciri khas yang membedakannya dari makam Sultan lainnya. Jirat atau pagar makamnya dibuat dengan ornamen yang sangat rumit, memadukan ukiran flora khas Kalimantan dengan motif geometris Islam. Nisannya berukuran lebih besar dari nisan biasa, menandakan statusnya yang sangat tinggi dan dihormati di lingkungan keraton.\n\nDalam catatan sejarah lisan, Aji Pangeran Sinom Panji Mendapa dikenal sebagai figur yang berhasil meredakan konflik internal antar keluarga kerajaan dan menyatukan kembali kekuatan Kesultanan yang sempat terpecah. Ia juga dikenal sebagai penasihat utama dalam mengambil kebijakan hubungan diplomatik dengan kerajaan-kerajaan tetangga dan pedagang asing.\n\nKonon, setelah wafatnya, prosesi pemakaman tokoh ini dilakukan dengan sangat megah. Ribuan rakyat memadati jalanan, dan keraton mengeluarkan seluruh pusaka kerajaan untuk mengantar jenazahnya ke pemakaman. Kehebatannya di masa hidupnya membuat makamnya kemudian menjadi salah satu yang paling sering diziarahi oleh pejabat dan masyarakat.\n\nSaat ini, makam ini menjadi objek kajian menarik bagi sejarawan. Keberadaannya membuktikan bahwa di balik kekuasaan seorang Sultan, selalu ada figur cendekiawan dan birokrat tangguh yang menjalankan roda pemerintahan. Pemakaman yang terawat ini memberikan kesempatan kepada generasi masa kini untuk mengenang jasa-jasa pahlawan intelektual dari masa lalu.\n\nKebersihan dan keasrian area makam ini dijaga oleh keluarga keraton yang masih tinggal di sekitar kompleks. Setiap tahun, pada bulan Maulid, doa bersama selalu diadakan di makam ini sebagai bentuk penghormatan kepada sang patih yang telah mengabdi sepenuhnya kepada Kesultanan Kutai Kartanegara.",
+        "photos": ["makam-sinom-1", "makam-sinom-2", "makam-sinom-3", "makam-sinom-4"],
+        "relatedStories": [28]
     },
     {
-        id:18, slug:'situs-bukit-batu-enggang',
-        name:'Situs Bukit Batu Enggang',
-        category:'situs-arkeologi',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Kota Bangun, Kab. Kutai Kartanegara',
-        lat:-0.2500, lng:116.8000,
-        summary:'Situs berupa formasi batu unik di kawasan Kota Bangun yang memiliki nilai historis dan spiritual.',
-        description:`Situs Bukit Batu Enggang adalah kawasan yang memiliki formasi batuan alam yang unik dan menyimpan berbagai nilai historis serta spiritual bagi masyarakat setempat. Terletak di wilayah Kecamatan Kota Bangun yang berada di tepi Sungai Mahakam, situs ini menjadi bagian dari kekayaan alam dan budaya kawasan pedalaman Kutai Kartanegara.
-        
-        Nama "Enggang" merujuk pada burung rangkong (Buceros) yang dalam budaya Dayak di Kalimantan memiliki kedudukan sangat istimewa sebagai simbol keagungan, kebijaksanaan, dan kekuatan. Burung enggang dengan paruh besar dan tanduk yang mencolok sering dijadikan motif dalam berbagai seni dan upacara adat Dayak, termasuk hiasan kepala dalam tarian perang.
-        
-        Formasi batuan di kawasan ini memiliki bentuk-bentuk yang oleh masyarakat setempat dikaitkan dengan berbagai tokoh dan peristiwa dalam mitologi lokal. Beberapa batu besar dipercaya memiliki kekuatan spiritual dan menjadi objek penghormatan dalam tradisi kepercayaan masyarakat Dayak yang masih memegang teguh keyakinan animistis.
-        
-        Di sekitar situs terdapat berbagai motif ukiran di atas batu yang usianya diperkirakan cukup tua. Motif-motif ini menggambarkan berbagai bentuk yang berkaitan dengan kehidupan masyarakat kuno, meskipun penelitian arkeologi yang mendalam belum sepenuhnya dilakukan untuk mendokumentasikan dan menganalisis semua motif yang ada.
-        
-        Kawasan Situs Bukit Batu Enggang juga memiliki nilai ekologis yang tinggi karena berada di kawasan hutan yang masih relatif terjaga. Berbagai jenis flora dan fauna khas Kalimantan dapat ditemukan di sekitar situs, menambah nilai keanekaragaman hayati kawasan ini.
-        
-        Potensi situs ini untuk dikembangkan sebagai destinasi ekowisata budaya sangat besar, mengingat kombinasi unik antara nilai alam, arkeologi, dan kepercayaan tradisional yang terkandung di dalamnya.`,
-        photos:['batu-1','batu-2','batu-3','batu-4'],
-        relatedStories:[]
+        "id": 18, 
+        "slug": "situs-makam-ulama-kutai",
+        "name": "Situs Makam Ulama Kutai",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Jl. KH. Wahid Hasyim, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5075, 
+        "lng": 117.1555,
+        "summary": "Kompleks pemakaman para ulama dan tokoh agama yang berjasa menyebarkan dan memperkuat akidah Islam di tanah Kutai.",
+        "description": "Situs Makam Ulama Kutai merupakan area pemakaman yang terletak sedikit terpisah dari kompleks makam raja-raja. Kawasan ini diperuntukkan khusus bagi para ulama, kiai, dan tokoh agama yang sangat berjasa dalam menyebarkan ajaran Islam di Kutai Kartanegara. Keberadaan situs ini menunjukkan bahwa Kesultanan Kutai sangat menghormati para ulama dan menempatkan mereka pada posisi yang mulia.\n\nDi antara ratusan makam yang ada di sini, beberapa di antaranya memiliki nisan dengan ukiran kaligrafi Arab yang sangat indah dan rumit. Kaligrafi tersebut tidak sekadar tulisan biasa, melainkan sering kali memuat ayat-ayat Al-Quran atau doa-doa khusus yang diperkirakan ditulis tangan oleh para ahli kaligrafi pada masanya.\n\nBanyak dari para ulama yang dimakamkan di sini berasal dari luar Kutai, seperti dari Jawa, Sulawesi, atau bahkan Timur Tengah. Hal ini membuktikan bahwa Kesultanan Kutai sangat terbuka dalam menerima ilmu dari berbagai penjuru dunia Islam untuk memperkuat fondasi keagamaan kerajaan. Mereka datang untuk mengajar di masjid-masjid keraton atau menjadi penasihat spiritual bagi para Sultan.\n\nSatu makam yang sering menjadi perhatian adalah makam seorang ulama besar yang konon datang dari Hadramaut, Yaman. Makamnya memiliki ornamen khas Timur Tengah dan dipercaya memiliki berkah khusus. Masyarakat sering berziarah ke makam ini untuk memohon keselamatan, kesuksesan, atau mencari keberkahan dalam menuntut ilmu.\n\nKawasan makam ulama ini memiliki suasana yang sangat teduh dan damai, jauh dari hiruk pikuk kemacetatan kota. Pepohonan besar yang rindang menaungi nisan-nisan tua yang sudah berumur ratusan tahun, menciptakan atmosfer yang sangat kondusif untuk kontemplasi dan ibadah.\n\nSejarah mencatat bahwa para ulama ini tidak hanya mengajarkan ibadah ritual, tetapi juga berperan aktif dalam diplomasi, pendidikan, dan hukum adat. Mereka menjadi jembatan antara hukum syariat Islam dengan adat istiadat Melayu Kutai yang sudah mengakar kuat.\n\nPemerintah daerah bersama organisasi keagamaan setempat rutin melakukan bersih-bersih dan revitalisasi minor di area ini. Situs Makam Ulama Kutai bukan hanya sekadar tempat peristirahatan terakhir, tetapi juga telah bertransformasi menjadi sebuah 'kampus spiritual' informal yang terus menyebarkan aura kedamaian hingga kini.",
+        "photos": ["makam-ulama-1", "makam-ulama-2", "makam-ulama-3", "makam-ulama-4"],
+        "relatedStories": [30]
     },
     {
-        id:19, slug:'istana-kerajaan-kutai-lama',
-        name:'Situs Kutai Lama',
-        category:'situs-arkeologi',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Anggana, Kab. Kutai Kartanegara',
-        lat:-0.7200, lng:117.4500,
-        summary:'Kawasan historis Kutai Lama, lokasi istana pertama Kesultanan Kutai Kartanegara sebelum pindah ke Tenggarong.',
-        description:`Kawasan Kutai Lama di Kecamatan Anggana adalah salah satu tempat paling bersejarah di Kabupaten Kutai Kartanegara karena diyakini sebagai lokasi pusat pemerintahan Kesultanan Kutai pada periode awal sebelum ibu kota dipindahkan ke Tenggarong. Kawasan ini menyimpan lapisan sejarah yang panjang dan kompleks.
-        
-        Menurut sumber-sumber sejarah dan tradisi lisan yang diwariskan secara turun-temurun, Kutai Lama adalah lokasi pertama di mana para leluhur Kesultanan Kutai Kartanegara mendirikan pusat pemerintahan mereka. Pemilihan lokasi ini tidak lepas dari letaknya yang strategis di muara Sungai Mahakam, dekat dengan pertemuan sungai dan laut.
-        
-        Kawasan ini memiliki nilai sejarah berlapis, karena tidak hanya menjadi pusat pemerintahan kesultanan tetapi juga merupakan salah satu wilayah yang terlebih dahulu terkena pengaruh Islam di Kalimantan Timur. Beberapa makam kuno di kawasan ini diyakini sebagai makam ulama dan tokoh-tokoh awal yang membawa Islam ke Kutai.
-        
-        Di kawasan Kutai Lama juga terdapat beberapa bangunan tua yang masih berdiri, termasuk masjid-masjid tua dan rumah-rumah adat yang mencerminkan arsitektur tradisional Kutai dari berbagai masa. Bangunan-bangunan ini menjadi saksi bisu perjalanan panjang sejarah Islam dan kebudayaan Kutai di wilayah ini.
-        
-        Penelitian arkeologi yang dilakukan di beberapa titik di Kutai Lama menemukan berbagai artefak yang mengindikasikan adanya aktivitas pemukiman yang intensif dan berkepanjangan, mulai dari pecahan keramik Tiongkok kuno hingga berbagai jenis benda logam dan tembikar.
-        
-        Saat ini masyarakat di Kutai Lama masih mempertahankan berbagai tradisi dan adat istiadat yang berkaitan dengan sejarah panjang kawasan mereka, menjadikan Kutai Lama sebagai "living heritage" yang tidak hanya menyimpan peninggalan fisik tetapi juga warisan budaya tak benda yang hidup dalam keseharian masyarakat.`,
-        photos:['kutailama-1','kutailama-2','kutailama-3','kutailama-4'],
-        relatedStories:[]
+        "id": 19, 
+        "slug": "rumah-tradisional-kutai-tenggarong",
+        "name": "Rumah Tradisional Kutai Tenggarong",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Jl. Tepong Tawar, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5030, 
+        "lng": 117.1505,
+        "summary": "Contoh replika dan rumah asli berarsitektur khas Melayu Kutai yang menampilkan keindahan ukiran dan filosofi kehidupan masyarakat pesisir.",
+        "description": "Rumah Tradisional Kutai yang terletak di kawasan Tenggarong ini adalah representasi nyata dari kearifan lokal masyarakat Melayu Kutai dalam merancang hunian yang selaras dengan alam tropis Kalimantan. Rumah ini tidak hanya berfungsi sebagai tempat berteduh, tetapi juga sebagai cerminan status sosial, estetika, dan filosofi kehidupan masyarakat sungai.\n\nRumah adat Kutai ini dibangun dengan konsep rumah panggung yang tinggi. Tingginya rumah dari permukaan tanah bervariasi, tergantung pada status sosial pemiliknya. Semakin tinggi tiang rumah, semakin tinggi pula kedudukan pemiliknya di masyarakat. Tiang penyangga utamanya menggunakan kayu ulin yang diperkirakan bisa bertahan hingga ratusan tahun tanpa lapuk.\n\nSalah satu keunikan arsitektur Rumah Kutai terletak pada bentuk atapnya yang disebut 'Atap Loteng' atau 'Atap Perahu'. Atapnya sangat curam dan terdiri dari beberapa lapisan. Bagian depan atap biasanya dihias dengan ornamen kayu berukir yang disebut 'Sulur Bayur' atau 'Pilin', yang merupakan simbol persatuan dan keturunan. Atap ini terbuat dari sirap (kepingan kayu) yang sangat efektif menahan hujan deras dan panas terik matahari.\n\nInterior rumah dibagi menjadi beberapa ruangan dengan fungsi yang sangat spesifik. Bagian depan biasanya berfungsi sebagai 'Serambi' tempat menerima tamu laki-laki. Di bagian tengah terdapat ruang keluarga, sementara bagian belakang kiri dan kanan adalah kamar-kamar. Yang unik, rumah adat Kutai biasanya memiliki dua tangga naik yang terpisah, satu untuk laki-laki (tangga depan) dan satu untuk perempuan (tangga samping), mencerminkan adat norma sosial yang ketat.\n\nOrnamen ukiran pada dinding, jendela, dan pintu rumah sangat halus dan kaya makna. Motif-motif yang digunakan umumnya adalah flora dan fauna khas Mahakam, seperti burung enggang, ikan, dan sulur-suluran. Ukiran ini tidak hanya sebagai hiasan, tetapi juga sebagai media pendidikan karakter bagi penghuni rumah.\n\nKeberadaan Rumah Tradisional Kutai ini sangat penting di tengah arus modernisasi yang membuat banyak warga beralih ke rumah beton. Rumah ini menjadi bank data arsitektur lokal, tempat dimana tukang kayu generasi muda bisa mempelajari teknik pertukangan tradisional yang tidak diajarkan di sekolah formal.\n\nSaat ini, rumah ini sering digunakan untuk acara-acara adat seperti ritual Tepong Tawar, penerimaan tamu kehormatan, atau sekadar sebagai lokasi sesi foto wisatawan. Kehadirannya memperkuat identitas visual kota Tenggarong sebagai Kota Beradat yang menjunjung tinggi warisan leluhur.",
+        "photos": ["rumah-adat-1", "rumah-adat-2", "rumah-adat-3", "rumah-adat-4"],
+        "relatedStories": [29]
     },
     {
-        id:20, slug:'goa-tapak-kuda',
-        name:'Goa Tapak Kuda',
-        category:'situs-arkeologi',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Samboja, Kab. Kutai Kartanegara',
-        lat:-1.0800, lng:117.0200,
-        summary:'Goa alam dengan stalaktit dan stalakmit serta diduga memiliki jejak peradaban kuno di Samboja.',
-        description:`Goa Tapak Kuda adalah kawasan goa alam yang terletak di wilayah Kecamatan Samboja, Kabupaten Kutai Kartanegara. Nama goa ini berasal dari formasi batu di dalam goa yang oleh masyarakat setempat dikaitkan dengan tapak kuda, kemungkinan dari legenda atau cerita rakyat tentang makhluk mitologis atau pahlawan berkuda yang pernah melewati kawasan ini.
-        
-        Secara geologi, goa ini terbentuk oleh proses pelarutan batu gamping yang berlangsung selama ribuan tahun. Di dalamnya terdapat berbagai formasi stalaktit dan stalakmit yang indah, dengan bentuk-bentuk yang beragam dan menciptakan pemandangan alam bawah tanah yang spektakuler dan memukau.
-        
-        Dari aspek arkeologi, beberapa bagian goa menunjukkan tanda-tanda pernah dihuni atau dimanfaatkan oleh manusia pada masa lampau. Beberapa temuan berupa arang, pecahan tulang, dan fragmen peralatan batu menunjukkan adanya aktivitas manusia kuno di kawasan ini, meskipun belum ada penelitian mendalam yang dilakukan.
-        
-        Secara budaya, Goa Tapak Kuda memiliki nilai spiritual yang cukup tinggi bagi masyarakat setempat. Beberapa ritual dan upacara adat pernah dilaksanakan di kawasan goa ini, dan masyarakat percaya bahwa goa ini memiliki kekuatan supranatural yang perlu dihormati.
-        
-        Keanekaragaman hayati di sekitar dan di dalam goa juga sangat tinggi. Berbagai jenis kelelawar yang merupakan penghuni tetap goa, berbagai jenis serangga khas goa, dan berbagai tumbuhan yang tumbuh di mulut goa membentuk ekosistem yang unik dan saling bergantung.
-        
-        Potensi pengembangan Goa Tapak Kuda sebagai destinasi wisata alam dan budaya cukup besar, terutama dengan pengelolaan yang bijaksana yang dapat memadukan kebutuhan wisata dengan pelestarian ekosistem dan nilai budaya lokal.`,
-        photos:['goa-1','goa-2','goa-3','goa-4'],
-        relatedStories:[]
+        "id": 20, 
+        "slug": "kawasan-kedaton-kutai-kartanegara",
+        "name": "Kawasan Kedaton Kutai Kartanegara",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Jl. Diponegoro, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5045, 
+        "lng": 117.1515,
+        "summary": "Kompleks wilayah inti keraton yang menjadi pusat pemerintahan, pusaka kerajaan, dan simbol kekuasaan tertinggi Kesultanan Kutai.",
+        "description": "Kawasan Kedaton Kutai Kartanegara bukan sekadar sebuah bangunan tunggal, melainkan sebuah kompleks wilayah yang luas yang mencakup Istana, halaman, bangunan pendukung, hingga pagar keraton. Dalam bahasa Jawa, 'Kedaton' berarti tempat tinggal Raja, namun dalam konteks Kutai, Kedaton adalah sebuah negara kecil di dalam negara, dimana hukum dan tata tertib kerajaan berlaku sepenuhnya.\n\nKompleks ini dikelilingi oleh pagar yang terbuat dari kayu ulin atau batu bata, yang pada masanya berfungsi sebagai batas fisik antara wilayah kedaulatan Sultan dengan wilayah rakyat biasa. Pintu gerbang utama Kedaton selalu dijaga ketat oleh pasukan khusus kerajaan, dan hanya mereka yang memiliki izin khusus atau membawa surat tanda kebesaran yang boleh memasuki area ini.\n\nDi dalam kawasan Kedaton, tata ruang diatur secara sangat hierarkis. Bangunan utama (Istana) berada di posisi paling tengah dan paling tinggi, menghadap ke arah sungai Mahakam. Hal ini bukan tanpa alasan, karena sungai pada masa lalu adalah jalan utama, sehingga Sultan bisa memantau siapa saja yang datang melalui jalur air. Bangunan-bangunan di sebelah kiri dan kanan istana diperuntukkan bagi para menteri, kerabat dekat, dan gudang penyimpanan pusaka kerajaan.\n\nSalah satu bangunan penting di dalam Kedaton selain istana utama adalah 'Balai Sesat' atau balai pertemuan. Tempat inilah yang menjadi ajang musyawarah besar, tempat Sultan memutuskan nasib rakyatnya, mengadili perkara hukum, atau menerima utusan dari kerajaan lain. Arsitektur Balai Sesat biasanya terbuka tanpa dinding, melambangkan keterbukaan Sultan dalam mendengarkan keluhan rakyatnya.\n\nLantai Kedaton yang luas dan ditutupi pasir putih juga memiliki fungsi seremonial yang sangat penting. Area inilah yang digunakan sebagai lokasi pelaksanaan upacara adat terbesar, terutama Festival Erau. Pada saat Erau, lantai Kedaton berubah menjadi panggung megah yang menampung ribuan penari Jepen dan tetua adat.\n\nMeskipun saat ini sebagian besar fungsi pemerintahan sudah dipindahkan ke kantor-kantor pemerintahan modern, kawasan Kedaton tetap menjadi pusat simbolik. Ia menjadi hati identitas masyarakat Kutai. Jika Kedaton ini rusak atau terlupakan, maka dipastikan jati diri masyarakat Kutai juga akan menghilang.\n\nUpaya revitalisasi terus dilakukan untuk menjaga keasrian dan keaslian Kedaton. Beberapa bangunan yang roboh karena usia telah direkonstruksi menggunakan material asli sesuai dengan foto-foto dan catatan sejarah yang tersisa, menjaga agar roh dan estetika kerajaan Kutai tetap bernapas di era modern ini.",
+        "photos": ["kedaton-1", "kedaton-2", "kedaton-3", "kedaton-4"],
+        "relatedStories": [6, 39]
     },
     {
-        id:21, slug:'masjid-jamik-kota-bangun',
-        name:'Masjid Jami Kota Bangun',
-        category:'tempat-ibadah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Kota Bangun, Kab. Kutai Kartanegara',
-        lat:-0.2400, lng:116.7800,
-        summary:'Masjid tua bersejarah di Kota Bangun yang merupakan bukti penyebaran Islam di pedalaman Kutai.',
-        description:`Masjid Jami Kota Bangun adalah salah satu masjid tertua di wilayah pedalaman Kutai Kartanegara, menjadi bukti penting tentang sejarah penyebaran Islam di daerah pedalaman Kalimantan Timur yang terhubung melalui jalur Sungai Mahakam. Masjid ini telah menjadi pusat kehidupan keagamaan masyarakat Kota Bangun selama berabad-abad.
-        
-        Pembangunan masjid ini diperkirakan berlangsung pada masa ketika Islam sedang mengalami ekspansi ke wilayah-wilayah pedalaman Kalimantan melalui jalur perdagangan dan dakwah yang berjalan beriringan. Para pedagang dan ulama yang melintas di Sungai Mahakam menjadi agen penyebaran Islam yang penting.
-        
-        Arsitektur masjid memperlihatkan ciri khas bangunan keagamaan Islam di wilayah Kalimantan dengan pengaruh arsitektur Melayu yang kuat. Atap bertingkat tiga yang merupakan ciri khas masjid tradisional Kalimantan mencerminkan adaptasi arsitektur Islam terhadap kondisi alam dan budaya lokal.
-        
-        Material bangunan yang didominasi kayu ulin menunjukkan kearifan lokal dalam memanfaatkan sumber daya alam setempat. Kayu ulin yang dikenal sangat tahan lama telah memungkinkan bangunan ini bertahan hingga ratusan tahun tanpa mengalami kerusakan yang berarti.
-        
-        Di dalam masjid terdapat berbagai benda-benda bersejarah termasuk mimbar kayu ukir kuno, mushaf Al-Quran tulisan tangan berusia ratusan tahun, dan berbagai perlengkapan ibadah dari masa lampau yang masih terjaga dengan baik dan digunakan dalam kegiatan ibadah sehari-hari.
-        
-        Masjid ini masih aktif digunakan sebagai pusat ibadah dan kegiatan keagamaan masyarakat, mencerminkan kesinambungan tradisi Islam yang tidak terputus sejak masjid ini pertama kali dibangun.`,
-        photos:['masjid-kb-1','masjid-kb-2','masjid-kb-3','masjid-kb-4'],
-        relatedStories:[]
+        "id": 21, 
+        "slug": "balai-adat-kutai",
+        "name": "Balai Adat Kutai",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Jl. Diponegoro, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5050, 
+        "lng": 117.1520,
+        "summary": "Bangunan utama musyawarah adat tempat para tetua suku Kutai mengambil keputusan dan menjaga kelestarian tradisi.",
+        "description": "Jika Istana Kedaton adalah pusat kekuasaan politik Kesultanan, maka Balai Adat Kutai adalah pusat kekuasaan spiritual dan kultural masyarakat adatnya. Bangunan ini berfungsi sebagai tempat bermusyawarah bagi para tetua adat dari berbagai suku dan kelompok masyarakat di Kutai Kartanegara untuk membahas masalah yang menyangkut adat istiadat dan kearifan lokal.\n\nSecara arsitektur, Balai Adat memiliki kemiripan dengan rumah tradisional Kutai pada umumnya, namun ukurannya jauh lebih besar dan megah. Bangunan ini juga berupa rumah panggung tinggi yang dihiasi dengan ukiran-ukiran khas Kutai. Namun yang membedakannya adalah ruang utamanya yang tidak memiliki sekat, menciptakan sebuah ruangan luas tanpa hambatan yang melambangkan keterbukaan dalam musyawarah.\n\nDi dalam Balai Adat inilah berbagai keputusan penting diambil, mulai dari penetapan hari pelaksanaan Festival Erau, penentuan kalender tanam tradisional, hingga penyelesaikan sengketa adat antar kelompok masyarakat. Keputusan yang dihasilkan di Balai Adat ini biasanya memiliki kekuatan hukum adat yang sangat dihormati, bahkan oleh aparat pemerintah sekalipun.\n\nDi bagian depan halaman Balai Adat, biasanya terdapat sebuah lapangan terbuka yang digunakan untuk pelaksanaan upacara adat skala menengah. Konon, di halaman inilah pada masa lalu, para calon pemimpin diuji kebijaksanaannya melalui perdebatan adat yang dipimpin oleh para tetua.\n\nSaat ini, Balai Adat juga difungsikan sebagai mini museum adat yang menyimpan berbagai perlengkapan upacara, pakaian kebesaran para tetua, serta benda-benda pusaka adat yang tidak tersimpan di museum kerajaan. Keberadaan benda-benda ini sangat penting untuk legitimitas para tetua dalam menjalankan fungsinya.\n\nKeberadaan Balai Adat membuktikan bahwa meskipun sistem kesultanan telah berubah menjadi sistem pemerintahan modern, struktur sosial adat masyarakat Kutai tidak runtuh. Lembaga adat ini tetap berdiri kokoh, berdampingan dengan pemerintah desa dan kabupaten, menjaga nyala api tradisi agar tidak padam dimakan zaman.\n\nRenovasi dan pemeliharaan Balai Adat selalu dilakukan secara gotong royong oleh masyarakat, karena bangunan ini dianggap milik bersama. Bagi wisatawan, mengunjungi Balai Adat memberikan kesempatan untuk memahami sistem demokrasi adat Melayu yang sangat menjunjung tinggi musyawarah dan mufakat.",
+        "photos": ["balai-adat-1", "balai-adat-2", "balai-adat-3", "balai-adat-4"],
+        "relatedStories": [29, 39]
     },
     {
-        id:22, slug:'monumen-juang-kutai',
-        name:'Monumen Perjuangan Kutai',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Jl. Pahlawan, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.4985, lng:117.1465,
-        summary:'Monumen peringatan perjuangan rakyat Kutai dalam meraih dan mempertahankan kemerdekaan Indonesia.',
-        description:`Monumen Perjuangan Kutai adalah salah satu monumen bersejarah yang dibangun untuk menghormati dan mengenang para pahlawan serta pejuang kemerdekaan dari Kutai Kartanegara yang telah berjuang untuk meraih dan mempertahankan kemerdekaan Republik Indonesia. Keberadaan monumen ini menjadi pengingat akan besarnya pengorbanan yang telah dilakukan oleh putra-putri Kutai untuk bangsa dan negara.
-        
-        Sejarah perjuangan kemerdekaan di Kutai Kartanegara tidak bisa dilepaskan dari konteks yang lebih luas yaitu perjuangan nasional Indonesia melawan kolonialisme Belanda. Berbagai kelompok masyarakat di Kutai, mulai dari rakyat biasa hingga bangsawan kesultanan, turut serta dalam perjuangan yang panjang dan penuh pengorbanan ini.
-        
-        Salah satu babak penting dalam sejarah perjuangan kemerdekaan di Kutai adalah proses integrasi Kesultanan Kutai Kartanegara ke dalam wilayah Republik Indonesia. Sultan Aji Muhammad Parikesit, sultan terakhir Kesultanan Kutai, dikenal sebagai figur yang mendukung integrasi ke dalam NKRI sebagai wujud nasionalisme dan kecintaan kepada Indonesia.
-        
-        Monumen ini dibangun dengan desain yang mempertimbangkan unsur-unsur simbolis yang berkaitan dengan perjuangan dan patriotisme. Berbagai figur pejuang digambarkan dalam relief yang menghiasi monumen, mencerminkan keberagaman latar belakang para pejuang kemerdekaan dari Kutai.
-        
-        Kawasan sekitar monumen telah dikembangkan menjadi taman yang terawat, menjadi ruang publik yang nyaman untuk beristirahat sambil merenungkan nilai-nilai perjuangan dan kepahlawanan. Setiap tahun, terutama pada peringatan Hari Kemerdekaan, kawasan monumen menjadi tempat pelaksanaan berbagai upacara dan kegiatan peringatan.
-        
-        Monumen Perjuangan Kutai menjadi simbol penting dari identitas kolektif masyarakat Kutai Kartanegara sebagai bagian dari bangsa Indonesia yang telah melewati perjuangan panjang untuk mencapai kemerdekaan dan kedaulatan.`,
-        photos:['monumen-1','monumen-2','monumen-3','monumen-4'],
-        relatedStories:[]
+        "id": 22, 
+        "slug": "situs-pelabuhan-lama-anggana",
+        "name": "Situs Pelabuhan Lama Anggana",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Kutai Lama, Kec. Anggana, Kab. Kutai Kartanegara",
+        "lat": -0.6010, 
+        "lng": 117.2480,
+        "summary": "Bekas dermaga dan kawasan bandar perdagangan internasional peninggalan Kerajaan Kutai Lama yang ramai pada masanya.",
+        "description": "Situs Pelabuhan Lama di Anggana merupakan bukti nyata bahwa masyarakat Kutai pada masa lampau adalah pelaut dan pedagang ulung yang terhubung dengan jaringan perdagangan dunia. Sebelum Tenggarong menjadi pusat keramaian, pelabuhan di muara Sungai Mahakam, tepatnya di kawasan Anggana inilah yang menjadi pintu gerbang utama masuknya barang-barang mewah dan keluarnya komoditas dari pedalaman Kalimantan.\n\nDahulu kala, pelabuhan ini sangat ramai. Catatan sejarah dari para pedagang Eropa dan Tiongkok menyebutkan bahwa pelabuhan ini mampu menampung puluhan kapal besar secara bersamaan. Dermaganya yang terbuat dari kayu ulin yang kuat menjulur ke sungai, mampu menahan hempasan ombak dan arus deras Mahakam. Di sepanjang tepi pelabuhan, berjajar gudang-gudang penyimpanan barang milik para saudagar.\n\nKomoditas utama yang diekspor dari pelabuhan ini adalah lilin malam (mentega kelapa), sarang burung, rotan, damar, dan emas dari pedalaman. Sementara barang yang diimpor meliputi keramik halus dari Tiongkok, kain sutra dari India, senjata dari Arab, dan berbagai alat rumah tangga dari Eropa. Pertukaran ini menciptakan masyarakat pelabuhan yang sangat kosmopolitan dan maju.\n\nNamun, kejayaan pelabuhan ini tidak bertahan lama. Penyebab utamanya adalah perubahan morfologi sungai. Endapan lumpur dari hulu yang terbawa arus secara perlahan membuat muara di Anggana menyempit. Kapal-kapal besar tidak lagi bisa bersandar dengan aman, memaksa para saudagar untuk mencari pelabuhan alternatif.\n\nSelain faktor alam, keputusan Sultan Aji Imbut untuk memindahkan ibukota ke Tenggarong juga menjadi pukulan maut. Pusat ekonomi secara paksa dipindahkan ke Tenggarong, membuat pelabuhan Anggana kehilangan pendapatan utamanya. Akhirnya, pelabuhan ini ditinggalkan dan perlahan ditelan oleh lumpur dan semak belukar.\n\nSaat ini, jika diperhatikan dengan saksama, di tepi sungai di kawasan Anggana masih dapat ditemukan sisa-sisa fondasi tiang kayu yang menjulur ke air yang konon adalah sisa dari dermaga tua tersebut. Saat air surut, warga kadang menemukan pecahan keramik kuno atau koin logam di sekitar area ini.\n\nPemerintah daerah bersama tim arkeologi terus berupaya memetakan secara detail batas wilayah Situs Pelabuhan Lama ini. Pelestariannya penting untuk memberikan gambaran nyata tentang kemegahan maritim Kerajaan Kutai di masa lalu dan mengingatkan bahwa kejayaan sebuah peradaban sangat bergantung pada kemampuan mereka menjaga jalur perdagangan.",
+        "photos": ["pelabuhan-anggana-1", "pelabuhan-anggana-2", "pelabuhan-anggana-3", "pelabuhan-anggana-4"],
+        "relatedStories": [22, 32]
     },
     {
-        id:23, slug:'komplek-percandian-benua-lima',
-        name:'Situs Benua Lima',
-        category:'odcb',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Muara Badak, Kab. Kutai Kartanegara',
-        lat:0.3500, lng:117.5000,
-        summary:'Situs arkeologi penting di Muara Badak yang mengindikasikan keberadaan pemukiman kuno bersejarah.',
-        description:`Situs Benua Lima di Kecamatan Muara Badak adalah salah satu kawasan arkeologi yang tengah menarik perhatian para peneliti budaya di Kutai Kartanegara. Nama "Benua Lima" dalam tradisi lokal merujuk pada konsep wilayah atau teritorial, mencerminkan pentingnya kawasan ini dalam sistem tata ruang masyarakat kuno.
-        
-        Ekskavasi dan survei permukaan yang dilakukan oleh tim peneliti menemukan berbagai indikator keberadaan pemukiman kuno yang cukup padat dan terorganisir. Temuan-temuan ini mencakup pecahan keramik kuno, fragmen peralatan besi, serta berbagai struktur bawah tanah yang mengindikasikan adanya bangunan-bangunan berukuran besar.
-        
-        Kawasan Muara Badak sendiri memiliki posisi geografis yang strategis, berada di wilayah delta sungai yang menjadi pertemuan berbagai aliran air yang mengalir ke Selat Makassar. Posisi ini menjadikannya titik penting dalam jalur perdagangan maritim yang menghubungkan pedalaman Kalimantan dengan jalur pelayaran internasional.
-        
-        Tradisi lisan masyarakat setempat menyimpan berbagai cerita tentang tokoh-tokoh dan peristiwa yang berkaitan dengan kawasan Benua Lima. Cerita-cerita ini, meskipun bercampur dengan unsur-unsur mitologis, diyakini mengandung kernel kebenaran sejarah yang dapat membantu para peneliti dalam memahami konteks budaya kawasan ini.
-        
-        Keanekaragaman hayati di kawasan pesisir Muara Badak juga sangat tinggi. Ekosistem mangrove yang masih terjaga di beberapa titik menjadi habitat penting bagi berbagai jenis ikan, udang, dan burung pantai. Keterkaitan antara ekosistem pesisir dan kehidupan manusia kuno di kawasan ini menjadi tema penelitian yang menarik.
-        
-        Perlindungan dan penelitian lebih lanjut terhadap Situs Benua Lima sangat diperlukan mengingat potensinya yang besar dalam melengkapi pemahaman kita tentang sejarah peradaban di wilayah pesisir Kalimantan Timur.`,
-        photos:['benua-1','benua-2','benua-3','benua-4'],
-        relatedStories:[]
+        "id": 23, 
+        "slug": "situs-permukiman-tua-anggana",
+        "name": "Situs Permukiman Tua Anggana",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Kutai Lama, Kec. Anggana, Kab. Kutai Kartanegara",
+        "lat": -0.6030, 
+        "lng": 117.2510,
+        "summary": "Bekas lahan pemukiman penduduk biasa di era Kerajaan Kutai Lama yang menunjukkan tata ruang perkotaan kuno.",
+        "description": "Jika Situs Kerajaan Kutai Lama adalah pusat istana, maka Situs Permukiman Tua Anggana adalah tempat di mana rakyat biasa, pedagang, dan pekerja tinggal. Situs ini memberikan perspektif yang sangat berbeda dalam melihat peradaban masa lalu, yaitu dari sudut pandang kehidupan sehari-hari masyarakat kelas menengah ke bawah di era kerajaan.\n\nBerdasarkan temuan artefak yang tersebar di area ini, para arkeolog memperkirakan bahwa permukiman ini memiliki kepadatan penduduk yang cukup tinggi. Hal ini dibuktikan dengan ditemukannya banyaknya pecahan tembikar rumah tangga, seperti periuk belanga, gentong penyimpan air, serta alat-alat kecil dari tulang dan batu yang digunakan untuk keperluan domestik.\n\nTata ruang permukiman ini konon sangat teratur. Rumah-rumah dibangun berjajar mengikuti garis pantai sungai, karena sungai adalah satu-satunya akses transportasi utama pada saat itu. Di antara barisan rumah, terdapat jalur-jalur utama yang berupa jalan setapak dari tanah liat atau batu pipih yang menghubungkan pemukiman ini dengan pelabuhan dan kompleks kerajaan.\n\nMenariknya, di area permukiman ini juga ditemukan sisa-sisa bengkel atau tempat kerajinan, seperti cetakan logam dan tungku pembakaran keramik. Ini membuktikan bahwa masyarakat di sini tidak hanya bekerja sebagai petani atau nelayan, tetapi juga memiliki keahlian teknis sebagai pengrajin yang mendukung kebutuhan kerajaan.\n\nSaat ini, Situs Permukiman Tua Anggana sebagian besar sudah berubah menjadi lahan perkebunan dan permukiman warga modern. Namun, tanah di kawasan ini masih menyimpan ribuan pecahan sejarah di bawah permukaannya. Warga sering kali secara tidak sengaja menemukan guci kuno atau keramik saat menggali sumur atau membuat pondasi.\n\nStudi tentang situs permukiman ini sangat penting untuk memahami pola konsumsi, tingkat ekonomi, dan struktur sosial masyarakat Kutai pada abad ke-15 hingga ke-17. Bagaimana mereka berinteraksi dengan pedagang asing, bagaimana mereka mendapatkan bahan makanan, dan bagaimana mereka menghadapi bencana alam.\n\nUpaya pelestarian situs ini dilakukan dengan cara memberikan edukasi kepada masyarakat setempat agar tidak sembarangan melakukan galian tanah dalam. Jika ditemukan artefak saat pengerjaan tanah, warga diimbau untuk melapor dan tidak menjualnya kepada kolektor ilegal, agar warisan sejarah permukiman leluhur tetap bisa dikaji dan dipahami.",
+        "photos": ["permukiman-tua-1", "permukiman-tua-2", "permukiman-tua-3", "permukiman-tua-4"],
+        "relatedStories": [16]
     },
     {
-        id:24, slug:'rumah-adat-lamin-sendawar',
-        name:'Lamin Adat Sendawar',
-        category:'bangunan-bersejarah',
-        status:'Objek Diduga Cagar Budaya',
-        address:'Kec. Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5060, lng:117.1490,
-        summary:'Rumah panjang (lamin) adat Dayak yang menjadi ikon arsitektur tradisional di Kutai Kartanegara.',
-        description:`Lamin Adat Sendawar adalah representasi arsitektur tradisional suku Dayak yang ada di wilayah Kutai Kartanegara. Lamin atau rumah panjang adalah bentuk hunian komunal khas suku-suku Dayak di Kalimantan yang mencerminkan nilai-nilai kebersamaan, gotong royong, dan kehidupan komunal yang menjadi inti dari budaya Dayak.
-        
-        Bangunan lamin adat dibangun mengikuti kaidah-kaidah arsitektur tradisional yang telah diwariskan dari generasi ke generasi. Struktur bangunan terdiri dari tiang-tiang kayu ulin yang tinggi yang mengangkat bangunan di atas tanah, berfungsi melindungi penghuni dari banjir dan binatang buas. Lantai bangunan terbuat dari papan kayu yang disusun rapat dan kuat.
-        
-        Panjang bangunan lamin tradisional dapat mencapai ratusan meter, mengakomodasi puluhan hingga ratusan keluarga dalam satu atap yang panjang. Setiap keluarga menempati bilik tersendiri, namun berbagi ruang tamu bersama (sapa) di sepanjang bangunan yang menjadi ruang interaksi sosial komunal.
-        
-        Ornamen-ornamen yang menghiasi lamin sangat kaya dan bermakna. Motif-motif flora dan fauna khas Kalimantan seperti enggang, naga, dan berbagai tumbuhan tropikis diukir dengan detail yang sangat halus di berbagai bagian bangunan. Warna-warna tradisional yang digunakan memiliki makna simbolis yang berkaitan dengan nilai-nilai spiritual Dayak.
-        
-        Di Lamin Adat Sendawar, berbagai upacara adat Dayak masih diselenggarakan secara regular. Mulai dari upacara penyambutan tamu, ritual pertanian, upacara pernikahan adat, hingga upacara kematian yang dikenal dengan nama Kwangkai atau Tiwah.
-        
-        Keberadaan Lamin Adat Sendawar menjadi sangat penting dalam konteks pelestarian identitas dan budaya Dayak di Kutai Kartanegara, terutama di tengah modernisasi yang berlangsung cepat dan mengancam keberlangsungan tradisi-tradisi kuno.`,
-        photos:['lamin-1','lamin-2','lamin-3','lamin-4'],
-        relatedStories:[]
+        "id": 24, 
+        "slug": "situs-tradisional-sungai-mahakam",
+        "name": "Situs Tradisional Sungai Mahakam",
+        "category": "situs-sejarah",
+        "status": "Warisan Budaya Tak Benda / Living Heritage",
+        "address": "Sepanjang aliran Sungai Mahakam, Kutai Kartanegara",
+        "lat": -0.5000, 
+        "lng": 117.1000,
+        "summary": "Kawasan sungai yang menjadi nadi kehidupan masyarakat Kutai, lengkap dengan tradisi pelayaran dan permukiman tepian yang masih bertahan.",
+        "description": "Sungai Mahakam bukan sekadar geografi, ia adalah entitas budaya. Situs Tradisional Sungai Mahakam yang meliputi seluruh wilayah aliran sungai yang membelah Kukar ini merupakan warisan budaya hidup (living heritage) yang paling besar di Kalimantan Timur. Situs ini mencakup ekosistem sungai, kapal-kapal tradisional, serta pola kehidupan masyarakat di tepian (tepian) yang sudah berlangsung ratusan tahun.\n\nDalam perspektif budaya, Mahakam adalah jalan raya utama sebelum adanya jalan aspal. Setiap sudut sungai memiliki karakter budaya yang berbeda. Di hulu, sungai didominasi oleh budaya Dayak dengan perahu-perahu panjang mereka. Di tengah (Tenggarong), sungai menjadi pusat keramaian keraton dengan lalu lintas kapal-kapal dagang. Di hilir, sungai menjadi pelabuhan ekspor internasional.\n\nSalah satu elemen visual paling mencolok dari situs ini adalah keberadaan rumah-rumah panggung tepian yang berjajar rapi. Rumah-rumah ini dibangun menghadap ke sungai, karena pintu depan mereka ada di sungai, bukan di darat. Serambi depan rumah mereka biasanya menjorok ke atas air, di sinilah mereka menambatkan perahu, mencuci pakaian, dan berinteraksi dengan tetangga.\n\nTradisi pelayaran di Sungai Mahakam juga masih bisa disaksikan hingga kini, meskipun mulai tergerus oleh kapal bermotor. Anda masih bisa melihat para nelayan menggunakan jaring tradisional, atau ibu-ibu yang mendayung sampan kecil untuk pergi ke kebun. Kapal-kapal kayu besar yang membawa kayu gelondongan dari hulu juga masih menjadi pemandangan rutin.\n\nSitus ini juga menyimpan ritual-ritual kuno yang masih dilakukan, seperti ritual mohon izin kepada penunggu sungai sebelum melaut, atau prosesi arak-arakan perahu hias saat perayaan Erau. Air sungai itu sendiri dianggap memiliki kekuatan penyucian yang digunakan dalam berbagai upacara adat.\n\nPelestarian Situs Tradisional Sungai Mahakam sangat kompleks karena melibatkan ekosistem yang sangat luas. Kerusakan hutan di hulu sungai akan berdampak langsung pada banjir di tepian sungai yang mengancam permukiman tradisional ini. Menjaga sungai berarti menjaga keberlangsungan seluruh peradaban yang bergantung padanya.\n\nMengklasifikasikan aliran Sungai Mahakam sebagai sebuah 'situs' adalah cara pandang baru dalam pelestarian budaya. Ini mengajarkan bahwa warisan budaya tidak selalu berwujud bangunan tua, tetapi bisa berupa sebuah ruang ekologis dan sosial yang terus dihidupi oleh manusia dari generasi ke generasi.",
+        "photos": ["sungai-mahakam-1", "sungai-mahakam-2", "sungai-mahakam-3", "sungai-mahakam-4"],
+        "relatedStories": [13, 18, 32]
     },
     {
-        id:25, slug:'makam-sultan-aji-muhammad-idris',
-        name:'Makam Sultan Aji Muhammad Idris',
-        category:'makam-kerajaan',
-        status:'Cagar Budaya',
-        address:'Jl. Kesultanan No.5, Tenggarong, Kab. Kutai Kartanegara',
-        lat:-0.5080, lng:117.1555,
-        summary:'Makam Sultan Aji Muhammad Idris, sultan yang berperan penting dalam memperkuat pengaruh Islam di Kutai.',
-        description:`Makam Sultan Aji Muhammad Idris adalah situs pemakaman yang menyimpan nilai sejarah dan spiritual yang sangat tinggi bagi masyarakat Kutai Kartanegara. Sultan Aji Muhammad Idris adalah salah satu sultan yang memiliki peran besar dalam memperkuat pengaruh Islam sebagai agama resmi dan panduan kehidupan di Kesultanan Kutai Kartanegara.
-        
-        Sultan Aji Muhammad Idris dikenal sebagai pemimpin yang taat beragama dan berpengaruh dalam memperkuat fondasi keislaman di kesultanan. Beliau mendirikan berbagai institusi keislaman, mendatangkan ulama-ulama terkemuka dari berbagai wilayah, dan mempromosikan pendidikan agama di seluruh wilayah kesultanan.
-        
-        Di bawah kepemimpinan Sultan Aji Muhammad Idris, berbagai hukum dan tata cara kehidupan yang berlandaskan syariat Islam mulai diterapkan secara lebih sistematis di kesultanan. Perpaduan antara hukum adat Kutai dan syariat Islam yang berlangsung pada masa ini membentuk identitas budaya Kutai yang unik hingga saat ini.
-        
-        Makam sang sultan dibangun dengan kemewahan yang sesuai dengan statusnya sebagai pemimpin kerajaan. Nisan batu yang tinggi dihiasi dengan ukiran kaligrafi Al-Quran yang indah, sementara cungkup (atap makam) yang bertingkat mencerminkan tradisi arsitektur makam Islam di wilayah Melayu.
-        
-        Kawasan sekitar makam dijaga dan dirawat dengan baik oleh keluarga kesultanan dan pemerintah setempat. Halaman makam yang luas dan tertata rapi memberikan kesempatan bagi peziarah untuk berlama-lama berdoa dan merenungkan warisan sejarah yang ditinggalkan oleh sang sultan.
-        
-        Makam Sultan Aji Muhammad Idris menjadi salah satu tujuan ziarah yang paling ramai dikunjungi di Tenggarong, terutama menjelang dan selama bulan Ramadan ketika ribuan peziarah datang dari berbagai penjuru Kutai Kartanegara dan Kalimantan Timur.`,
-        photos:['sultan-idris-1','sultan-idris-2','sultan-idris-3','sultan-idris-4'],
-        relatedStories:[]
+        "id": 25, 
+        "slug": "lamin-adat-dayak-kenyah-pampang",
+        "name": "Lamin Adat Dayak Kenyah Pampang",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya / Desa Wisata",
+        "address": "Desa Pampang, Kec. Samarinda Utara, Kalimantan Timur",
+        "lat": -0.4950, 
+        "lng": 117.1300,
+        "summary": "Rumah panjang tradisional suku Dayak Kenyah yang megah, menjadi pusat pelestarian budaya dan pariwisata adat Dayak di Samarinda.",
+        "description": "Meskipun secara administratif terletak di Samarinda Utara, Lamin Adat Dayak Kenyah di Desa Pampang ini memiliki keterkaitan sejarah dan budaya yang sangat erat dengan wilayah Kutai Kartanegara (Kukar). Suku Kenyah sendiri merupakan salah satu sub-suku Dayak yang berasal dari kawasan hulu Sungai Mahakam, tepatnya di wilayah Apo Kayan di perbatasan Malaysia.\n\nLamin adalah istilah dalam bahasa Dayak Kenyah untuk rumah panjang. Bangunan ini bukanlah tempat tinggal untuk satu keluarga, melainkan tempat tinggal komunal bagi puluhan hingga ratusan kepala keluarga dari satu suku. Lamin di Pampang merupakan replika megah yang dibangun untuk melestarikan arsitektur dan tradisi suku Kenyah yang mulai hilang di tempat asal mereka karena modernisasi.\n\nArsitektur Lamin sangat menakjubkan. Bangunan ini disangga oleh puluhan tiang kayu bulat yang sangat tinggi dan besar tanpa menggunakan paku besi sedikitpun. Konstruksinya mengandalkan sistem ikatan rotan dan pasak kayu yang sangat kuat. Atapnya berbentuk pelana kuda yang sangat curam, terbuat dari serapan daun rumbia atau silar, yang mampu menahan terpaan hujan tropis.\n\nBagian depan Lamin biasanya dihiasi dengan ukiran-ukiran khas Dayak Kenyah yang sangat detail dan penuh warna. Motif yang paling dominan adalah motif burung enggang, yang dianggap sebagai burung suci penjaga keseimbangan alam. Selain itu, terdapat ukiran manusia berjejer yang melambangkan gotong royong dan persatuan suku.\n\nDi dalam Lamin, ruangan dibagi menjadi dua sisi (kiri dan kanan). Di masing-masing sisi terdapat bilik-bilik yang menjadi ruang privat bagi setiap keluarga (disebut 'lemek'). Di bagian tengah yang terbuka, terdapat ruang tunggu dan dapur bersama. Di sinilah semua interaksi sosial, pesta adat, dan upacara ritual dilakukan.\n\nLamin Adat Pampang kini berfungsi sebagai museum hidup. Pengunjung tidak hanya bisa melihat bangunannya, tetapi juga bisa menyaksikan langsung tarian tradisional Dayak Kenyah seperti tarian Hudoq atau Kancet, melihat proses pembuatan kerajinan tangan, dan belajar tentang filosofi hidup masyarakat Dayak yang sangat menjunjung tinggi alam.\n\nKeberadaan Lamin ini di pinggiran kota Samarinda menjadi oase budaya yang sangat berharga. Ia mengingatkan generasi muda Kalimantan, khususnya yang tinggal di perkotaan, bahwa sebelum ada gedung-gedung beton, leluhur mereka telah membangun mahakarya arsitektur yang ramah lingkungan dan penuh makna filosofis.",
+        "photos": ["lamin-pampang-1", "lamin-pampang-2", "lamin-pampang-3", "lamin-pampang-4"],
+        "relatedStories": [11, 21, 34]
+    },
+    {
+        "id": 26, 
+        "slug": "desa-budaya-pampang",
+        "name": "Desa Budaya Pampang",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya / Desa Wisata",
+        "address": "Desa Pampang, Kec. Samarinda Utara, Kalimantan Timur",
+        "lat": -0.4945, 
+        "lng": 117.1310,
+        "summary": "Kawasan permukiman konservasi suku Dayak Kenyah yang menampung ribuan peninggalan budaya, kerajinan, dan kehidupan adat asli.",
+        "description": "Jika Lamin Adat Pampang adalah bangunan utama, maka Desa Budaya Pampang seluruhnya adalah sebuah 'museum hidup' yang sangat luas. Didirikan pada tahun 1991, kawasan seluas kurang lebih 5 hektar ini memang diperuntukkan khusus sebagai tempat bermukimnya suku Dayak Kenyah yang dipindahkan dari pedalaman Apo Kayan ke kota Samarinda, tanpa harus kehilangan identitas budaya mereka.\n\nBerbeda dengan desa-desa biasa, tata ruang di Desa Budaya Pampang dirancang sedemikian rupa untuk mensimulasikan suasana hidup asli di daerah asal mereka di perbatasan Malaysia. Bangunan-bangunan rumah panggung berjajar rapi, menghadap ke arah sungai buatan yang membelah desa. Pepohonan tropis seperti kelapa, aren, dan rotan ditanam secara masif untuk menciptakan iklim hutan tropis yang rindang.\n\nSelain tempat tinggal, desa ini juga memiliki galeri-galeri kerajinan tangan yang dikelola langsung oleh para perempuan Dayak Kenyah. Di sini, pengunjung bisa menyaksikan langsung proses pembuatan perhiasan dari manik-manik, anyaman rotan dan bambu, hingga pembuatan kain tenun tradisional. Kerajinan-kerajinan ini tidak hanya untuk pameran, tetapi juga dijual sebagai sumber penghidupan masyarakat.\n\nSalah satu daya tarik utama dari desa ini adalah penampilan tarian-tarian adat yang digelar secara rutin. Tarian Hudoq, Tarian Kancet Punan, dan Tarian Ajay menjadi agenda wajib untuk menyambut rombongan wisatawan. Para penari tidak menggunakan sepatu, namun mengenakan perhiasan bulu burung dan manik-manik yang berat, menunjukkan kegagahan tubuh dan kecakapan para penari.\n\nDesa Budaya Pampang juga berfungsi sebagai pusat pendidikan budaya bagi generasi muda suku Dayak yang lahir di perkotaan. Di sini, anak-anak Kenyah yang sudah terpapar budaya modern diajarkan kembali untuk berbicara bahasa Kenyah, memahami adat istiadat, dan mengenal garis keturunan mereka melalui cerita langsung dari para tetua suku.\n\nKeberadaan desa ini sangat krusial di tengah arus globalisasi yang mengancam keberlangsungan budaya minoritas. Dengan membangun tempat yang representatif, masyarakat Dayak Kenyah membuktikan bahwa tradisi dan modernitas bisa berjalan berdampingan. Mereka membuka pintu desa mereka untuk dunia luar, bukan untuk dieksploitasi, tetapi untuk mengedukasi tentang kekayaan peradaban Kalimantan.\n\nPemerintah daerah sangat mendukung keberlangsungan Desa Budaya Pampang dengan cara memfasilitasi infrastruktur jalan dan listrik. Bagi wisatawan yang datang dari Tenggarong atau Balikpapan, mengunjungi desa ini terasa seperti melakukan perjalanan waktu yang sangat singkat, dari hiruk pikuk kota tiba-tiba masuk ke dalam hutan lembut yang penuh filosofi kearifan lokal.",
+        "photos": ["desa-pampang-1", "desa-pampang-2", "desa-pampang-3", "desa-pampang-4"],
+        "relatedStories": [21, 25, 34]
+    },
+    {
+        "id": 27, 
+        "slug": "lamin-mancong",
+        "name": "Lamin Mancong",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Desa Mancong, Kec. Jempang, Kab. Kutai Kartanegara",
+        "lat": 0.2000, 
+        "lng": 116.5000,
+        "summary": "Rumah panjang otentik suku Dayak Benuaq yang berusia ratusan tahun, masih berfungsi sebagai tempat tinggal komunal masyarakat adat.",
+        "description": "Berbeda dengan Lamin di Pampang yang dibangun sebagai replika untuk wisata, Lamin Mancong yang terletak jauh di pedalaman Kecamatan Jempang adalah rumah panjang asli yang sudah berdiri sejak ratusan tahun lalu. Lamin ini bukan sekadar monumen mati, tetapi masih berfungsi sebagai tempat tinggal bagi puluhan kepala keluarga suku Dayak Benuaq yang menolak untuk meninggalkan tradisi nenek moyang mereka.\n\nPerjalanan menuju Lamin Mancong sendiri sudah merupakan sebuah petualangan. Lokasinya yang terisolasi oleh hutan dan rawa-rawa membuatnya hanya bisa dijangkau menggunakan perahu sungai atau speedboat selama beberapa jam dari Tenggarong. Keterisoliran inilah yang justru menjaga kemurnian arsitektur dan adat istiadat masyarakat di dalamnya dari pengaruh degradasi moral modern.\n\nSecara fisik, Lamin Mancong sangat khas. Dinding dan lantainya terbuat dari papan kayu belian (ulin) yang sudah menghitam kecokelatan karena usia yang sangat tua. Di bagian depan Lamin, menjulang tinggi tiang-tiang kayu yang diukir dengan wajah manusia atau hewan yang menyeramkan. Itu adalah 'Totem' atau 'Panjang Belian', yang dalam kepercayaan Dayak berfungsi sebagai penjaga desa dari gangguan roh jahat dan penyakit.\n\nDi dalam lamin, suasana terasa sangat mistis namun hangat. Asap dari dapur bersama menyeruap ke atap ilalang, menandakan bahwa lamin ini masih sangat hidup. Penghuninya masih menjalankan kehidupan komunal seperti nenek moyang mereka: makan bersama, bekerja di ladang bersama, dan mengambil keputusan dalam musyawarah yang dipimpin oleh Tetua Adat (Pengawa).\n\nLamin Mancong juga menjadi saksi bisu dari perlawanan suku Dayak terhadap perusahaan-perusahaan kayu besar yang masuk ke pedalaman di tahun 90-an. Konon, dari lamin inilah para tetua menyusun strategi untuk mempertahankan hutan mereka melalui blokade jalan sungai dan berbagai upaya hukum adat.\n\nKeberadaan Lamin Mancong sangat berharga bagi kajian antropologi arsitektur. Ini membuktikan bahwa sebelum teknik modern datang, masyarakat Dayak sudah menguasai teknik rekayasa struktur kayu yang sangat advanced. Mereka mampu membangun bangunan raksasa tanpa paku besi yang mampu bertahan dari terjangan badai dan serangan hewan buas selama berabad-abad.\n\nBagi para peneliti budaya dan wisatawan petualang, menginap di Lamin Mancong adalah pengalaman yang tak ternilai. Mendengarkan suara gamelan adat di malam hari sambil menatap bintang tanpa polusi cahaya kota, dikelilingi oleh orang-orang yang masih sangat menjunjung tinggi nilai kebersamaan, adalah pelarian jiwa yang sangat langka di zaman modern ini.",
+        "photos": ["lamin-mancong-1", "lamin-mancong-2", "lamin-mancong-3", "lamin-mancong-4"],
+        "relatedStories": [21, 25]
+    },
+    {
+        "id": 28, 
+        "slug": "desa-budaya-tanjung-isuy",
+        "name": "Desa Budaya Tanjung Isuy",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya / Desa Wisata",
+        "address": "Desa Tanjung Isuy, Kec. Jempang, Kab. Kutai Kartanegara",
+        "lat": 0.2500, 
+        "lng": 116.5500,
+        "summary": "Permukiman adat suku Dayak Benuaq di tepi Danau Jempang yang terkenal dengan ritual penyambutan, totem, dan wisata budaya terintegrasi.",
+        "description": "Tanjung Isuy merupakan sebuah permukiman adat suku Dayak Benuaq yang terletak tepat di tepi Danau Jempang. Keindahan alamnya yang eksotis, dipadukan dengan kearifan lokal masyarakatnya yang masih sangat kental, menjadikan Tanjung Isuy sebagai salah satu destinasi wisata budaya paling terkenal di Kalimantan Timur, bahkan mendunia.\n\nUniknya, untuk sampai ke Desa Tanjung Isuy, pengunjung harus menempuh perjalanan menggunakan perahu bermotor (kelotok) menyusuri danau yang luas. Sepanjang perjalanan, pemandangan hutan bakau, burung-burung liar, dan sesekali kera hidung panjang yang bermain di dahan pohon akan menemani perjalanan. Sesampainya di desa, pengunjung akan disambut dengan ritual 'Petekak Bemban', yaitu penyambutan tradisional yang sangat meriah.\n\nRitual Petekak Bemban ini melibatkan puluhan laki-laki dan perempuan Dayak Benuaq yang berdandan penuh dengan pakaian adat terbaik mereka. Para perempuan akan membentuk barisan di dermaga sambil menyanyikan nyanyian adat, sambil mengayunkan kain berwarna-warni ke udara. Ini adalah pengalaman visual dan audio yang sangat memukau bagi siapa saja yang pertama kali datang.\n\nSama seperti desa-desa adat lainnya, rumah-rumah di Tanjung Isuy adalah rumah panggung (Lamin) yang dibangun menghadap ke danau. Hal ini karena danau pada masa lalu adalah jalur utama transportasi mereka. Di depan barisan rumah, berdiri gagah tiang-tiang totem kayu yang diukir dengan corak mengagumkan, melambangkan stratifikasi sosial dan kepercayaan animisme yang pernah dianut oleh suku Benuaq.\n\nMasyarakat Tanjung Isuy sangat terbuka terhadap pariwisata, namun mereka sangat menjaga adat istiadatnya. Ada aturan-aturan yang tidak boleh dilanggar oleh wisatawan, seperti tidak boleh memasuki area tertentu tanpa izin tetua, atau dilarang memotret upacara adat tertentu yang bersifat sakral. Hal ini menunjukkan bahwa pariwisata di sini dikelola berdasarkan prinsip kearifan lokal.\n\nKeberhasilan Tanjung Isuy sebagai desa wisata telah membawa kemakmuran bagi warganya. Pendapatan dari sektor pariwisata membuat mereka tidak lagi bergantung sepenuhnya pada hasil hutan, sehingga secara tidak langsung ikut serta dalam menjaga kelestarian hutan di sekitar Danau Jempang.\n\nDesa Budaya Tanjung Isuy adalah bukti nyata bahwa budaya asli Nusantara, jika dikelola dengan bijak, bisa menjadi motor penggerak ekonomi masyarakat. Mereka tidak hanya menjual pemandangan alam, tetapi menjual pengalaman hidup dalam sebuah komunitas adat yang masih memiliki derajat kemanusiaan yang sangat tinggi.",
+        "photos": ["tanjung-isuy-1", "tanjung-isuy-2", "tanjung-isuy-3", "tanjung-isuy-4"],
+        "relatedStories": [20, 21, 25]
+    },
+    {
+        "id": 29, 
+        "slug": "rumah-adat-dayak-benuaq",
+        "name": "Rumah Adat Dayak Benuaq",
+        "category": "bangunan-bersejarah",
+        "status": "Cagar Budaya",
+        "address": "Kecamatan Kutai Barat, Kab. Kutai Kartanegara",
+        "lat": -0.1000, 
+        "lng": 116.2000,
+        "summary": "Representasi arsitektur tradisional suku Dayak Benuaq yang menampilkan keahlian mengolah rotan dan bambu menjadi karya seni tinggi.",
+        "description": "Kutai Barat adalah tanah leluhur bagi suku Dayak Benuaq, salah satu sub-suku Dayak terbesar di Kalimantan Timur. Rumah Adat Dayak Benuaq yang berdiri di kawasan ini merupakan representasi sempurna dari kepiawaian suku ini dalam mengolah hasil hutan, khususnya kayu ulin, rotan, dan bambu, menjadi bangunan yang menakjubkan.\n\nSecara struktur, Rumah Adat Benuaq memiliki kemiripan dengan lamin-lamin pada umumnya, namun memiliki detail ornamen yang membedakannya. Jika suku Kenyah terkenal dengan ukiran burung enggang yang tebal, maka suku Benuaq lebih mengutamakan ornamen geometris dan anyaman rotan yang sangat rumit. Hampir seluruh dinding, langit-langit, dan kaki bangunan dililiti oleh anyaman rotan yang dibuat dengan pola-pola khas.\n\nRumah adat ini biasanya terdiri dari beberapa bagian fungsional. Bagian depan yang paling penting disebut 'Bemban' atau 'Suluh', berfungsi sebagai ruang tamu terhormat. Di sinilah tetua adat duduk menghadap ke pintu masuk, sambil ditemani oleh senjata tradisional seperti mandau, sumpit, dan perisai yang diletakkan secara teratur di dinding.\n\nKeunikan lain dari rumah adat Benuaq adalah teknik pembuatannya yang sangat ramah lingkungan. Tidak menggunakan paku besi sama sekali, semua sambungan diikat menggunakan rotan basah yang saat kering akan menyusut dan mengunci kayu dengan sangat kuat. Ini adalah teknik rekayasa tradisional yang tidak kalah kuatnya dengan teknik konstruksi modern.\n\nDi sekitar area rumah adat ini, biasanya ditampilkan contoh-contoh hasil kerajinan tangan khas Benuaq, seperti anjang-anjang (tikar rotan), bakul, topi pandan, dan peralatan menanam padi. Masyarakat Benuaq dikenal sebagai petani yang sangat ahli, dan alat-alat pertanian tradisional mereka yang terbuat dari kayu dan bambu juga dipajang sebagai bagian dari dekorasi rumah.\n\nRumah Adat Dayak Benuaq tidak hanya berfungsi sebagai simbol identitas, tetapi juga sebagai pusat pendidikan karakter bagi generasi muda Benuaq. Di tempat inilah nilai-nilai luhur seperti 'Patek Bemban' (keramahan tamu), 'Mali Bawe' (gotong royong), dan 'Tembeng Aban' (keberanian) diajarkan secara langsung melalui cerita-cerita tetua di bawah cahaya pelita.\n\nKeberadaan rumah adat ini di Kutai Barat sangat penting untuk menjaga jati diri suku Benuaq agar tidak tergerus oleh budaya populasi pendatang yang semakin masuk ke pedalaman Kalimatan. Ia adalah benteng pertahanan terakhir dari tradisi leluhur yang harus dijaga sampai kapan pun.",
+        "photos": ["rumah-benuaq-1", "rumah-benuaq-2", "rumah-benuaq-3", "rumah-benuaq-4"],
+        "relatedStories": [21, 34]
+    },
+    {
+        "id": 30, 
+        "slug": "situs-tradisi-belian",
+        "name": "Situs Tradisi Belian",
+        "category": "situs-sejarah",
+        "status": "Warisan Budaya Tak Benda (WBTB)",
+        "address": "Berbagai lokasi pedalaman, Kec. Kutai Barat, Kab. Kutai Kartanegara",
+        "lat": -0.1500, 
+        "lng": 116.3000,
+        "summary": "Ruang spiritual tempat dilaksanakannya ritual Belian oleh suku Dayak Benuaq untuk menyembuhkan penyakit dan menyeimbangkan alam.",
+        "description": "Situs Tradisi Belian bukanlah sebuah lokasi fisik statis seperti bangunan atau makam, melainkan sebuah 'ruang spiritual' yang diciptakan secara sementara ketika ritual Belian digelar oleh suku Dayak Benuaq di Kutai Barat. Meskipun tak berwujud bangunan permanen, situs ini memiliki aturan, batas wilayah, dan kekuatan gaib yang sangat dihormati oleh masyarakat adat setempat.\n\nTradisi Belian adalah inti dari sistem kepercayaan masyarakat Dayak Benuaq sebelum mereka mengenal agama resmi. Ritual ini bertujuan untuk mengobati penyakit yang diderita oleh anggota suku, menolak bala bencana, atau memohon kesuburan tanah saat akan membuka ladang baru. Pelaksanaannya dipimpin oleh seorang 'Balian' (dukun) yang memiliki ilmu turun-temurun.\n\nKetika ritual dimulai, sebuah panggung kecil (panti) dibangun di halaman rumah sang pasien atau di lahan terbuka. Di sanalah Balian akan duduk memimpin nyanyian-nyanyian litani yang disebut 'Temawang', yang dinyanyikan oleh beberapa perempuan tua dengan suara merdu dan menyeramkan. Nyanyian ini dipercaya sebagai kode sandi untuk memanggil roh-roh leluhur dan memerintahkan roh jahat penyebab penyakit untuk keluar dari tubuh pasien.\n\nYang membuat Situs Tradisi Belian ini dramatis adalah aksi fisik sang Balian. Ia akan masuk ke dalam keadaan trance (kesurupan), mengayunkan pedang tanpa mata (pandat), berlari kesana-kemari seolah sedang bertarung dengan makhluk tak terlihat, dan berteriak dengan bahasa gaib. Ini adalah representasi visual dari pertempuran gaib yang terjadi di alam lain untuk menyelamatkan jiwa pasien.\n\nSaat ini, tradisi Belian telah ditetapkan sebagai Warisan Budaya Tak Benda (WBTB) Nasional oleh Kementerian Pendidikan dan Kebudayaan. Status ini membuat ritual yang sebelumnya cenderung dianggap mistis dan menakutkan oleh orang luar, kini dilegalkan dan dihargai sebagai sebuah karya seni pertunjukan ritual yang sangat tinggi nilainya.\n\nBagi masyarakat Kutai Barat, melestarikan tradisi Belian bukan sekadar menjaga tradisi lama, tetapi juga sebagai upaya mereka menjaga kesehatan holistik. Banyak masyarakat desa yang masih memilih memanggil Balian terlebih dahulu sebelum pergi ke dokter modern, menunjukkan betapa kuatnya kepercayaan terhadap leluhur.\n\nPelestarian situs spiritual ini menghadapi tantangan besar karena jumlah Balian tua yang benar-benar mewarisi ilmu asli semakin menipis. Untuk mencegah tradisi ini punah, pemuda-pemudi Benuaq kini didorong untuk tidak hanya menonton, tetapi belajar menjadi nyanyian Temawang atau memainkan alat musik pengiring, sehingga rantai pewarisan ilmu ini tidak akan terputus di tengah jalan.",
+        "photos": ["belian-1", "belian-2", "belian-3", "belian-4"],
+        "relatedStories": [19]
+    },
+    {
+        "id": 31, 
+        "slug": "situs-goa-batu-gelap",
+        "name": "Situs Goa Batu Gelap",
+        "category": "situs-arkeologi",
+        "status": "Cagar Budaya",
+        "address": "Desa Tabang, Kec. Tabang, Kab. Kutai Kartanegara",
+        "lat": 0.4000, 
+        "lng": 116.1000,
+        "summary": "Kompleks gua kapur yang gelap dan memutar di pedalaman Tabang, yang dalam mitologi lokal dianggap sebagai gerbang menuju dunia lain.",
+        "description": "Tersembunyi di balik hutan tropis yang lebat dan perbukitan karst yang curam di Kecamatan Tabang, terdapat sebuah formasi gua yang sangat menyeramkan namun memikat sekaligus, yang dikenal dengan nama Goa Batu Gelap. Situs ini bukanlah gua biasa, melainkan sebuah jaringan lorong bawah tanah yang kompleks dengan stalaktit dan stalagmit yang sudah terbentuk selama ribuan tahun.\n\nMengapa disebut Batu Gelap? Setiap memasuki mulut gua yang sempit, pengunjung akan langsung disambut dengan kegelapan total yang menyelimuti. Cahaya senter atau obor hanya mampu menembus beberapa meter, selebihnya adalah kegelapan pekat yang membius. Formasi batu di dalamnya sangat unpredictable, berkelok-kelok naik turun, membuat siapa saja yang masuk tanpa penunjuk yang berpengalaman sangat mudah tersesat.\n\nDalam mitologi masyarakat Tabang, Goa Batu Gelap dipercaya sebagai gerbang menuju 'Kerajaan Bunian', sebuah dunia gaib yang katanya sangat indah dan makmur namun berada di dimensi berbeda. Legenda mengatakan bahwa hanya orang-orang yang memiliki hati bersih dan kekuatan batin yang kuat yang bisa melewati gua ini dan kembali dengan selamat. Banyak cerita beredar tentang orang yang masuk ke gua dan tidak pernah kembali.\n\nNamun, di balik mitos yang menyeramkan itu, para ahli geologi dan speleologi melihat potensi ilmiah yang sangat besar. Formasi batuan di dalam gua ini mencatat sejarah geologi Bumi yang sangat panjang. Setiap tetesan air yang membentuk stalaktit menyimpan informasi tentang perubahan iklim purba di Kalimantan ribuan tahun lalu.\n\nBeberapa ekspedisi yang pernah dilakukan juga menemukan gua-gua di dalam kompleks ini yang memiliki ruangan sangat luas dengan langit-langit yang sangat tinggi, konon pernah digunakan sebagai tempat pertapaan oleh manusia purba pada zaman batu. Namun jejak-jejak arkeologi berupa lukisan dinding atau alat batu belum banyak ditemukan secara massal di sini.\n\nAkses menuju situs ini sangat sulit dan membutuhkan peralatan caving (panjat tebing) yang memadai. Medan menuju mulut gua juga dilewati oleh hutan belantara, semak berduri, dan tebing curam. Karena kesulitan ini, situs ini masih sangat perawan dan tidak banyak terjamah oleh manusia.\n\nKeberadaan Situs Goa Batu Gelap ini menjadi bukti bahwa alam Kalimantan masih menyimpan banyak rahasia yang belum terungkap. Pelestariannya sangat penting, bukan hanya untuk menjaga mitos lokal yang menjadi identitas masyarakat Tabang, tetapi juga untuk melindungi laboratorium alam bawah tanah yang sangat berharga bagi ilmu pengetahuan.",
+        "photos": ["goa-gelap-1", "goa-gelap-2", "goa-gelap-3", "goa-gelap-4"],
+        "relatedStories": [15]
+    },
+    {
+        "id": 32, 
+        "slug": "goa-tengkorak-kutai-timur",
+        "name": "Goa Tengkorak Kutai Timur",
+        "category": "situs-arkeologi",
+        "status": "Cagar Budaya",
+        "address": "Kecamatan Kutai Timur, Kab. Kutai Timur",
+        "lat": 0.0500, 
+        "lng": 116.8000,
+        "summary": "Situs gua bersejarah yang menyimpan tulang-belulang purba dan legenda mistis tentang tengkorak raksasa penghuni gua.",
+        "description": "Goa Tengkorak yang terletak di kawasan Kutai Timur adalah salah satu situs arkeologi paling kontroversial dan penuh teka-teki di Kalimantan Timur. Namanya yang sangat mengerikan langsung menimbulkan berbagai spekulasi, mulai dari mitos horor hingga teori ilmiah tentang kehidupan manusia purba (prasejarah) di Borneo.\n\nNama 'Tengkorak' sendiri diberikan oleh masyarakat sekitar karena konon, di dalam gua ini sering ditemukan struktur batu yang berbentuk mirip tengkorak manusia raksasa. Selain itu, aroma tidak sedap yang kerap keluar dari dalam gua membuat masyarakat meyakini bahwa gua ini adalah sarang makhluk halus atau tempat tinggal seekor raksasa buas yang sudah mati ribuan tahun lalu.\n\nNamun, bagi para arkeolog, nama itu hanyalah mitos. Penelitian ilmiah menunjukkan bahwa 'tengkorak raksasa' yang dilihat warga sebenarnya adalah formasi stalaktit dan stalagmit yang menempel satu sama lain, membentuk struktur yang menyerupai tulang belulang raksasa. Meski begitu, gua ini tidak bisa diremehkan.\n\nDi dalam lantai gua ini, tim arkeolog pernah menemukan pecahan-pecahan tembikar sederhana, kerangka-kerangka binatang purba (seperti badak dan babi rusa raksasa yang telah punah), serta beberapa fragmen tulang manusia prasejarah yang diperkirakan berusia ribuan tahun. Temuan ini membuktikan bahwa gua ini pernah dihuni oleh manusia pemburu dan pengumpul makanan pada zaman batu.\n\nLingkungan di sekitar Goa Tengkorak sangat khas dengan hutan tropis dataran rendah yang lebat. Mulut gua tersembunyi di balik tebing batu kapur yang curam, membuatnya tidak terlihat dari kejauhan. Untuk memasuki gua utama, seseorang harus merayap melewati lorong sempit yang sangat gelap sebelum akhirnya tiba di ruangan-ruangan besar yang lapang di dalamnya.\n\nPada masa pendudukan Jepang (1942-1945), konon gua ini juga pernah digunakan sebagai tempat persembunyian sementara oleh pasukan gerilya Indonesia untuk menghindari pengejaran tentara Jepang. Hal ini menambah lapisan sejarah modern pada gua yang sebenarnya sudah kaya akan sejarah purbanya.\n\nSaat ini, pemerintah daerah Kutai Timur berupaya membuka akses jalan menuju Goa Tengkorang dan menjadikannya sebagai situs wisata edukasi. Namun, pelestarian tetap menjadi prioritas utama karena kerapakatan ekosistem gua sangat sensitif terhadap sentuhan manusia. Goa Tengkorak berdiri sebagai jembatan yang menghubungkan imajinasi masyarakat mitos dengan realitas ilmu pengetahuan evolusi manusia.",
+        "photos": ["goa-tengkorak-1", "goa-tengkorak-2", "goa-tengkorak-3", "goa-tengkorak-4"],
+        "relatedStories": [15]
+    },
+    {
+        "id": 33, 
+        "slug": "situs-batu-dinding",
+        "name": "Situs Batu Dinding",
+        "category": "situs-arkeologi",
+        "status": "Cagar Budaya",
+        "address": "Kecamatan Kembang Janggut, Kab. Kutai Kartanegara",
+        "lat": 0.3000, 
+        "lng": 117.0500,
+        "summary": "Formasi dinding batu raksasa alami yang menyusun sangat presisi, dipercaya masyarakat sebagai benteng pertahanan gaib peninggalan masa lalu.",
+        "description": "Di Kecamatan Kembang Janggut, tepatnya di tepi Sungai Mahakam, terdapat fenomena alam yang sangat sulit diterima oleh akal sehat, namun nyata adanya. Situs Batu Dinding adalah sebuah formasi batu kapur raksasa yang tersusun secara vertikal, membentuk dinding alam yang sangat kokoh, tinggi, dan berliku-liku mengikuti garis pantai sungai.\n\nKeunikan Situs Batu Dinding ini bukan hanya pada tingginya, melainkan pada struktur susunannya. Batu-batu besar tersebut saling bertumpuk dan menyatu dengan sangat sempurna, membentuk dinding yang tidak memiliki celah sedikitpun. Jika diperhatikan dari kejauhan, formasi ini sangat mirip dengan benteng pertahanan buatan manusia yang rapi, bukan hasil dari proses geologis alamiah.\n\nMitologi masyarakat Kembang Janggut menjelaskan formasi ini dengan cara yang lebih dramatis. Menurut cerita turun-temurun, batu-batu ini adalah sisa-sisa dari sebuah benteng pertahanan gaib yang dibangun secara diam-diam oleh pasukan tak terlihat atas perintah seorang tetua suku untuk melindungi desa dari serangan bajak laut pada zaman dahulu. Setelah musuh berhasil dipukul mundur, benteng gaib itu membatu menjadi bentuknya saat ini.\n\nPara ahli geologi tentu memiliki pendapat berbeda. Mereka menjelaskan bahwa Batu Dinding ini terbentuk akibat proses erosi air Sungai Mahakam yang menggerus batuan lembut selama jutaan tahun, menyisakan batuan keras berkapur yang tersusun tegak. Meskipun secara ilmiah bisa dijelaskan, keindahan dan keanehan bentuknya tetap membuat siapa saja yang datang ke sana merasa kagum.\n\nDi sekitar area dinding, terdapat banyak gua-gua kecil dan celah-celah sempit yang konon pernah digunakan sebagai tempat berlindung atau meditasi oleh para pertapa di masa lalu. Beberapa lukisan atau ukiran pada permukaan batu yang ditemukan di area ini juga sedang dalam tahap penelitian untuk memastikan apakah ada kehadiran manusia purba yang menghuni dinding ini.\n\nUntuk mencapai lokasi Batu Dinding, pengunjung biasanya menggunakan perahu sungai. Menyusuri sungai sambil menatap dari kejauhan dinding batu raksasa yang menjulang tinggi menciptakan perspektif yang sangat dramatis, seolah-olah perahu yang dinaiki sangat kecil dibandingkan dengan penciptaan alam yang menakjubkan itu.\n\nSitus Batu Dinding merupakan potensi wisata alam dan budaya yang sangat besar. Kombinasi antara keindahan geomorfologi, legenda mistis yang menarik, dan tantangan alamnya menjadikan situs ini cocok bagi wisatawan yang menyukai petualangan. Pelestarian kawasan ini harus dijaga agar tidak dirusak oleh aktivitas penambangan atau penebangan liar yang dapat merusak ekosistem batu kapur.",
+        "photos": ["batu-dinding-1", "batu-dinding-2", "batu-dinding-3", "batu-dinding-4"],
+        "relatedStories": [12]
+    },
+    {
+        "id": 34, 
+        "slug": "makam-keramat-muara-kaman",
+        "name": "Makam Keramat Muara Kaman",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Desa Muara Kaman, Kec. Muara Kaman, Kab. Kutai Kartanegara",
+        "lat": 0.0850, 
+        "lng": 117.3050,
+        "summary": "Kompleks kuburan tua tanpa nisan yang dihormati masyarakat setempat, konon merupakan makam para wali atau pembesar kerajaan yang tidak diketahui identitasnya.",
+        "description": "Berbeda dengan Kompleks Makam Raja-Raja yang memiliki nisan rapi dan terawat, atau Situs Yupa yang berupa prasasti, Makam Keramat Muara Kaman menyimpan sebuah misteri besar. Ini adalah kumpulan kuburan tua yang ditandai hanya dengan gundukan tanah, tumpukan batu, atau pohon-pohon besar yang diikat kain kuning, tanpa ada nisan bertuliskan nama sedikitpun.\n\nLokasinya berada tidak jauh dari situs purbakala Kerajaan Kutai Martadipura. Keberadaan makam ini yang berada sangat dekat dengan pusat kerajaan Hindu kuno membuat para sejarawan berspekulasi bahwa penghuni makam ini adalah tokoh penting pada masa transisi, yaitu saat agama Islam mulai masuk dan menyatu dengan kebudayaan Hindu di Kutai.\n\nMasyarakat Muara Kaman memiliki keyakinan yang sangat kuat terhadap kekeramatan makam ini. Mereka menyebutnya sebagai makam 'Wali' atau orang-orang suci yang membawa ajaran baru (Islam) namun memilih untuk dimakamkan dekat tempat ibadah lamanya sebagai bentuk toleransi. Siapa pun yang berani mengganggu atau merusak area makam ini dipercaya akan mendapat celaka, seperti sakit penyakit aneh atau perahunya karam di sungai.\n\nSetiap menjelang bulan Ramadhan atau hari-hari besar Islam, ratusan warga dari berbagai daerah di Kutai Kartanegara berbondong-bondong datang ke makam ini. Mereka tidak datang untuk ziarah seperti ke makam umumnya, melainkan untuk melakukan ritual khusus yang sudah menjadi tradisi turun-temurun, seperti membakar kemenyan, menaburkan bunga, dan mendoakan secara bersama dengan pemandu spiritual.\n\nYang unik dari ritual di makam ini adalah adanya tradisi menyajikan makanan tertentu, seperti ketupat atau nasi kuning, yang diletakkan di atas kain putih di depan gundukan tanah. Setelah didoakan selama berjam-jam, makanan tersebut kemudian dibagikan kepada pengunjung sebagai 'berkah'. Ini menunjukkan adanya sinkretisme budaya yang kuat antara Islam dan tradisi pra-Islam.\n\nSecara arkeologis, penelitian di area makam ini sulit dilakukan karena tidak boleh melakukan penggalian tanah yang dianggap mengganggu kesakralan. Namun, pemeriksaan visual menunjukkan bahwa struktur tanah di sana memang telah mengalami pemadatan selama ratusan tahun, membuktikan bahwa memang ada jasad yang dikubur di sana pada masa lalu.\n\nMakam Keramat Muara Kaman menjadi simbol toleransi dan sinkretisme keagamaan di Kutai. Ia membuktikan bahwa agama tidak selalu datang dengan menghancurkan masa lalu, tetapi bisa berdampingan dan saling menghormati, meskipun identitas pelakunya tidak pernah diketahui oleh generasi sekarang.",
+        "photos": ["makam-keramat-1", "makam-keramat-2", "makam-keramat-3", "makam-keramat-4"],
+        "relatedStories": [30]
+    },
+    {
+        "id": 35, 
+        "slug": "situs-sungai-kuno-mahakam",
+        "name": "Situs Sungai Kuno Mahakam",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya / Geoheritage",
+        "address": "Berbagai titik di sepanjang DAS Mahakam, Kukar",
+        "lat": 0.0000, 
+        "lng": 116.5000,
+        "summary": "Bekas alur sungai purba (paleochannel) yang telah mengering, menjadi bukti pergeseran aliran Sungai Mahakam selama ribuan tahun.",
+        "description": "Di balik aliran deras Sungai Mahakam yang kita lihat saat ini, tersimpan rahasia besar tentang perjalanan waktu selama ribuan tahun. Situs Sungai Kuno Mahakam merujuk pada beberapa lokasi di sepanjang DAS (Daerah Aliran Sungai) Mahakam di Kutai Kartanegara yang ditemukan memiliki struktur tanah kuno berupa endapan sungai (aluvium) yang sudah berada jauh dari garis pantai sungai saat ini.\n\nPenemuan situs-situs ini oleh tim geolog dan arkeolog membuka tabir bahwa Sungai Mahakam tidak selalu mengalir di jalur yang sama seperti sekarang. Ribuan tahun lalu, sungai ini pernah berbelok ke arah yang berbeda, membentuk parit-parit sungai kuno (paleochannel) yang kini telah menjadi daratan kering atau rawa-rawa yang ditumbuhi hutan sekunder.\n\nDi dalam lapisan tanah bekas aliran sungai kuno ini, para ilmuwan menemukan banyak fosil kayu yang sudah membatu (terfosilisasi), cangkang siput air tawar purba, dan fosil tulang ikan raksasa (seperti ikan Arapaima). Penemuan ini membuktikan bahwa di masa lalu, aliran sungai ini sangat subur dan menjadi habitat bagi berbagai biota air tawar berukuran besar yang kini sudah punah.\n\nKeberadaan situs sungai kuno ini sangat berkaitan erat dengan misteri tenggelamnya Kerajaan Kutai Lama di Anggana. Para sejarawan meyakini bahwa penyebab utama kerajaan itu ditinggalkan adalah karena sungai yang mengalir di depannya mengering atau menyempit akibat pergeseran aliran sungai secara alami. Situs inilah yang menjadi bukti ilmiah dari teori tersebut.\n\nSelain itu, penemuan alur sungai kuno juga menjelaskan mengapa banyak situs purbakala atau temuan artefak kuno ditemukan jauh di dalam hutan, tidak di tepi sungai seperti logikanya. Pada masa lalu, hutan itu justru merupakan tepian sungai yang ramai, namun sungurnya sudah mengering dan bergeser menuju lokasi baru.\n\nStudi tentang Sungai Kuno Mahakam ini sangat penting di era perubahan iklim saat ini. Dengan memahami bagaimana sungai ini bergeser di masa lalu akibat faktor alam, para ilmuwan bisa memprediksi dinamika Sungai Mahakam di masa depan, termasuk ancaman pergeseran muara (abrasi) dan perubahan debit air yang mempengaruhi kehidupan jutaan warga Kukar.\n\nPelestarian situs ini tidak berupa membangun bangunan fisik, melainkan lebih pada perlindungan status quo tanah. Area-area yang teridentifikasi sebagai paleochannel ini dilindungi agar tidak dirusak oleh aktivitas perusahaan tambang atau perkebunan skala besar, agar 'buku sejarah alam' yang terkubur di dalamnya tetap bisa dibaca oleh generasi mendatang.\n\nSitus Sungai Kuno Mahakam mengajarkan bahwa alam tidak pernah diam. Bumi yang kita injak hari ini dulu adalah dasar sungai, dan dasar sungai yang kita lihat hari ini mungkin akan menjadi daratan kering ribuan tahun mendatang. Hanya pengetahuan inilah yang mampu membuat manusia beradaptasi dengan perubahan besar tersebut.",
+        "photos": ["sungai-kuno-1", "sungai-kuno-2", "sungai-kuno-3", "sungai-kuno-4"],
+        "relatedStories": [13]
+    },
+    {
+        "id": 36, 
+        "slug": "kawasan-budaya-tepian-mahakam",
+        "name": "Kawasan Budaya Tepian Mahakam",
+        "category": "situs-sejarah",
+        "status": "Warisan Budaya Hidup (Living Heritage)",
+        "address": "Jl. Tepian, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5030, 
+        "lng": 117.1520,
+        "summary": "Ruang publik terbuka di tepi sungai yang menjadi jantung kehidupan sosial masyarakat Tenggarong, memadukan arsitektur modern dengan tradisi sungai.",
+        "description": "Kawasan Budaya Tepian Mahakam adalah nadi kehidupan modern masyarakat Tenggarong saat ini. Berbeda dengan situs-situs sejarah purbakala yang berupa reruntuhan, Tepian adalah sebuah ruang publik terbuka yang terus bergeliat dan bertransformasi mengikuti zaman, namun tetap berakar kuat pada tradisi sungai masyarakat Kutai.\n\nSecara fisik, kawasan ini berupa sebuah boulevard yang luas dan tertata rapi di tepi Sungai Mahakam, dilengkapi dengan jalan setapak, arena terbuka (amphitheater), taman bunga, serta deretan lampu hias yang mempercantik wajah kota di malam hari. Arsitekturnya modern, namun desainnya sangat mengakomodasi kebiasaan masyarakat lokal yang suka berkumpul di tepi air.\n\nKonsep 'Tepian' dalam budaya Melayu Kutai bukan sekadar arti harfiahnya sebagai tepian sungai, melainkan sebuah filosofi ruang publik. Di sinilah batas sosial antara keluarga Sultan, bangsawan, pedagang, dan rakyat biasa menjadi kabur. Semua orang bisa duduk bersama di atas tikar atau bangku beton, menikmati semilir angin sungai sambil memakan pisang goreng dan kopi di sore hari.\n\nKawasan ini juga menjadi panggung utama bagi seni pertunjukan rakyat. Hampir setiap akhir pekan, Tepian dipenuhi oleh pemuda-pemudi yang memainkan musik dan menari Jepen secara spontan. Panggung terbuka di Tepian menjadi tempat lahirnya bakat-bakat seni baru dari Kutai, menjadikannya sebagai inkubator budaya yang sangat organik dan natural.\n\nDi musim Festival Erau, Kawasan Tepian mengalami metamorfosis menjadi sebuah ruang sakral dan megah. Air sungai menjadi lintasan utama untuk arak-arakan perahu hias (paseban). Tribun-tribun sementara didirikan untuk menampung ribuan penonton dari luar kota. Tepian menjadi bukti bahwa sungai bukan sekadar pemisah wilayah, tetapi jalan utama peradaban.\n\nKeberadaan pedagang kaki lima yang menjual makanan tradisional khas Kutai, seperti amplang, beras kuning, dan sate payau, menambah kekayaan kuliner di kawasan ini. Wisatawan yang datang tidak hanya disuguhi pemandangan sungai, tetapi juga wisata kuliner yang memanjakan lidah.\n\nPemerintah daerah terus berupaya menjaga kebersihan dan ketertiban Tepian Mahakam, karena kawasan ini adalah 'wajah' bagi Kota Tenggarong. Program-program revitalisasi terus dilakukan agar Tepian tidak kehilangan ruhnya sebagai ruang budaya di tengah gempuran tren kafe-kafe modern yang mulai menjamah kota.\n\nTepian Mahakam adalah representasi sempurna dari masyarakat Kutai saat ini: terbuka terhadap modernitas, namun tetap memegang erat tali penghubung dengan leluhur dan sungai yang telah membesarkan mereka.",
+        "photos": ["tepiann-1", "tepiann-2", "tepiann-3", "tepiann-4"],
+        "relatedStories": [13, 28, 38]
+    },
+    {
+        "id": 37, 
+        "slug": "situs-permukiman-tua-tenggarong",
+        "name": "Situs Permukiman Tua Tenggarong",
+        "category": "situs-sejarah",
+        "status": "Cagar Budaya / Kawasan Konservasi",
+        "address": "Kawasan Kelurahan Melayu, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5020, 
+        "lng": 117.1500,
+        "summary": "Jaringan jalan dan lorong di balik Keraton yang menyimpan rumah-rumah tua berarsitektur kolonial dan Melayu, menjadi saksi bisu kehidupan nobel era Kesultanan.",
+        "description": "Jika kita berjalan menyusuri lorong-lorong kecil di belakang Istana Kedaton, kita akan menemukan Situs Permukiman Tua Tenggarong. Ini bukan sebuah situs dengan pagar pembatas, melainkan sebuah kawasan perumahan yang masih mempertahankan tata ruang kota dari masa awal berdirinya Kesultanan Kutai Kartanegara di Tenggarong.\n\nTata ruang di kawasan ini sangat unik dan berbeda dari perumahan modern. Rumah-rumah tua di sini sebagian besar masih menggunakan konsep rumah panggung dengan tiang kayu ulin, meskipun sudah mendapat tambahan dinding papan atau bata di bagian bawahnya. Lorong-lorong di antara rumah sempit dan berliku, mengarah menuju sungai, membuktikan bahwa konsep utama pembangunan kala itu adalah 'menghadap air'.\n\nDi kawasan inilah tinggal para kerabat dekat Kesultanan, pembesar kerajaan, dan para saudagar kaya pada masa lalu. Oleh karena itu, walaupun terlihat sama-sama rumah panggung Melayu, jika diperhatikan detail ornamen dan ukirannya, rumah-rumah di kawasan ini memiliki finishing yang jauh lebih mewah dibandingkan rumah rakyat biasa di kampung lain.\n\nSeiring waktu, banyak rumah tua di kawasan ini yang sudah beralih fungsi menjadi tempat usaha, seperti kedai kopi, toko oleh-oleh, atau homestay. Meskipun ada perubahan fungsi, pemiliknya secara umum masih menjaga ciri khas arsitektur bagian depan rumah agar identitas sejarah kawasan ini tidak hilang.\n\nKeberadaan kawasan ini sangat penting untuk memahami stratifikasi sosial masyarakat Kutai pada masanya. Pangeran, bangsawan, pedagang, dan rakyat biasa memiliki blok permukiman yang berbeda berdasarkan jaraknya dari istana. Ini adalah gambaran miniatur dari sebuah kota feodal Melayu yang teratur.\n\nPemerintah daerah telah mengeluarkan regulasi untuk melindungi kawasan ini dari pembangunan yang tidak sesuai. Tidak boleh ada bangunan bertingkat tinggi atau beton permanen yang menggantikan rumah-rumah panggung tua di zona inti permukiman ini, sebagai upaya menjaga kanvas sejarah Kota Tenggarong tetap utuh.\n\nMenelusuri Situs Permukiman Tua Tenggarong di sore hari saat lampu-lampu sore mulai dinyalakan adalah pengalaman yang sangat nostalgis. Suasana syahdu menyelimuti lorong-lorong tua, seolah membawa pengunjung kembali ke era 100 tahun lalu, mendengar lantunan gamelan Jepang yang sayup-sayup dari kejauhan.",
+        "photos": ["permukiman-tua-1", "permukiman-tua-2", "permukiman-tua-3", "permukiman-tua-4"],
+        "relatedStories": [6, 19]
+    },
+    {
+        "id": 38, 
+        "slug": "kompleks-makam-kesultanan-kutai",
+        "name": "Kompleks Makam Kesultanan Kutai",
+        "category": "makam",
+        "status": "Cagar Budaya",
+        "address": "Jl. Kesultanan, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5060, 
+        "lng": 117.1580,
+        "summary": "Ekosistem makam kerajaan yang sangat luas yang menyimpan keanekaragaman arsitektur nisan Islam dari berbagai abad sebagai buku terbuka silsilah Kesultanan.",
+        "description": "Kompleks Makam Kesultanan Kutai adalah sebuah 'museum seni arsitektur Islam' terbuka yang sangat luas dan kompleks. Jika sebelumnya kita membahas makam sultan-sultan besar, kompleks ini mencakup seluruh keluarga kerajaan yang lebih luas, termasuk para putra mahkota, permaisuri, kerabat kerajaan, dan para pembesar negara dari berbagai generasi.\n\nYang paling memukau dari kompleks ini adalah keanekaragaman gaya arsitektur nisan dan jirat (pagar makam) dari masa ke masa. Di satu sisi, kita bisa menemukan nisan nisan polos bergaya Islam kuno yang sangat sederhana. Di sisi lain, terdapat makam dengan nisan berukir kaligrafi Arab yang sangat rumit berforma kubah atau mahkota, menunjukkan pengaruh seni Timur Tengah atau Mughal yang masuk pada masa akhir Kesultanan.\n\nAda juga beberapa makam yang menunjukkan akulturasi budaya yang unik, yaitu nisan yang berbentuk seperti miniatur rumah tradisional Melayu lengkap dengan atapnya. Ini menandakan bahwa meskipun sudah memeluk Islam, masyarakat Kutai tetap menyisipkan tradisi 'rumah tinggal' dalam keyakinan kematian mereka.\n\nTidak jauh dari area makam utama, terdapat area khusus yang dikenal sebagai 'Makam Keramat'. Ini adalah makam-makam tokoh yang dianggap sangat sakti, biasanya para ulama besar atau pewaris pusaka kerajaan. Area ini ditandai dengan pohon-pohon besar yang sudah berusia ratusan tahun yang dipenuhi kain-kain penanda doa.\n\nEkosistem alam di sekitar kompleks makam ini sengaja dibiarkan asri dan rindang. Pohon-pohon besar seperti Beringin dan Tanjung dibiarkan tumbuh menjulang, memberikan keteduhan alami yang sangat kental. Suasana sejuk dan syahdu ini membuat kompleks makam tidak terasa menyeramkan, melainkan terasa damai dan penuh kedamaian.\n\nPemerintah keraton, bekerja sama dengan dinas terkait, secara rutin melakukan inventarisasi dan digitalisasi nisan-nisan di kompleks ini. Banyak nisan yang mulai pudar ukirannya akibat cuaca mulai didokumentasikan secara 3D untuk keperluan arsip sejarah agar data silsilah Kesultanan tidak hilang dimakan waktu.\n\nKompleks Makam Kesultanan Kutai bukan hanya tempat peristirahatan terakhir, tetapi juga menjadi buku sejarah berjalan tentang evolusi seni, agama, dan kekuasaan di Kutai Kartanegara yang ditulis bukan dengan tinta, melainkan dengan batu dan kayu yang terukir penuh makna.",
+        "photos": ["makam-kesultanan-1", "makam-kesultanan-2", "makam-kesultanan-3", "makam-kesultanan-4"],
+        "relatedStories": [2, 3, 28, 30]
+    },
+    {
+        "id": 39, 
+        "slug": "situs-tradisi-erau",
+        "name": "Situs Tradisi Erau",
+        "category": "situs-sejarah",
+        "status": "Warisan Budaya Tak Benda (WBTB) / Spatial Heritage",
+        "address": "Sungai Mahakam & Kawasan Kedaton, Tenggarong, Kab. Kutai Kartanegara",
+        "lat": -0.5045, 
+        "lng": 117.1515,
+        "summary": "Ruang multimodal yang terdiri dari sungai, tepian, dan keraton yang menjadi panggung akbar untuk pelaksanaan ritual adat Erau bertaraf internasional.",
+        "description": "Situs Tradisi Erau bukanlah sekadar sebuah bangunan fisik tunggal, melainkan sebuah 'Ruang Multimodal' yang melibatkan tiga elemen utama: Sungai Mahakam sebagai jalan tolak, Tepian sebagai tribun penonton, dan Kedaton sebagai backstage utama. Ketiga elemen ini harus menyatu untuk memungkinkan pelaksanaan Festival Erau yang megah.\n\nDalam konteks sejarah, Erau bermula sebagai ritual adat di keraton untuk menyambut kelahiran seorang raja atau kemenangan perang. Namun dalam perkembangannya, Erau menjelma menjadi ruang publik terbuka yang mampu memuat seluruh lapisan masyarakat Kutai Kartanegara. Penetapan 'Situs' ini penting untuk menegaskan bahwa Erau membutuhkan ruang sosial-geografis yang spesifik untuk dapat terlaksana secara sakral.\n\nProsesi mulai dari Sungai Mahakam, dimana puluhan perahu hias (paseban) mengarakan keluarga-keluarga keraton dan komunitas adat dari berbagai suku Dayak dan Melayu. Air sungai menjadi jalan utama, menunjukkan kembali bagaimana mobilitas sosial terjadi di masa lalu. Air sungai pada saat Erau dipercaya menjadi penyuci seluruh wilayah kerajaan dari keburukan.\n\nSaat rombongan sampai di Tepian, ruang daratan mulai berperan aktif. Tepian berubah menjadi panggung pertunjukan yang luas, menampung ribuan penonton yang menyaksikan tarian-tarian adat dari berbagai daerah. Di sinilah interaksi sosial budaya antara penampil dan penonton terjadi secara langsung, menciptakan euforia kolektif yang sangat kuat.\n\nPuncak ritual terjadi di dalam Kawasan Kedaton. Di halaman istana inilah upacara adat inti dilakukan, seperti menyembelih kerbau, mengambil air suci, dan pertemuan antara Raja (Sultan) dengan rakyatnya di ruang terbuka. Kedaton menjadi pusat gravitasi spiritual dari seluruh rangkaian acara Erau.\n\nMempertahankan 'Situs Tradisi Erau' berarti memastikan ketiga ruang tersebut (Sungai, Tepian, Kedaton) tidak terganggu oleh pembangunan yang merusak fungsinya sebagai ruang ritual. Misalnya, tidak boleh ada bangunan yang menghalangi pemandangan dari Tepian ke sungai, atau kerusakan lingkungan sungai yang menjadi nafas tradisi ini.\n\nErau adalah bukti bahwa warisan budaya yang paling hidup adalah yang mampu menguasai ruang publik secara kolektif. Menjadikan trio Sungai-Tepian-Kedaton sebagai sebuah Situs Heritage yang dilindungi undang-undang adalah langkah strategis untuk menjaga keberlangsungan tradisi ini di tengah gempuran modernisasi kota.",
+        "photos": ["erau-situs-1", "erau-situs-2", "erau-situs-3", "erau-situs-4"],
+        "relatedStories": [6, 38]
+    },
+    {
+        "id": 40, 
+        "slug": "situs-jalur-historis-kerajaan-kutai",
+        "name": "Situs Jalur Historis Kerajaan Kutai",
+        "category": "situs-sejarah",
+        "status": "Kawasan Cagar Budaya Terpadu",
+        "address": "Melintang Kabupaten Kutai Kartanegara (Muara Kaman - Anggana - Tenggarong - Loa Kulu)",
+        "lat": -0.1000, 
+        "lng": 117.0000,
+        "summary": "Konsep jalur spasial panjang yang menghubungkan seluruh situs peninggalan dari era Hindu hingga era Kemerdekaan, membentuk narasi utuh peradaban Kutai.",
+        "description": "Situs Jalur Historis Kerajaan Kutai adalah sebuah konsep pemetaan budaya berbasis spasial (spatial heritage) yang mengangkat 39 situs lainnya menjadi satu narasi raya yang utuh. Alih-alih memandang warisan budaya Kutai sebagai pulau-pulau terpisah, konsep ini melihatnya sebagai satu garis waktu yang terbentang di sepanjang Sungai Mahakam dan cabang-cabang sungainya.\n\nFase pertama jalur ini berada di Muara Kaman, menandai era awal peradaban Hindu (Kutai Martadipura). Di sini, pengunjung diajak melihat bukti-bukti fisik tertua berupa Yupa dan Lesong Batu, memahami bagaimana peradaban dimulai dari sebuah pusat ibukota kuno di tepi hutan.\n\nFase kedua jalur berpindah ke Anggana (Kutai Lama), menandai era transisi dan perdagangan maritim. Jalur ini menunjukkan bagaimana pusat kekuasaan bergeser akibat dinamika sungai, serta bagaimana Kutai berinteraksi dengan dunia luar melalui pelabuhan. Situs-situs makam kuno di sini menunjukkan proses akulturasi budaya yang sangat intens.\n\nFase ketiga mengarah ke Tenggarong, menandai era keemasan Kesultanan Islam (Kutai Karta Negara). Jalur ini adalah yang paling padat, dipenuhi oleh Istana, Masjid Agung, kompleks makam, serta ruang-ruang publik (Tepian). Ini adalah bukti bahwa Kutai berhasil membangun peradaban baru yang lebih kuat setelah meninggalkan kota lama.\n\nFase keempat membawa pengunjung ke Loa Kulu dan Sanga-Sanga, menandai era kelam, perlawanan, dan kolonialisme. Situs Tugu Jepang dan Terowongan Tambang Belanda di sini menjadi pengingan bahwa sejarah tidak selalu indah, ada fase penderitaan dan perjuangan yang harus dilewati untuk mempertahahkan kedaulatan.\n\nMemetakan seluruh titik ini dalam satu 'Jalur Historis' memberikan pengalaman luar biasa bagi wisatawan edukasi. Seseorang bisa merencanakan perjalanan 2-3 hari, menyusuri sungai dari hulu ke hilir, seolah-olah sedang menelusuri alur waktu dari abad ke-4 Masehi hingga abad ke-20.\n\nKonsep jalur historis ini juga menjadi alat penting untuk perencanaan tata ruang (spatial planning) pemerintah daerah. Dengan menetapkan koridor ini sebagai kawasan konservasi budaya, pembangunan infrastruktur modern yang tidak sesuai dapat dibatasi, sehingga jendela masa lalu tidak tertutup total oleh beton.\n\nPada akhirnya, Situs Jalur Historis Kerajaan Kutai memvalidasi klaim bahwa Kutai Kartanegara bukanlah sekadar daerah pinggiran yang kaya sumber daya alam, melainkan adalah 'Gudang Sejarah Nusantara' yang perjalanan peradabannya harus dijaga, dilestarikan, dan diperkenalkan kepada seluruh dunia melalui platform digital Khasanah Nusantara ini.",
+        "photos": ["jalur-historis-1", "jalur-historis-2", "jalur-historis-3", "jalur-historis-4"],
+        "relatedStories": [2, 3, 5, 12, 16]
     }
 ];
 
@@ -928,7 +937,7 @@ var stories = [
         "thumbnail": "cahaya-muara-kaman",
         "relatedSite": "muara-kaman"
     }
-]
+];
 /* ============================================================
     KONTRIBUTOR & MITRA
 ============================================================ */

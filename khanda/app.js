@@ -633,17 +633,23 @@ function renderAbout() {
 		});
 	}
 }
-
+L.tileLayer(url, { attribution: '&copy; OSM &copy; CARTO', maxZoom: 19 }).addTo(map);
 /* ============================================================
 	MAP
 ============================================================ */
 function addTileToMap(map) {
-	var isDark = document.documentElement.getAttribute('data-bs-theme') === 'dark';
-	var url = isDark
-    ? 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png'
-    : 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
-	L.tileLayer(url, { attribution: '&copy; OSM &copy; CARTO', maxZoom: 19 }).addTo(map);
+    var isDark =
+        document.documentElement.getAttribute('data-bs-theme') === 'dark';
+    // STADIA DARK / LIGHT
+    var url = isDark
+        ? 'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png'
+        : 'https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png';
+    L.tileLayer(url, {
+        maxZoom: 19,
+        attribution: '&copy; <a targe="_blank" href="https://openstreetmap.org/copyright">OSM</a> | <a targe="_blank" href="https://stadiamaps.com/">Stadia</a>'
+    }).addTo(map);
 }
+
 function addMapTiles() { if (leafletMap) addTileToMap(leafletMap); }
 
 function renderMap() {
