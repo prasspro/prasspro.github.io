@@ -1,0 +1,1036 @@
+﻿
+<?php
+	$db_host = 'localhost'; // Nama Server
+	$db_user = 'kutaicod'; // User Server
+	$db_pass = 'Kutaic0d1ng'; // Password Server
+	$db_name = 'kutaicod_web'; // Nama Database
+	
+	$conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
+	if (!$conn) {
+		die ('Gagal terhubung dengan MySQL: ' . mysqli_connect_error());	
+	}
+	
+	$sql = "SELECT
+	*
+	FROM
+	`cp_portfolio`
+	WHERE
+	aktif = 'y'
+	ORDER BY
+	id_portfolio ASC";
+	
+	$portfolio = mysqli_query($conn, $sql);
+	
+	if (!$portfolio) {
+		die ('SQL Error: ' . mysqli_error($conn));
+	}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+	
+	<head>
+		<title>DANANG SIGIT PRASETYA - IT PARTNER & CONSULTANT</title>
+		<!-- META TAGS -->
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="robots" content="index, follow">
+		<meta name="description" content="Melayani jasa pembuatan  Landing Page / Website, Aplikasi Mobile, UI UX Design, Software Enginer, untuk wilayah Tenggarong, Kutai kartanegara, Borneo, Kalimantan Timur, Indonesia dan Asia. Kami merupakan sociopreanur yang dapat membantu Militer, Pemerintah, Pejabat, Universitas, Hotel, Organisasi, Perusahaan yang bergerak dibidang bisnis atau komersial, bukan hanya pelayanan tetapi kualitas dan harga,menjadi hal terbaik untuk promosi perusahaan/usaha bisnis melalui digital.">
+		<meta name="keywords" content="Jasa Pembuatan Website, Danang Sigit, Prasetya, kutaicoding, jasa pembuatan website tenggarong, kutai kartanegara, borneo, kalimantan timur, blog murah, web developer, mobile developer, software enginer, ui ux design, pembuatan stasiun radio, tv lokal, streaming radio, Kursus Komputer, jurnalistik">
+		<meta name="author" content="Danang Sigit Prasetya">
+		<meta name="robots" content="all,index,follow">
+		<meta http-equiv="Content-Language" content="id-ID">
+		<meta NAME="Distribution" CONTENT="Global">
+		<meta NAME="Rating" CONTENT="General">
+		
+		<!-- FAVICON -->
+		<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+		<!-- CSS FILES -->
+		<link href="css/normalize.css" rel="stylesheet" type="text/css">
+		<link href="css/animate.css" rel="stylesheet" type="text/css">
+		<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/nerveslider.css" rel="stylesheet" type="text/css">
+		<link href="css/tooltipster.css" rel="stylesheet" type="text/css">
+		<link href="css/scrollbar.css" rel="stylesheet" type="text/css">
+		<link href="css/lightgallery.css" rel="stylesheet" type="text/css">
+		<link href="css/colors.css" rel="stylesheet" type="text/css">
+		<link href="css/media.css" rel="stylesheet" type="text/css">
+		<style> 
+			
+			/* Input Field CSS */
+			.datainput{position:relative;margin:5px 0 20px}
+			.datainput p{font-size:12px;background:#eee;display:inline-block;padding:5px 15px;border-radius:.5rem}
+			.whatsapp-form textarea{min-height:120px}
+			.datainput select{padding:12px 0;color:#555;font-size:14px;width:100%;border:0;border-bottom:1px solid #ddd;outline:none;background:#fff}
+			.datainput input,.datainput textarea{font-size:15px;padding:15px 0;display:block;width:100%;border:none;border-bottom:1px solid #ddd; margin:0}
+			.datainput input:focus,.datainput textarea:focus{outline:none}
+			.datainput label{color:#999;font-size:14px;font-weight:400;position:absolute;pointer-events:none;left:0;top:18px;transition:.2s ease all}
+			.datainput input:focus~label,.datainput input:valid~label,.datainput textarea:focus~label,.datainput textarea:valid~label{top:-10px;font-size:14px;color:#21a51f}
+			#notif-license span{font-size:40px}#notif-license{display:none;position:fixed}
+			.bar{position:relative;display:block;width:100%}
+			.bar:before,.bar:after{content:'';height:2px;width:0;bottom:1px;position:absolute;background:#21a51f;transition:.2s ease all}
+			.bar:before{left:50%}.bar:after{right:50%}
+			.datainput input:focus~.bar:before,.datainput input:focus~.bar:after,.datainput textarea:focus~.bar:before,.datainput textarea:focus~.bar:after{width:50%}
+			.indigox{background:#3f51b5}
+			.orangex{background:#ff9800}
+			.pinkx{background:#e91e63}
+			.bluex{background:#2196F3}
+			.purplex{background:#9c27b0}
+			.redx{background:#F44336}
+			.greenx{background:#4CAF50}
+			.highlight{position:absolute;height:50%;width:100px;top:25%;left:0;pointer-events:none;opacity:.5}
+			.datainput input:focus~.highlight,.datainput textarea:focus~.highlight{animation:inputHighlighter .3s ease}
+			.datainput input:focus~label,.datainput input:valid~label,
+			.datainput textarea:focus~label,
+			.datainput textarea:valid~label{top:-10px;font-size:13px;color:#21a51f}
+			
+			/* Default Whatsapp Form CSS by www.idblanter.com */
+			form.whatsapp-form {
+			box-shadow: 0 1px 6px rgba(32,33,36,.28);
+			border-radius: .5rem;
+			padding: 20px;
+			box-sizing: border-box;
+			color: #444;
+			font-size: 14px;
+			line-height: 1.5;
+			}
+			.whatsapp-form a.send_form {
+			color: #fff;
+			background: #21a51f;
+			text-decoration: none;
+			display: inline-block;
+			padding: 10px 25px;
+			border-radius: .3rem;
+			font-weight: 700;
+			letter-spacing: .5px;
+			font-size: 15px;
+			}
+			#text-info span {
+			display: block;
+			padding: 10px 15px;
+			text-align: center;
+			font-weight: 700;
+			margin: 15px 0;
+			border-radius: .5rem;
+			}
+			#text-info span.yes {
+			background: #c6ffc5;
+			color: #0ea904;
+			}
+			#text-info span.no {
+			background: #ffc5c5;
+			color: #ce0404;
+			}
+			.whatsapp-form{
+			width:100%;
+			max-width:700px;
+			margin:0 auto;
+			box-sizing:border-box;
+			}
+		</style>
+		<noscript>
+			<link href="css/nojs.css" rel="stylesheet" type="text/css">
+		</noscript>
+	</head>
+	
+	<body>
+		<!-- LOADING ANIMATION -->
+		<div id="site-loading"></div>
+		<!-- MAIN MENU -->
+		<div id="cv-menu">
+			<nav id="cv-main-menu">
+				<ul>
+					<!-- SIDEBAR MENU ICON 
+						<li><a href="#" class="cv-menu-button fa fa-bars">Menu</a>
+					</li>-->
+					<!-- PAGE 1 LINK -->
+					<li class="links-to-floor-li cv-active" data-id="1" data-slug="home"><a href="#home" class="fa fa-home tooltip-menu" title="HOME">Home</a>
+					</li>
+					<!-- PAGE 2 LINK -->
+					<li class="links-to-floor-li" data-id="2" data-slug="about"><a href="#about" class="fa fa-user tooltip-menu" title="ABOUT">About</a>
+					</li>
+					<!-- PAGE 3 LINK -->
+					<li class="links-to-floor-li" data-id="3" data-slug="resume"><a href="#resume" class="fa fa-graduation-cap tooltip-menu" title="RESUME">Resume</a>
+					</li>
+					<!-- PAGE 4 LINK -->
+					<li class="links-to-floor-li" data-id="4" data-slug="portfolio"><a href="#portfolio" class="fa fa-briefcase tooltip-menu" title="PORTFOLIO">Portfolio</a>
+					</li>
+					<!-- PAGE Add LINK -->
+					<li class="links-to-floor-li" data-id="5" data-slug="presentation"><a href="#presentation" class="fa fa-book tooltip-menu" title="PRESENTATION">Presentation</a>
+					</li>
+					<!-- PAGE 5 LINK -->
+					<li class="links-to-floor-li" data-id="6" data-slug="contact"><a href="#contact" class="fa fa-send tooltip-menu" title="CONTACT">Contact</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<!-- LEFT SLIDER -->
+		<div class="cv-left-slider">
+			<div id="cv-left-slider">
+				<!-- 1. SLIDE -->
+				<div>
+					<img src="images/photos/prass1.jpg" alt="">
+					<div id="home-slide-title">
+						<span>DANANG SIGIT</span>
+					</div>
+				</div>
+				<!-- 2. SLIDE -->
+				<img src="images/photos/prass2.jpg" alt="">
+				<!-- 3. SLIDE -->
+				<img src="images/photos/prass3.jpg" alt="">
+				<!-- 4. SLIDE -->
+				<img src="images/photos/prass4.jpg" alt="">
+				<!-- 5. SLIDE -->
+				<img src="images/photos/enterpreanur.jpg" alt="">
+				<!-- 6. SLIDE -->
+				<img src="images/photos/kc1.jpg" alt="">
+				<div>
+					<!-- GOOGLE MAP -->
+					<div class="google-map-container">
+						<div id="google-map"></div>
+					</div>  
+				</div>
+			</div>
+		</div>
+		<!-- PAGES -->
+		<div id="ascensorBuilding">
+			<!-- PAGE 1 -->
+			<section class="floor floor-1">
+				<div id="home-image">
+					<div id="home-title">
+						<h1><span class="mobile-title">DANANG SIGIT</span><span>PRASETYA</span></h1>
+						<p>IT PARTNER & CONSULTANT</p>
+					</div>
+					<!-- SOCIAL ICONS -->
+					<div id="cv-home-social-bar-container">
+						<nav id="cv-home-social-bar">
+							<ul>
+								
+								<script language="javascript">
+									document.write(
+									"<li><a class='fa fa-facebook-f tooltip-social' href='http://www.facebook.com/share.php?u=" + document.URL + " ' target='_blank'> Facebook</a></li>");
+								</script>
+								
+								
+								<script language="javascript">
+									document.write(
+									" <li><a class='fa fa-twitter tooltip-social' href='http://twitter.com/home/?status=" + document.URL + "' target='_blank'> Twitter</a></li>");
+								</script>
+								
+								
+								<script language="javascript">
+									document.write(
+									"<li><a class='fa fa-google-plus tooltip-social' href='https://plus.google.com/share?url=" + document.URL + "' target='_blank'> Google+</a></li>");
+								</script>
+								
+								
+								<script language="javascript">
+									document.write(
+									"<li><a class='fa fa-whatsapp tooltip-social' href='whatsapp://send?text=" + document.URL + "' target='_blank'> Whatsapp</a></li>");
+								</script>
+								
+								
+								<script language="javascript">
+									document.write(
+									"<li><a class='fa fa-pinterest tooltip-social' href='https://pinterest.com/pin/create/bookmarklet/?media=" + document.URL + "' target='_blank'> Pinterest</a></li>");
+								</script>
+								
+								
+								<script language="javascript">
+									document.write(
+									"<li><a class='fa fa-envelope tooltip-social' href='mailto:?subject=Simple%20Social%20Network%20Sharing%20Plugin&body=" + document.URL + "' target='_blank'><i class='fa-2x fas fa-envelope'></i> Email</a></li>");
+								</script>
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</section>
+			<!-- PAGE 2 -->
+			<section class="floor floor-2">
+				<!-- THIS IMAGE WILL BE DISPLAYED ONLY ON MOBILE MODE ( 1024PX AND BELOW ) -->
+				<div class="img-mobile-only">
+					<img src="images/photos/prass3-small.jpg" alt="">
+				</div>
+				<!-- PAGE CONTENT -->
+				<div class="cv-page-content">
+					<h2 class="border">TENTANG SAYA</h2>
+					<p>Melayani jasa pembuatan  Landing Page / Website, Aplikasi Mobile, UI UX Design, Software Enginer, untuk wilayah Tenggarong, Kutai kartanegara, Borneo, Kalimantan Timur, Indonesia dan Asia. Kami merupakan sociopreanur yang dapat membantu Militer, Pemerintah, Pejabat, Universitas, Hotel, Organisasi, Perusahaan yang bergerak dibidang bisnis atau komersial, bukan hanya pelayanan tetapi kualitas dan harga,menjadi hal terbaik untuk promosi perusahaan/usaha bisnis melalui digital..</p>
+					<!-- TABLE -->
+					<ul class="cv-table">
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-user"></i>Date of birth</div>
+							<div class="cv-table-right">02 April 1984</div>
+						</li>
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-language"></i>Languages</div>
+							<div class="cv-table-right">English, Indonesia</div>
+						</li>
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-futbol-o"></i>Hobbies</div>
+							<div class="cv-table-right">Coding, Swimming, Diving, Water Ski</div>
+						</li>
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-external-link-square"></i>Website</div>
+							<div class="cv-table-right"><a href="https://kutaicoding.com">www.kutaicoding.com</a>
+							</div>
+						</li>
+					</ul>
+					<h2 class="border">MAKSUD & TUJUAN</h2>
+					<p>Menjadi Sociopreneur Pengembang Produk dan Penyedia Jasa di khusus nya Bidang Informasi, Teknologi, dan Komunikasi Nasional Kelas Dunia.</p>
+					<p>Menjalankan usaha Dibidang Informasi, Teknologi dan Komunikasi secara terintegrasi, berdasarkan prinsip-prinsip Sociopreneur yang kuat dan akurat. <br> Menciptakan produk dan layanan yang memiliki peluang-peluang yang diminta dan diinginkan pasar yang berbasis ide-ide orisinil dan nyata. </p>
+					<a href="#contact" class="cv-button primary go-to-floor" data-id="5" data-slug="contact">Hire Me</a>
+					<a href="#" class="cv-button">Download Resume</a>
+					<hr>
+					<h2 class="border">APA YANG SAYA LAKUKAN</h2>
+					
+					<div class="cv-main-icon-container">
+						<!-- ICON BLOCK -->
+						<div class="cv-icon-block">
+							<div class="cv-icon-container">
+								<a href="#" class="fa fa-desktop">Web Developer</a>
+							</div>
+							<div class="cv-icon-text">
+								<h4>Web Developer</h4>
+								<p>Memberikan pelayanan jasa perancangan dan pengembangan aplikasi website sebagai media promosi usaha dijaringan internet. Perancangan dan pengembangan aplikasi website bisa berupa perancangan website statik maupun website dinamis bahkan sebuah aplikasi E-commerce..</p>
+							</div>
+						</div>
+						<!-- ICON BLOCK -->
+						<div class="cv-icon-block">
+							<div class="cv-icon-container">
+								<a href="#" class="fa fa-android">Mobile Developer</a>
+							</div>
+							<div class="cv-icon-text">
+								<h4>Mobile Developer</h4>
+								<p>Melayani pembuatan aplikasi android & iOS berdasarkan system yang disesuaikan dengan kebutuhan dan keinginan pelanggan dengan fungsi yang optimal, berkualitas mulai dari aplikasi hiburan hingga aplikasi untuk bisnis dengan harga yang wajar.</p>
+							</div>
+						</div>				
+					</div>
+					<div class="cv-main-icon-container">
+						<!-- ICON BLOCK -->
+						<div class="cv-icon-block">
+							<div class="cv-icon-container">
+								<a href="#" class="fa fa-paint-brush">UI /UX Design</a>
+							</div>
+							<div class="cv-icon-text">
+								<h4>UI /UX Design</h4>
+								<p>Memberikan desain terbaik untuk meningkatkan kepuasan pengguna (pengguna aplikasi, pengunjung website) dalam meningkatkan kegunaan dan kesenangan yang diberikan dalam interaksi antara pengguna dan produk sesuai permintaan anda.</p>
+							</div>
+						</div>
+						<!-- ICON BLOCK -->
+						<div class="cv-icon-block">
+							<div class="cv-icon-container">
+								<a href="#" class="fa fa-code">Software Enginer</a>
+							</div>
+							<div class="cv-icon-text">
+								<h4>Software Enginer</h4>
+								<p>Mengerjakan aplikasi operasional lainnya antara lain; aplikasi Absensi, aplikasi penjualan & pembelian, stok, hutang piutang, aplikasi perhotelan, aplikasi pendataan karyawan, aplikasi perjalanan dinas dan lain sebagainya.</p>
+							</div>
+						</div>						
+					</div>
+					<hr>
+					<!-- TESTIMONIALS -->
+					<h2 class="border">Testimonials</h2>
+					<div id="testimonials">
+						<div>
+							<blockquote>
+								<p>Terima kasih mas prass pelayanannya yang sangat baik, dan mau membina staff saya, sekarang jembayan tengah sudah memiliki web dan aplikasi desa yang bagus</p>
+								<p class="cite">Rohimin</p>
+							</blockquote>
+						</div>
+						<div>
+							<blockquote>
+								<p>Terima kasih mas sudah mau membantu untuk desain ulang web Hotel Grand Elty Singgasana semoga makin sukses, untuk aplikasi kasir elty mart nya segera ya mas</p>
+								<p class="cite">Hariyanto</p>
+							</blockquote>
+						</div>
+						<div>
+							<blockquote>
+								<p>Berkat mas prass sekarang kami sudah punya website desa Sungai Payang yang keren dan aplikasi juga ok mas, sekarang warga bisa langsung download melalui playstore</p>
+								<p class="cite">Rusdi</p>
+							</blockquote>
+						</div>
+						<div>
+							<blockquote>
+								<p>Keren mas portal website kabarkubarmahulu.com yang saya pesan sesuai dengan permintaan. rekomended banget jasa pelayanan website dan aplikasinya</p>
+								<p class="cite">Lukman Kubar</p>
+							</blockquote>
+						</div>
+						<div>
+							<blockquote>
+								<p>Waah.. Terima kasih sekarang hanya dengan 1 Website www.kumalaradionetwork.com sudah bisa dengerin semua streaming radio kumala network di seluruh indonesia</p>
+								<p class="cite">Suwanto</p>
+							</blockquote>
+						</div>
+						<div>
+							<blockquote>
+								<p>www.krisnafm.com paling suka tampilan slideshow image depan mas, Halaman admin juga sangat gampang dipelajari </p>
+								<p class="cite">Ria</p>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- PAGE 3 -->
+			<section class="floor floor-3">
+				<!-- THIS IMAGE WILL BE DISPLAYED ONLY ON MOBILE MODE ( 1024PX AND BELOW ) -->
+				<div class="img-mobile-only">
+					<img src="images/photos/prass2-small.jpg" alt="">
+				</div>
+				<!-- PAGE CONTENT -->
+				<div class="cv-page-content">
+					<h2 class="border">JOB EXPERIENCE</h2>
+					<div class="cv-resume-box">
+						<div class="cv-resume-title">
+							<h5>IT PARTNER & CONSULTANT</h5>
+							<h6>www.kutaicoding.com</h6>
+							<p>2012 - Sekarang</p>
+						</div>
+						<p>Menyediakan jasa layanan media online berbasis webapp dan media informasi lainnya. sebagai Sociopreneur yang dapat membantu Pemerintahan, Militer, Pejabat, Universitas, Hotel, Organisasi atau perusahaan yang bergerak dibidang bisnis atau komersial. Bukan hanya pelayanan, tapi kualitas dan harga, menjadi hal terbaik untuk promosi perusahaan/usaha bisnis dijaringan internet.</p>
+						<div class="cv-resume-title">
+							<h5>Directur Utama</h5>
+							<h6>iNRADIO 99.0 FM</h6>
+							<p>2015 - Sekarang</p>
+						</div>
+						<p>iNRADIO Tenggarong berdiri dengan nama PT. BORNEO PRIMA MEDIA adalah Radio anak muda yang pertama kali berdiri di Kota Raja Tenggarong memberikan beragam informasi untuk menggali inspirasimu, Hadir dengan aneka menu Music, Informasi, News, Talkshow, Education, Religius, Konseling, Bisnis, dll</p>
+						<div class="cv-resume-title">
+							<h5>Station Manager</h5>
+							<h6>SBKFM Radio 107.3 Mhz</h6>
+							<p>2012 - 2015</p>
+						</div>
+						<p>PT. Radio Swara Bahana Kawula Muda 107.3 FM, Hadir dengan aneka menu Music, News, Talkshow, Education, Religius, Konseling, dan informasi bisnis.</p>
+						<div class="cv-resume-title">
+							<h5>Maintenance Administration</h5>
+							<h6>PT. Pelayaran Sari Ampenan</h6>
+							<p>2010 - 2012</p>
+						</div>
+						<p>Sari Ampenan adalah salah satu perusahaan pelayaran nasional yang ada di surabaya dan berkembang</p>						
+						<div class="cv-resume-title">
+							<h5>Human Resources Development</h5>
+							<h6>PD. Sumber Murni</h6>
+							<p>2009 - 2010</p>
+						</div>
+						<p>Pada tahun 1975, Sumber Murni ditunjuk oleh PT Bridgestone Tire Indonesia sebagai distributor resmi ban merk Bridgestone dengan daerah pemasaran Indonesia Bagian Timur.
+						PD. Sumber Murni Artharaya didirikan pada tahun 2017 dengan status distributor resmi ban merk Bridgestone dan Firestone.</p>						
+						<div class="cv-resume-title">
+							<h5>Marketing</h5>
+							<h6>Rama Advertising</h6>
+							<p>2008 - 2009</p>
+						</div>
+						<p>Rama Advertising Surabaya menyediakan jasa layanan pembuatan dan pemasangan materi promosi.</p>
+						<div class="cv-resume-title">
+							<h5>Event Management</h5>
+							<h6>A Production</h6>
+							<p>2007 - 2008</p>
+						</div>
+						<p>A Production bergerak dibidang Event Organizer, Artis Agency, Album Promotion, Talent management, dll.</p>
+						<div class="cv-resume-title">
+							<h5>Marketing</h5>
+							<h6>PT Perwirabhakti Sentrasejahtera</h6>
+							<p>2006 - 2007</p>
+						</div>
+						<p>Daalderop Holland menunjuk PT. Perwirabhakti Sentrasejahtera untuk menjadi distributor tunggal pemanas air listrik Daalderop di Indonesia sejak tahun 1993. PT. Perwirabhakti Sentrasejahtera selalu mengutamakan kualitas, baik dalam kualitas produk, kualitas SDM, dan kualitas purna jual. Dengan pengalaman melayani keluarga Indonesia selama lebih dari 20 tahun, Daalderop telah menjadi simbol pemanas air terbaik dan teraman di Indonesia.</p>
+						<div class="cv-resume-title">
+							<h5>Kepala Divisi Entertainment</h5>
+							<h6>Press Production</h6>
+							<p>2002 - 2005</p>
+						</div>
+						<p>Press Production bergerak dibidang Talent Management, Artis Agency, Event Organizer, SPG, SPB, Usher, Launching Product, Advertising, Seminar, Pameran, Creative Concept, dll.</p>
+					</div>
+					<hr>
+					<h2 class="border">ORGANIZATION EXPERIENCE</h2>
+					<div class="cv-resume-box">
+						<div class="cv-resume-title">
+							<h5>IT Consultant</h5>
+							<h6>Rumah Budaya Kutai</h6>
+							<p>2017 - Sekarang</p>
+						</div>
+						<div class="cv-resume-title">
+							<h5>VP Tourism</h5>
+							<h6>Indonesia Marketing Association</h6>
+							<p>2016 - Sekarang</p>
+						</div>
+						<div class="cv-resume-title">
+							<h5>IT Consultant</h5>
+							<h6>Japung Nusantara</h6>
+							<p>2015 - Sekarang</p>
+						</div>
+					</div>
+					<h2 class="border">Work Skills</h2>
+					<!-- SKILL BARS -->
+					<div class="skills">
+						<div class="skillbar" data-percent="95%">
+							<div class="skillbar-title"><span>Web Designe</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">95%</div>
+						</div>
+						<div class="skillbar" data-percent="88%">
+							<div class="skillbar-title"><span>Marketing</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">88%</div>
+						</div>
+						<div class="skillbar" data-percent="85%">
+							<div class="skillbar-title"><span>HTML5 / CSS</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">85%</div>
+						</div>
+						<div class="skillbar" data-percent="81%">
+							<div class="skillbar-title"><span>PHP</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">81%</div>
+						</div>
+						<div class="skillbar" data-percent="89%">
+							<div class="skillbar-title"><span>MySQL</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">89%</div>
+						</div>
+						<div class="skillbar" data-percent="73%">
+							<div class="skillbar-title"><span>Java</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">73%</div>
+						</div>
+						<div class="skillbar" data-percent="77%">
+							<div class="skillbar-title"><span>jQuery</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">77%</div>
+						</div>
+						<div class="skillbar" data-percent="92%">
+							<div class="skillbar-title"><span>Codeigniter</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">92%</div>
+						</div>
+						<div class="skillbar" data-percent="76%">
+							<div class="skillbar-title"><span>Wordpress</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">76%</div>
+						</div>
+						<div class="skillbar" data-percent="86%">
+							<div class="skillbar-title"><span>Blogspot</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">86%</div>
+						</div>
+						<!-- End Skill Bars -->
+						<h2 class="border">Personal Skills</h2>
+						<!-- SKILL BARS -->
+						<div class="skills">
+							<div class="skillbar" data-percent="78%">
+								<div class="skillbar-title"><span>Creativity</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">78%</div>
+							</div>
+							<div class="skillbar" data-percent="82%">
+								<div class="skillbar-title"><span>Innovation</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">82%</div>
+							</div>
+							<div class="skillbar" data-percent="95%">
+								<div class="skillbar-title"><span>Simplicity</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">95%</div>
+							</div>
+							<div class="skillbar" data-percent="92%">
+								<div class="skillbar-title"><span>Resourcefulnes</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">92%</div>
+							</div>
+							<div class="skillbar" data-percent="89%">
+								<div class="skillbar-title"><span>Critical Thinking</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">89%</div>
+							</div>
+							<div class="skillbar" data-percent="86%">
+								<div class="skillbar-title"><span>Problem Solving</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">86%</div>
+							</div>
+							<div class="skillbar" data-percent="94%">
+								<div class="skillbar-title"><span>Flexible/Dependable</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">94%</div>
+							</div>
+							<div class="skillbar" data-percent="99%">
+								<div class="skillbar-title"><span>Curiosity</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">99%</div>
+							</div>
+							<div class="skillbar" data-percent="96%">
+								<div class="skillbar-title"><span>Thinking outside the box</span>
+								</div>
+								<div class="skillbar-bar"></div>
+								<div class="skill-bar-percent">96%</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- PAGE 4 -->
+			<section class="floor floor-4">
+				<!-- THIS IMAGE WILL BE DISPLAYED ONLY ON MOBILE MODE ( 1024PX AND BELOW ) -->
+				<div class="img-mobile-only">
+					<img src="images/photos/prass5-small.jpg" alt="">
+				</div>
+				<!-- PAGE CONTENT -->
+				
+				<div class="cv-page-content">
+					<h2 class="border">PORTFOLIO</h2>
+					<!-- PORTFOLIO FILTERS -->
+					<ul id="cv-portfolio-filter" class="cvfilters">
+						<li data-filter="all" class="gridactive">All</li>
+						<li data-filter="cat1">Aplikasi</li>
+						<li data-filter="cat2">Website</li>
+					</ul>
+					<div class="clear"></div>
+					<!-- PORTFOLIO GRID -->
+					<ul id="cv-portfolio" class="cvgrid">
+						<li data-filter-class='["all","cat1"]'>
+							<figure>
+								<a id="" href="https://kutaicoding.com/portfolio" class="cvgrid-img">
+									<img src="images/photos/app_radio.png" alt="">
+								</a>
+								<figcaption>
+									<div class="cvgrid-title">iNRadio</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li data-filter-class='["all","cat1"]'>
+							<figure>
+								<a id="" href="https://kutaicoding.com/portfolio" class="cvgrid-img">
+									<img src="images/photos/app_apam.png" alt="">
+								</a>
+								<figcaption>
+									<div class="cvgrid-title">APAM Kukar</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li data-filter-class='["all","cat1"]'>
+							<figure>
+								<a id="" href="https://kutaicoding.com/portfolio" class="cvgrid-img">
+									<img src="images/photos/kutaicodf.png" alt="">
+								</a>
+								<figcaption>
+									<div class="cvgrid-title">KutaiCoding</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li data-filter-class='["all","cat2"]'>
+							<figure>
+								<a id="" href="https://kutaicoding.com/portfolio" class="cvgrid-img">
+									<img src="images/photos/eltyhotel.jpg" alt="">
+								</a>
+								<figcaption>
+									<div class="cvgrid-title">Grand Elty Hotel</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li data-filter-class='["all","cat2"]'>
+							<figure>
+								<a id="" href="https://kutaicoding.com/portfolio" class="cvgrid-img">
+									<img src="images/photos/webinradio.jpg" alt="">
+								</a>
+								<figcaption>
+									<div class="cvgrid-title">inradio.co.id</div>
+								</figcaption>
+							</figure>
+						</li>
+						<li data-filter-class='["all","cat2"]'>
+							<figure>
+								<a id="" href="https://kutaicoding.com/portfolio" class="cvgrid-img">
+									<img src="images/photos/kutaicod.jpg" alt="">
+								</a>
+								<figcaption>
+									<div class="cvgrid-title">kutaicoding.com</div>
+								</figcaption>
+							</figure>
+						</li>
+					</ul>
+					<div class="clear"></div>
+				</div>
+			</section>
+			<!-- PAGE 5 -->
+			<section class="floor floor-5">
+				<!-- THIS IMAGE WILL BE DISPLAYED ONLY ON MOBILE MODE ( 1024PX AND BELOW ) -->
+				<div class="img-mobile-only">
+					<img src="images/photos/enterpreanurs.jpg" alt="">
+				</div>
+				<!-- PAGE CONTENT -->
+				<div class="cv-page-content">
+					<!-- PRESENTATION -->
+					<div id="presentation">
+						<div>
+							<h3 class="border">ENTERPRENUERSHIP</h3>
+							<blockquote>
+								<h3>WHAT IS ?</h3>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h5 class="border">PENGERTIAN ENTERPRENUERSHIP</h5>
+							<blockquote>
+								<p>Entrepreneurship berasal dari Bahasa Perancis yaitu “entreprende” yang artinya memulai, melakukan, berusaha melakukan tindakan mengatur dan mengorganisir. Jadi pengertian entrepreneurship adalah sebuah proses kegiatan kreativitas dan inovasi dalam menciptakan suatu perubahan dengan memanfaatkan peluang dan berbagai sumber yang ada untuk menghasilkan nilai tambah untuk diri sendiri dan orang lain dan untuk memenangkan persaingan.
+								</p>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h5>PENGERTIAN ENTERPRENUERSHIP</h5>
+							<blockquote>
+								<p>Menurut Hermawan Kartajaya Pendiri Indonesia Marketing Association (IMA) 
+									yang merupakan President IMA periode 1996 - 2001 dan juga President WMA periode 2002-2003 sekaligus pendiri IMA
+								Pengertian Entrepreneurship yaitu sebuah usaha untuk menciptakan nilai melalui pengamatan atas sebuah kesempatan bisnis dengan cara menjalankan manajemen terhadap risiko yang mungkin terjadi dan keterampilan untuk berkomunikasi juga memobilisasi sumber daya terutama pada sumber daya manusia sehingga mampu menciptakan sesuatu yang menguntungkan (menghasilkan).</p>
+								<p class="cite">Enterprenuership Menurut Hermanwan Kertajaya</p>
+							</blockquote>
+						</div>
+						<div>
+							<h5 class="border">DEFINISI ENTERPRENUERSHIP</h5>
+							<blockquote>
+								<p>Definisi entrepreneurship adalah jiwa kewirausahaan yang dibangun bertujuan untuk menjembatani antara ilmu dengan kemampuan pasar. Entrepreneurship meliputi pembangunan/ pembentukan sebuah perusahaan baru, kegiatan kewirausahaan juga merupakan kemampuan managerial yang diperlukan oleh seorang entrepreneur.
+								</p>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">QUESTION</h3>
+							<blockquote>
+								<h4>APA YANG ANDA LAKUKAN SETELAH LULUS SEKOLAH ?</h4>
+								<img src="images/presentation/lulus.jpg" style="width:100%; height:auto" alt="">
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">QUESTION</h3>
+							<blockquote>
+								<h4>ISTIRAHAT SETELAH LULUS</h4>
+								<h6>Berapa lama anda akan beristirahat??? </h6>
+								<h6>Apa yang anda lakukan selama beristirahat??? </h6>
+								<h6>Berapa lama akan anda berada ditanggungan orang tua??? </h6>
+								<h6>Seberapa besar pengaruh yang akan anda lakukan selama beristirahat??? </h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">QUESTION</h3>
+							<blockquote>
+								<h4>KAWIN / NIKAH SETELAH LULUS</h4>
+								<h6>Jangan-jangan MBA??? </h6>
+								<h6>Dijodohin sama keluarga??? </h6>
+								<h6>Harus kerja atau usaha??? </h6>
+								<h6>Kebutuhan pokok naik??? </h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">QUESTION</h3>
+							<blockquote>
+								<h4>KULIAH SETELAH LULUS</h4>
+								<h6>Apa Hobimu??? </h6>
+								<h6>Serius mau Kuliah??? </h6>
+								<h6>Sanggup Bertahan dan jauh dari orang tua??? </h6>
+								<h6>Berapa biaya yang sanggup di keluarkan orang tua??? </h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">QUESTION</h3>
+							<blockquote>
+								<h4>KERJA SETELAH LULUS</h4>
+								<h6>Skill apa yang anda punya??? </h6>
+								<h6>Seberapa lama kemampuan tubuh anda untuk bekerja (perjam)??? </h6>
+								<h6>Sudah punya mental??? </h6>
+								<h6>Disiplinkah anda??? </h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">REAL CONDITIONS</h3>
+							<blockquote>
+								<img src="images/presentation/riil.jpg" style="width:100%; height:auto" alt="">
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">MINDSET SALAH</h3>
+							<blockquote>
+								<img src="images/presentation/mindset_fixed.jpg" style="width:100%; height:auto" alt="">
+								<p>Kebanyakan orang berpikir 2-5 tahun Berbisnis adalah waktu yang lama untuk sukses, namun rela bekerja 40 tahun dipekerjaan yang dibenci hanya untuk membangun bisnis orang lain dan hidup pas-pasan</p>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">ENTERPRENUERSHIP</h3>
+							<blockquote>
+								<h3>How To ?</h3>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>1. MELIHAT KEDEPAN</h4>
+								<h6>Melihat peluang bisnis menggunakan intuisi Anda</h6>
+								<h6>Melakukan Riset riset sederhana yang membantu anda</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>2. Memperkenalkan Bisnis Anda Kepada Orang-Orang</h4>
+								<h6>Mengatakan gambaran besar dari bisnis</h6>
+								<h6>Memiliki relasi yang baik sebagai partner bisnis</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>3. Memikirkan Sebuah Masalah</h4>
+								<h6>Melihat masalah sebagai peluang yang dapat dijadikan sebagai ide bisnis</h6>
+								<h6>Mencari solusi dan cara untuk mengatasi masalah tersebut menggangap masalah sebagai tantangan</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>4. Menemukan dan Mengikuti Passion</h4>
+								<h6>Menciptakan bisnis sesuai dengan passion anda</h6>
+								<h6>Mengerjakan bisnis dengan tekun dan fokus</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>5. Menggunakan Keyakinan yang Kuat dari diri sendiri</h4>
+								<h6>Memiliki keyakinan yang kuat</h6>
+								<h6>Memiliki kepercayaan diri sebagai pondasi awal memulai usaha</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>6. Mengambil Tindakan (Take Action)</h4>
+								<h6>Menciptakan produk</h6>
+								<h6>Mencari modal usaha</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>7. Membuat Sebuah Prototype</h4>
+								<h6>Membuat prototype sederhana sebagai gambaran mengenai produk yang akan anda buat</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">How To Enterprenuership ?</h3>
+							<blockquote>
+								<h4>8. Mengabaikan Orang-Orang yang Meragukan Anda</h4>
+								<h6>Memiliki fokus pada diri sendiri</h6>
+								<h6>Memutuskan sesuatu dengan keyakinan sendiri</h6>
+								<p class="cite">Enterprenuership</p>
+							</blockquote>
+						</div>
+						<div>
+							<h3 class="border">JUST DO IT!</h3>
+							<blockquote>
+								<p>SEKIAN DAN TERIMA KASIH</p>
+								<p class="cite">Enterprenuership by: Danang Sigit Prasetya</p>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- PAGE 5 -->
+			<section class="floor floor-6">
+				<div class="img-mobile-only">
+					<img src="images/photos/prass4-small.jpg" alt="">
+				</div>
+				<!-- PAGE CONTENT -->
+				<div class="cv-page-content">
+					<h2 class="border">CONTACT</h2>
+					<p>Hai!, Saya berkomitmen memberikan layanan terbaik untuk Anda, menyediakan produk dan layanan terbaik yang Anda butuhkan. Apabila untuk alasan tertentu Anda merasa tidak puas dengan pelayanan, anda dapat menyampaikan kritik dan saran.</p>
+					<!-- TABLE -->
+					<ul class="cv-table">
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-phone-square"></i>Phone</div>
+							<div class="cv-table-right"><a href="https://api.whatsapp.com/send?phone=6285332489919&text=Hallo%20Mas%20Prass%20Saya%20mau%20tanya">+6285332489919</a></div>
+						</li>
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-envelope"></i>E-mail</div>
+							<div class="cv-table-right"><a href="#">prass.bpm@gmail.com</a>
+							</div>
+						</li>
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-map"></i>Address</div>
+							<div class="cv-table-right">Jalan Mulawarman No. 33 Sukarame, Tenggarong, Kutai Kartanegara, Kalimantan Timur</div>
+						</li>
+						<li>
+							<div class="cv-table-left"><i class="cv-icon fa fa-globe"></i>Website</div>
+							<div class="cv-table-right"><a href="https://kutaicoding.com">www.kutaicoding.com</a></div>
+						</li>
+					</ul>
+					
+					<p>Saya akan menidaklanjuti masukan yang Anda berikan dan bila perlu mengambil tindakan untuk mencegah masalah yang sama terulang kembali.</p>
+					<hr>
+					<h2 class="border">Hubungi segera ?</h2>
+					<p>Silahkan menghubungi melalui private message, melalui form yang berada pada bagian bawah halaman ini. Kritik dan saran Anda sangat penting bagi saya untuk terus meningkatkan kualitas produk dan layanan kepada Anda.</p>
+					<!-- CONTACT FORM -->
+					<br>
+					<form class="whatsapp-form">
+						<div class="datainput">
+							<input class="validate" id="wa_name" name="name" required="" type="text" value=''/>
+							<span class="highlight"></span><span class="bar"></span>
+							<label>Your Name</label>
+						</div>
+						<div class="datainput">
+							<input class="validate" id="wa_email" name="email" required="" type="email" value=''/>
+							<span class="highlight"></span><span class="bar"></span>
+							<label>Your Email</label>
+						</div>
+						<div class="datainput">
+							<select id="wa_select">
+								<option hidden='hidden' selected='selected' value='default'>Layanan Yang Anda Butuhkan</option>
+								<option value="1">E-Commerce</option>
+								<option value="2">Website Company Profile</option>
+								<option value="3">Aplikasi Mobile (Android & IOS)</option>
+								<option value="4">UI / UX Designe</option>
+								<option value="5">Software Enginer</option>
+								<option value="6">Digital Marketing (SEO, Ads, Sosial Media Management)</option>
+							</select>
+						</div>
+						<div class="datainput">
+							<input class="validate" id="wa_number" name="count" required="" type="number" value=''/>
+							<span class="highlight"></span><span class="bar"></span>
+							<label>Your Phone</label>
+						</div>
+						<div class="datainput">
+							<input class="validate" id="wa_url" name="url" required="" type="url" value=''/>
+							<span class="highlight"></span><span class="bar"></span>
+							<label>URL/Link</label>
+							<p>Link blog Anda, gunakan http:// atau https://</p>
+						</div>
+						<div class="datainput">
+							<textarea style="margin: 0px !important;" id='wa_textarea' placeholder='' maxlength='5000' row='1' required=""></textarea>
+							<span class="highlight"></span><span class="bar"></span>
+							<label>Details Requirement</label>
+							<p>Apakah ada kebutuhan teknis yang bisa anda jelaskan</p>
+						</div>
+						<a class="send_form" href="javascript:void" type="submit" title="Send to Whatsapp">Send to Whatsapp</a>
+						<div id="text-info"></div>
+					</form>
+					<!-- MOBILE GOOGLE MAP -->
+					<div class="mobile-map-container">
+						<div id="mobile-map">
+							
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- FOOTER -->
+			<footer id="footer">
+				<div class="cv-credits">
+					Copyright &copy; 2019 <a href="https://kutaicoding.com">KutaiCoding</a> - All rights reserved
+				</div>
+				<!-- BACK TO TOP BUTTON -->
+				<div id="cv-back-to-top" class="tooltip-gototop" title="Go to top"></div>
+			</footer>
+		</div>
+		<!-- SIDEBAR -->
+		<!-- MAIN JS FILES -->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.ascensor.min.js"></script>
+		<script type="text/javascript" src="js/nerveslider.min.js"></script>
+		<!-- BACKSTRETCH (HOMEPAGE RIGHT SIDE BG IMAGE) -->
+		<script type="text/javascript" src="js/backstretch.min.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function () {
+				"use strict";
+				jQuery('#home-image').backstretch("images/photos/prass.jpg");
+			});
+			
+			$(document).on('click','.send_form', function(){
+				var input_blanter = document.getElementById('wa_email');
+				
+				/* Whatsapp Settings */
+				var walink = 'https://web.whatsapp.com/send',
+				phone = '6285332489919',
+				walink2 = 'Halo Nama Saya ',
+				text_yes = 'Terkirim.',
+				text_no = 'Isi semua Formulir lalu klik Send.';
+				
+				/* Smartphone Support */
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+					var walink = 'whatsapp://send';
+				}
+				
+				if("" != input_blanter.value){
+					
+					/* Call Input Form */
+					var input_select1 = $("#wa_select :selected").text(),
+					input_name1 = $("#wa_name").val(),
+					input_email1 = $("#wa_email").val(),
+					input_number1 = $("#wa_number").val(),
+					input_url1 = $("#wa_url").val(),
+					input_textarea1 = $("#wa_textarea").val();
+					
+					/* Final Whatsapp URL */
+					var blanter_whatsapp = walink + '?phone=' + phone + '&text=' + walink2 + '%0A%0A' +
+					'*Name* : ' + input_name1 + '%0A' +
+					'*Email Address* : ' + input_email1 + '%0A' +
+					'*Layanan* : ' + input_select1 + '%0A' +
+					'*Input Number* : ' + input_number1 + '%0A' +
+					'*URL/Link* : ' + input_url1 + '%0A' +
+					'*Description* : ' + input_textarea1 + '%0A';
+					
+					/* Whatsapp Window Open */
+					window.open(blanter_whatsapp,'_blank');
+					document.getElementById("text-info").innerHTML = '<span class="yes">'+text_yes+'</span>';
+					} else {
+					document.getElementById("text-info").innerHTML = '<span class="no">'+text_no+'</span>';
+				}
+			});
+		</script>
+		<!-- PORTFOLIO -->
+		<script type="text/javascript" src="js/wookmark.js"></script>
+		<script type="text/javascript" src="js/portfolio-trigger.js"></script>
+		<!-- TOOLTIPS -->
+		<script type="text/javascript" src="js/jquery.tooltipster.min.js"></script>
+		<!-- TESTIMONIALS -->
+		<script type="text/javascript" src="js/quovolver.js"></script>
+		<!-- SIDEBAR SCROLLBAR -->
+		<script type="text/javascript" src="js/scrollbar.js"></script>
+		<!-- LIGHTGALLERY -->
+		<script type="text/javascript" src="js/lightgallery.js"></script>
+		<script type="text/javascript" src="js/galleries.js"></script>
+		<!-- GOOGLE MAP -->
+		
+		<!-- CUSTOM JS -->
+		<script type="text/javascript" src="js/home-custom.js"></script>
+	</body>
+	
+</html>												
