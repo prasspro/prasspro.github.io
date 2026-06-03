@@ -1,0 +1,2494 @@
+<!DOCTYPE html>
+<html lang="id" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cinematic Radio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" rel="stylesheet"/>
+<style>
+/* ============================================================
+   CSS VARIABLES & THEME
+============================================================ */
+:root {
+  --cr-gold: #c9a84c;
+  --cr-gold-light: #e8c97a;
+  --cr-red: #c0392b;
+  --cr-dark: #0a0a0a;
+  --cr-dark2: #111111;
+  --cr-dark3: #1a1a1a;
+  --cr-dark4: #222222;
+  --cr-light: #f5f0e8;
+  --cr-light2: #ede8de;
+  --cr-text-muted: #888;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-title: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --nav-h: 70px;
+  --player-h: 80px;
+  --transition: all 0.3s ease;
+}
+[data-bs-theme="dark"] {
+  --cr-bg: #0a0a0a;
+  --cr-bg2: #111111;
+  --cr-bg3: #1a1a1a;
+  --cr-bg4: #222222;
+  --cr-border: rgba(201,168,76,0.2);
+  --cr-text: #f0ebe0;
+  --cr-text-sub: #aaa;
+  --bs-body-bg: #0a0a0a;
+  --bs-body-color: #f0ebe0;
+}
+[data-bs-theme="light"] {
+  --cr-bg: #f5f0e8;
+  --cr-bg2: #ede8de;
+  --cr-bg3: #e0d8cc;
+  --cr-bg4: #d0c8bc;
+  --cr-border: rgba(100,70,10,0.2);
+  --cr-text: #1a1008;
+  --cr-text-sub: #555;
+  --bs-body-bg: #f5f0e8;
+  --bs-body-color: #1a1008;
+}
+
+/* ============================================================
+   GLOBAL RESET & BASE
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cr-bg);
+  color: var(--cr-text);
+  padding-top: var(--nav-h);
+  padding-bottom: var(--player-h);
+  overflow-x: hidden;
+}
+a { color: var(--cr-gold); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--cr-gold-light); }
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); }
+.font-title { font-family: var(--font-title); letter-spacing: 0.05em; }
+.font-serif { font-family: var(--font-serif); }
+.text-gold { color: var(--cr-gold) !important; }
+.bg-gold { background: var(--cr-gold) !important; }
+.border-gold { border-color: var(--cr-gold) !important; }
+.section-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 0.08em;
+  color: var(--cr-gold);
+  line-height: 1;
+}
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--cr-text-muted);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.page { display: none; animation: fadeInPage 0.4s ease; }
+.page.active { display: block; }
+@keyframes fadeInPage { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+/* ============================================================
+   SCROLLBAR
+============================================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cr-bg2); }
+::-webkit-scrollbar-thumb { background: var(--cr-gold); border-radius: 3px; }
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+/* ============================================================
+   NAVBAR
+============================================================ */
+#mainNav {
+  height: var(--nav-h);
+  background: var(--cr-bg2) !important;
+  border-bottom: 1px solid var(--cr-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.nav-brand {
+  font-family: var(--font-title);
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  color: var(--cr-gold) !important;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav-brand span { color: var(--cr-text); }
+
+/* ── Desktop nav links (lg+) ── */
+@media (min-width: 992px) {
+  /* nav links */
+  #mainNav .nav-link {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cr-text-sub) !important;
+    padding: 0.45rem 0.8rem;
+    white-space: nowrap;
+    position: relative;
+    transition: var(--transition);
+  }
+  #mainNav .nav-link::after {
+    content: '';
+    position: absolute; bottom: 0; left: 50%; right: 50%;
+    height: 2px; background: var(--cr-gold);
+    transition: var(--transition);
+  }
+  #mainNav .nav-link:hover,
+  #mainNav .nav-link.active,
+  #mainNav .nav-link.show { color: var(--cr-gold) !important; }
+  #mainNav .nav-link:hover::after,
+  #mainNav .nav-link.active::after,
+  #mainNav .nav-link.show::after { left: 10%; right: 10%; }
+
+  /* desktop dropdown menu — MUST overflow visible, no scroll on collapse */
+  #mainNav .navbar-collapse { overflow: visible !important; }
+  #mainNav .dropdown-menu {
+    background: var(--cr-bg3);
+    border: 1px solid var(--cr-border);
+    border-top: 2px solid var(--cr-gold);
+    border-radius: 0;
+    padding: 0.4rem 0;
+    min-width: 170px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+    margin-top: 2px !important;
+  }
+  #mainNav .dropdown-item {
+    font-family: var(--font-body);
+    font-size: 0.71rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cr-text-sub);
+    padding: 0.5rem 1.1rem;
+    background: none;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  #mainNav .dropdown-item:hover,
+  #mainNav .dropdown-item:focus {
+    background: rgba(201,168,76,0.1);
+    color: var(--cr-gold);
+  }
+}
+
+/* ── Action buttons (always visible) ── */
+.nav-btn {
+  background: none; border: none;
+  color: var(--cr-text-sub); font-size: 1.1rem;
+  cursor: pointer; padding: 0.4rem;
+  transition: var(--transition); border-radius: 4px;
+  line-height: 1;
+}
+.nav-btn:hover { color: var(--cr-gold); }
+.btn-listen {
+  background: var(--cr-gold); color: #000 !important;
+  font-family: var(--font-title); letter-spacing: 0.1em;
+  font-size: 0.75rem; padding: 0.4rem 0.9rem; border-radius: 2px;
+  border: none; cursor: pointer; transition: var(--transition);
+}
+.btn-listen:hover { background: var(--cr-gold-light); }
+
+/* ── Offcanvas (Bootstrap built-in, mobile nav) ── */
+#navOffcanvas {
+  background: var(--cr-bg2) !important;
+  border-right: 1px solid var(--cr-border) !important;
+  max-width: 290px;
+}
+#navOffcanvas .offcanvas-header {
+  border-bottom: 1px solid var(--cr-border);
+  padding: 1rem 1.2rem;
+}
+#navOffcanvas .btn-close {
+  filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg);
+  opacity: 0.7;
+}
+/* nav links inside offcanvas */
+#navOffcanvas .nav-link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cr-text-sub) !important;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--cr-border);
+  transition: var(--transition);
+}
+#navOffcanvas .nav-link:hover,
+#navOffcanvas .nav-link.active { color: var(--cr-gold) !important; }
+/* dropdown inside offcanvas — stays in flow (static) */
+#navOffcanvas .dropdown-menu {
+  position: static !important;
+  transform: none !important;
+  background: var(--cr-bg3);
+  border: none;
+  border-left: 2px solid var(--cr-gold);
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.3rem 0;
+  margin: 0 0 0 0.8rem;
+}
+#navOffcanvas .dropdown-item {
+  font-size: 0.73rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cr-text-muted);
+  padding: 0.5rem 1rem;
+  background: none;
+  transition: var(--transition);
+  cursor: pointer;
+}
+#navOffcanvas .dropdown-item:hover { color: var(--cr-gold); background: rgba(201,168,76,0.08); }
+#navOffcanvas .dropdown-toggle::after { float: right; margin-top: 0.45em; }
+
+/* ============================================================
+   RADIO PLAYER (BOTTOM BAR)
+============================================================ */
+#radioPlayer {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 1040;
+  height: var(--player-h);
+  background: var(--cr-bg2);
+  border-top: 1px solid var(--cr-border);
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0 1rem;
+}
+.player-art {
+  width: 52px; height: 52px; object-fit: cover;
+  border-radius: 2px; flex-shrink: 0;
+  border: 1px solid var(--cr-border);
+}
+.player-info { flex: 1; min-width: 0; }
+.player-title {
+  font-family: var(--font-display); font-size: 0.82rem; font-weight: 700;
+  color: var(--cr-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.player-sub {
+  font-size: 0.68rem; color: var(--cr-text-muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.player-meta { display: flex; gap: 0.8rem; align-items: center; }
+.player-meta-item {
+  text-align: center;
+  display: none;
+}
+@media (min-width: 576px) { .player-meta-item { display: block; } }
+.player-meta-label { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--cr-text-muted); }
+.player-meta-val { font-size: 0.72rem; font-weight: 500; color: var(--cr-gold); }
+.player-controls { display: flex; align-items: center; gap: 0.5rem; }
+.player-btn {
+  background: none; border: none; color: var(--cr-text); font-size: 1.3rem;
+  cursor: pointer; transition: var(--transition); padding: 0.3rem;
+}
+.player-btn:hover { color: var(--cr-gold); }
+.player-play-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--cr-gold); color: #000; border: none;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; cursor: pointer; transition: var(--transition); flex-shrink: 0;
+}
+.player-play-btn:hover { background: var(--cr-gold-light); transform: scale(1.05); }
+.player-vol { display: flex; align-items: center; gap: 0.4rem; }
+.player-vol input[type=range] {
+  width: 70px; accent-color: var(--cr-gold);
+}
+@media (max-width: 575px) { .player-vol { display: none; } }
+.player-channel-btn {
+  background: none; border: 1px solid var(--cr-border); color: var(--cr-text-sub);
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.25rem 0.6rem; border-radius: 2px; cursor: pointer; transition: var(--transition);
+}
+.player-channel-btn:hover { border-color: var(--cr-gold); color: var(--cr-gold); }
+.player-eq {
+  display: flex; align-items: flex-end; gap: 2px; height: 20px; margin-left: 0.3rem;
+}
+.player-eq-bar {
+  width: 3px; background: var(--cr-gold); border-radius: 1px;
+  animation: eqAnim 0.8s ease-in-out infinite alternate;
+}
+.player-eq-bar:nth-child(1) { height: 8px; animation-delay: 0s; }
+.player-eq-bar:nth-child(2) { height: 14px; animation-delay: 0.15s; }
+.player-eq-bar:nth-child(3) { height: 10px; animation-delay: 0.3s; }
+.player-eq-bar:nth-child(4) { height: 18px; animation-delay: 0.1s; }
+.player-eq-bar:nth-child(5) { height: 7px; animation-delay: 0.25s; }
+.player-eq.paused .player-eq-bar { animation-play-state: paused; height: 4px; }
+@keyframes eqAnim { from { transform: scaleY(0.3); } to { transform: scaleY(1); } }
+audio { display: none; }
+
+/* ============================================================
+   CHANNEL PICKER MODAL
+============================================================ */
+.channel-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1060;
+  background: rgba(0,0,0,0.85); backdrop-filter: blur(8px);
+  align-items: flex-end; justify-content: center;
+}
+.channel-modal-overlay.open { display: flex; }
+.channel-modal-box {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  border-bottom: none; width: 100%; max-width: 560px;
+  border-radius: 8px 8px 0 0; padding: 1.5rem;
+  animation: slideUp 0.3s ease;
+  max-height: 80vh; overflow-y: auto;
+}
+@keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+.channel-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.8rem; border-radius: 4px; cursor: pointer;
+  transition: var(--transition); border: 1px solid transparent;
+}
+.channel-item:hover { background: var(--cr-border); border-color: var(--cr-gold); }
+.channel-item.active { background: rgba(201,168,76,0.1); border-color: var(--cr-gold); }
+.channel-art { width: 48px; height: 48px; border-radius: 4px; object-fit: cover; }
+.channel-name { font-family: var(--font-display); font-size: 0.88rem; font-weight: 700; }
+.channel-url { font-size: 0.65rem; color: var(--cr-text-muted); word-break: break-all; }
+
+/* ============================================================
+   LYRIC MODAL
+============================================================ */
+.lyric-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1060;
+  background: rgba(0,0,0,0.9); backdrop-filter: blur(12px);
+  align-items: center; justify-content: center;
+}
+.lyric-modal-overlay.open { display: flex; }
+.lyric-modal-box {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  width: 90%; max-width: 540px; border-radius: 8px; padding: 2rem;
+  max-height: 85vh; overflow-y: auto;
+  animation: fadeInPage 0.3s ease;
+}
+.lyric-album-art { width: 100px; height: 100px; border-radius: 4px; object-fit: cover; }
+.lyric-content { font-family: var(--font-serif); font-size: 1rem; line-height: 2; color: var(--cr-text-sub); white-space: pre-wrap; }
+
+/* ============================================================
+   SEARCH MODAL
+============================================================ */
+.search-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1070;
+  background: rgba(0,0,0,0.97); backdrop-filter: blur(20px);
+  align-items: flex-start; justify-content: center; padding-top: 10vh;
+}
+.search-overlay.open { display: flex; }
+.search-box { width: 90%; max-width: 680px; }
+.search-input {
+  width: 100%; background: none; border: none; border-bottom: 2px solid var(--cr-gold);
+  color: var(--cr-text); font-family: var(--font-display); font-size: 2.5rem;
+  padding: 1rem 0; outline: none;
+}
+.search-input::placeholder { color: var(--cr-text-muted); }
+
+/* ============================================================
+   AUTH MODAL
+============================================================ */
+.auth-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1070;
+  background: rgba(0,0,0,0.92); backdrop-filter: blur(12px);
+  align-items: center; justify-content: center;
+}
+.auth-overlay.open { display: flex; }
+.auth-box {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  width: 90%; max-width: 420px; border-radius: 8px; padding: 2.5rem;
+  animation: fadeInPage 0.3s ease;
+}
+
+/* ============================================================
+   HERO COMPONENTS
+============================================================ */
+.hero-cinematic {
+  position: relative; min-height: 92vh;
+  display: flex; align-items: flex-end; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, #0a0505 0%, #1a0a00 50%, #0a0a1a 100%);
+}
+.hero-bg-img {
+  position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%;
+  opacity: 0.3;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, transparent 100%);
+}
+.hero-grain {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.hero-content { position: relative; z-index: 2; padding: 4rem 0 5rem; }
+.hero-label {
+  font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--cr-gold); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem;
+}
+.hero-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--cr-gold); }
+.hero-title {
+  font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 900; line-height: 1.0; color: #fff; margin-bottom: 1.5rem;
+}
+.hero-title em { color: var(--cr-gold); font-style: italic; }
+.hero-desc { font-family: var(--font-serif); font-size: 1.1rem; color: #bbb; max-width: 550px; margin-bottom: 2rem; }
+.btn-cr-primary {
+  background: var(--cr-gold); color: #000; font-family: var(--font-title);
+  letter-spacing: 0.15em; font-size: 0.85rem; padding: 0.8rem 2rem;
+  border: none; border-radius: 2px; cursor: pointer; transition: var(--transition);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-cr-primary:hover { background: var(--cr-gold-light); color: #000; transform: translateY(-1px); }
+.btn-cr-outline {
+  background: none; color: var(--cr-text); font-family: var(--font-title);
+  letter-spacing: 0.15em; font-size: 0.85rem; padding: 0.8rem 2rem;
+  border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; cursor: pointer; transition: var(--transition);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-cr-outline:hover { border-color: var(--cr-gold); color: var(--cr-gold); }
+
+/* Live badge */
+.live-badge {
+  background: var(--cr-red); color: #fff; font-family: var(--font-title);
+  font-size: 0.7rem; letter-spacing: 0.2em; padding: 0.2rem 0.6rem;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+}
+.live-dot { width: 6px; height: 6px; background: #fff; border-radius: 50%; animation: blink 1s ease-in-out infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+
+/* ============================================================
+   CARDS
+============================================================ */
+.card-cr {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  border-radius: 4px; overflow: hidden; transition: var(--transition);
+  cursor: pointer;
+}
+.card-cr:hover { border-color: var(--cr-gold); transform: translateY(-3px); box-shadow: 0 10px 40px rgba(201,168,76,0.1); }
+.card-cr-img {
+  width: 100%; aspect-ratio: 16/10; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.card-cr:hover .card-cr-img { transform: scale(1.04); }
+.card-cr-body { padding: 1.2rem; }
+.card-cr-cat {
+  font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--cr-gold); margin-bottom: 0.5rem; display: block;
+}
+.card-cr-title { font-family: var(--font-display); font-size: 1.05rem; font-weight: 700; color: var(--cr-text); margin-bottom: 0.5rem; }
+.card-cr-meta { font-size: 0.68rem; color: var(--cr-text-muted); }
+.card-cr-excerpt { font-size: 0.82rem; color: var(--cr-text-sub); margin-top: 0.6rem; line-height: 1.6; }
+
+/* List card */
+.card-list {
+  display: flex; gap: 1rem; align-items: flex-start;
+  padding: 1rem; border-bottom: 1px solid var(--cr-border);
+  cursor: pointer; transition: var(--transition);
+}
+.card-list:hover { background: var(--cr-bg3); }
+.card-list-img { width: 90px; height: 65px; object-fit: cover; border-radius: 2px; flex-shrink: 0; }
+.card-list-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--cr-text); }
+
+/* ============================================================
+   SECTIONS
+============================================================ */
+.cr-section { padding: 5rem 0; }
+.cr-section-sm { padding: 3rem 0; }
+.divider-gold { height: 1px; background: linear-gradient(to right, transparent, var(--cr-gold), transparent); margin: 0.5rem 0; }
+
+/* Now playing ticker */
+.now-playing-bar {
+  background: var(--cr-gold); color: #000; padding: 0.4rem 0; overflow: hidden;
+}
+.ticker-track {
+  display: flex; gap: 4rem; white-space: nowrap;
+  animation: ticker 30s linear infinite;
+}
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-item { font-family: var(--font-title); font-size: 0.75rem; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.5rem; }
+
+/* Schedule table */
+.schedule-table { width: 100%; border-collapse: collapse; }
+.schedule-table th {
+  font-family: var(--font-title); font-size: 0.75rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--cr-gold); padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--cr-gold); text-align: left;
+}
+.schedule-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--cr-border); font-size: 0.82rem; }
+.schedule-table tr:hover td { background: var(--cr-bg3); }
+.schedule-time { font-family: var(--font-title); color: var(--cr-gold); }
+
+/* Chart list */
+.chart-item {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 0.8rem; border-bottom: 1px solid var(--cr-border);
+  transition: var(--transition); cursor: pointer;
+}
+.chart-item:hover { background: var(--cr-bg3); }
+.chart-rank {
+  font-family: var(--font-title); font-size: 1.8rem; color: var(--cr-border);
+  width: 48px; text-align: center; flex-shrink: 0;
+}
+.chart-rank.top { color: var(--cr-gold); }
+.chart-art { width: 50px; height: 50px; border-radius: 2px; object-fit: cover; flex-shrink: 0; }
+.chart-info { flex: 1; }
+.chart-song { font-family: var(--font-display); font-weight: 700; font-size: 0.88rem; }
+.chart-artist { font-size: 0.72rem; color: var(--cr-text-muted); }
+.chart-trend { font-size: 0.7rem; }
+.chart-trend.up { color: #2ecc71; }
+.chart-trend.down { color: var(--cr-red); }
+.chart-trend.same { color: var(--cr-text-muted); }
+
+/* Team card */
+.team-card {
+  text-align: center; cursor: pointer;
+  transition: var(--transition);
+}
+.team-card:hover { transform: translateY(-5px); }
+.team-img {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover;
+  border: 2px solid var(--cr-border); transition: var(--transition);
+}
+.team-card:hover .team-img { border-color: var(--cr-gold); }
+.team-name { font-family: var(--font-display); font-weight: 700; margin-top: 1rem; }
+.team-role { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cr-gold); }
+
+/* Event card */
+.event-card {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  display: flex; gap: 0; cursor: pointer; transition: var(--transition); overflow: hidden;
+}
+.event-card:hover { border-color: var(--cr-gold); }
+.event-date-box {
+  background: var(--cr-gold); color: #000; padding: 1.5rem 1.2rem;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 80px;
+}
+.event-day { font-family: var(--font-title); font-size: 2.5rem; line-height: 1; }
+.event-mon { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700; }
+.event-info { padding: 1.2rem; flex: 1; }
+.event-title { font-family: var(--font-display); font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+.event-meta-item { font-size: 0.72rem; color: var(--cr-text-muted); display: flex; align-items: center; gap: 0.4rem; }
+
+/* Gallery */
+.gallery-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.filter-btn {
+  font-family: var(--font-title); font-size: 0.75rem; letter-spacing: 0.15em;
+  padding: 0.4rem 1rem; border: 1px solid var(--cr-border); background: none;
+  color: var(--cr-text-sub); cursor: pointer; transition: var(--transition); border-radius: 2px;
+}
+.filter-btn.active, .filter-btn:hover { border-color: var(--cr-gold); color: var(--cr-gold); background: rgba(201,168,76,0.08); }
+.gallery-grid { columns: 2 200px; gap: 0.8rem; }
+@media (min-width: 768px) { .gallery-grid { columns: 3 200px; } }
+@media (min-width: 1200px) { .gallery-grid { columns: 4 200px; } }
+.gallery-item { break-inside: avoid; margin-bottom: 0.8rem; cursor: pointer; position: relative; overflow: hidden; border-radius: 2px; }
+.gallery-item img { width: 100%; display: block; transition: transform 0.4s ease; }
+.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item-overlay {
+  position: absolute; inset: 0; background: rgba(0,0,0,0.6);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: var(--transition);
+}
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
+.gallery-video-item { position: relative; border-radius: 2px; overflow: hidden; margin-bottom: 0.8rem; }
+.gallery-video-thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+.gallery-play-icon {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  width: 50px; height: 50px; background: rgba(201,168,76,0.9); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: #000; font-size: 1.3rem;
+}
+
+/* Sidebar */
+.sidebar { position: sticky; top: calc(var(--nav-h) + 1rem); }
+.sidebar-widget { background: var(--cr-bg3); border: 1px solid var(--cr-border); padding: 1.5rem; margin-bottom: 1.5rem; }
+.sidebar-title {
+  font-family: var(--font-title); font-size: 0.8rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--cr-gold); margin-bottom: 1rem;
+  padding-bottom: 0.5rem; border-bottom: 1px solid var(--cr-border);
+}
+
+/* Comments */
+.comment-item { padding: 1.2rem 0; border-bottom: 1px solid var(--cr-border); }
+.comment-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.comment-name { font-family: var(--font-display); font-weight: 700; font-size: 0.88rem; }
+.comment-date { font-size: 0.65rem; color: var(--cr-text-muted); }
+.comment-text { font-size: 0.82rem; color: var(--cr-text-sub); line-height: 1.7; margin-top: 0.5rem; }
+.comment-form input, .comment-form textarea, .comment-form select {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  color: var(--cr-text); padding: 0.7rem 1rem; width: 100%; border-radius: 2px;
+  font-family: var(--font-body); font-size: 0.85rem; outline: none; transition: var(--transition);
+  margin-bottom: 0.8rem;
+}
+.comment-form input:focus, .comment-form textarea:focus { border-color: var(--cr-gold); }
+
+/* Download */
+.download-item {
+  display: flex; align-items: center; gap: 1.2rem;
+  padding: 1.2rem; background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  margin-bottom: 0.8rem; transition: var(--transition);
+}
+.download-item:hover { border-color: var(--cr-gold); }
+.download-icon { font-size: 2rem; color: var(--cr-gold); flex-shrink: 0; }
+.download-name { font-family: var(--font-display); font-weight: 700; }
+.download-meta { font-size: 0.72rem; color: var(--cr-text-muted); }
+
+/* About */
+.about-kv {
+  display: flex; align-items: flex-start; gap: 1rem;
+  padding: 1.2rem; background: var(--cr-bg3); border-left: 3px solid var(--cr-gold);
+  margin-bottom: 1rem;
+}
+.about-kv-key { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--cr-gold); flex-shrink: 0; width: 120px; padding-top: 0.1rem; }
+.about-kv-val { font-family: var(--font-serif); font-size: 0.95rem; color: var(--cr-text-sub); }
+.rate-card-table { width: 100%; border-collapse: collapse; }
+.rate-card-table th { background: var(--cr-gold); color: #000; padding: 0.7rem 1rem; font-family: var(--font-title); font-size: 0.7rem; letter-spacing: 0.15em; text-align: left; }
+.rate-card-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--cr-border); font-size: 0.82rem; }
+.rate-card-table tr:hover td { background: var(--cr-bg3); }
+
+/* Contact */
+.contact-form input, .contact-form textarea, .contact-form select {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  color: var(--cr-text); padding: 0.8rem 1rem; width: 100%; border-radius: 2px;
+  font-family: var(--font-body); font-size: 0.85rem; outline: none; transition: var(--transition);
+  margin-bottom: 1rem;
+}
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--cr-gold); }
+.contact-info-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.contact-icon { font-size: 1.3rem; color: var(--cr-gold); flex-shrink: 0; margin-top: 0.1rem; }
+
+/* Home variant hero types */
+.hero-split { display: flex; min-height: 90vh; }
+.hero-split-left { flex: 1.2; position: relative; overflow: hidden; }
+.hero-split-right { flex: 0.8; background: var(--cr-bg2); display: flex; align-items: center; padding: 4rem 3rem; }
+.hero-minimal { min-height: 60vh; display: flex; align-items: center; background: var(--cr-bg2); border-bottom: 1px solid var(--cr-border); }
+.hero-center { text-align: center; }
+.hero-dark-full { min-height: 95vh; background: #000; }
+.big-text-bg {
+  font-family: var(--font-title); font-size: clamp(6rem, 20vw, 18rem);
+  line-height: 0.8; color: rgba(201,168,76,0.04); pointer-events: none;
+  user-select: none; letter-spacing: 0.05em;
+}
+
+/* Carousel */
+.cr-carousel { position: relative; overflow: hidden; }
+.cr-carousel-track { display: flex; transition: transform 0.5s ease; }
+.cr-carousel-slide { min-width: 100%; }
+.cr-carousel-prev, .cr-carousel-next {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; background: rgba(201,168,76,0.15); border: 1px solid var(--cr-gold);
+  color: var(--cr-gold); font-size: 1.1rem; cursor: pointer; transition: var(--transition);
+  display: flex; align-items: center; justify-content: center; z-index: 5; border-radius: 0;
+}
+.cr-carousel-prev { left: 1rem; }
+.cr-carousel-next { right: 1rem; }
+.cr-carousel-prev:hover, .cr-carousel-next:hover { background: var(--cr-gold); color: #000; }
+
+/* Popup player overlay */
+.popup-player-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1080;
+  background: rgba(0,0,0,0.97);
+  align-items: center; justify-content: center;
+}
+.popup-player-overlay.open { display: flex; }
+.popup-player-box {
+  background: var(--cr-bg3); border: 1px solid var(--cr-border);
+  width: 90%; max-width: 480px; padding: 2.5rem; text-align: center;
+  animation: fadeInPage 0.3s ease; border-radius: 4px;
+}
+.popup-art {
+  width: 180px; height: 180px; border-radius: 4px; object-fit: cover;
+  border: 3px solid var(--cr-gold); animation: vinylSpin 10s linear infinite;
+  animation-play-state: paused;
+}
+.popup-art.spinning { animation-play-state: running; }
+@keyframes vinylSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* Song history */
+.history-item { display: flex; gap: 0.8rem; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid var(--cr-border); }
+.history-art { width: 36px; height: 36px; border-radius: 2px; object-fit: cover; }
+.history-song { font-size: 0.78rem; }
+.history-time { font-size: 0.65rem; color: var(--cr-text-muted); flex-shrink: 0; }
+
+/* Toast */
+.cr-toast {
+  position: fixed; bottom: calc(var(--player-h) + 1rem); right: 1rem; z-index: 2000;
+  background: var(--cr-bg3); border: 1px solid var(--cr-gold);
+  padding: 0.8rem 1.2rem; font-size: 0.8rem; border-radius: 4px;
+  color: var(--cr-text); animation: toastIn 0.3s ease;
+  pointer-events: none;
+}
+@keyframes toastIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+
+/* Responsive fixes */
+@media (max-width: 767px) {
+  .hero-split { flex-direction: column; }
+  .hero-split-right { padding: 2rem 1.5rem; }
+  .cr-section { padding: 3rem 0; }
+}
+
+/* Light mode adjustments */
+[data-bs-theme="light"] .hero-bg { background: linear-gradient(135deg, #e0d0b0 0%, #c8a870 50%, #b0b8c8 100%); }
+[data-bs-theme="light"] .hero-title { color: #111; }
+[data-bs-theme="light"] .hero-bg-img { opacity: 0.2; }
+[data-bs-theme="light"] .hero-overlay { background: linear-gradient(to top, rgba(240,230,210,0.95) 0%, rgba(240,230,210,0.3) 60%, transparent 100%); }
+[data-bs-theme="light"] .big-text-bg { color: rgba(100,70,10,0.06); }
+[data-bs-theme="light"] #mainNav { background: rgba(245,240,232,0.95); }
+[data-bs-theme="light"] #radioPlayer { background: rgba(237,232,222,0.98); }
+[data-bs-theme="light"] .channel-modal-box, [data-bs-theme="light"] .lyric-modal-box { background: var(--cr-bg2); }
+
+/* Vimeo/YouTube embed */
+.video-embed { position: relative; aspect-ratio: 16/9; overflow: hidden; border-radius: 4px; }
+.video-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+</style>
+</head>
+<body>
+
+<!-- ==================== NAVBAR ==================== -->
+<!--
+  Bootstrap 5 Offcanvas Navbar pattern (single unified nav):
+  - Desktop (≥lg): links collapse inside navbar, dropdown works normally
+  - Mobile (<lg): toggler opens offcanvas panel, same nav-links inside
+  https://getbootstrap.com/docs/5.3/components/navbar/#offcanvas
+-->
+<nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+  <div class="container-fluid px-3">
+
+    <!-- Brand -->
+    <a class="navbar-brand nav-brand" onclick="showPage('home-1')">
+      CINEMATIC <span>RADIO</span>
+    </a>
+
+    <!-- Action buttons (always right, before toggler) -->
+    <div class="d-flex align-items-center gap-1 ms-auto me-2">
+      <button class="nav-btn" onclick="openSearch()" title="Cari"><i class="bi bi-search"></i></button>
+      <button class="nav-btn" id="themeToggle" title="Toggle Tema"><i class="bi bi-moon-stars"></i></button>
+      <button class="nav-btn d-none d-sm-inline-block" onclick="openAuth()" title="Sign In"><i class="bi bi-person-circle"></i></button>
+      <button class="btn-listen d-none d-lg-inline-block" onclick="openPopupPlayer()"><i class="bi bi-broadcast"></i> LIVE</button>
+    </div>
+
+    <!-- Offcanvas toggler (mobile only, Bootstrap handles open/close) -->
+    <button class="navbar-toggler border-0 nav-btn p-1" type="button"
+            data-bs-toggle="offcanvas" data-bs-target="#navOffcanvas"
+            aria-controls="navOffcanvas" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-4"></i>
+    </button>
+
+    <!-- Desktop collapse (lg+) — overflow:visible so dropdown floats freely -->
+    <div class="collapse navbar-collapse order-lg-first" id="mainNavCollapse">
+      <ul class="navbar-nav me-auto align-items-lg-center">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" id="nav-home"
+             data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">HOME</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onclick="showPage('home-1')">Home One</a></li>
+            <li><a class="dropdown-item" onclick="showPage('home-2')">Home Two</a></li>
+            <li><a class="dropdown-item" onclick="showPage('home-3')">Home Three</a></li>
+            <li><a class="dropdown-item" onclick="showPage('home-4')">Home Four</a></li>
+            <li><a class="dropdown-item" onclick="showPage('home-5')">Home Five</a></li>
+            <li><a class="dropdown-item" onclick="showPage('home-6')">Home Six</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="nav-about" onclick="showPage('about')">ABOUT</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="nav-blog"
+             data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">BLOG</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('all')">All Posts</a></li>
+            <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('music')">Music</a></li>
+            <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('lifestyle')">Life Style</a></li>
+            <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('news')">News</a></li>
+            <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('sport')">Sport</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="nav-shows"
+             data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">SHOWS</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onclick="showPage('schedule')">Schedule</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="nav-chart" onclick="showPage('chart')">CHART</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-team" onclick="showPage('team')">TEAM</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-event" onclick="showPage('event')">EVENT</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="nav-gallery"
+             data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">GALLERY</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" onclick="showPage('gallery-foto')">Foto</a></li>
+            <li><a class="dropdown-item" onclick="showPage('gallery-video')">Video</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" id="nav-download" onclick="showPage('download')">DOWNLOAD</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="nav-contact" onclick="showPage('contact')">CONTACT</a>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ==================== OFFCANVAS MOBILE NAV ==================== -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="navOffcanvas" aria-labelledby="navOffcanvasLabel">
+  <div class="offcanvas-header">
+    <span class="nav-brand" id="navOffcanvasLabel">CINEMATIC <span>RADIO</span></span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body p-0">
+    <ul class="navbar-nav flex-column px-3 pt-2 pb-4">
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">HOME</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="showPage('home-1')" data-bs-dismiss="offcanvas">Home One</a></li>
+          <li><a class="dropdown-item" onclick="showPage('home-2')" data-bs-dismiss="offcanvas">Home Two</a></li>
+          <li><a class="dropdown-item" onclick="showPage('home-3')" data-bs-dismiss="offcanvas">Home Three</a></li>
+          <li><a class="dropdown-item" onclick="showPage('home-4')" data-bs-dismiss="offcanvas">Home Four</a></li>
+          <li><a class="dropdown-item" onclick="showPage('home-5')" data-bs-dismiss="offcanvas">Home Five</a></li>
+          <li><a class="dropdown-item" onclick="showPage('home-6')" data-bs-dismiss="offcanvas">Home Six</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" onclick="showPage('about')" data-bs-dismiss="offcanvas">ABOUT</a>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">BLOG</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('all')" data-bs-dismiss="offcanvas">All Posts</a></li>
+          <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('music')" data-bs-dismiss="offcanvas">Music</a></li>
+          <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('lifestyle')" data-bs-dismiss="offcanvas">Life Style</a></li>
+          <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('news')" data-bs-dismiss="offcanvas">News</a></li>
+          <li><a class="dropdown-item" onclick="showPage('blog');filterBlog('sport')" data-bs-dismiss="offcanvas">Sport</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">SHOWS</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="showPage('schedule')" data-bs-dismiss="offcanvas">Schedule</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" onclick="showPage('chart')" data-bs-dismiss="offcanvas">CHART</a></li>
+      <li class="nav-item"><a class="nav-link" onclick="showPage('team')" data-bs-dismiss="offcanvas">TEAM</a></li>
+      <li class="nav-item"><a class="nav-link" onclick="showPage('event')" data-bs-dismiss="offcanvas">EVENT</a></li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">GALLERY</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" onclick="showPage('gallery-foto')" data-bs-dismiss="offcanvas">Foto</a></li>
+          <li><a class="dropdown-item" onclick="showPage('gallery-video')" data-bs-dismiss="offcanvas">Video</a></li>
+        </ul>
+      </li>
+
+      <li class="nav-item"><a class="nav-link" onclick="showPage('download')" data-bs-dismiss="offcanvas">DOWNLOAD</a></li>
+      <li class="nav-item"><a class="nav-link" onclick="showPage('contact')" data-bs-dismiss="offcanvas">CONTACT</a></li>
+
+      <li class="nav-item mt-3">
+        <button class="btn-listen w-100 justify-content-center d-flex align-items-center gap-2"
+                onclick="openPopupPlayer()" data-bs-dismiss="offcanvas">
+          <i class="bi bi-broadcast"></i> LISTEN LIVE
+        </button>
+      </li>
+      <li class="nav-item mt-2">
+        <a class="nav-link border-0" style="border-bottom:none !important"
+           onclick="openAuth()" data-bs-dismiss="offcanvas">
+          <i class="bi bi-person-circle me-2"></i>SIGN IN / SIGN UP
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<!-- ==================== RADIO PLAYER ==================== -->
+<div id="radioPlayer">
+  <img class="player-art" id="playerArt" src="https://placehold.co/80/1a0a00/c9a84c?text=CR" alt="art"/>
+  <div class="player-info">
+    <div class="player-title" id="playerTitle">CINEMATIC RADIO</div>
+    <div class="player-sub" id="playerSub">Select a station to start</div>
+  </div>
+  <div class="player-meta">
+    <div class="player-meta-item">
+      <div class="player-meta-label">Genre</div>
+      <div class="player-meta-val" id="pmGenre">—</div>
+    </div>
+    <div class="player-meta-item">
+      <div class="player-meta-label">Bitrate</div>
+      <div class="player-meta-val" id="pmBitrate">—</div>
+    </div>
+    <div class="player-meta-item">
+      <div class="player-meta-label">Listeners</div>
+      <div class="player-meta-val" id="pmListeners">—</div>
+    </div>
+  </div>
+  <div class="player-eq paused" id="playerEq">
+    <div class="player-eq-bar"></div><div class="player-eq-bar"></div>
+    <div class="player-eq-bar"></div><div class="player-eq-bar"></div>
+    <div class="player-eq-bar"></div>
+  </div>
+  <div class="player-controls">
+    <div class="player-vol">
+      <button class="player-btn" id="muteBtn" onclick="toggleMute()"><i class="bi bi-volume-up"></i></button>
+      <input type="range" min="0" max="100" value="80" id="volSlider" onchange="setVolume(this.value)"/>
+    </div>
+    <button class="player-btn" onclick="prevStation()" title="Prev"><i class="bi bi-skip-start"></i></button>
+    <button class="player-play-btn" id="playBtn" onclick="togglePlay()"><i class="bi bi-play-fill" id="playIcon"></i></button>
+    <button class="player-btn" onclick="nextStation()" title="Next"><i class="bi bi-skip-end"></i></button>
+    <button class="player-channel-btn" onclick="openChannelPicker()"><i class="bi bi-broadcast"></i> Stations</button>
+    <button class="player-btn" onclick="openLyricModal()" title="Lyrics"><i class="bi bi-music-note-list"></i></button>
+  </div>
+</div>
+<audio id="audioEl"></audio>
+
+<!-- ==================== CHANNEL PICKER ==================== -->
+<div class="channel-modal-overlay" id="channelModal">
+  <div class="channel-modal-box">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="font-title text-gold mb-0" style="letter-spacing:0.15em">STATIONS</h5>
+      <button class="player-btn" onclick="closeChannelPicker()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="channelList"></div>
+  </div>
+</div>
+
+<!-- ==================== LYRIC MODAL ==================== -->
+<div class="lyric-modal-overlay" id="lyricModal">
+  <div class="lyric-modal-box">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h5 class="font-title text-gold mb-0" style="letter-spacing:0.15em">NOW PLAYING</h5>
+      <button class="player-btn" onclick="closeLyricModal()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="d-flex gap-3 mb-3">
+      <img class="lyric-album-art" id="lyricArt" src="https://placehold.co/100/1a0a00/c9a84c?text=CR" alt="art"/>
+      <div>
+        <div id="lyricSong" class="fw-bold" style="font-family:var(--font-display);font-size:1.1rem"></div>
+        <div id="lyricArtist" class="text-muted small"></div>
+        <div id="lyricAlbum" class="small text-gold"></div>
+        <div id="lyricGenre" class="small" style="color:var(--cr-text-muted)"></div>
+        <div class="mt-2 d-flex gap-2">
+          <a href="#" class="small text-gold"><i class="bi bi-music-note-beamed"></i> iTunes</a>
+          <a href="#" class="small" style="color:var(--cr-text-muted)"><i class="bi bi-link-45deg"></i> Musixmatch</a>
+        </div>
+      </div>
+    </div>
+    <div class="divider-gold mb-3"></div>
+    <div class="lyric-content" id="lyricContent">♪ Lyrics not available for this station ♪</div>
+    <div class="mt-3">
+      <div class="sidebar-title">SONG HISTORY</div>
+      <div id="lyricHistory"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== SEARCH OVERLAY ==================== -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="section-label" style="margin:0">SEARCH</span>
+      <button class="player-btn" onclick="closeSearch()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <input class="search-input" id="searchInput" type="text" placeholder="Search music, shows, news…" onkeydown="handleSearch(event)"/>
+    <div class="mt-3" style="font-size:0.75rem;color:var(--cr-text-muted)">Press Enter to search · Esc to close</div>
+    <div id="searchResults" class="mt-3"></div>
+  </div>
+</div>
+
+<!-- ==================== AUTH MODAL ==================== -->
+<div class="auth-overlay" id="authModal">
+  <div class="auth-box">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h5 class="font-title text-gold mb-0" style="letter-spacing:0.15em" id="authTitle">SIGN IN</h5>
+      <button class="player-btn" onclick="closeAuth()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div id="authContent">
+      <div class="mb-3">
+        <input type="email" class="form-control" style="background:var(--cr-bg3);border-color:var(--cr-border);color:var(--cr-text)" placeholder="Email"/>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" style="background:var(--cr-bg3);border-color:var(--cr-border);color:var(--cr-text)" placeholder="Password"/>
+      </div>
+      <button class="btn-cr-primary w-100 justify-content-center mb-3" onclick="toast('Login feature coming soon!')">SIGN IN</button>
+      <div class="text-center small" style="color:var(--cr-text-muted)">
+        Don't have an account? <a href="#" class="text-gold" onclick="switchAuth()">Sign Up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== POPUP PLAYER ==================== -->
+<div class="popup-player-overlay" id="popupPlayer">
+  <div class="popup-player-box overflow-y-auto">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h5 class="font-title text-gold mb-0" style="letter-spacing:0.15em">CINEMATIC RADIO</h5>
+      <button class="player-btn" onclick="closePopupPlayer()"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <img class="popup-art" id="popupArt" src="https://placehold.co/180/1a0a00/c9a84c?text=CR" alt="art"/>
+    <div class="mt-3 mb-1" style="font-family:var(--font-display);font-size:1.2rem;font-weight:700" id="popupSong">CINEMATIC RADIO</div>
+    <div class="text-gold mb-3 small" id="popupStation">Select a station</div>
+    <div class="d-flex justify-content-center gap-3 align-items-center mb-4">
+      <button class="player-btn fs-4" onclick="prevStation()"><i class="bi bi-skip-start"></i></button>
+      <button class="player-play-btn" style="width:56px;height:56px;font-size:1.4rem" onclick="togglePlay()">
+        <i id="popupPlayIcon" class="bi bi-play-fill"></i>
+      </button>
+      <button class="player-btn fs-4" onclick="nextStation()"><i class="bi bi-skip-end"></i></button>
+    </div>
+    <div class="d-flex align-items-center justify-content-center gap-2 mb-3">
+      <i class="bi bi-volume-down small"></i>
+      <input type="range" min="0" max="100" value="80" style="width:150px;accent-color:var(--cr-gold)" onchange="setVolume(this.value)"/>
+      <i class="bi bi-volume-up small"></i>
+    </div>
+    <div class="">
+      <div class="sidebar-title text-center">SONG HISTORY</div>
+      <div id="popupHistory" ></div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGES CONTAINER ==================== -->
+<div id="pagesContainer">
+
+<!-- ============================================================
+     HOME 1 — Cinematic Full-Bleed Hero
+============================================================ -->
+<div id="page-home-1" class="page active">
+  <!-- Now playing ticker -->
+  <div class="now-playing-bar">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-item"><i class="bi bi-broadcast"></i> NOW ON AIR: Cinematic Radio 24/7</div>
+      <div class="ticker-item"><i class="bi bi-music-note"></i> Manuel – Paloma Blanca</div>
+      <div class="ticker-item"><i class="bi bi-radio"></i> KCFM 98.9 MHz</div>
+      <div class="ticker-item"><i class="bi bi-broadcast"></i> NOW ON AIR: Cinematic Radio 24/7</div>
+      <div class="ticker-item"><i class="bi bi-music-note"></i> Manuel – Paloma Blanca</div>
+      <div class="ticker-item"><i class="bi bi-radio"></i> KCFM 98.9 MHz</div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-cinematic">
+    <div class="hero-bg">
+      <img class="hero-bg-img" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1600&q=80" alt="hero"/>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-label"><span class="live-badge"><span class="live-dot"></span>LIVE</span> Streaming 24/7</div>
+        <h1 class="hero-title">Feel The <em>Sound</em><br/>Of Cinema</h1>
+        <p class="hero-desc font-serif">Where music meets storytelling. Cinematic Radio delivers the most immersive audio experience in radio broadcasting.</p>
+        <div class="d-flex gap-3 flex-wrap">
+          <button class="btn-cr-primary" onclick="playStation(0);openPopupPlayer()"><i class="bi bi-play-circle"></i> LISTEN NOW</button>
+          <button class="btn-cr-outline" onclick="showPage('shows')"><i class="bi bi-calendar3"></i> SHOW SCHEDULE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured Shows -->
+  <section class="cr-section" style="background:var(--cr-bg2)">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div><span class="section-label">FEATURED</span><div class="section-title">ON AIR</div></div>
+        <button class="btn-cr-outline small" onclick="showPage('schedule')">VIEW ALL</button>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-4" onclick="showPage('schedule-detail')">
+          <div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">Morning Show</span><div class="card-cr-title">Dawn Frequency</div><div class="card-cr-meta"><i class="bi bi-clock"></i> 06:00 – 09:00 · Mon–Fri</div></div></div>
+        </div>
+        <div class="col-md-4" onclick="showPage('schedule-detail')">
+          <div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">Jazz Night</span><div class="card-cr-title">Midnight Séance</div><div class="card-cr-meta"><i class="bi bi-clock"></i> 22:00 – 00:00 · Daily</div></div></div>
+        </div>
+        <div class="col-md-4" onclick="showPage('schedule-detail')">
+          <div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">Talk Show</span><div class="card-cr-title">The Inner Circle</div><div class="card-cr-meta"><i class="bi bi-clock"></i> 19:00 – 21:00 · Sat</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Blog -->
+  <section class="cr-section">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div><span class="section-label">LATEST</span><div class="section-title">NEWS & STORIES</div></div>
+        <button class="btn-cr-outline small" onclick="showPage('blog')">VIEW ALL</button>
+      </div>
+      <div class="row g-3">
+        <div class="col-lg-6" onclick="showPage('blog-detail')">
+          <div class="card-cr"><img class="card-cr-img" style="aspect-ratio:16/7" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">MUSIC</span><div class="card-cr-title" style="font-size:1.3rem">The Music That Immortalised 90s Subculture</div><div class="card-cr-meta">April 10, 2026 · 5 min read</div><div class="card-cr-excerpt">From grunge to trip-hop, the sounds that shaped a generation and still resonate today...</div></div></div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card-list border-bottom" onclick="showPage('blog-detail')">
+            <img class="card-list-img" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80" alt=""/>
+            <div><span class="card-cr-cat">LIFESTYLE</span><div class="card-list-title">How Music Shapes Our Morning Rituals</div><div class="card-cr-meta">April 8, 2026</div></div>
+          </div>
+          <div class="card-list border-bottom" onclick="showPage('blog-detail')">
+            <img class="card-list-img" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&q=80" alt=""/>
+            <div><span class="card-cr-cat">NEWS</span><div class="card-list-title">Radio's Digital Renaissance in 2026</div><div class="card-cr-meta">April 6, 2026</div></div>
+          </div>
+          <div class="card-list" onclick="showPage('blog-detail')">
+            <img class="card-list-img" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=300&q=80" alt=""/>
+            <div><span class="card-cr-cat">SPORT</span><div class="card-list-title">Athletes & Their Pre-Game Playlists</div><div class="card-cr-meta">April 4, 2026</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts preview -->
+  <section class="cr-section" style="background:var(--cr-bg2)">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div><span class="section-label">THIS WEEK</span><div class="section-title">TOP CHARTS</div></div>
+        <button class="btn-cr-outline small" onclick="showPage('chart')">FULL CHART</button>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6" id="homeChartList"></div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <div class="text-center p-4">
+            <div class="big-text-bg">#1</div>
+            <div style="font-family:var(--font-display);font-size:1.5rem;font-weight:900;margin-top:-2rem" id="homeChartTop">Loading…</div>
+            <div class="text-gold small mt-1" id="homeChartTopSub"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team preview -->
+  <section class="cr-section">
+    <div class="container">
+      <div class="text-center mb-5"><span class="section-label">OUR CREW</span><div class="section-title">MEET THE TEAM</div></div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt=""/><div class="team-name">Tony Hefner</div><div class="team-role">Program Director</div></div></div>
+        <div class="col-6 col-md-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt=""/><div class="team-name">Sarah Lune</div><div class="team-role">Morning Host</div></div></div>
+        <div class="col-6 col-md-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt=""/><div class="team-name">Marcus Deep</div><div class="team-role">Music Curator</div></div></div>
+        <div class="col-6 col-md-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt=""/><div class="team-name">Nina Voss</div><div class="team-role">Producer</div></div></div>
+      </div>
+      <div class="text-center mt-4"><button class="btn-cr-outline" onclick="showPage('team')">VIEW ALL TEAM</button></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="background:var(--cr-dark);border-top:1px solid var(--cr-border);padding:3rem 0 2rem">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="font-title text-gold mb-2" style="font-size:1.3rem;letter-spacing:0.15em">CINEMATIC RADIO</div>
+          <p class="small" style="color:var(--cr-text-muted);font-family:var(--font-serif)">Where music meets storytelling. Broadcasting cinematic audio experiences since 2010.</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="text-gold fs-5"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-gold fs-5"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="text-gold fs-5"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="text-gold fs-5"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="text-gold mb-2" style="font-family:var(--font-title);font-size:0.75rem;letter-spacing:0.2em">NAVIGATE</div>
+          <ul class="list-unstyled small" style="color:var(--cr-text-muted)">
+            <li class="mb-1"><a onclick="showPage('about')" style="color:var(--cr-text-muted)">About</a></li>
+            <li class="mb-1"><a onclick="showPage('schedule')" style="color:var(--cr-text-muted)">Schedule</a></li>
+            <li class="mb-1"><a onclick="showPage('chart')" style="color:var(--cr-text-muted)">Charts</a></li>
+            <li class="mb-1"><a onclick="showPage('event')" style="color:var(--cr-text-muted)">Events</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <div class="text-gold mb-2" style="font-family:var(--font-title);font-size:0.75rem;letter-spacing:0.2em">CONTACT</div>
+          <div class="small" style="color:var(--cr-text-muted)">
+            <div class="mb-1"><i class="bi bi-geo-alt text-gold"></i> Jl. Sinema No. 1, Samarinda</div>
+            <div class="mb-1"><i class="bi bi-telephone text-gold"></i> +62 541 000 0000</div>
+            <div><i class="bi bi-envelope text-gold"></i> hello@cinematicradio.id</div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="text-gold mb-2" style="font-family:var(--font-title);font-size:0.75rem;letter-spacing:0.2em">NEWSLETTER</div>
+          <div class="d-flex gap-2">
+            <input type="email" placeholder="Your email" class="form-control form-control-sm" style="background:var(--cr-bg3);border-color:var(--cr-border);color:var(--cr-text)"/>
+            <button class="btn-cr-primary" style="padding:0.4rem 0.8rem;font-size:0.7rem" onclick="toast('Subscribed!')">OK</button>
+          </div>
+        </div>
+      </div>
+      <div class="divider-gold mt-4 mb-3"></div>
+      <div class="text-center small" style="color:var(--cr-text-muted)">© 2026 Cinematic Radio. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     HOME 2 — Split Layout
+============================================================ -->
+<div id="page-home-2" class="page">
+  <div class="hero-split">
+    <div class="hero-split-left">
+      <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=900&q=80" style="width:100%;height:100%;object-fit:cover" alt=""/>
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.2),rgba(0,0,0,0.7))"></div>
+      <div style="position:absolute;bottom:3rem;left:3rem">
+        <span class="live-badge"><span class="live-dot"></span>LIVE NOW</span>
+      </div>
+    </div>
+    <div class="hero-split-right">
+      <div>
+        <div class="big-text-bg" style="position:absolute;right:0;top:0;opacity:0.03">RADIO</div>
+        <span class="section-label">HOME TWO</span>
+        <h1 class="hero-title" style="font-size:clamp(2rem,5vw,4.5rem)">Music Is Our<br/><em>Religion</em></h1>
+        <p class="font-serif mb-4" style="color:var(--cr-text-sub)">Tune in to the soundscape that defines a generation. Broadcasting the best of cinematic music.</p>
+        <button class="btn-cr-primary mb-3 w-100 justify-content-center" onclick="playStation(0);openPopupPlayer()"><i class="bi bi-play-fill"></i> LISTEN LIVE</button>
+        <button class="btn-cr-outline w-100 justify-content-center" onclick="showPage('schedule')"><i class="bi bi-calendar3"></i> SHOW SCHEDULE</button>
+        <div class="mt-4">
+          <div class="sidebar-title">FEATURED STATIONS</div>
+          <div id="home2Stations"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container cr-section">
+    <div class="text-center mb-5"><span class="section-label">LATEST</span><div class="section-title">BLOG POSTS</div></div>
+    <div class="row g-4" id="home2Blog"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HOME 3 — Minimal with Big Type
+============================================================ -->
+<div id="page-home-3" class="page">
+  <div class="hero-minimal" style="padding:6rem 0;position:relative;overflow:hidden">
+    <div class="big-text-bg" style="position:absolute;left:-2%;bottom:-20%;opacity:0.03;font-size:clamp(8rem,25vw,22rem);line-height:0.8">RADIO</div>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="section-label">HOME THREE · MINIMAL</span>
+          <h1 style="font-family:var(--font-display);font-size:clamp(2.5rem,7vw,6rem);font-weight:900;line-height:1.0">
+            Broadcasting<br/><span style="color:var(--cr-gold);font-style:italic">Cinematic</span><br/>Sound Waves
+          </h1>
+          <div class="divider-gold" style="max-width:200px;margin:1.5rem 0"></div>
+          <p class="font-serif" style="color:var(--cr-text-sub);font-size:1.1rem;max-width:480px">Every note is a frame. Every beat is a scene. Welcome to the radio that tells stories through sound.</p>
+          <div class="d-flex gap-3 mt-3">
+            <button class="btn-cr-primary" onclick="playStation(0)"><i class="bi bi-headphones"></i> TUNE IN</button>
+            <button class="btn-cr-outline" onclick="showPage('about')">OUR STORY</button>
+          </div>
+        </div>
+        <div class="col-lg-5 d-none d-lg-flex justify-content-end">
+          <div style="position:relative">
+            <div style="width:320px;height:320px;border-radius:50%;background:linear-gradient(135deg,var(--cr-gold),transparent);opacity:0.15;position:absolute;inset:-20px"></div>
+            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=500&q=80" style="width:320px;height:320px;object-fit:cover;border-radius:50%;border:3px solid var(--cr-gold);position:relative;z-index:1" alt=""/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Stats bar -->
+  <div style="background:var(--cr-gold);padding:1.5rem 0">
+    <div class="container">
+      <div class="row text-center g-3">
+        <div class="col-6 col-md-3"><div class="font-title" style="font-size:2rem">15K+</div><div style="font-size:0.65rem;letter-spacing:0.2em">DAILY LISTENERS</div></div>
+        <div class="col-6 col-md-3"><div class="font-title" style="font-size:2rem">6</div><div style="font-size:0.65rem;letter-spacing:0.2em">LIVE CHANNELS</div></div>
+        <div class="col-6 col-md-3"><div class="font-title" style="font-size:2rem">24/7</div><div style="font-size:0.65rem;letter-spacing:0.2em">BROADCASTING</div></div>
+        <div class="col-6 col-md-3"><div class="font-title" style="font-size:2rem">16</div><div style="font-size:0.65rem;letter-spacing:0.2em">YEARS ON AIR</div></div>
+      </div>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-4">
+      <div class="col-md-6"><span class="section-label">PROGRAMS</span><div class="section-title mb-4">ON AIR NOW</div>
+        <div class="card-cr mb-3" onclick="showPage('schedule-detail')"><img class="card-cr-img" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=700&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">Morning Show</span><div class="card-cr-title">Dawn Frequency</div><div class="card-cr-meta">06:00–09:00 · Mon–Fri</div></div></div>
+      </div>
+      <div class="col-md-6"><span class="section-label">LATEST</span><div class="section-title mb-4">NEWS</div>
+        <div class="card-list" onclick="showPage('blog-detail')" style="border-bottom:1px solid var(--cr-border);padding-bottom:1rem;margin-bottom:1rem"><img class="card-list-img" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&q=80" alt=""/><div><span class="card-cr-cat">MUSIC</span><div class="card-list-title">The Evolution of FM Radio</div></div></div>
+        <div class="card-list" onclick="showPage('blog-detail')" style="border-bottom:1px solid var(--cr-border);padding-bottom:1rem;margin-bottom:1rem"><img class="card-list-img" src="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=300&q=80" alt=""/><div><span class="card-cr-cat">NEWS</span><div class="card-list-title">Radio Renaissance: Digital Age</div></div></div>
+        <div class="card-list" onclick="showPage('blog-detail')"><img class="card-list-img" src="https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=300&q=80" alt=""/><div><span class="card-cr-cat">LIFESTYLE</span><div class="card-list-title">Morning Music Rituals</div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HOME 4, 5, 6 — condensed variants -->
+<div id="page-home-4" class="page">
+  <div class="hero-dark-full hero-cinematic">
+    <div class="hero-bg"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,0.2),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(192,57,43,0.15),transparent 60%),#000"></div></div>
+    <div class="hero-grain"></div>
+    <div class="container" style="position:relative;z-index:2;padding:8rem 0">
+      <div class="text-center hero-center">
+        <div class="font-title text-gold" style="font-size:0.7rem;letter-spacing:0.5em">HOME FOUR · DARK CINEMA</div>
+        <h1 class="hero-title mt-2" style="font-size:clamp(3rem,10vw,9rem)">THE <em>SOUND</em><br/>OF FILM</h1>
+        <p class="font-serif mb-4" style="color:#888;font-size:1.2rem;max-width:500px;margin:1rem auto">Orchestral. Ambient. Cinematic. The radio frequency that scores your life.</p>
+        <button class="btn-cr-primary" onclick="playStation(0);openPopupPlayer()"><i class="bi bi-play-fill"></i> PLAY NOW</button>
+      </div>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-4">
+      <div class="col-12"><div class="section-title mb-4">LATEST SHOWS</div></div>
+      <div class="col-md-4" onclick="showPage('schedule-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">Jazz</span><div class="card-cr-title">Midnight Séance</div></div></div></div>
+      <div class="col-md-4" onclick="showPage('schedule-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">Talk</span><div class="card-cr-title">The Inner Circle</div></div></div></div>
+      <div class="col-md-4" onclick="showPage('schedule-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1518609878373-06d740f60d8b?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">World</span><div class="card-cr-title">Global Frequencies</div></div></div></div>
+    </div>
+  </section>
+</div>
+
+<div id="page-home-5" class="page">
+  <div class="hero-cinematic" style="min-height:80vh">
+    <div class="hero-bg"><img class="hero-bg-img" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1600&q=80" alt=""/></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-grain"></div>
+    <div class="container">
+      <div class="hero-content text-center hero-center">
+        <div class="hero-label justify-content-center" style="margin-bottom:1rem"><span class="live-badge"><span class="live-dot"></span>LIVE</span></div>
+        <h1 class="hero-title">Sound Defines<br/><em>Moments</em></h1>
+        <div class="d-flex gap-3 justify-content-center mt-3">
+          <button class="btn-cr-primary" onclick="playStation(0)"><i class="bi bi-play-fill"></i> LISTEN</button>
+          <button class="btn-cr-outline" onclick="showPage('chart')">CHARTS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="now-playing-bar"><div class="ticker-track"><div class="ticker-item"><i class="bi bi-music-note"></i> HOME FIVE</div><div class="ticker-item"><i class="bi bi-broadcast"></i> CINEMATIC RADIO</div><div class="ticker-item"><i class="bi bi-music-note"></i> HOME FIVE</div><div class="ticker-item"><i class="bi bi-broadcast"></i> CINEMATIC RADIO</div></div></div>
+  <section class="cr-section container">
+    <div class="row g-4">
+      <div class="col-md-8"><div class="section-title mb-4">FEATURED CONTENT</div><div class="card-cr" onclick="showPage('blog-detail')"><img class="card-cr-img" style="aspect-ratio:16/7" src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">MUSIC</span><div class="card-cr-title" style="font-size:1.4rem">The Art of Cinematic Sound Design</div><div class="card-cr-excerpt">How film composers shape our emotional landscapes through music...</div></div></div></div>
+      <div class="col-md-4">
+        <div class="section-title mb-4">TOP CHART</div>
+        <div id="home5Chart"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="page-home-6" class="page">
+  <div style="background:var(--cr-bg2);padding:8rem 0 5rem;position:relative;overflow:hidden">
+    <div class="big-text-bg" style="position:absolute;top:0;right:-5%;opacity:0.04;font-size:clamp(5rem,18vw,16rem)">CINEMA</div>
+    <div class="container" style="position:relative;z-index:1">
+      <div class="row align-items-end g-4">
+        <div class="col-lg-6">
+          <span class="section-label">HOME SIX · EDITORIAL</span>
+          <h1 style="font-family:var(--font-display);font-size:clamp(2rem,6vw,5.5rem);font-weight:900;line-height:1.0">Stories Told<br/>Through <span class="text-gold fst-italic">Sound</span></h1>
+          <p class="font-serif mt-3 mb-4" style="color:var(--cr-text-sub)">The editorial voice of independent radio. Curated. Considered. Cinematic.</p>
+          <div class="d-flex gap-3">
+            <button class="btn-cr-primary" onclick="showPage('blog')">READ BLOG</button>
+            <button class="btn-cr-outline" onclick="openPopupPlayer()">LIVE RADIO</button>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-2">
+            <div class="col-6"><img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=400&q=80" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px" alt=""/></div>
+            <div class="col-6" style="margin-top:2rem"><img src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=400&q=80" style="width:100%;aspect-ratio:1;object-fit:cover;border-radius:2px" alt=""/></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-4">
+      <div class="col-md-4" onclick="showPage('blog-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">MUSIC</span><div class="card-cr-title">The Sound of Silence</div><div class="card-cr-meta">April 12, 2026</div></div></div></div>
+      <div class="col-md-4" onclick="showPage('blog-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">NEWS</span><div class="card-cr-title">Digital Radio in 2026</div><div class="card-cr-meta">April 9, 2026</div></div></div></div>
+      <div class="col-md-4" onclick="showPage('blog-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">LIFESTYLE</span><div class="card-cr-title">Headphones & Solitude</div><div class="card-cr-meta">April 7, 2026</div></div></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<div id="page-about" class="page">
+  <div style="background:var(--cr-bg2);padding:6rem 0 4rem;position:relative;overflow:hidden">
+    <div class="big-text-bg" style="position:absolute;right:-5%;bottom:-10%;opacity:0.04">RADIO</div>
+    <div class="container" style="position:relative;z-index:1">
+      <span class="section-label">WHO WE ARE</span>
+      <div class="section-title">ABOUT US</div>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <!-- Description -->
+        <h2 class="mb-3" style="font-family:var(--font-display)">Cinematic Radio: Where Music Tells Stories</h2>
+        <p class="font-serif mb-4" style="color:var(--cr-text-sub);font-size:1.05rem;line-height:1.9">Cinematic Radio adalah stasiun radio independen yang berdiri sejak 2010 di Samarinda, Kalimantan Timur. Kami hadir dengan misi menyajikan pengalaman audio yang sinematik — memadukan musik berkualitas tinggi, talk show mendalam, dan konten kreatif yang membawa pendengar pada perjalanan emosional yang tak terlupakan. Selama lebih dari satu dekade, kami telah menjadi suara bagi komunitas musik dan budaya di Kalimantan Timur dan sekitarnya.</p>
+
+        <!-- Visi & Misi -->
+        <h4 class="text-gold font-title mb-3" style="letter-spacing:0.15em">VISI &amp; MISI</h4>
+        <div class="row g-3 mb-4">
+          <div class="col-md-6">
+            <div style="background:var(--cr-bg3);border:1px solid var(--cr-border);border-top:3px solid var(--cr-gold);padding:1.5rem;height:100%">
+              <div class="text-gold mb-2" style="font-family:var(--font-title);letter-spacing:0.15em;font-size:0.8rem">VISI</div>
+              <p class="font-serif" style="color:var(--cr-text-sub)">Menjadi stasiun radio terdepan di Kalimantan Timur yang menginspirasi, mengedukasi, dan menghibur melalui musik dan konten berkualitas sinematik.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div style="background:var(--cr-bg3);border:1px solid var(--cr-border);border-top:3px solid var(--cr-gold);padding:1.5rem;height:100%">
+              <div class="text-gold mb-2" style="font-family:var(--font-title);letter-spacing:0.15em;font-size:0.8rem">MISI</div>
+              <ul class="font-serif small" style="color:var(--cr-text-sub);padding-left:1.2rem">
+                <li class="mb-1">Menyajikan konten audio berkualitas tinggi setiap hari</li>
+                <li class="mb-1">Mendukung musisi dan kreator lokal</li>
+                <li class="mb-1">Membangun komunitas pendengar yang kritis dan apresiatif</li>
+                <li>Berinovasi dalam format siaran digital</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Positioning -->
+        <h4 class="text-gold font-title mb-3" style="letter-spacing:0.15em">POSITIONING</h4>
+        <div class="about-kv"><div class="about-kv-key">Tag Line</div><div class="about-kv-val">"Sound That Tells Stories"</div></div>
+        <div class="about-kv"><div class="about-kv-key">Positioning</div><div class="about-kv-val">Radio musik premium dengan pendekatan sinematik untuk pendengar dewasa yang apresiatif</div></div>
+        <div class="about-kv"><div class="about-kv-key">Segment</div><div class="about-kv-val">Pria & Wanita, 20–45 tahun, kalangan menengah ke atas, urban professional</div></div>
+        <div class="about-kv"><div class="about-kv-key">Format</div><div class="about-kv-val">Adult Contemporary, Jazz, World Music, Cinematic Score</div></div>
+        <div class="about-kv"><div class="about-kv-key">Frekuensi</div><div class="about-kv-val">98.9 FM · Streaming 24/7</div></div>
+
+        <!-- Segment Siaran -->
+        <h4 class="text-gold font-title mb-3 mt-4" style="letter-spacing:0.15em">SEGMENT SIARAN</h4>
+        <div class="table-responsive mb-4">
+          <table class="schedule-table">
+            <thead><tr><th>Waktu</th><th>Program</th><th>Format</th><th>Target</th></tr></thead>
+            <tbody>
+              <tr><td class="schedule-time">05:00–09:00</td><td>Dawn Frequency</td><td>Morning Drive</td><td>Commuters, Professionals</td></tr>
+              <tr><td class="schedule-time">09:00–12:00</td><td>Midday Stories</td><td>AC Music Mix</td><td>Work-at-home, Offices</td></tr>
+              <tr><td class="schedule-time">12:00–15:00</td><td>Noon Cinema</td><td>Cinematic Score</td><td>Creative Professionals</td></tr>
+              <tr><td class="schedule-time">15:00–18:00</td><td>Afternoon Drive</td><td>Pop & Rock</td><td>Return Commuters</td></tr>
+              <tr><td class="schedule-time">18:00–21:00</td><td>The Inner Circle</td><td>Talk Show</td><td>Adults 25–45</td></tr>
+              <tr><td class="schedule-time">21:00–00:00</td><td>Midnight Séance</td><td>Jazz & Ambient</td><td>Night Owls</td></tr>
+              <tr><td class="schedule-time">00:00–05:00</td><td>Deep Space</td><td>Automated</td><td>24/7 Stream</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Rate Card -->
+        <h4 class="text-gold font-title mb-3" style="letter-spacing:0.15em">RATE CARD IKLAN</h4>
+        <div class="table-responsive">
+          <table class="rate-card-table">
+            <thead><tr><th>Jenis Iklan</th><th>Durasi</th><th>Prime Time</th><th>Regular</th><th>Midnight</th></tr></thead>
+            <tbody>
+              <tr><td>Spot Iklan</td><td>30 detik</td><td>Rp 500.000</td><td>Rp 300.000</td><td>Rp 150.000</td></tr>
+              <tr><td>Spot Iklan</td><td>60 detik</td><td>Rp 900.000</td><td>Rp 550.000</td><td>Rp 250.000</td></tr>
+              <tr><td>Adlibs</td><td>30 detik</td><td>Rp 750.000</td><td>Rp 450.000</td><td>—</td></tr>
+              <tr><td>Sponsorship Program</td><td>1 jam</td><td>Rp 3.500.000</td><td>Rp 2.000.000</td><td>Rp 1.000.000</td></tr>
+              <tr><td>Insert Berita</td><td>15 detik</td><td>Rp 400.000</td><td>Rp 250.000</td><td>—</td></tr>
+              <tr><td>Live Report</td><td>1 event</td><td colspan="3">Rp 5.000.000 (negosiasi)</td></tr>
+              <tr><td>Paket Streaming Banner</td><td>1 bulan</td><td colspan="3">Rp 2.500.000</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small mt-2" style="color:var(--cr-text-muted)">* Harga belum termasuk PPN 11%. Prime Time: 06:00–09:00 & 16:00–19:00. Hubungi kami untuk paket khusus.</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-widget">
+            <div class="sidebar-title">CONTACT INFO</div>
+            <div class="contact-info-item"><i class="bi bi-geo-alt contact-icon"></i><div><strong>Alamat</strong><br/><span class="small" style="color:var(--cr-text-muted)">Jl. Sinema Raya No. 1, Samarinda, Kalimantan Timur 75124</span></div></div>
+            <div class="contact-info-item"><i class="bi bi-telephone contact-icon"></i><div><strong>Telepon</strong><br/><span class="small" style="color:var(--cr-text-muted)">+62 541 000 0000</span></div></div>
+            <div class="contact-info-item"><i class="bi bi-envelope contact-icon"></i><div><strong>Email</strong><br/><span class="small" style="color:var(--cr-text-muted)">hello@cinematicradio.id</span></div></div>
+            <div class="contact-info-item"><i class="bi bi-broadcast contact-icon"></i><div><strong>Frekuensi</strong><br/><span class="small text-gold">98.9 FM · Streaming 24/7</span></div></div>
+          </div>
+          <div class="sidebar-widget">
+            <div class="sidebar-title">FOLLOW US</div>
+            <div class="d-flex gap-3">
+              <a href="#" class="text-gold fs-4"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-gold fs-4"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="text-gold fs-4"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="text-gold fs-4"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     BLOG
+============================================================ -->
+<div id="page-blog" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">INSIGHTS & STORIES</span><div class="section-title">BLOG</div></div></div>
+  <section class="cr-section container">
+    <div class="d-flex flex-wrap gap-3 mb-4 align-items-center justify-content-between">
+      <div class="d-flex gap-2 flex-wrap" id="blogCatFilter">
+        <button class="filter-btn active" onclick="filterBlog('all')">All</button>
+        <button class="filter-btn" onclick="filterBlog('music')">Music</button>
+        <button class="filter-btn" onclick="filterBlog('lifestyle')">Life Style</button>
+        <button class="filter-btn" onclick="filterBlog('news')">News</button>
+        <button class="filter-btn" onclick="filterBlog('sport')">Sport</button>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="filter-btn active" id="blogViewGrid" onclick="setBlogView('grid')"><i class="bi bi-grid"></i></button>
+        <button class="filter-btn" id="blogViewList" onclick="setBlogView('list')"><i class="bi bi-list-ul"></i></button>
+      </div>
+    </div>
+    <div id="blogGrid" class="row g-4"></div>
+    <div id="blogList" style="display:none"></div>
+  </section>
+</div>
+
+<!-- BLOG DETAIL -->
+<div id="page-blog-detail" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 0;position:relative;overflow:hidden">
+    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1600&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.15" alt=""/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent,var(--cr-bg2))"></div>
+    <div class="container" style="position:relative;z-index:1;padding-bottom:3rem">
+      <button class="btn-cr-outline small mb-3" onclick="showPage('blog')"><i class="bi bi-arrow-left"></i> BACK TO BLOG</button>
+      <span class="card-cr-cat">MUSIC</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(1.8rem,4vw,3.5rem);font-weight:900;max-width:700px">The Music That Immortalised 90s Subculture</h1>
+      <div class="d-flex align-items-center gap-3 mt-3" style="color:var(--cr-text-muted);font-size:0.8rem">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" style="width:36px;height:36px;border-radius:50%;object-fit:cover" alt=""/>
+        <span>By <strong class="text-gold">Tony Hefner</strong></span>
+        <span><i class="bi bi-calendar3"></i> April 10, 2026</span>
+        <span><i class="bi bi-clock"></i> 5 min read</span>
+      </div>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div style="font-family:var(--font-serif);font-size:1.05rem;line-height:1.9;color:var(--cr-text-sub)">
+          <p class="mb-4">The 1990s produced some of the most culturally significant music in history. From the raw energy of grunge to the laid-back beats of trip-hop, these sounds weren't just entertainment — they were identity markers for entire generations of young people.</p>
+          <img src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=800&q=80" style="width:100%;border-radius:4px;margin-bottom:2rem" alt=""/>
+          <p class="mb-4">When Nirvana released "Nevermind" in 1991, it didn't just top the charts — it detonated a cultural explosion that rearranged the musical landscape entirely. Kurt Cobain's plaintive howl spoke to a generation that felt alienated, misunderstood, and hungry for authenticity in a world increasingly saturated with corporate polish.</p>
+          <h3 style="font-family:var(--font-display);color:var(--cr-text);margin:2rem 0 1rem">The Trip-Hop Revolution</h3>
+          <p class="mb-4">Meanwhile, in Bristol, a different kind of revolution was brewing. Massive Attack, Portishead, and Tricky were weaving together hip-hop beats, jazz samples, and cinematic atmospheres into something entirely new. Trip-hop wasn't just music — it was mood architecture, building sonic landscapes that felt simultaneously urban and otherworldly.</p>
+          <blockquote style="border-left:3px solid var(--cr-gold);padding-left:1.5rem;margin:2rem 0;font-style:italic;font-size:1.1rem;color:var(--cr-text)">"Music gives a soul to the universe, wings to the mind, flight to the imagination, and life to everything." — Plato</blockquote>
+          <p class="mb-4">The Britpop scene, with Blur and Oasis at its vanguard, provided yet another subcultural fault line. Their bitter rivalry wasn't just commercial theatre — it encapsulated a genuine philosophical divide about what British identity meant in a post-Thatcher landscape.</p>
+          <h3 style="font-family:var(--font-display);color:var(--cr-text);margin:2rem 0 1rem">Enduring Legacy</h3>
+          <p class="mb-4">What makes the music of the 90s so enduring is precisely its subcultural specificity. Each genre came packaged with its own aesthetic, vocabulary, and community. To listen to certain records was to declare allegiance, to signal belonging.</p>
+          <p>Today's streaming algorithms have flattened much of this cultural geography. But the music survives — and with it, the memory of a time when songs could still seem revolutionary, when a guitar chord or a sampled bassline could feel like the opening shot of a manifesto.</p>
+        </div>
+
+        <!-- Tags -->
+        <div class="d-flex flex-wrap gap-2 mt-4">
+          <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.3rem 0.8rem;font-size:0.72rem;border-radius:2px">#Music</span>
+          <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.3rem 0.8rem;font-size:0.72rem;border-radius:2px">#90s</span>
+          <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.3rem 0.8rem;font-size:0.72rem;border-radius:2px">#Grunge</span>
+          <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.3rem 0.8rem;font-size:0.72rem;border-radius:2px">#TripHop</span>
+        </div>
+        <div class="divider-gold mt-4 mb-4"></div>
+
+        <!-- Comments -->
+        <h4 class="mb-4" style="font-family:var(--font-display)">Comments (3)</h4>
+        <div class="comment-item">
+          <div class="d-flex gap-3 mb-2"><img class="comment-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt=""/><div><div class="comment-name">Sarah L.</div><div class="comment-date">April 11, 2026 · 10:32</div></div></div>
+          <div class="comment-text">Absolutely brilliant piece. The trip-hop section resonated so deeply with me. Portishead's "Dummy" is still one of the most atmospheric albums ever made.</div>
+        </div>
+        <div class="comment-item">
+          <div class="d-flex gap-3 mb-2"><img class="comment-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt=""/><div><div class="comment-name">Marcus D.</div><div class="comment-date">April 11, 2026 · 14:17</div></div></div>
+          <div class="comment-text">The Oasis vs Blur rivalry framing is spot-on. It really was more than just music — it was about class, geography, and identity.</div>
+        </div>
+        <div class="comment-item">
+          <div class="d-flex gap-3 mb-2"><img class="comment-avatar" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" alt=""/><div><div class="comment-name">Nina V.</div><div class="comment-date">April 12, 2026 · 09:05</div></div></div>
+          <div class="comment-text">Great read! Would love to see a follow-up covering the electronic side — Aphex Twin, Chemical Brothers, Underworld...</div>
+        </div>
+
+        <!-- Comment Form -->
+        <div class="mt-4">
+          <h5 class="mb-3" style="font-family:var(--font-display)">Leave a Comment</h5>
+          <div class="comment-form">
+            <div class="row g-2 mb-2">
+              <div class="col-md-6"><input type="text" placeholder="Your Name *"/></div>
+              <div class="col-md-6"><input type="email" placeholder="Email *"/></div>
+            </div>
+            <textarea rows="4" placeholder="Your comment…"></textarea>
+            <button class="btn-cr-primary" onclick="toast('Comment submitted!')"><i class="bi bi-chat"></i> POST COMMENT</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-widget"><div class="sidebar-title">CATEGORIES</div>
+            <div class="d-flex flex-column gap-1">
+              <button class="mobile-nav-item border-0 ps-0" onclick="showPage('blog');filterBlog('music')" style="border-bottom:1px solid var(--cr-border) !important">Music <span class="ms-auto badge" style="background:var(--cr-gold);color:#000">12</span></button>
+              <button class="mobile-nav-item border-0 ps-0" onclick="showPage('blog');filterBlog('lifestyle')" style="border-bottom:1px solid var(--cr-border) !important">Life Style <span class="ms-auto badge" style="background:var(--cr-gold);color:#000">8</span></button>
+              <button class="mobile-nav-item border-0 ps-0" onclick="showPage('blog');filterBlog('news')" style="border-bottom:1px solid var(--cr-border) !important">News <span class="ms-auto badge" style="background:var(--cr-gold);color:#000">6</span></button>
+              <button class="mobile-nav-item border-0 ps-0" onclick="showPage('blog');filterBlog('sport')">Sport <span class="ms-auto badge" style="background:var(--cr-gold);color:#000">4</span></button>
+            </div>
+          </div>
+          <div class="sidebar-widget"><div class="sidebar-title">RECENT POSTS</div>
+            <div class="card-list border-bottom mb-2 pb-2" onclick="showPage('blog-detail')"><img class="card-list-img" style="width:60px;height:45px" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=200&q=80" alt=""/><div class="card-list-title" style="font-size:0.8rem">How Music Shapes Mornings</div></div>
+            <div class="card-list border-bottom mb-2 pb-2" onclick="showPage('blog-detail')"><img class="card-list-img" style="width:60px;height:45px" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=200&q=80" alt=""/><div class="card-list-title" style="font-size:0.8rem">Radio's Digital Renaissance</div></div>
+            <div class="card-list" onclick="showPage('blog-detail')"><img class="card-list-img" style="width:60px;height:45px" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=200&q=80" alt=""/><div class="card-list-title" style="font-size:0.8rem">Athletes Pre-Game Playlists</div></div>
+          </div>
+          <div class="sidebar-widget"><div class="sidebar-title">TAGS</div>
+            <div class="d-flex flex-wrap gap-2">
+              <span style="background:var(--cr-bg4);padding:0.3rem 0.7rem;font-size:0.68rem;border-radius:2px;cursor:pointer" onclick="showPage('blog')">#Music</span>
+              <span style="background:var(--cr-bg4);padding:0.3rem 0.7rem;font-size:0.68rem;border-radius:2px;cursor:pointer">#Jazz</span>
+              <span style="background:var(--cr-bg4);padding:0.3rem 0.7rem;font-size:0.68rem;border-radius:2px;cursor:pointer">#90s</span>
+              <span style="background:var(--cr-bg4);padding:0.3rem 0.7rem;font-size:0.68rem;border-radius:2px;cursor:pointer">#Radio</span>
+              <span style="background:var(--cr-bg4);padding:0.3rem 0.7rem;font-size:0.68rem;border-radius:2px;cursor:pointer">#Grunge</span>
+              <span style="background:var(--cr-bg4);padding:0.3rem 0.7rem;font-size:0.68rem;border-radius:2px;cursor:pointer">#TripHop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     SCHEDULE
+============================================================ -->
+<div id="page-schedule" class="page">
+  <!-- Hero: On Air Now -->
+  <div style="background:#000;padding:6rem 0;position:relative;overflow:hidden">
+    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1600&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.3" alt=""/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.9),rgba(0,0,0,0.3))"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <div class="row align-items-center">
+        <div class="col-md-7">
+          <span class="live-badge mb-3 d-inline-flex"><span class="live-dot"></span>ON AIR NOW</span>
+          <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;color:#fff">Dawn Frequency</h1>
+          <p class="font-serif mb-3" style="color:#aaa">with Tony Hefner · 06:00 – 09:00</p>
+          <p style="color:#888;max-width:500px">The morning show that sets the tone for your day. A perfect blend of cinematic instrumentals, inspiring talk, and community connection.</p>
+          <button class="btn-cr-primary mt-3" onclick="playStation(0);openPopupPlayer()"><i class="bi bi-headphones"></i> LISTEN LIVE</button>
+        </div>
+        <div class="col-md-5 d-none d-md-flex justify-content-end">
+          <div style="text-align:center">
+            <div class="player-eq" style="justify-content:center;height:60px;margin-bottom:1rem">
+              <div class="player-eq-bar" style="height:20px"></div><div class="player-eq-bar" style="height:40px"></div><div class="player-eq-bar" style="height:30px"></div><div class="player-eq-bar" style="height:55px"></div><div class="player-eq-bar" style="height:25px"></div>
+            </div>
+            <div class="text-gold font-title" style="font-size:3rem" id="liveTime">--:--</div>
+            <div style="color:#888;font-size:0.7rem;letter-spacing:0.2em">LIVE TIME</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming -->
+  <section class="cr-section" style="background:var(--cr-bg2)">
+    <div class="container">
+      <div class="section-title mb-4">UPCOMING SHOWS</div>
+      <div class="row g-3">
+        <div class="col-md-4" onclick="showPage('schedule-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">09:00 – 12:00</span><div class="card-cr-title">Midday Stories</div><div class="card-cr-meta">Adult Contemporary · Daily</div></div></div></div>
+        <div class="col-md-4" onclick="showPage('schedule-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">12:00 – 15:00</span><div class="card-cr-title">Noon Cinema</div><div class="card-cr-meta">Cinematic Score · Daily</div></div></div></div>
+        <div class="col-md-4" onclick="showPage('schedule-detail')"><div class="card-cr"><img class="card-cr-img" src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&q=80" alt=""/><div class="card-cr-body"><span class="card-cr-cat">15:00 – 18:00</span><div class="card-cr-title">Afternoon Drive</div><div class="card-cr-meta">Pop & Rock · Daily</div></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Schedule Table -->
+  <section class="cr-section container">
+    <div class="section-title mb-4">WEEKLY SCHEDULE</div>
+    <div class="table-responsive">
+      <table class="schedule-table">
+        <thead><tr><th>Waktu</th><th>Senin</th><th>Selasa</th><th>Rabu</th><th>Kamis</th><th>Jumat</th><th>Sabtu</th><th>Minggu</th></tr></thead>
+        <tbody>
+          <tr><td class="schedule-time">05–09</td><td colspan="5"><a onclick="showPage('schedule-detail')" class="text-gold">Dawn Frequency</a></td><td>Weekend Wakeup</td><td>Weekend Wakeup</td></tr>
+          <tr><td class="schedule-time">09–12</td><td colspan="7"><a onclick="showPage('schedule-detail')" class="text-gold">Midday Stories</a></td></tr>
+          <tr><td class="schedule-time">12–15</td><td colspan="7"><a onclick="showPage('schedule-detail')" class="text-gold">Noon Cinema</a></td></tr>
+          <tr><td class="schedule-time">15–18</td><td colspan="5"><a onclick="showPage('schedule-detail')" class="text-gold">Afternoon Drive</a></td><td colspan="2">Weekend Sessions</td></tr>
+          <tr><td class="schedule-time">18–21</td><td colspan="5"><a onclick="showPage('schedule-detail')" class="text-gold">The Inner Circle</a></td><td colspan="2">Fashion Victims</td></tr>
+          <tr><td class="schedule-time">21–00</td><td colspan="7"><a onclick="showPage('schedule-detail')" class="text-gold">Midnight Séance</a></td></tr>
+          <tr><td class="schedule-time">00–05</td><td colspan="7">Deep Space (Auto)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>
+
+<!-- SCHEDULE DETAIL -->
+<div id="page-schedule-detail" class="page">
+  <div style="background:#000;padding:6rem 0 4rem;position:relative;overflow:hidden">
+    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=1600&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25" alt=""/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.6),#000)"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <button class="btn-cr-outline small mb-3" onclick="showPage('schedule')"><i class="bi bi-arrow-left"></i> BACK TO SCHEDULE</button>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,6vw,5rem);font-weight:900;color:#fff">Dawn Frequency</h1>
+      <p class="font-serif" style="color:var(--cr-gold)">Morning Show · 06:00 – 09:00 · Monday to Friday</p>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <h4 class="mb-3" style="font-family:var(--font-display)">About The Show</h4>
+        <p class="font-serif mb-4" style="color:var(--cr-text-sub)">Dawn Frequency is Cinematic Radio's flagship morning programme. Hosted by Tony Hefner, the show blends hand-picked cinematic instrumentals with inspiring conversation and community connection. It's the perfect soundtrack for your morning commute, your first coffee, or the quiet moments before the day begins.</p>
+        <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80" style="width:100%;border-radius:4px;margin-bottom:2rem" alt=""/>
+        <h4 class="mb-3" style="font-family:var(--font-display)">Jadwal Tayang</h4>
+        <div class="table-responsive mb-4">
+          <table class="schedule-table">
+            <thead><tr><th>Hari</th><th>Waktu</th><th>Format</th></tr></thead>
+            <tbody>
+              <tr><td>Senin – Jumat</td><td class="schedule-time">06:00 – 09:00</td><td>Live with Host</td></tr>
+              <tr><td>Sabtu – Minggu</td><td class="schedule-time">07:00 – 09:00</td><td>Best-of Replay</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h4 class="mb-3" style="font-family:var(--font-display)">Penyiar</h4>
+        <div class="card-list">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--cr-gold)" alt=""/>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700">Tony Hefner</div>
+            <div class="text-gold small" style="letter-spacing:0.1em">PROGRAM DIRECTOR & HOST</div>
+            <p class="small mt-1" style="color:var(--cr-text-muted)">Tony has been with Cinematic Radio since its inception in 2010. His warm baritone and encyclopedic knowledge of music make Dawn Frequency the most-listened-to programme in the station's history.</p>
+            <button class="filter-btn mt-2" onclick="showPage('team-detail')">VIEW PROFILE</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-widget"><div class="sidebar-title">LISTEN LIVE</div>
+            <button class="btn-cr-primary w-100 justify-content-center mb-2" onclick="playStation(0);openPopupPlayer()"><i class="bi bi-play-fill"></i> PLAY NOW</button>
+            <div class="small text-center" style="color:var(--cr-text-muted)">Currently on air</div>
+          </div>
+          <div class="sidebar-widget"><div class="sidebar-title">OTHER SHOWS</div>
+            <div class="card-list pb-2 mb-2 border-bottom" onclick="showPage('schedule-detail')"><img class="card-list-img" style="width:55px;height:40px" src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=200&q=80" alt=""/><div class="small"><strong>Midday Stories</strong><div style="color:var(--cr-text-muted)">09:00–12:00</div></div></div>
+            <div class="card-list pb-2 mb-2 border-bottom" onclick="showPage('schedule-detail')"><img class="card-list-img" style="width:55px;height:40px" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=200&q=80" alt=""/><div class="small"><strong>Midnight Séance</strong><div style="color:var(--cr-text-muted)">21:00–00:00</div></div></div>
+            <div class="card-list" onclick="showPage('schedule-detail')"><img class="card-list-img" style="width:55px;height:40px" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=200&q=80" alt=""/><div class="small"><strong>The Inner Circle</strong><div style="color:var(--cr-text-muted)">18:00–21:00</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     CHART
+============================================================ -->
+<div id="page-chart" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">THIS WEEK</span><div class="section-title">MUSIC CHARTS</div></div></div>
+  <section class="cr-section container">
+    <div class="row g-4 mb-5">
+      <div class="col-md-3 col-6" onclick="showPage('chart-category')"><div class="card-cr text-center p-3"><div style="font-size:2.5rem;color:var(--cr-gold)"><i class="bi bi-music-note-beamed"></i></div><div class="card-cr-title">Dance</div><div class="card-cr-meta">Top 20</div></div></div>
+      <div class="col-md-3 col-6" onclick="showPage('chart-category')"><div class="card-cr text-center p-3"><div style="font-size:2.5rem;color:var(--cr-gold)"><i class="bi bi-headphones"></i></div><div class="card-cr-title">Chill</div><div class="card-cr-meta">Top 20</div></div></div>
+      <div class="col-md-3 col-6" onclick="showPage('chart-category')"><div class="card-cr text-center p-3"><div style="font-size:2.5rem;color:var(--cr-gold)"><i class="bi bi-vinyl"></i></div><div class="card-cr-title">Jazz</div><div class="card-cr-meta">Top 20</div></div></div>
+      <div class="col-md-3 col-6" onclick="showPage('chart-category')"><div class="card-cr text-center p-3"><div style="font-size:2.5rem;color:var(--cr-gold)"><i class="bi bi-stars"></i></div><div class="card-cr-title">Pop</div><div class="card-cr-meta">Top 20</div></div></div>
+    </div>
+    <div class="section-title mb-4">OVERALL TOP 20</div>
+    <div id="mainChartList"></div>
+  </section>
+</div>
+
+<!-- CHART CATEGORY -->
+<div id="page-chart-category" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><button class="btn-cr-outline small mb-3" onclick="showPage('chart')"><i class="bi bi-arrow-left"></i> BACK</button><span class="section-label">CATEGORY</span><div class="section-title">DANCE CHART</div></div></div>
+  <section class="cr-section container">
+    <div id="categoryChartList"></div>
+  </section>
+</div>
+
+<!-- CHART DETAIL -->
+<div id="page-chart-detail" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem">
+    <div class="container">
+      <button class="btn-cr-outline small mb-3" onclick="showPage('chart-category')"><i class="bi bi-arrow-left"></i> BACK</button>
+      <div class="d-flex gap-4 align-items-center">
+        <img src="https://placehold.co/120/1a0a00/c9a84c?text=HSG" style="width:100px;height:100px;border-radius:4px;border:2px solid var(--cr-gold)" alt=""/>
+        <div>
+          <span class="section-label">CHART #1</span>
+          <h1 style="font-family:var(--font-display);font-size:2.5rem;font-weight:900">Happy Songs</h1>
+          <div class="text-gold small">Various Artists · Dance · 2026</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div id="detailChartList"></div>
+  </section>
+</div>
+
+<!-- ============================================================
+     TEAM
+============================================================ -->
+<div id="page-team" class="page">
+  <!-- Hero carousel -->
+  <div style="position:relative;overflow:hidden">
+    <div class="cr-carousel" id="teamCarousel">
+      <div class="cr-carousel-track" id="teamCarouselTrack">
+        <div class="cr-carousel-slide"><div style="height:60vh;position:relative"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1600&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.5" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8),transparent);display:flex;align-items:center;padding:0 4rem"><div><div class="text-gold" style="font-size:0.7rem;letter-spacing:0.3em">01 / 04</div><h2 style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:#fff">Tony Hefner</h2><div class="team-role">Program Director</div></div></div></div></div>
+        <div class="cr-carousel-slide"><div style="height:60vh;position:relative"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1600&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.5" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8),transparent);display:flex;align-items:center;padding:0 4rem"><div><div class="text-gold" style="font-size:0.7rem;letter-spacing:0.3em">02 / 04</div><h2 style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:#fff">Sarah Lune</h2><div class="team-role">Morning Host</div></div></div></div></div>
+        <div class="cr-carousel-slide"><div style="height:60vh;position:relative"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1600&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.5" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8),transparent);display:flex;align-items:center;padding:0 4rem"><div><div class="text-gold" style="font-size:0.7rem;letter-spacing:0.3em">03 / 04</div><h2 style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:#fff">Marcus Deep</h2><div class="team-role">Music Curator</div></div></div></div></div>
+        <div class="cr-carousel-slide"><div style="height:60vh;position:relative"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1600&q=80" style="width:100%;height:100%;object-fit:cover;opacity:0.5" alt=""/><div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,0.8),transparent);display:flex;align-items:center;padding:0 4rem"><div><div class="text-gold" style="font-size:0.7rem;letter-spacing:0.3em">04 / 04</div><h2 style="font-family:var(--font-display);font-size:3rem;font-weight:900;color:#fff">Nina Voss</h2><div class="team-role">Producer</div></div></div></div></div>
+      </div>
+      <button class="cr-carousel-prev" onclick="teamCarouselMove(-1)"><i class="bi bi-chevron-left"></i></button>
+      <button class="cr-carousel-next" onclick="teamCarouselMove(1)"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </div>
+  <!-- Team Grid -->
+  <section class="cr-section container">
+    <div class="section-title mb-5">MEET THE TEAM</div>
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80" alt=""/><div class="team-name">Tony Hefner</div><div class="team-role">Program Director</div><p class="small mt-1" style="color:var(--cr-text-muted)">10+ years on air</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80" alt=""/><div class="team-name">Sarah Lune</div><div class="team-role">Morning Host</div><p class="small mt-1" style="color:var(--cr-text-muted)">Dawn Frequency</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt=""/><div class="team-name">Marcus Deep</div><div class="team-role">Music Curator</div><p class="small mt-1" style="color:var(--cr-text-muted)">Chart & Playlist</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3" onclick="showPage('team-detail')"><div class="team-card"><img class="team-img" src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&q=80" alt=""/><div class="team-name">Nina Voss</div><div class="team-role">Producer</div><p class="small mt-1" style="color:var(--cr-text-muted)">Production Head</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="team-card" onclick="showPage('team-detail')"><img class="team-img" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt=""/><div class="team-name">Edo Krane</div><div class="team-role">Sound Engineer</div><p class="small mt-1" style="color:var(--cr-text-muted)">Tech & Audio</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="team-card" onclick="showPage('team-detail')"><img class="team-img" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80" alt=""/><div class="team-name">Layla Morin</div><div class="team-role">Journalist</div><p class="small mt-1" style="color:var(--cr-text-muted)">News & Blog</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="team-card" onclick="showPage('team-detail')"><img class="team-img" src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=400&q=80" alt=""/><div class="team-name">Dara Nova</div><div class="team-role">Social Media</div><p class="small mt-1" style="color:var(--cr-text-muted)">Digital Strategy</p></div></div>
+      <div class="col-6 col-md-4 col-lg-3"><div class="team-card" onclick="showPage('team-detail')"><img class="team-img" src="https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&q=80" alt=""/><div class="team-name">Ray Fallow</div><div class="team-role">Traffic & Admin</div><p class="small mt-1" style="color:var(--cr-text-muted)">Operations</p></div></div>
+    </div>
+  </section>
+</div>
+
+<!-- TEAM DETAIL -->
+<div id="page-team-detail" class="page">
+  <div style="background:#000;padding:6rem 0 4rem;position:relative;overflow:hidden">
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=1600&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.2;object-position:top" alt=""/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.5),#000)"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <button class="btn-cr-outline small mb-3" onclick="showPage('team')"><i class="bi bi-arrow-left"></i> BACK TO TEAM</button>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <div class="d-flex gap-4 align-items-start mb-4 flex-wrap">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" style="width:160px;height:200px;object-fit:cover;border:2px solid var(--cr-gold);border-radius:2px;flex-shrink:0" alt=""/>
+          <div>
+            <h1 style="font-family:var(--font-display);font-size:2.5rem;font-weight:900">Tony Hefner</h1>
+            <div class="team-role mb-2">Program Director & Morning Host</div>
+            <div class="d-flex gap-3 mb-3">
+              <a href="#" class="text-gold fs-5"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="text-gold fs-5"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="text-gold fs-5"><i class="bi bi-facebook"></i></a>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.25rem 0.7rem;font-size:0.7rem">Morning Show</span>
+              <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.25rem 0.7rem;font-size:0.7rem">Jazz</span>
+              <span style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:0.25rem 0.7rem;font-size:0.7rem">Talk Radio</span>
+            </div>
+          </div>
+        </div>
+        <p class="font-serif mb-4" style="color:var(--cr-text-sub);font-size:1.05rem;line-height:1.9">Tony Hefner has been the voice of Cinematic Radio's mornings since the station launched in 2010. With a background in music journalism and a deep passion for cinematic soundscapes, he brings an unparalleled depth of knowledge and warmth to every broadcast. His show, Dawn Frequency, has consistently been the station's most-listened programme.</p>
+        <p class="font-serif mb-4" style="color:var(--cr-text-sub)">Before joining Cinematic Radio, Tony worked as a music critic for several national publications and spent two years producing short documentaries about Indonesian music culture. He holds a degree in Mass Communications from Universitas Mulawarman.</p>
+        <div class="about-kv"><div class="about-kv-key">Joined</div><div class="about-kv-val">2010 (Founding Member)</div></div>
+        <div class="about-kv"><div class="about-kv-key">Show</div><div class="about-kv-val">Dawn Frequency · 06:00–09:00 Mon–Fri</div></div>
+        <div class="about-kv"><div class="about-kv-key">Specialty</div><div class="about-kv-val">Cinematic Music, Jazz, Film Scores</div></div>
+        <div class="about-kv"><div class="about-kv-key">Location</div><div class="about-kv-val">Samarinda, East Kalimantan</div></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-widget"><div class="sidebar-title">SHOWS BY TONY</div>
+            <div class="card-list border-bottom mb-2 pb-2" onclick="showPage('schedule-detail')"><img class="card-list-img" style="width:55px;height:40px" src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=200&q=80" alt=""/><div><strong class="small">Dawn Frequency</strong><div style="color:var(--cr-text-muted);font-size:0.7rem">06:00–09:00</div></div></div>
+            <div class="card-list" onclick="showPage('schedule-detail')"><img class="card-list-img" style="width:55px;height:40px" src="https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=200&q=80" alt=""/><div><strong class="small">The Inner Circle</strong><div style="color:var(--cr-text-muted);font-size:0.7rem">Sat 18:00–21:00</div></div></div>
+          </div>
+          <div class="sidebar-widget"><div class="sidebar-title">OTHER MEMBERS</div>
+            <div class="d-flex gap-2 flex-wrap">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" style="width:50px;height:50px;border-radius:50%;object-fit:cover;cursor:pointer;border:2px solid var(--cr-border)" title="Sarah Lune" onclick="showPage('team-detail')" alt=""/>
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" style="width:50px;height:50px;border-radius:50%;object-fit:cover;cursor:pointer;border:2px solid var(--cr-border)" title="Marcus Deep" onclick="showPage('team-detail')" alt=""/>
+              <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80" style="width:50px;height:50px;border-radius:50%;object-fit:cover;cursor:pointer;border:2px solid var(--cr-border)" title="Nina Voss" onclick="showPage('team-detail')" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     EVENT
+============================================================ -->
+<div id="page-event" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">UPCOMING</span><div class="section-title">EVENTS</div></div></div>
+  <section class="cr-section container">
+    <div class="row g-3">
+      <div class="col-12" onclick="showPage('event-detail')">
+        <div class="event-card">
+          <div class="event-date-box"><div class="event-day">28</div><div class="event-mon">APR</div></div>
+          <div class="event-info">
+            <div class="event-title">Magic Night — Live Jazz Under The Stars</div>
+            <div class="d-flex flex-wrap gap-3 mt-1">
+              <div class="event-meta-item"><i class="bi bi-geo-alt"></i> Taman Budaya Samarinda</div>
+              <div class="event-meta-item"><i class="bi bi-clock"></i> 19:00 – 23:00</div>
+              <div class="event-meta-item"><i class="bi bi-ticket"></i> Rp 75.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" onclick="showPage('event-detail')">
+        <div class="event-card">
+          <div class="event-date-box"><div class="event-day">15</div><div class="event-mon">MAY</div></div>
+          <div class="event-info">
+            <div class="event-title">Cinematic Sessions — Film Score Concert</div>
+            <div class="d-flex flex-wrap gap-3 mt-1">
+              <div class="event-meta-item"><i class="bi bi-geo-alt"></i> Grand Ballroom Hotel Mesra</div>
+              <div class="event-meta-item"><i class="bi bi-clock"></i> 20:00 – 22:30</div>
+              <div class="event-meta-item"><i class="bi bi-ticket"></i> Rp 150.000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12" onclick="showPage('event-detail')">
+        <div class="event-card">
+          <div class="event-date-box"><div class="event-day">22</div><div class="event-mon">JUN</div></div>
+          <div class="event-info">
+            <div class="event-title">Radio Anniversary Gala — 16 Years on Air</div>
+            <div class="d-flex flex-wrap gap-3 mt-1">
+              <div class="event-meta-item"><i class="bi bi-geo-alt"></i> Samarinda Convention Center</div>
+              <div class="event-meta-item"><i class="bi bi-clock"></i> 18:00 – 23:00</div>
+              <div class="event-meta-item"><i class="bi bi-ticket"></i> Invitation Only</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="event-card" style="opacity:0.6">
+          <div class="event-date-box" style="background:var(--cr-text-muted)"><div class="event-day">12</div><div class="event-mon">MAR</div></div>
+          <div class="event-info">
+            <div class="event-title">Spring Mix Night <span class="badge ms-2" style="background:var(--cr-text-muted);font-size:0.6rem">PAST</span></div>
+            <div class="d-flex flex-wrap gap-3 mt-1">
+              <div class="event-meta-item"><i class="bi bi-geo-alt"></i> Phinisi Ballroom</div>
+              <div class="event-meta-item"><i class="bi bi-clock"></i> 19:00 – 22:00</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- EVENT DETAIL -->
+<div id="page-event-detail" class="page">
+  <div style="background:#000;padding:6rem 0 4rem;position:relative;overflow:hidden">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1600&q=80" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35" alt=""/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.4),#000)"></div>
+    <div class="container" style="position:relative;z-index:1">
+      <button class="btn-cr-outline small mb-3" onclick="showPage('event')"><i class="bi bi-arrow-left"></i> BACK TO EVENTS</button>
+      <span class="text-gold" style="font-family:var(--font-title);letter-spacing:0.3em;font-size:0.7rem">28 APRIL 2026</span>
+      <h1 style="font-family:var(--font-display);font-size:clamp(2rem,5vw,4rem);font-weight:900;color:#fff">Magic Night<br/>Live Jazz Under The Stars</h1>
+    </div>
+  </div>
+  <section class="cr-section container">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=900&q=80" style="width:100%;border-radius:4px;margin-bottom:2rem" alt=""/>
+        <p class="font-serif mb-4" style="color:var(--cr-text-sub);font-size:1.05rem;line-height:1.9">Join us for an enchanting evening under the open sky at Taman Budaya Samarinda. Magic Night brings together some of the finest jazz musicians in East Kalimantan for a performance that blurs the line between concert and cinema. Expect extraordinary music, atmospheric lighting, and a night you won't soon forget.</p>
+        <h4 class="mb-3" style="font-family:var(--font-display)">Event Details</h4>
+        <div class="about-kv"><div class="about-kv-key">Tanggal</div><div class="about-kv-val">Senin, 28 April 2026</div></div>
+        <div class="about-kv"><div class="about-kv-key">Waktu</div><div class="about-kv-val">19:00 – 23:00 WITA</div></div>
+        <div class="about-kv"><div class="about-kv-key">Lokasi</div><div class="about-kv-val">Taman Budaya Samarinda, Kalimantan Timur</div></div>
+        <div class="about-kv"><div class="about-kv-key">Tiket</div><div class="about-kv-val text-gold">Rp 75.000 / orang</div></div>
+        <div class="about-kv"><div class="about-kv-key">Dress Code</div><div class="about-kv-val">Smart Casual / All Black</div></div>
+        <button class="btn-cr-primary mt-3" onclick="toast('Ticket purchase coming soon!')"><i class="bi bi-ticket"></i> BUY TICKET</button>
+      </div>
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <div class="sidebar-widget"><div class="sidebar-title">PERFORMERS</div>
+            <div class="team-card mb-3" onclick="showPage('team-detail')" style="text-align:left;display:flex;gap:1rem;align-items:center">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" style="width:50px;height:50px;border-radius:50%;object-fit:cover" alt=""/>
+              <div><div class="team-name" style="font-size:0.9rem">Marcus Deep Quartet</div><div class="team-role" style="font-size:0.65rem">Jazz · Main Act</div></div>
+            </div>
+          </div>
+          <div class="sidebar-widget"><div class="sidebar-title">OTHER EVENTS</div>
+            <div class="card-list border-bottom pb-2 mb-2" onclick="showPage('event-detail')"><div class="event-date-box" style="min-width:50px;padding:0.5rem"><div class="event-day" style="font-size:1.5rem">15</div><div class="event-mon">MAY</div></div><div class="small"><strong>Cinematic Sessions</strong><div style="color:var(--cr-text-muted)">Grand Ballroom</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     GALLERY FOTO
+============================================================ -->
+<div id="page-gallery-foto" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">VISUAL MEMORIES</span><div class="section-title">PHOTO GALLERY</div></div></div>
+  <section class="cr-section container">
+    <div class="gallery-filter" id="galleryFilter">
+      <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+      <button class="filter-btn" onclick="filterGallery('talkshow')">Talkshow</button>
+      <button class="filter-btn" onclick="filterGallery('onair')">On Air</button>
+      <button class="filter-btn" onclick="filterGallery('offair')">Off Air</button>
+      <button class="filter-btn" onclick="filterGallery('event')">Event</button>
+    </div>
+    <div class="gallery-grid" id="photoGallery"></div>
+  </section>
+</div>
+
+<!-- GALLERY VIDEO -->
+<div id="page-gallery-video" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">VISUAL MEMORIES</span><div class="section-title">VIDEO GALLERY</div></div></div>
+  <section class="cr-section container">
+    <div class="gallery-filter">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Talkshow</button>
+      <button class="filter-btn">On Air</button>
+      <button class="filter-btn">Event</button>
+    </div>
+    <div class="row g-3" id="videoGallery"></div>
+  </section>
+</div>
+
+<!-- ============================================================
+     DOWNLOAD
+============================================================ -->
+<div id="page-download" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">RESOURCES</span><div class="section-title">DOWNLOAD</div></div></div>
+  <section class="cr-section container">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <h4 class="mb-4" style="font-family:var(--font-display)">Applications</h4>
+        <div class="download-item"><i class="bi bi-google-play download-icon"></i><div><div class="download-name">Android App</div><div class="download-meta">Version 3.2.1 · 24 MB · Android 7.0+</div></div><button class="btn-cr-primary ms-auto" onclick="toast('Download started!')">DOWNLOAD</button></div>
+        <div class="download-item"><i class="bi bi-apple download-icon"></i><div><div class="download-name">iOS App</div><div class="download-meta">Version 3.2.1 · 32 MB · iOS 14+</div></div><button class="btn-cr-primary ms-auto" onclick="toast('Download started!')">DOWNLOAD</button></div>
+        <div class="download-item"><i class="bi bi-windows download-icon"></i><div><div class="download-name">Windows Desktop</div><div class="download-meta">Version 2.1.0 · 45 MB · Windows 10+</div></div><button class="btn-cr-primary ms-auto" onclick="toast('Download started!')">DOWNLOAD</button></div>
+      </div>
+      <div class="col-md-6">
+        <h4 class="mb-4" style="font-family:var(--font-display)">Media Kit & Documents</h4>
+        <div class="download-item"><i class="bi bi-file-pdf download-icon"></i><div><div class="download-name">Company Profile</div><div class="download-meta">PDF · 4.2 MB</div></div><button class="btn-cr-outline ms-auto" onclick="toast('Downloading...')">GET</button></div>
+        <div class="download-item"><i class="bi bi-file-pdf download-icon"></i><div><div class="download-name">Rate Card 2026</div><div class="download-meta">PDF · 1.8 MB</div></div><button class="btn-cr-outline ms-auto" onclick="toast('Downloading...')">GET</button></div>
+        <div class="download-item"><i class="bi bi-file-zip download-icon"></i><div><div class="download-name">Logo Package</div><div class="download-meta">ZIP · 8.5 MB · SVG, PNG, AI</div></div><button class="btn-cr-outline ms-auto" onclick="toast('Downloading...')">GET</button></div>
+        <div class="download-item"><i class="bi bi-file-pdf download-icon"></i><div><div class="download-name">Broadcasting Schedule</div><div class="download-meta">PDF · 0.9 MB</div></div><button class="btn-cr-outline ms-auto" onclick="toast('Downloading...')">GET</button></div>
+      </div>
+    </div>
+
+    <!-- Streaming Apps -->
+    <div class="mt-5"><h4 class="mb-4" style="font-family:var(--font-display)">Listen On</h4>
+      <div class="d-flex flex-wrap gap-3">
+        <a href="#" class="btn-cr-outline"><i class="bi bi-spotify"></i> Spotify</a>
+        <a href="#" class="btn-cr-outline"><i class="bi bi-apple"></i> Apple Music</a>
+        <a href="#" class="btn-cr-outline"><i class="bi bi-youtube"></i> YouTube</a>
+        <a href="#" class="btn-cr-outline"><i class="bi bi-broadcast"></i> TuneIn</a>
+        <a href="#" class="btn-cr-outline"><i class="bi bi-broadcast-pin"></i> Radio Garden</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<div id="page-contact" class="page">
+  <div style="background:var(--cr-bg2);padding:5rem 0 3rem"><div class="container"><span class="section-label">GET IN TOUCH</span><div class="section-title">CONTACT US</div></div></div>
+  <section class="cr-section container">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <h4 class="mb-4" style="font-family:var(--font-display)">Send Us a Message</h4>
+        <div class="contact-form">
+          <div class="row g-2">
+            <div class="col-md-6"><input type="text" placeholder="Your Name *"/></div>
+            <div class="col-md-6"><input type="email" placeholder="Email Address *"/></div>
+          </div>
+          <input type="text" placeholder="Subject"/>
+          <select><option>General Inquiry</option><option>Advertising / Rate Card</option><option>Request a Song</option><option>Collaboration</option><option>Press & Media</option></select>
+          <textarea rows="5" placeholder="Your message…"></textarea>
+          <button class="btn-cr-primary" onclick="toast('Message sent! We\'ll get back to you soon.')"><i class="bi bi-send"></i> SEND MESSAGE</button>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <h4 class="mb-4" style="font-family:var(--font-display)">Find Us</h4>
+        <div class="contact-info-item"><i class="bi bi-geo-alt contact-icon"></i><div><strong>Alamat Studio</strong><br/><span style="color:var(--cr-text-muted)">Jl. Sinema Raya No. 1, Kelurahan Sempaja, Samarinda Utara, Kalimantan Timur 75124</span></div></div>
+        <div class="contact-info-item"><i class="bi bi-telephone contact-icon"></i><div><strong>Telepon</strong><br/><span style="color:var(--cr-text-muted)">+62 541 000 0000 (Umum)<br/>+62 541 000 0001 (Iklan)</span></div></div>
+        <div class="contact-info-item"><i class="bi bi-envelope contact-icon"></i><div><strong>Email</strong><br/><span style="color:var(--cr-text-muted)">hello@cinematicradio.id<br/>iklan@cinematicradio.id</span></div></div>
+        <div class="contact-info-item"><i class="bi bi-clock contact-icon"></i><div><strong>Jam Operasional</strong><br/><span style="color:var(--cr-text-muted)">Senin – Jumat: 08:00 – 17:00<br/>Sabtu: 09:00 – 14:00</span></div></div>
+        <div class="mt-3" style="background:var(--cr-bg3);border:1px solid var(--cr-border);padding:1rem;border-radius:4px">
+          <div style="background:var(--cr-bg4);height:200px;display:flex;align-items:center;justify-content:center;border-radius:2px">
+            <div class="text-center"><i class="bi bi-geo-alt text-gold fs-1"></i><div class="mt-2 small" style="color:var(--cr-text-muted)">Map Placeholder<br/>Samarinda, East Kalimantan</div></div>
+          </div>
+        </div>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="text-gold fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-gold fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-gold fs-4"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-gold fs-4"><i class="bi bi-youtube"></i></a>
+          <a href="#" class="text-gold fs-4"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</div><!-- /pagesContainer -->
+
+<!-- ==================== SCRIPTS ==================== -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ============================================================
+// STATIONS DATA
+// ============================================================
+const stations = [
+  { name:'KCFM 98.9 MHz', url:'https://whsh4u-server.com:11012/stream', art:'https://placehold.co/80/1a0a00/f97316?text=KC', genre:'FM Radio', bitrate:'128kbps' },
+  { name:'90.9 Jazzy Radio Cool', url:'https://radio.musorok.org/listen/jazzycool/jazzycool.mp3', art:'https://placehold.co/80/1a0e20/a78bfa?text=JZ', genre:'Jazz', bitrate:'128kbps' },
+  { name:'Eltara FM', url:'https://c4.siar.us:8123/live', art:'https://placehold.co/80/0a1a1a/2dd4bf?text=ELT', genre:'Pop', bitrate:'96kbps' },
+  { name:'Elshinta Surabaya', url:'https://stream-ssl.arenastreaming.com:8030/surabaya', art:'https://placehold.co/80/0a1628/60a5fa?text=ELS', genre:'News Talk', bitrate:'128kbps' },
+  { name:'Merdeka FM', url:'https://streaming.merdekafm.com:8020/radio', art:'https://placehold.co/80/1a0a0a/f87171?text=MDK', genre:'Dangdut', bitrate:'64kbps' },
+  { name:'OZ Radio Bali', url:'https://streaming.ozradiobali.id:8443/ozradiobali', art:'https://placehold.co/80/0a1a2a/38bdf8?text=OZB', genre:'Top 40', bitrate:'128kbps' }
+];
+
+let currentStation = -1;
+let isPlaying = false;
+const audio = document.getElementById('audioEl');
+const songHistory = [];
+
+// ============================================================
+// PLAYER
+// ============================================================
+function playStation(idx) {
+  currentStation = idx;
+  const s = stations[idx];
+  audio.src = s.url;
+  audio.volume = document.getElementById('volSlider').value / 100;
+  audio.play().catch(() => {});
+  isPlaying = true;
+  updatePlayerUI(s);
+  document.getElementById('channelModal').classList.remove('open');
+}
+
+function updatePlayerUI(s) {
+  document.getElementById('playerArt').src = s.art;
+  document.getElementById('playerTitle').textContent = s.name;
+  document.getElementById('playerSub').textContent = `${s.genre} · Streaming Live`;
+  document.getElementById('pmGenre').textContent = s.genre || '—';
+  document.getElementById('pmBitrate').textContent = s.bitrate || '—';
+  document.getElementById('pmListeners').textContent = Math.floor(Math.random()*500+100);
+  document.getElementById('playIcon').className = 'bi bi-pause-fill';
+  document.getElementById('popupPlayIcon').className = 'bi bi-pause-fill';
+  document.getElementById('playerEq').classList.remove('paused');
+  document.getElementById('popupArt').src = s.art;
+  document.getElementById('popupSong').textContent = s.name;
+  document.getElementById('popupStation').textContent = `${s.genre} · LIVE`;
+  document.getElementById('lyricArt').src = s.art;
+  document.getElementById('lyricSong').textContent = 'Manuel & The Music of The Mountains';
+  document.getElementById('lyricArtist').textContent = 'Album: Hey! · Genre: ' + s.genre;
+  document.getElementById('lyricAlbum').textContent = 'Album: Hey!';
+  document.getElementById('lyricGenre').textContent = 'Genre: ' + s.genre + ' · Release: 1980';
+  document.getElementById('popupArt').classList.add('spinning');
+  // add to history
+  const t = new Date(); const ts = `${t.getHours()}:${String(t.getMinutes()).padStart(2,'0')}`;
+  songHistory.unshift({ name: s.name, art: s.art, time: ts });
+  if (songHistory.length > 8) songHistory.pop();
+  renderHistory();
+}
+
+function togglePlay() {
+  if (currentStation < 0) { playStation(0); return; }
+  if (isPlaying) {
+    audio.pause(); isPlaying = false;
+    document.getElementById('playIcon').className = 'bi bi-play-fill';
+    document.getElementById('popupPlayIcon').className = 'bi bi-play-fill';
+    document.getElementById('playerEq').classList.add('paused');
+    document.getElementById('popupArt').classList.remove('spinning');
+  } else {
+    audio.play().catch(() => {});
+    isPlaying = true;
+    document.getElementById('playIcon').className = 'bi bi-pause-fill';
+    document.getElementById('popupPlayIcon').className = 'bi bi-pause-fill';
+    document.getElementById('playerEq').classList.remove('paused');
+    document.getElementById('popupArt').classList.add('spinning');
+  }
+}
+
+function nextStation() { playStation((currentStation + 1) % stations.length); }
+function prevStation() { playStation((currentStation - 1 + stations.length) % stations.length); }
+function setVolume(v) { audio.volume = v / 100; }
+function toggleMute() {
+  audio.muted = !audio.muted;
+  document.getElementById('muteBtn').innerHTML = audio.muted ? '<i class="bi bi-volume-mute"></i>' : '<i class="bi bi-volume-up"></i>';
+}
+
+function renderHistory() {
+  const html = songHistory.map(h => `<div class="history-item"><img class="history-art" src="${h.art}" alt=""/><div class="history-song">${h.name}</div><div class="history-time">${h.time}</div></div>`).join('');
+  document.getElementById('lyricHistory').innerHTML = html;
+  document.getElementById('popupHistory').innerHTML = html;
+}
+
+// Channel picker
+function openChannelPicker() {
+  const list = document.getElementById('channelList');
+  list.innerHTML = stations.map((s,i) => `<div class="channel-item ${i===currentStation?'active':''}" onclick="playStation(${i})"><img class="channel-art" src="${s.art}" alt=""/><div><div class="channel-name">${s.name}</div><div class="channel-url">${s.genre} · ${s.bitrate}</div></div>${i===currentStation?'<i class="bi bi-play-circle text-gold ms-auto fs-5"></i>':''}</div>`).join('');
+  document.getElementById('channelModal').classList.add('open');
+}
+function closeChannelPicker() { document.getElementById('channelModal').classList.remove('open'); }
+
+// Lyric modal
+function openLyricModal() { document.getElementById('lyricModal').classList.add('open'); }
+function closeLyricModal() { document.getElementById('lyricModal').classList.remove('open'); }
+document.getElementById('lyricContent').textContent = `♪ Paloma Blanca ♪
+
+When the sun shines on the mountains
+And the night is on the run
+It's a new day, it's a new way
+And I fly up to the sun
+
+I can fly like a bird o'er the mountain
+High I sail on a still bright day...
+
+(Full lyrics available on licensed platforms)`;
+
+// Popup player
+function openPopupPlayer() { document.getElementById('popupPlayer').classList.add('open'); }
+function closePopupPlayer() { document.getElementById('popupPlayer').classList.remove('open'); }
+
+// ============================================================
+// NAVIGATION / PAGES
+// ============================================================
+const navMap = {
+  'home-1':'home','home-2':'home','home-3':'home','home-4':'home','home-5':'home','home-6':'home',
+  'about':'about','blog':'blog','blog-detail':'blog',
+  'schedule':'shows','schedule-detail':'shows',
+  'chart':'chart','chart-category':'chart','chart-detail':'chart',
+  'team':'team','team-detail':'team',
+  'event':'event','event-detail':'event',
+  'gallery-foto':'gallery','gallery-video':'gallery',
+  'download':'download','contact':'contact'
+};
+
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const el = document.getElementById('page-' + id);
+  if (el) { el.classList.add('active'); window.scrollTo(0,0); }
+
+  // Update desktop nav active link
+  document.querySelectorAll('#mainNavCollapse .nav-link').forEach(b => b.classList.remove('active'));
+  const navKey = navMap[id];
+  if (navKey) {
+    const nb = document.getElementById('nav-' + navKey);
+    if (nb) nb.classList.add('active');
+  }
+
+  // Close Bootstrap offcanvas if open
+  const oc = bootstrap.Offcanvas.getInstance(document.getElementById('navOffcanvas'));
+  if (oc) oc.hide();
+
+  // Close any open Bootstrap dropdown
+  document.querySelectorAll('.dropdown-menu.show').forEach(m => m.classList.remove('show'));
+  document.querySelectorAll('.dropdown-toggle.show').forEach(t => { t.classList.remove('show'); t.setAttribute('aria-expanded','false'); });
+}
+
+
+// ============================================================
+// THEME
+// ============================================================
+let isDark = true;
+document.getElementById('themeToggle').addEventListener('click', function() {
+  isDark = !isDark;
+  document.documentElement.setAttribute('data-bs-theme', isDark ? 'dark' : 'light');
+  this.innerHTML = isDark ? '<i class="bi bi-moon-stars"></i>' : '<i class="bi bi-sun"></i>';
+});
+
+// ============================================================
+// SEARCH
+// ============================================================
+function openSearch() { document.getElementById('searchOverlay').classList.add('open'); setTimeout(() => document.getElementById('searchInput').focus(), 100); }
+function closeSearch() { document.getElementById('searchOverlay').classList.remove('open'); }
+function handleSearch(e) { if (e.key === 'Escape') closeSearch(); if (e.key === 'Enter') { toast('Searching: ' + e.target.value); } }
+document.getElementById('searchOverlay').addEventListener('click', function(e) { if (e.target === this) closeSearch(); });
+
+// ============================================================
+// AUTH
+// ============================================================
+function openAuth() { document.getElementById('authModal').classList.add('open'); }
+function closeAuth() { document.getElementById('authModal').classList.remove('open'); }
+function switchAuth() { const t = document.getElementById('authTitle'); t.textContent = t.textContent === 'SIGN IN' ? 'SIGN UP' : 'SIGN IN'; }
+document.getElementById('authModal').addEventListener('click', function(e) { if (e.target === this) closeAuth(); });
+document.getElementById('channelModal').addEventListener('click', function(e) { if (e.target === this) closeChannelPicker(); });
+document.getElementById('popupPlayer').addEventListener('click', function(e) { if (e.target === this) closePopupPlayer(); });
+
+// ============================================================
+// TOAST
+// ============================================================
+function toast(msg) {
+  const el = document.createElement('div'); el.className = 'cr-toast'; el.textContent = msg;
+  document.body.appendChild(el); setTimeout(() => el.remove(), 3000);
+}
+
+// ============================================================
+// LIVE CLOCK
+// ============================================================
+function updateLiveClock() {
+  const el = document.getElementById('liveTime');
+  if (el) { const n = new Date(); el.textContent = `${String(n.getHours()).padStart(2,'0')}:${String(n.getMinutes()).padStart(2,'0')}`; }
+}
+setInterval(updateLiveClock, 1000); updateLiveClock();
+
+// ============================================================
+// TEAM CAROUSEL
+// ============================================================
+let teamIdx = 0;
+function teamCarouselMove(dir) {
+  const slides = document.querySelectorAll('#teamCarouselTrack .cr-carousel-slide');
+  teamIdx = (teamIdx + dir + slides.length) % slides.length;
+  document.getElementById('teamCarouselTrack').style.transform = `translateX(-${teamIdx * 100}%)`;
+}
+setInterval(() => teamCarouselMove(1), 5000);
+
+// ============================================================
+// BLOG DATA & RENDER
+// ============================================================
+const blogPosts = [
+  { cat:'music', title:'The Music That Immortalised 90s Subculture', img:'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80', date:'Apr 10, 2026', read:'5 min', excerpt:'From grunge to trip-hop, the sounds that shaped a generation...' },
+  { cat:'lifestyle', title:'How Music Shapes Our Morning Rituals', img:'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80', date:'Apr 8, 2026', read:'3 min', excerpt:'The science and soul of starting your day with the right soundtrack.' },
+  { cat:'news', title:"Radio's Digital Renaissance in 2026", img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80', date:'Apr 6, 2026', read:'4 min', excerpt:'How internet radio is reclaiming cultural relevance in the streaming era.' },
+  { cat:'sport', title:'Athletes & Their Pre-Game Playlists', img:'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=600&q=80', date:'Apr 4, 2026', read:'3 min', excerpt:'What the pros listen to before they compete.' },
+  { cat:'music', title:'The Art of Cinematic Sound Design', img:'https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600&q=80', date:'Apr 2, 2026', read:'6 min', excerpt:'How film composers shape our emotional landscapes through music.' },
+  { cat:'lifestyle', title:'Headphones & Solitude', img:'https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=600&q=80', date:'Mar 30, 2026', read:'3 min', excerpt:'The unexpected philosophy of listening alone.' },
+];
+
+let currentBlogView = 'grid';
+let currentBlogCat = 'all';
+
+function renderBlog() {
+  const filtered = currentBlogCat === 'all' ? blogPosts : blogPosts.filter(p => p.cat === currentBlogCat);
+  const grid = document.getElementById('blogGrid'); const list = document.getElementById('blogList');
+  if (currentBlogView === 'grid') {
+    grid.style.display = 'flex'; grid.className = 'row g-4';
+    list.style.display = 'none';
+    grid.innerHTML = filtered.map(p => `<div class="col-md-4" onclick="showPage('blog-detail')"><div class="card-cr"><img class="card-cr-img" src="${p.img}" alt=""/><div class="card-cr-body"><span class="card-cr-cat">${p.cat.toUpperCase()}</span><div class="card-cr-title">${p.title}</div><div class="card-cr-meta">${p.date} · ${p.read} read</div><div class="card-cr-excerpt">${p.excerpt}</div></div></div></div>`).join('');
+  } else {
+    grid.style.display = 'none'; list.style.display = 'block';
+    list.innerHTML = filtered.map(p => `<div class="card-list border-bottom py-3" onclick="showPage('blog-detail')"><img class="card-list-img" style="width:120px;height:80px" src="${p.img}" alt=""/><div><span class="card-cr-cat">${p.cat.toUpperCase()}</span><div class="card-list-title">${p.title}</div><div class="card-cr-meta">${p.date} · ${p.read} read</div><div class="card-cr-excerpt small">${p.excerpt}</div></div></div>`).join('');
+  }
+}
+
+function filterBlog(cat) {
+  currentBlogCat = cat;
+  document.querySelectorAll('#blogCatFilter .filter-btn').forEach(b => { b.classList.remove('active'); if (b.textContent.toLowerCase().replace(' ','') === cat || (cat==='all'&&b.textContent==='All')) b.classList.add('active'); });
+  renderBlog();
+}
+
+function setBlogView(view) {
+  currentBlogView = view;
+  document.getElementById('blogViewGrid').classList.toggle('active', view === 'grid');
+  document.getElementById('blogViewList').classList.toggle('active', view === 'list');
+  renderBlog();
+}
+renderBlog();
+
+// ============================================================
+// CHART DATA & RENDER
+// ============================================================
+const chartData = [
+  { rank:1, song:'Paloma Blanca', artist:'Manuel & The Mountains', art:'https://placehold.co/50/1a0800/c9a84c?text=PB', trend:'up' },
+  { rank:2, song:'Blue in Green', artist:'Miles Davis', art:'https://placehold.co/50/001a0a/2dd4bf?text=BG', trend:'up' },
+  { rank:3, song:'Café del Mar', artist:'Energy 52', art:'https://placehold.co/50/0a001a/a78bfa?text=CM', trend:'same' },
+  { rank:4, song:'Midnight City', artist:'M83', art:'https://placehold.co/50/001020/60a5fa?text=MC', trend:'down' },
+  { rank:5, song:'Teardrop', artist:'Massive Attack', art:'https://placehold.co/50/100010/f87171?text=TD', trend:'up' },
+  { rank:6, song:'Comptine d\'un autre été', artist:'Yann Tiersen', art:'https://placehold.co/50/100800/f97316?text=CA', trend:'same' },
+  { rank:7, song:'Hoppípolla', artist:'Sigur Rós', art:'https://placehold.co/50/0a1010/38bdf8?text=HP', trend:'up' },
+  { rank:8, song:'Experience', artist:'Ludovico Einaudi', art:'https://placehold.co/50/180808/f87171?text=EX', trend:'down' },
+  { rank:9, song:'Breathe (2 AM)', artist:'Anna Nalick', art:'https://placehold.co/50/081808/4ade80?text=BR', trend:'same' },
+  { rank:10, song:'The One', artist:'Björk', art:'https://placehold.co/50/180018/e879f9?text=TO', trend:'up' },
+];
+
+function chartItemHTML(c) {
+  const trendIcon = c.trend === 'up' ? '<i class="bi bi-caret-up-fill chart-trend up"></i>' : c.trend === 'down' ? '<i class="bi bi-caret-down-fill chart-trend down"></i>' : '<i class="bi bi-dash chart-trend same"></i>';
+  return `<div class="chart-item" onclick="showPage('chart-detail')"><div class="chart-rank ${c.rank<=3?'top':''}">${c.rank}</div><img class="chart-art" src="${c.art}" alt=""/><div class="chart-info"><div class="chart-song">${c.song}</div><div class="chart-artist">${c.artist}</div></div>${trendIcon}<button class="player-btn" onclick="event.stopPropagation();playStation(0)"><i class="bi bi-play-circle"></i></button></div>`;
+}
+
+function renderCharts() {
+  const main = document.getElementById('mainChartList');
+  if (main) main.innerHTML = chartData.map(chartItemHTML).join('');
+  const home = document.getElementById('homeChartList');
+  if (home) home.innerHTML = chartData.slice(0,5).map(chartItemHTML).join('');
+  const home5 = document.getElementById('home5Chart');
+  if (home5) home5.innerHTML = chartData.slice(0,5).map(chartItemHTML).join('');
+  const cat = document.getElementById('categoryChartList');
+  if (cat) cat.innerHTML = chartData.map(chartItemHTML).join('');
+  const det = document.getElementById('detailChartList');
+  if (det) det.innerHTML = chartData.map(chartItemHTML).join('');
+  const htop = document.getElementById('homeChartTop');
+  if (htop) { htop.textContent = chartData[0].song; document.getElementById('homeChartTopSub').textContent = chartData[0].artist; }
+}
+renderCharts();
+
+// ============================================================
+// HOME 2 helpers
+// ============================================================
+function renderHome2() {
+  const stEl = document.getElementById('home2Stations');
+  if (stEl) stEl.innerHTML = stations.slice(0,3).map((s,i) => `<div class="channel-item" onclick="playStation(${i})"><img class="channel-art" src="${s.art}" alt=""/><div><div class="channel-name" style="font-size:0.8rem">${s.name}</div><div class="channel-url">${s.genre}</div></div></div>`).join('');
+  const bEl = document.getElementById('home2Blog');
+  if (bEl) bEl.innerHTML = blogPosts.slice(0,3).map(p => `<div class="col-md-4" onclick="showPage('blog-detail')"><div class="card-cr"><img class="card-cr-img" src="${p.img}" alt=""/><div class="card-cr-body"><span class="card-cr-cat">${p.cat.toUpperCase()}</span><div class="card-cr-title">${p.title}</div><div class="card-cr-meta">${p.date}</div></div></div></div>`).join('');
+}
+renderHome2();
+
+// ============================================================
+// GALLERY DATA
+// ============================================================
+const galleryPhotos = [
+  { cat:'onair', src:'https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&q=80' },
+  { cat:'talkshow', src:'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80' },
+  { cat:'event', src:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80' },
+  { cat:'offair', src:'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&q=80' },
+  { cat:'onair', src:'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80' },
+  { cat:'talkshow', src:'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?w=600&q=80' },
+  { cat:'event', src:'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80' },
+  { cat:'offair', src:'https://images.unsplash.com/photo-1504898770365-14faca6a7320?w=600&q=80' },
+  { cat:'onair', src:'https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=600&q=80' },
+  { cat:'event', src:'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80' },
+  { cat:'talkshow', src:'https://images.unsplash.com/photo-1461784121038-f088ca1e7714?w=600&q=80' },
+  { cat:'offair', src:'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?w=600&q=80' },
+];
+
+const videoGalleryData = [
+  { type:'youtube', id:'dQw4w9WgXcQ', thumb:'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=600&q=80', title:'Dawn Frequency — Episode 1' },
+  { type:'vimeo', id:'76979871', thumb:'https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=600&q=80', title:'Magic Night Highlights' },
+  { type:'youtube', id:'9bZkp7q19f0', thumb:'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&q=80', title:'Anniversary Gala 2025' },
+  { type:'vimeo', id:'148751763', thumb:'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80', title:'Jazz Night — Midnight Séance' },
+  { type:'youtube', id:'JGwWNGJdvx8', thumb:'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&q=80', title:'Studio Tour 2026' },
+  { type:'vimeo', id:'169599296', thumb:'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80', title:'Event Coverage — Spring Mix' },
+];
+
+let lightboxOpen = null;
+function filterGallery(cat) {
+  document.querySelectorAll('#galleryFilter .filter-btn').forEach(b => { b.classList.remove('active'); if ((cat==='all'&&b.textContent==='All')||b.textContent.toLowerCase()===cat) b.classList.add('active'); });
+  const filtered = cat === 'all' ? galleryPhotos : galleryPhotos.filter(p => p.cat === cat);
+  document.getElementById('photoGallery').innerHTML = filtered.map((p,i) => `
+    <div class="gallery-item" onclick="openLightbox(${i},'${cat}')">
+      <img src="${p.src}" alt="" loading="lazy"/>
+      <div class="gallery-item-overlay"><i class="bi bi-zoom-in text-gold fs-3"></i></div>
+    </div>`).join('');
+}
+filterGallery('all');
+
+function openLightbox(idx, cat) {
+  const filtered = cat === 'all' ? galleryPhotos : galleryPhotos.filter(p => p.cat === cat);
+  const src = filtered[idx].src;
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-content:center;cursor:zoom-out';
+  overlay.innerHTML = `<img src="${src}" style="max-width:90vw;max-height:90vh;border:1px solid var(--cr-gold)"/><button onclick="this.parentElement.remove()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer"><i class="bi bi-x-lg"></i></button>`;
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  document.body.appendChild(overlay);
+}
+
+function renderVideoGallery() {
+  const el = document.getElementById('videoGallery');
+  if (!el) return;
+  el.innerHTML = videoGalleryData.map((v,i) => `
+    <div class="col-md-4">
+      <div class="gallery-video-item" onclick="openVideoModal('${v.type}','${v.id}')">
+        <img class="gallery-video-thumb" src="${v.thumb}" alt=""/>
+        <div class="gallery-play-icon"><i class="bi bi-play-fill"></i></div>
+      </div>
+      <div class="mt-1 small" style="font-family:var(--font-display);font-weight:700">${v.title}</div>
+    </div>`).join('');
+}
+renderVideoGallery();
+
+function openVideoModal(type, id) {
+  const src = type === 'youtube' ? `https://www.youtube.com/embed/${id}?autoplay=1` : `https://player.vimeo.com/video/${id}?autoplay=1`;
+  const overlay = document.createElement('div');
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,0.97);display:flex;align-items:center;justify-content:center';
+  overlay.innerHTML = `<div style="width:90%;max-width:900px;position:relative"><div class="video-embed"><iframe src="${src}" allowfullscreen allow="autoplay"></iframe></div><button onclick="this.parentElement.parentElement.remove()" style="position:absolute;top:-3rem;right:0;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer"><i class="bi bi-x-lg"></i> CLOSE</button></div>`;
+  overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+  document.body.appendChild(overlay);
+}
+
+// ============================================================
+// INIT
+// ============================================================
+// Auto-play first station after a moment
+// (commented out to avoid autoplay policy issues)
+// setTimeout(() => playStation(0), 2000);
+</script>
+</body>
+</html>
