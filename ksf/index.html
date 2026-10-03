@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#05070C">
+		<title>KUKAR SOUND FEST 2026 — Sound Competition | Komunitas Sound Kutai Kartanegara</title>
+		<meta name="description" content="Pendaftaran resmi KUKAR SOUND FEST 2026 — Festival Sound System, Kreativitas, Budaya & Edukasi Audio. 27–29 Oktober 2026, Stadion Rondong Demang, Tenggarong, Kutai Kartanegara.">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+		<style>
+			/* ============ TOKENS & RESET ============ */
+			:root{
+			--bg:#05070C; --bg2:#070B13; --panel:#0B1220; --panel2:#0E1626;
+			--line:#1C2A42; --line-soft:#141F33;
+			--electric:#3D7BFF; --cyan:#38E1FF; --cyan-ink:#03141C;
+			--red:#FF4040; --amber:#FFC24B;
+			--white:#F2F6FC; --muted:#93A5C1; --dim:#5C6E8C;
+			--mono:'IBM Plex Mono',monospace; --body:'Space Grotesk',sans-serif; --disp:'Anton',sans-serif;
+			}
+			*{margin:0;padding:0;box-sizing:border-box}
+			html{scroll-behavior:smooth;scroll-padding-top:86px}
+			body{background:var(--bg);color:var(--white);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+			body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+			background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+			background-size:52px 52px;opacity:.28}
+			main,header,footer{position:relative;z-index:1}
+			::selection{background:var(--cyan);color:var(--cyan-ink)}
+			::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}
+			::-webkit-scrollbar-thumb{background:#22344F;border:2px solid var(--bg)}
+			img,svg{display:block;max-width:100%}
+			a{color:inherit;text-decoration:none}
+			button{font-family:inherit;cursor:pointer}
+			.wrap{width:min(1180px,92%);margin-inline:auto}
+			.skip{position:absolute;left:-9999px;top:0;background:var(--cyan);color:var(--cyan-ink);padding:10px 16px;font:600 13px var(--mono);z-index:200}
+			.skip:focus{left:8px;top:8px}
+			
+			/* ============ UTIL ============ */
+			.mono{font-family:var(--mono)}
+			.sec{padding-block:clamp(70px,9vw,112px);border-top:1px solid var(--line-soft);position:relative}
+			.sec-label{font:600 12px var(--mono);letter-spacing:.24em;color:var(--cyan);text-transform:uppercase}
+			.sec h2.big{font-family:var(--disp);font-weight:400;font-size:clamp(34px,4.8vw,62px);line-height:1.04;letter-spacing:.01em;text-transform:uppercase;margin:16px 0 12px}
+			.lead{color:var(--muted);max-width:660px;font-size:16.5px}
+			.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 12.5px var(--mono);letter-spacing:.16em;text-transform:uppercase;padding:16px 26px;border:1px solid transparent;border-radius:2px;transition:all .22s ease;white-space:nowrap}
+			.btn .ic{width:16px;height:16px}
+			.btn-pri{background:var(--cyan);color:var(--cyan-ink)}
+			.btn-pri:hover{background:#fff;box-shadow:0 0 26px rgba(56,225,255,.35)}
+			.btn-ghost{border-color:var(--line);color:var(--white);background:rgba(255,255,255,.02)}
+			.btn-ghost:hover{border-color:var(--cyan);color:var(--cyan)}
+			.btn:disabled{opacity:.4;cursor:not-allowed}
+			.miniBtn{font:600 10.5px var(--mono);letter-spacing:.14em;padding:7px 12px;border:1px solid var(--line);background:transparent;color:var(--muted);border-radius:2px;transition:all .2s}
+			.miniBtn:hover{border-color:var(--cyan);color:var(--cyan)}
+			.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:9px 14px;font:500 11.5px var(--mono);letter-spacing:.12em;color:var(--muted);border-radius:2px}
+			.chip .ic{width:14px;height:14px;color:var(--cyan)}
+			.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+			.reveal.in{opacity:1;transform:none}
+			.orn{display:block;width:100%;height:22px;opacity:.5}
+			.ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+			
+			/* ============ HEADER ============ */
+			#topbar{position:fixed;top:0;left:0;right:0;z-index:90;height:72px;background:rgba(5,8,14,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+			#topbar .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+			.brand{display:flex;align-items:center;gap:12px}
+			.brand .mark{width:38px;height:38px;border:1px solid var(--cyan);display:grid;place-items:center;font:400 15px var(--disp);color:var(--cyan);letter-spacing:.05em}
+			.brand b{font:400 17px var(--disp);letter-spacing:.06em;line-height:1}
+			.brand small{display:block;font:500 9.5px var(--mono);letter-spacing:.3em;color:var(--dim);margin-top:3px}
+			.topnav{display:flex;gap:26px}
+			.topnav a{font:600 11.5px var(--mono);letter-spacing:.16em;color:var(--muted);transition:color .2s}
+			.topnav a:hover{color:var(--cyan)}
+			.topcta{padding:12px 20px}
+			#burger{display:none;background:none;border:1px solid var(--line);width:42px;height:42px;color:var(--white);border-radius:2px}
+			#mobileMenu{position:fixed;inset:0;z-index:85;background:rgba(5,7,12,.97);display:flex;flex-direction:column;justify-content:center;padding:8vw;transform:translateY(-102%);transition:transform .35s ease}
+			#mobileMenu.open{transform:none}
+			#mobileMenu a{font:400 clamp(30px,8vw,44px) var(--disp);text-transform:uppercase;color:var(--white);padding:8px 0;border-bottom:1px solid var(--line-soft);display:flex;align-items:baseline;gap:14px}
+			#mobileMenu a i{font:500 11px var(--mono);color:var(--cyan);letter-spacing:.2em}
+			body.menu-open{overflow:hidden}
+			@media(max-width:920px){.topnav{display:none}#burger{display:grid;place-items:center}.topcta{display:none}}
+			
+			/* ============ HERO ============ */
+			#hero{position:relative;padding:150px 0 0;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-start;overflow:hidden}
+			#hero .wrap{flex:1;display:grid;grid-template-columns:1.08fr .92fr;gap:40px;align-items:center;padding-bottom:40px}
+			.hud{position:absolute;font:500 10px var(--mono);letter-spacing:.22em;color:var(--dim);z-index:2}
+			.hud.tl{top:96px;left:4%}.hud.tr{top:96px;right:4%;text-align:right}
+			.hud .live{color:var(--red)}.hud .live::before{content:"";display:inline-block;width:7px;height:7px;background:var(--red);border-radius:50%;margin-right:8px;animation:blink 1.4s infinite}
+			@keyframes blink{50%{opacity:.15}}
+			.h1{font-family:var(--disp);font-weight:400;font-size:clamp(52px,10.5vw,142px);line-height:.96;text-transform:uppercase;letter-spacing:.005em}
+			.h1 .yr{color:transparent;-webkit-text-stroke:2px var(--cyan)}
+			.tagline{display:inline-block;background:var(--cyan);color:var(--cyan-ink);font:400 clamp(19px,3vw,30px) var(--disp);text-transform:uppercase;letter-spacing:.03em;padding:8px 18px;margin:20px 0 16px;position:relative}
+			.tagline::after{content:"";position:absolute;right:-9px;top:0;bottom:0;width:6px;background:var(--red)}
+			.hsub{color:var(--muted);font-size:clamp(15px,1.6vw,18px);max-width:520px}
+			.hmeta{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 30px}
+			.ctaRow{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:38px}
+			.ctaRow .btn{padding:18px 30px;font-size:13px}
+			.countLbl{font:600 10.5px var(--mono);letter-spacing:.26em;color:var(--dim);margin-bottom:10px}
+			.count{display:flex;gap:10px;flex-wrap:wrap}
+			.cbox{border:1px solid var(--line);background:rgba(11,18,32,.7);min-width:76px;padding:12px 10px;text-align:center}
+			.cbox b{display:block;font:400 32px/1 var(--disp);color:var(--cyan)}
+			.cbox i{font:500 9.5px var(--mono);letter-spacing:.22em;color:var(--dim);font-style:normal}
+			.heroVis{position:relative}
+			.heroVis .corner{position:absolute;font:500 9.5px var(--mono);letter-spacing:.2em;color:var(--dim)}
+			.heroVis .corner.a{top:0;left:0}.heroVis .corner.b{top:0;right:0;text-align:right}
+			.spk{width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+			.svglbl{font:600 10px var(--mono);fill:#5C7BA6;letter-spacing:.16em}
+			.ledR{fill:var(--red);animation:blink 1.6s infinite}
+			.rings{transform-origin:280px 300px;animation:pulse 3.4s ease-in-out infinite}
+			@keyframes pulse{50%{transform:scale(1.035);opacity:.7}}
+			.glow{filter:drop-shadow(0 0 5px rgba(56,225,255,.65))}
+			.eq{display:flex;gap:3px;align-items:flex-end;height:34px;margin-top:8px}
+			.eq span{width:4px;height:28%;background:var(--cyan);opacity:.85;animation:eq 1s ease-in-out infinite alternate}
+			@keyframes eq{from{height:14%}to{height:100%}}
+			@media(max-width:920px){
+			#hero{min-height:auto;padding-top:120px}
+			#hero .wrap{grid-template-columns:1fr;gap:10px}
+			.heroVis{max-width:420px;margin-inline:auto}
+			.hud.tr{display:none}
+			}
+			
+			/* ============ TICKER ============ */
+			.ticker{border-block:1px solid var(--line-soft);background:var(--bg2);overflow:hidden;padding:13px 0}
+			.tickTrack{display:flex;width:max-content;animation:tick 32s linear infinite}
+			.tickSet{display:flex;gap:0;white-space:nowrap}
+			.tickSet span{font:600 12px var(--mono);letter-spacing:.24em;color:var(--muted);padding:0 14px}
+			.tickSet span.aft{color:var(--cyan)}
+			.tickSet span.aft::after{content:"///";color:var(--red);margin-left:28px;opacity:.85}
+			@keyframes tick{to{transform:translateX(-50%)}}
+			
+			/* ============ INTRO ============ */
+			.introGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;margin-top:14px}
+			.themeQuote{border:1px solid var(--line);border-left:3px solid var(--cyan);padding:22px 24px;margin:28px 0;background:rgba(56,225,255,.03)}
+			.themeQuote i{font:600 10.5px var(--mono);letter-spacing:.24em;color:var(--cyan);font-style:normal;display:block;margin-bottom:8px}
+			.themeQuote b{font:400 clamp(20px,2.4vw,26px) var(--disp);letter-spacing:.02em;text-transform:uppercase}
+			.audBox{border:1px solid var(--line);background:var(--panel);padding:28px}
+			.audBox h3{font:600 12px var(--mono);letter-spacing:.22em;color:var(--cyan);margin-bottom:18px}
+			.audBox ul{list-style:none}
+			.audBox li{font:400 17px var(--disp);text-transform:uppercase;letter-spacing:.04em;padding:12px 0;border-bottom:1px dashed var(--line);display:flex;gap:14px;align-items:baseline}
+			.audBox li i{font:500 10.5px var(--mono);color:var(--dim);font-style:normal;letter-spacing:.15em}
+			.audBox p{color:var(--muted);font-size:14px;margin-top:18px}
+			@media(max-width:920px){.introGrid{grid-template-columns:1fr;gap:28px}}
+			
+			/* ============ CATEGORIES ============ */
+			.catGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}
+			.catCard{border:1px solid var(--line);background:var(--panel);padding:26px;display:flex;flex-direction:column;transition:all .25s ease;position:relative}
+			.catCard:hover{border-color:var(--cyan);transform:translateY(-4px)}
+			.catCard header{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--line-soft);padding-bottom:14px;margin-bottom:18px}
+			.catCard h3{font:400 24px var(--disp);letter-spacing:.03em}
+			.catNo{font:400 34px var(--disp);color:transparent;-webkit-text-stroke:1px var(--dim)}
+			.catPrice{font:600 clamp(28px,3vw,34px) var(--mono);color:var(--cyan);letter-spacing:-.01em}
+			.catPrice small{display:block;font:500 10px var(--mono);letter-spacing:.24em;color:var(--dim);margin:6px 0 20px}
+			.specList{list-style:none;flex:1}
+			.specList li{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px dashed var(--line-soft)}
+			.specList b{font:600 12px var(--mono);letter-spacing:.18em;color:var(--white)}
+			.specList span{font:500 11.5px var(--mono);color:var(--muted);text-align:right}
+			.catNote{border-left:2px solid var(--amber);background:rgba(255,194,75,.05);padding:12px 14px;font-size:12.5px;color:var(--muted);margin-top:16px}
+			.catNote b{color:var(--amber);font:600 10.5px var(--mono);letter-spacing:.18em;display:block;margin-bottom:4px}
+			.catCard .btn{margin-top:22px;width:100%}
+			.subMaxTag{display:inline-block;margin-top:14px;font:600 10px var(--mono);letter-spacing:.18em;color:var(--red);border:1px solid rgba(255,64,64,.4);padding:6px 10px}
+			@media(max-width:920px){.catGrid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+			
+			/* ============ BENEFITS ============ */
+			.benGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+			.benItem{border:1px solid var(--line);background:var(--panel);padding:24px}
+			.benItem i{font:600 11px var(--mono);letter-spacing:.2em;color:var(--cyan);font-style:normal}
+			.benItem h3{font:400 20px var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-top:12px;line-height:1.25}
+			.prize{margin-top:20px;border:1px solid rgba(56,225,255,.35);background:rgba(56,225,255,.04);padding:clamp(24px,4vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+			.prize .lbl{font:600 12px var(--mono);letter-spacing:.26em;color:var(--muted)}
+			.prize .amt{font:400 clamp(46px,8vw,88px)/1 var(--disp);color:var(--cyan);text-shadow:0 0 34px rgba(56,225,255,.35);letter-spacing:.01em}
+			.prize .note{width:100%;font-size:12.5px;color:var(--dim);border-top:1px dashed rgba(56,225,255,.2);padding-top:14px}
+			@media(max-width:920px){.benGrid{grid-template-columns:1fr 1fr}}
+			@media(max-width:560px){.benGrid{grid-template-columns:1fr}}
+			
+			/* ============ STATS ============ */
+			.statGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+			.statTile{border:1px solid var(--line);background:var(--panel);padding:26px 24px}
+			.statTile .v{font:400 clamp(32px,4.4vw,54px)/1 var(--disp);letter-spacing:.02em}
+			.statTile .k{font:500 10.5px var(--mono);letter-spacing:.24em;color:var(--dim);margin-top:12px}
+			.statTile.hot{border-color:var(--cyan);background:rgba(56,225,255,.05)}
+			.statTile.hot .v{color:var(--cyan)}
+			@media(max-width:920px){.statGrid{grid-template-columns:repeat(2,1fr)}}
+			
+			/* ============ ACCORDION ============ */
+			.acc{border:1px solid var(--line);margin-top:38px;background:var(--panel)}
+			.acc-item+.acc-item{border-top:1px solid var(--line)}
+			.acc-head{width:100%;display:flex;align-items:center;gap:18px;padding:20px 22px;background:none;border:0;color:var(--white);text-align:left;transition:background .2s}
+			.acc-head:hover{background:rgba(56,225,255,.04)}
+			.acc-num{font:600 11.5px var(--mono);letter-spacing:.14em;color:var(--cyan);flex:none;width:44px}
+			.acc-title{font:600 16px var(--body);letter-spacing:.06em;text-transform:uppercase;flex:1}
+			.acc-chev{transition:transform .3s;color:var(--dim)}
+			.acc-item.open .acc-chev{transform:rotate(180deg);color:var(--cyan)}
+			.acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+			.acc-body p{padding:0 22px 22px 84px;color:var(--muted);font-size:15px}
+			.acc-body .phTag{display:inline-block;font:600 11px var(--mono);letter-spacing:.12em;color:var(--amber);border:1px dashed rgba(255,194,75,.5);padding:5px 10px;margin-top:6px}
+			@media(max-width:560px){.acc-body p{padding-left:22px}}
+			
+			/* ============ FLOW ============ */
+			.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:38px}
+			.fl{border:1px solid var(--line);background:var(--panel);padding:24px;position:relative}
+			.fl .num{font:400 46px/1 var(--disp);color:transparent;-webkit-text-stroke:1.5px var(--cyan)}
+			.fl h3{font:400 19px var(--disp);text-transform:uppercase;letter-spacing:.03em;margin:16px 0 8px}
+			.fl p{color:var(--muted);font-size:13.5px}
+			.fl .tag{position:absolute;top:16px;right:16px;font:600 9.5px var(--mono);letter-spacing:.2em;color:var(--dim)}
+			@media(max-width:920px){.flow{grid-template-columns:1fr 1fr}}
+			@media(max-width:560px){.flow{grid-template-columns:1fr}}
+			
+			/* ============ FORM ============ */
+			#formShell{margin-top:38px;border:1px solid var(--line);background:var(--panel)}
+			.formTop{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding:16px 22px;border-bottom:1px solid var(--line-soft)}
+			#stepLabel{font:600 12px var(--mono);letter-spacing:.2em;color:var(--white)}
+			#costChip{font:600 12px var(--mono);letter-spacing:.14em;color:var(--cyan);border:1px solid rgba(56,225,255,.4);padding:8px 14px}
+			.phasebar{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:16px 22px;border-bottom:1px solid var(--line-soft)}
+			.ph{border:1px solid var(--line);padding:10px 14px;opacity:.4;transition:all .25s}
+			.ph b{font:600 12px var(--mono);letter-spacing:.2em;display:block}
+			.ph i{font:500 9.5px var(--mono);letter-spacing:.16em;color:var(--dim);font-style:normal}
+			.ph.on{opacity:1;border-color:var(--cyan);color:var(--white)}
+			.ph.on i{color:var(--cyan)}
+			.ph.done{opacity:.85;border-color:var(--line);color:var(--cyan)}
+			.formPanel{padding:26px 22px}
+			.fstep{display:none}
+			.fstep.active{display:block;animation:fadeUp .35s ease}
+			@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+			.fstep h3{font:400 26px var(--disp);text-transform:uppercase;letter-spacing:.03em}
+			.fsub{color:var(--muted);font-size:14px;margin:6px 0 24px}
+			.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+			.span2{grid-column:1/-1}
+			.field{display:flex;flex-direction:column;gap:8px}
+			.field label{font:600 10.5px var(--mono);letter-spacing:.2em;color:var(--muted)}
+			.field label em{color:var(--red);font-style:normal}
+			.in{background:#0A1120;border:1px solid var(--line);color:var(--white);padding:14px 16px;font:500 15px var(--body);border-radius:2px;width:100%;transition:border .2s,box-shadow .2s}
+			.in::placeholder{color:var(--dim)}
+			.in:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(56,225,255,.12)}
+			textarea.in{resize:vertical;min-height:88px}
+			select.in{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C6E8C' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+			.err{display:none;font:500 11.5px var(--mono);color:var(--red);letter-spacing:.04em}
+			.field.invalid .in{border-color:var(--red)}
+			.field.invalid .err{display:block}
+			.inWrap{position:relative}
+			.inWrap .unit{position:absolute;right:14px;top:50%;transform:translateY(-50%);font:600 10px var(--mono);letter-spacing:.14em;color:var(--dim)}
+			.catpick{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+			.pick{border:1px solid var(--line);background:#0A1120;padding:20px;cursor:pointer;position:relative;display:block;transition:all .2s}
+			.pick:hover{border-color:#33517c}
+			.pick input{position:absolute;opacity:0;pointer-events:none}
+			.pk-name{font:400 20px var(--disp);text-transform:uppercase;letter-spacing:.03em;display:block}
+			.pk-price{font:600 22px var(--mono);color:var(--cyan);display:block;margin-top:8px}
+			.pk-note{font:500 10px var(--mono);letter-spacing:.14em;color:var(--dim);display:block;margin-top:8px}
+			.pk-check{position:absolute;top:12px;right:12px;width:22px;height:22px;border:1px solid var(--line);display:grid;place-items:center;color:transparent;transition:all .2s}
+			.pick.sel,.pick:has(input:checked){border-color:var(--cyan);background:rgba(56,225,255,.06)}
+			.pick.sel .pk-check,.pick input:checked ~ .pk-check{background:var(--cyan);border-color:var(--cyan);color:var(--cyan-ink)}
+			.mrow{display:grid;grid-template-columns:1.2fr 1fr 1fr 44px;gap:12px;align-items:end;border:1px solid var(--line-soft);padding:16px;margin-bottom:12px;background:#0A1120}
+			.mrow .idx{font:600 10px var(--mono);letter-spacing:.18em;color:var(--dim);grid-column:1/-1}
+			.mdel{height:46px;border:1px solid var(--line);background:none;color:var(--dim);display:grid;place-items:center;border-radius:2px;transition:all .2s}
+			.mdel:hover{border-color:var(--red);color:var(--red)}
+			.addBtn{width:100%;border:1px dashed var(--line);background:none;color:var(--muted);font:600 12px var(--mono);letter-spacing:.2em;padding:15px;border-radius:2px;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px}
+			.addBtn:hover{border-color:var(--cyan);color:var(--cyan)}
+			.specBlock{border:1px solid var(--line);margin-bottom:14px;background:#0A1120}
+			.specHead{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line-soft);background:rgba(255,255,255,.02);flex-wrap:wrap}
+			.specHead b{font:600 14px var(--mono);letter-spacing:.24em}
+			.specMax{font:600 10px var(--mono);letter-spacing:.16em;color:var(--cyan)}
+			.specMax.red{color:var(--red)}
+			.specGrid{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:12px;padding:16px}
+			.half{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+			.panelBox{border:1px solid var(--line);background:#0A1120;padding:20px}
+			.panelBox h4{font:600 12px var(--mono);letter-spacing:.22em;margin-bottom:18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+			.badgeAnalog{font:600 9.5px var(--mono);letter-spacing:.18em;color:var(--cyan-ink);background:var(--cyan);padding:4px 9px}
+			.notice{display:none;border:1px solid rgba(255,194,75,.45);background:rgba(255,194,75,.06);color:var(--amber);font-size:13px;padding:12px 14px;margin-top:14px;line-height:1.5}
+			.notice.show{display:block}
+			.chkRow{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:14px;color:var(--muted);padding:16px;border:1px solid var(--line);background:#0A1120;margin-bottom:18px}
+			.chkRow input{width:19px;height:19px;accent-color:var(--cyan);margin-top:2px;flex:none}
+			.chkRow.invalid{border-color:var(--red)}
+			.sumRow{border:1px solid var(--line);padding:16px 18px;margin-bottom:12px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#0A1120}
+			.sumRow .col{display:flex;flex-direction:column;gap:4px;min-width:180px;flex:1}
+			.sumRow i{font:600 9.5px var(--mono);letter-spacing:.2em;color:var(--dim);font-style:normal}
+			.sumRow b{font-weight:600;font-size:15px;word-break:break-word}
+			.sumRow b.cost{font:600 20px var(--mono);color:var(--cyan)}
+			.sumRow ul{list-style:none;font-size:13.5px;color:var(--muted)}
+			.warnTag{font:600 9.5px var(--mono);letter-spacing:.12em;color:var(--amber);border:1px dashed rgba(255,194,75,.5);padding:3px 8px;margin-left:8px;vertical-align:middle}
+			.specTable{width:100%;border-collapse:collapse;margin-bottom:12px}
+			.specTable th,.specTable td{border:1px solid var(--line);padding:9px 12px;font:500 12px var(--mono);letter-spacing:.06em;text-align:left}
+			.specTable th{color:var(--dim);font-weight:600;background:rgba(255,255,255,.02)}
+			.specTable td{color:var(--white)}
+			#btnSubmit{width:100%;padding:19px;font-size:14px}
+			.formNav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 22px;border-top:1px solid var(--line-soft)}
+			.navDots{display:flex;gap:8px}
+			.navDots .dot{width:11px;height:11px;border:1px solid var(--line);background:none;padding:0;transition:all .2s}
+			.navDots .dot.done{background:#2A3E60;border-color:#2A3E60}
+			.navDots .dot.on{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 8px rgba(56,225,255,.6)}
+			@media(max-width:820px){
+			.fgrid,.catpick,.half,.specGrid{grid-template-columns:1fr}
+			.mrow{grid-template-columns:1fr 1fr;gap:10px}
+			.mrow .mdel{grid-column:1/-1;height:40px}
+			.phasebar{padding:12px 14px}.ph i{display:none}
+			.formPanel{padding:20px 14px}
+			}
+			
+			/* ============ SUCCESS ============ */
+			.success{border:1px solid rgba(56,225,255,.4);margin:22px;padding:clamp(22px,4vw,36px);background:rgba(56,225,255,.03);scroll-margin-top:90px}
+			.sTop{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+			.sCheck{width:56px;height:56px;border:1px solid var(--cyan);display:grid;place-items:center;color:var(--cyan);flex:none;box-shadow:0 0 22px rgba(56,225,255,.25)}
+			.sCheck svg{width:26px;height:26px}
+			.success h3{font:400 clamp(26px,4vw,38px) var(--disp);text-transform:uppercase;letter-spacing:.02em}
+			.sTop p{color:var(--muted);font-size:14px}
+			.sNum{border:1px solid var(--line);background:#0A1120;padding:18px 20px;margin-top:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+			.sNum i{font:600 10px var(--mono);letter-spacing:.24em;color:var(--dim);font-style:normal}
+			.sNum b{font:600 clamp(20px,3.4vw,30px) var(--mono);color:var(--cyan);letter-spacing:.04em;text-shadow:0 0 18px rgba(56,225,255,.4)}
+			.sStatus{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,194,75,.5);color:var(--amber);font:600 11.5px var(--mono);letter-spacing:.16em;padding:10px 16px;margin-top:16px}
+			.dotW{width:9px;height:9px;background:var(--amber);border-radius:50%;animation:blink 1.4s infinite}
+			.sSum{margin-top:20px}
+			.payBox{border:1px solid var(--line);background:var(--panel);padding:22px;margin-top:20px}
+			.payBox h4{font:600 12px var(--mono);letter-spacing:.24em;color:var(--white);margin-bottom:6px}
+			.payRow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+			.payRow span{font:600 10.5px var(--mono);letter-spacing:.2em;color:var(--dim)}
+			.payRow b{font:600 14px var(--mono);letter-spacing:.04em;word-break:break-all}
+			.phVal{color:var(--dim)!important;border:1px dashed var(--line);padding:5px 10px}
+			.payNote{font-size:12.5px;color:var(--amber);margin-top:14px;line-height:1.5}
+			.waNote{font-size:14px;color:var(--muted);margin:20px 0 14px;border-left:2px solid var(--cyan);padding-left:14px;line-height:1.6}
+			.sBtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+			
+			/* ============ PAYMENT / STATUS ============ */
+			.payGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:38px}
+			.payCol{border:1px solid var(--line);background:var(--panel);padding:26px}
+			.payCol h3{font:400 22px var(--disp);text-transform:uppercase;letter-spacing:.03em;margin-bottom:18px}
+			.miniFlow{list-style:none;margin-bottom:22px}
+			.miniFlow li{display:flex;gap:14px;padding:10px 0;border-bottom:1px dashed var(--line-soft);font-size:14px;color:var(--muted)}
+			.miniFlow li b{font:600 11px var(--mono);color:var(--cyan);letter-spacing:.1em;flex:none;width:26px}
+			.statusForm{display:flex;gap:10px;flex-wrap:wrap}
+			.statusForm .in{flex:1;min-width:180px;font-family:var(--mono)}
+			.stFound{margin-top:18px;border:1px solid var(--line);background:#0A1120;padding:20px}
+			.stFound .num{font:600 22px var(--mono);color:var(--cyan)}
+			.pipe{margin-top:16px}
+			.pnode{position:relative;padding:9px 0 9px 20px;border-left:2px solid var(--line);font:600 11.5px var(--mono);letter-spacing:.14em;color:var(--dim)}
+			.pnode::before{content:"";position:absolute;left:-6px;top:14px;width:9px;height:9px;border-radius:50%;background:var(--line)}
+			.pnode.done{color:var(--cyan)}
+			.pnode.done::before{background:var(--cyan)}
+			.pnode.act{color:var(--white)}
+			.pnode.act::before{background:var(--cyan);box-shadow:0 0 10px rgba(56,225,255,.8)}
+			.stMiss{margin-top:18px;border:1px solid rgba(255,64,64,.45);background:rgba(255,64,64,.05);color:var(--red);font-size:13.5px;padding:16px}
+			.stMeta{margin-top:14px;font:500 12px var(--mono);color:var(--muted);display:grid;gap:6px}
+			.stMeta b{color:var(--white)}
+			@media(max-width:920px){.payGrid{grid-template-columns:1fr}}
+			
+			/* ============ CONTACT / FOOTER ============ */
+			.contactGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+			.conBox{border:1px solid var(--line);background:var(--panel);padding:26px;display:flex;flex-direction:column;gap:12px}
+			.conBox h3{font:600 12px var(--mono);letter-spacing:.24em;color:var(--cyan)}
+			.conBox .val{font:600 15px var(--mono);word-break:break-word}
+			.conBox p{color:var(--muted);font-size:14px}
+			.conBox .btn{margin-top:auto;align-self:flex-start}
+			.contactNote{margin-top:18px;font-size:13px;color:var(--dim);text-align:center}
+			@media(max-width:920px){.contactGrid{grid-template-columns:1fr;max-width:520px;margin-inline:auto}}
+			footer{border-top:1px solid var(--line-soft);background:var(--bg2)}
+			.footWord{font:400 clamp(44px,11vw,150px)/1 var(--disp);text-transform:uppercase;color:transparent;-webkit-text-stroke:1px #22344F;text-align:center;padding:clamp(30px,6vw,60px) 0 0;user-select:none;letter-spacing:.02em}
+			.footGrid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px;padding:40px 0}
+			.footGrid h4{font:600 11px var(--mono);letter-spacing:.24em;color:var(--cyan);margin-bottom:16px}
+			.footGrid p,.footGrid a{color:var(--muted);font-size:14px;display:block;padding:4px 0}
+			.footGrid a:hover{color:var(--cyan)}
+			.footBot{border-top:1px solid var(--line-soft);padding:20px 0;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+			.footBot span{font:500 11px var(--mono);letter-spacing:.14em;color:var(--dim)}
+			@media(max-width:820px){.footGrid{grid-template-columns:1fr}}
+			
+			/* ============ STICKY CTA & TOAST ============ */
+			#stickyCTA{position:fixed;left:12px;right:12px;bottom:12px;z-index:80;display:none;align-items:center;gap:12px;background:rgba(10,17,30,.96);border:1px solid var(--line);padding:10px 12px;backdrop-filter:blur(10px);transform:translateY(130%);transition:transform .3s ease}
+			#stickyCTA.show{transform:none}
+			#stickyCTA .sInfo b{display:block;font:600 12px var(--mono);letter-spacing:.12em;color:var(--white)}
+			#stickyCTA .sInfo i{font:500 10px var(--mono);letter-spacing:.14em;color:var(--cyan);font-style:normal}
+			#stickyCTA .btn{flex:1;padding:14px}
+			@media(max-width:820px){#stickyCTA{display:flex}}
+			#toastWrap{position:fixed;bottom:20px;right:20px;z-index:120;display:flex;flex-direction:column;align-items:flex-end}
+			.toast{background:#0C1526;border:1px solid var(--line);border-left:3px solid var(--cyan);padding:13px 16px;font:500 13.5px var(--body);color:var(--white);display:flex;gap:10px;align-items:flex-start;margin-top:10px;max-width:340px;animation:tin .3s ease}
+			.toast.warn{border-left-color:var(--amber)}.toast.errT{border-left-color:var(--red)}
+			.toast .ic{width:17px;height:17px;margin-top:1px;color:var(--cyan)}
+			.toast.warn .ic{color:var(--amber)}.toast.errT .ic{color:var(--red)}
+			@keyframes tin{from{opacity:0;transform:translateX(24px)}}
+			@media(max-width:820px){#toastWrap{left:14px;right:14px;bottom:86px;align-items:stretch}.toast{max-width:none}}
+			@media(prefers-reduced-motion:reduce){
+			*{animation-duration:.01ms!important;transition-duration:.01ms!important}
+			html{scroll-behavior:auto}
+			.reveal{opacity:1;transform:none}
+			.eq span{height:40%!important;animation:none!important}
+			}
+			
+			.rwChip{display:inline-flex;align-items:center;gap:8px;font:600 11px var(--mono);letter-spacing:.14em;padding:8px 14px;border:1px solid var(--line);border-radius:2px}
+			.rwChip .st{width:8px;height:8px;border-radius:50%}
+			.rwChip.open{border-color:rgba(56,225,255,.5);color:var(--cyan)}
+			.rwChip.open .st{background:var(--cyan);box-shadow:0 0 8px rgba(56,225,255,.8)}
+			.rwChip.upcoming{border-color:rgba(255,194,75,.5);color:var(--amber)}
+			.rwChip.upcoming .st{background:var(--amber)}
+			.rwChip.closed{border-color:rgba(255,64,64,.5);color:var(--red)}
+			.rwChip.closed .st{background:var(--red)}
+		</style>
+	</head>
+	<body>
+		<a class="skip" href="#pendaftaran">Langsung ke form pendaftaran</a>
+		<noscript><div style="padding:14px;text-align:center;font-family:monospace;background:#1C2A42">Aktifkan JavaScript untuk menggunakan form pendaftaran.</div></noscript>
+		
+		<!-- ================= HEADER ================= -->
+		<header id="topbar">
+			<div class="wrap">
+				<a class="brand" href="#hero" aria-label="KUKAR SOUND FEST 2026">
+					<span class="mark">KS</span>
+					<span><b>KUKAR SOUND FEST</b><small>2026 // KSKK</small></span>
+				</a>
+				<nav class="topnav" aria-label="Navigasi utama">
+					<a href="#intro">TENTANG</a><a href="#kategori">KATEGORI</a><a href="#ketentuan">KETENTUAN</a>
+					<a href="#pendaftaran">PENDAFTARAN</a><a href="#faq">FAQ</a><a href="#kontak">KONTAK</a>
+				</nav>
+				<a href="#pendaftaran" class="btn btn-pri topcta">DAFTAR SEKARANG</a>
+				<button id="burger" aria-label="Buka menu" aria-expanded="false">
+					<svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+				</button>
+			</div>
+		</header>
+		<nav id="mobileMenu" aria-label="Menu mobile">
+			<a href="#intro"><i>01</i>TENTANG</a><a href="#kategori"><i>02</i>KATEGORI</a>
+			<a href="#ketentuan"><i>03</i>KETENTUAN</a><a href="#pendaftaran"><i>04</i>PENDAFTARAN</a>
+			<a href="#faq"><i>05</i>FAQ</a><a href="#kontak"><i>06</i>KONTAK</a>
+		</nav>
+		
+		<main>
+			<!-- ================= HERO ================= -->
+			<section id="hero">
+				<span class="hud tl">AUDIO COMPETITION // KUTAI KARTANEGARA — KALIMANTAN TIMUR</span>
+				<span class="hud tr"><span class="live">SPL MONITOR</span><br>SOUND COMPETITION 2026</span>
+				<div class="wrap">
+					<div>
+						<h1 class="h1">KUKAR SOUND<br>FEST <span class="yr">2026</span></h1>
+						<span class="tagline">UJI NYALI, RAIH PRESTASI!</span>
+						<p class="hsub">Festival Sound System, Kreativitas, Budaya &amp; Edukasi Audio.<br>Ini bukan sekadar festival musik — ini panggung <strong>sound competition</strong>.</p>
+						<div class="hmeta">
+							<span class="chip"><svg class="ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="1"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>27–29 OKTOBER 2026 &nbsp;•&nbsp; PRA-EVENT 26 OKT</span>
+							<span class="chip"><svg class="ic" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>STADION RONDONG DEMANG — TENGGARONG</span>
+						</div>
+						<div class="ctaRow">
+							<a href="#pendaftaran" class="btn btn-pri">DAFTAR SEKARANG <svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+							<a href="#ketentuan" class="btn btn-ghost">LIHAT KETENTUAN LOMBA</a>
+						</div>
+						<p class="countLbl" id="cdLabel">MENUJU HARI-H — PRA-EVENT 26 OKTOBER 2026</p>
+						<div class="count" id="countdown" role="timer" aria-label="Hitung mundur menuju event">
+							<div class="cbox"><b id="cdD">00</b><i>HARI</i></div>
+							<div class="cbox"><b id="cdH">00</b><i>JAM</i></div>
+							<div class="cbox"><b id="cdM">00</b><i>MENIT</i></div>
+							<div class="cbox"><b id="cdS">00</b><i>DETIK</i></div>
+						</div>
+					</div>
+					<div class="heroVis" aria-hidden="true">
+						<span class="corner a">[ STACK CONFIG // 2×SUB + TOP ]</span>
+						<span class="corner b">[ PWR / RATED ]</span>
+						<svg class="spk" viewBox="0 0 560 640">
+							<defs>
+								<radialGradient id="amb" cx="50%" cy="45%" r="60%">
+									<stop offset="0%" stop-color="rgba(56,225,255,.10)"/><stop offset="100%" stop-color="rgba(56,225,255,0)"/>
+								</radialGradient>
+								<pattern id="grille" width="8" height="8" patternUnits="userSpaceOnUse">
+									<rect width="8" height="8" fill="#0B1526"/><circle cx="4" cy="4" r="1" fill="#1E3350"/>
+								</pattern>
+							</defs>
+							<ellipse cx="280" cy="330" rx="230" ry="250" fill="url(#amb)"/>
+							<g class="rings">
+								<circle cx="280" cy="300" r="170" fill="none" stroke="#1B2C4A" stroke-dasharray="3 8"/>
+								<circle cx="280" cy="300" r="225" fill="none" stroke="#1B2C4A" stroke-dasharray="3 10" opacity=".7"/>
+								<circle cx="280" cy="300" r="280" fill="none" stroke="#1B2C4A" stroke-dasharray="3 12" opacity=".45"/>
+							</g>
+							<g>
+								<text x="170" y="30" class="svglbl">TOP // MID-HIGH</text>
+								<rect x="170" y="40" width="220" height="170" fill="#0C1626" stroke="#27405F"/>
+								<rect x="182" y="52" width="196" height="58" fill="url(#grille)" stroke="#22374F"/>
+								<polygon points="210,166 350,166 330,124 230,124" fill="#0A1220" stroke="#2A466B"/>
+								<line x1="243" y1="136" x2="317" y2="136" stroke="#1E3350"/>
+								<line x1="236" y1="146" x2="324" y2="146" stroke="#1E3350"/>
+								<line x1="229" y1="156" x2="331" y2="156" stroke="#1E3350"/>
+								<circle cx="216" cy="188" r="13" fill="#0A1424" stroke="#2E4A70"/>
+								<circle cx="344" cy="188" r="13" fill="#0A1424" stroke="#2E4A70"/>
+								<circle cx="372" cy="193" r="3" fill="#38E1FF"/>
+								<circle cx="360" cy="193" r="3" class="ledR"/>
+							</g>
+							<g>
+								<text x="150" y="222" class="svglbl">SUB A // KSK-01</text>
+								<rect x="150" y="232" width="120" height="350" fill="#0C1626" stroke="#27405F"/>
+								<rect x="196" y="246" width="28" height="7" rx="3.5" fill="#0A1220" stroke="#27405F"/>
+								<circle cx="210" cy="415" r="54" fill="#0A1424" stroke="#2E4A70" stroke-width="2"/>
+								<circle cx="210" cy="415" r="41" fill="#0D1A30" stroke="#27405F"/>
+								<circle cx="210" cy="415" r="27" fill="none" stroke="#38E1FF" stroke-width="1.2" opacity=".85" class="glow"/>
+								<circle cx="210" cy="415" r="12" fill="#16294A" stroke="#3D5A85"/>
+								<circle cx="210" cy="415" r="3" fill="#38E1FF"/>
+								<circle cx="188" cy="548" r="12" fill="#060B14" stroke="#22374F"/>
+								<circle cx="232" cy="548" r="12" fill="#060B14" stroke="#22374F"/>
+							</g>
+							<g>
+								<text x="290" y="222" class="svglbl">SUB B // KSK-02</text>
+								<rect x="290" y="232" width="120" height="350" fill="#0C1626" stroke="#27405F"/>
+								<rect x="336" y="246" width="28" height="7" rx="3.5" fill="#0A1220" stroke="#27405F"/>
+								<circle cx="350" cy="415" r="54" fill="#0A1424" stroke="#2E4A70" stroke-width="2"/>
+								<circle cx="350" cy="415" r="41" fill="#0D1A30" stroke="#27405F"/>
+								<circle cx="350" cy="415" r="27" fill="none" stroke="#38E1FF" stroke-width="1.2" opacity=".85" class="glow"/>
+								<circle cx="350" cy="415" r="12" fill="#16294A" stroke="#3D5A85"/>
+								<circle cx="350" cy="415" r="3" fill="#38E1FF"/>
+								<circle cx="328" cy="548" r="12" fill="#060B14" stroke="#22374F"/>
+								<circle cx="372" cy="548" r="12" fill="#060B14" stroke="#22374F"/>
+							</g>
+							<rect x="128" y="582" width="304" height="14" fill="#0A1220" stroke="#22374F"/>
+							<path d="M350 596 C 390 626, 440 606, 486 620" fill="none" stroke="#22374F" stroke-width="2"/>
+							<path d="M180 596 C 150 622, 110 610, 78 622" fill="none" stroke="#22374F" stroke-width="2"/>
+							<path d="M24 24h26M24 24v26" stroke="#38E1FF" opacity=".5" fill="none"/>
+							<path d="M536 24h-26M536 24v26" stroke="#38E1FF" opacity=".5" fill="none"/>
+							<path d="M24 616h26M24 616v-26" stroke="#38E1FF" opacity=".5" fill="none"/>
+							<path d="M536 616h-26M536 616v-26" stroke="#38E1FF" opacity=".5" fill="none"/>
+						</svg>
+						<div class="eq" data-eq></div>
+					</div>
+				</div>
+				<svg class="orn" aria-hidden="true"><defs><pattern id="ornPat" width="26" height="22" patternUnits="userSpaceOnUse"><path d="M13 2 L24 11 L13 20 L2 11 Z" fill="none" stroke="#1F5D74"/><circle cx="13" cy="11" r="1.6" fill="#1F5D74"/></pattern></defs><rect width="100%" height="22" fill="url(#ornPat)"/></svg>
+			</section>
+			
+			<!-- ================= TICKER ================= -->
+			<div class="ticker" aria-hidden="true">
+				<div class="tickTrack">
+					<div class="tickSet">
+						<span class="aft">KUKAR SOUND FEST 2026</span><span class="aft">27 — 29 OKTOBER 2026</span>
+						<span class="aft">STADION RONDONG DEMANG — TENGGARONG</span><span class="aft">UJI NYALI, RAIH PRESTASI!</span>
+						<span class="aft">BUILD UP // RAKITAN // MINIATUR</span><span class="aft">TOTAL HADIAH Rp27.000.000</span>
+					</div>
+					<div class="tickSet">
+						<span class="aft">KUKAR SOUND FEST 2026</span><span class="aft">27 — 29 OKTOBER 2026</span>
+						<span class="aft">STADION RONDONG DEMANG — TENGGARONG</span><span class="aft">UJI NYALI, RAIH PRESTASI!</span>
+						<span class="aft">BUILD UP // RAKITAN // MINIATUR</span><span class="aft">TOTAL HADIAH Rp27.000.000</span>
+					</div>
+				</div>
+			</div>
+			
+			<!-- ================= INTRO ================= -->
+			<section class="sec" id="intro">
+				<div class="wrap">
+					<div class="introGrid">
+						<div class="reveal">
+							<span class="sec-label">// 01 — TENTANG EVENT</span>
+							<h2 class="big">FESTIVAL SOUND SYSTEM, KREATIVITAS, BUDAYA &amp; EDUKASI AUDIO</h2>
+							<p class="lead">KUKAR SOUND FEST 2026 adalah kompetisi sound system yang diselenggarakan oleh <strong>Komunitas Sound Kutai Kartanegara (KSKK)</strong> — panggung bagi para pelaku audio untuk menguji kemampuan, ketelitian setup, dan kualitas sound system secara sportif dan profesional.</p>
+							<div class="themeQuote">
+								<i>TEMA RESMI EVENT</i>
+								<b>“Bersatu dalam Irama, Berkarya untuk Indonesia”</b>
+							</div>
+							<p class="lead">Event digelar di <strong>Area Lapangan Parkir Utama Stadion Rondong Demang, Tenggarong, Kutai Kartanegara</strong>, dengan pra-event pada 26 Oktober 2026 dan lomba berlangsung 27–29 Oktober 2026.</p>
+						</div>
+						<aside class="audBox reveal">
+							<h3>SIAPA YANG BISA IKUT?</h3>
+							<ul>
+								<li><i>A</i>PEMILIK SOUND SYSTEM</li>
+								<li><i>B</i>OPERATOR</li>
+								<li><i>C</i>TEKNISI</li>
+								<li><i>D</i>TIM SOUND SYSTEM</li>
+								<li><i>E</i>KOMUNITAS AUDIO</li>
+							</ul>
+							<p>Terbuka untuk peserta dari Kutai Kartanegara, Kalimantan Timur, dan daerah lainnya. Setiap peserta mengikuti ketentuan lomba yang ditetapkan panitia.</p>
+						</aside>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= CATEGORIES ================= -->
+			<section class="sec" id="kategori">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 02 — KATEGORI KOMPETISI</span>
+						<h2 class="big">PILIH KELASMU</h2>
+						<p class="lead">Tiga kategori kompetisi. Biaya pendaftaran otomatis menyesuaikan kategori yang kamu pilih di form.</p>
+					</div>
+					<div class="catGrid">
+						<article class="catCard reveal">
+							<header><h3>BUILD UP</h3><span class="catNo">01</span></header>
+							<div class="catPrice">Rp400.000<small>BIAYA PENDAFTARAN</small></div>
+							<ul class="specList">
+								<li><b>SUB</b><span>MAKS 4 MATA</span></li>
+								<li><b>LOW</b><span>MAKS 4 MATA</span></li>
+								<li><b>MID</b><span>MAKS 4 MATA</span></li>
+								<li><b>HIGH</b><span>MAKS 4 MATA</span></li>
+							</ul>
+							<button class="btn btn-ghost cat-cta" data-cat="buildup">DAFTAR BUILD UP</button>
+						</article>
+						<article class="catCard reveal">
+							<header><h3>LOKAL / RAKITAN</h3><span class="catNo">02</span></header>
+							<div class="catPrice">Rp300.000<small>BIAYA PENDAFTARAN</small></div>
+							<ul class="specList">
+								<li><b>SUB</b><span>MAKS 4 MATA</span></li>
+								<li><b>LOW</b><span>MAKS 4 MATA</span></li>
+								<li><b>MID</b><span>MAKS 4 MATA</span></li>
+								<li><b>HIGH</b><span>MAKS 4 MATA</span></li>
+							</ul>
+							<div class="catNote"><b>CATATAN</b>Peserta Lokal/Rakitan yang menggunakan power amplifier build up dapat dikategorikan sebagai peserta Build Up.</div>
+							<button class="btn btn-ghost cat-cta" data-cat="rakitan">DAFTAR RAKITAN</button>
+						</article>
+						<article class="catCard reveal">
+							<header><h3>MINIATUR</h3><span class="catNo">03</span></header>
+							<div class="catPrice">Rp200.000<small>BIAYA PENDAFTARAN</small></div>
+							<ul class="specList">
+								<li><b>SUB</b><span>MAKS 2 MATA</span></li>
+								<li><b>LOW</b><span>MAKS 2 MATA</span></li>
+								<li><b>MID</b><span>MAKS 2 MATA</span></li>
+								<li><b>HIGH</b><span>MAKS 2 MATA</span></li>
+							</ul>
+							<span class="subMaxTag">SUB MAKSIMAL 15 INCH</span>
+							<button class="btn btn-ghost cat-cta" data-cat="miniatur">DAFTAR MINIATUR</button>
+						</article>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= BENEFITS ================= -->
+			<section class="sec" id="hadiah">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 03 — HAK PESERTA</span>
+						<h2 class="big">APA YANG KAMU DAPATKAN</h2>
+						<p class="lead">Setiap peserta terdaftar KUKAR SOUND FEST 2026 mendapatkan:</p>
+					</div>
+					<div class="benGrid">
+						<div class="benItem reveal"><i>01</i><h3>1 PCS KAOS PESERTA</h3></div>
+						<div class="benItem reveal"><i>02</i><h3>1 PAKET PRODUK KALBE FARMA</h3></div>
+						<div class="benItem reveal"><i>03</i><h3>KESEMPATAN MENGIKUTI SOUND COMPETITION</h3></div>
+						<div class="benItem reveal"><i>04</i><h3>KESEMPATAN MERAIH HADIAH</h3></div>
+					</div>
+					<div class="prize reveal">
+						<span class="lbl">TOTAL HADIAH KOMPETISI</span>
+						<span class="amt">Rp27.000.000</span>
+						<span class="note">Pembagian hadiah per kategori akan ditetapkan dan diumumkan oleh panitia.</span>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= STATS ================= -->
+			<section class="sec" id="statistik">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 04 — EVENT DALAM ANGKA</span>
+						<h2 class="big">AT A GLANCE</h2>
+					</div>
+					<div class="statGrid">
+						<div class="statTile reveal"><div class="v">70</div><div class="k">TARGET PESERTA</div></div>
+						<div class="statTile reveal"><div class="v">3</div><div class="k">KATEGORI</div></div>
+						<div class="statTile reveal"><div class="v">3 MENIT</div><div class="k">CEK SOUND</div></div>
+						<div class="statTile reveal"><div class="v">3 MENIT</div><div class="k">WAKTU LOMBA</div></div>
+						<div class="statTile hot reveal"><div class="v">Rp27 JT</div><div class="k">TOTAL HADIAH</div></div>
+						<div class="statTile reveal"><div class="v">27–29</div><div class="k">OKTOBER 2026</div></div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= RULES ================= -->
+			<section class="sec" id="ketentuan">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 05 — KETENTUAN UTAMA</span>
+						<h2 class="big">KETENTUAN LOMBA</h2>
+						<p class="lead">Seluruh peserta wajib mematuhi ketentuan berikut. Pemeriksaan perangkat dan pengukuran dilakukan oleh panitia.</p>
+					</div>
+					<div class="acc reveal" id="rulesAcc">
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-01</span><span class="acc-title">Daftar Ulang</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Peserta wajib daftar ulang paling lambat 60 menit sebelum acara/lomba dimulai.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-02</span><span class="acc-title">Cek Sound</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Setiap peserta mendapatkan waktu cek sound maksimal 3 menit.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-03</span><span class="acc-title">Giliran</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Saat peserta lain melakukan cek sound, peserta lainnya dilarang menyalakan atau membunyikan sound system.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-04</span><span class="acc-title">Waktu Lomba</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Setiap peserta mendapatkan waktu lomba/penampilan selama 3 menit.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-05</span><span class="acc-title">Mixer</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Peserta wajib menggunakan mixer analog.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-06</span><span class="acc-title">Pemeriksaan</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Panitia berhak melakukan pemeriksaan spesifikasi perangkat peserta.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-07</span><span class="acc-title">Diskualifikasi</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Panitia berhak mendiskualifikasi peserta apabila spesifikasi sound tidak sesuai dengan ketentuan.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">R-08</span><span class="acc-title">Penentuan Juara</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Penentuan juara berdasarkan hasil pengukuran menggunakan Sound Level Meter / dB Meter sesuai mekanisme yang ditetapkan panitia.</p></div></div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= FLOW ================= -->
+			<section class="sec" id="alur">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 06 — ALUR PENDAFTARAN</span>
+						<h2 class="big">4 LANGKAH MENUJU PANGGUNG</h2>
+					</div>
+					<div class="flow">
+						<div class="fl reveal"><span class="tag">STEP 01</span><div class="num">01</div><h3>Pilih Kategori</h3><p>Build Up / Lokal-Rakitan / Miniatur. Biaya mengikuti kategori.</p></div>
+						<div class="fl reveal"><span class="tag">STEP 02</span><div class="num">02</div><h3>Isi Data</h3><p>Data peserta, tim, dan spesifikasi perangkat sound system.</p></div>
+						<div class="fl reveal"><span class="tag">STEP 03</span><div class="num">03</div><h3>Lakukan Pembayaran</h3><p>Sesuai kategori pendaftaran yang dipilih.</p></div>
+						<div class="fl reveal"><span class="tag">STEP 04</span><div class="num">04</div><h3>Verifikasi</h3><p>Panitia melakukan verifikasi data dan pembayaran.</p></div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= REGISTRATION FORM ================= -->
+			<section class="sec" id="pendaftaran">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 07 — PENDAFTARAN ONLINE</span>
+						<h2 class="big">FORM PENDAFTARAN</h2>
+						<p class="lead">Isi data bertahap. Saat menekan <strong>KIRIM PENDAFTARAN</strong>, seluruh data otomatis terkirim ke WhatsApp panitia — kamu langsung mendapat nomor registrasi.</p>
+					</div>
+					
+					<div id="formShell" class="reveal">
+						<div id="formWrap">
+							<div id="rwBar" style="padding:14px 22px;border-bottom:1px solid var(--line-soft);display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between"></div>
+							<div class="formTop">
+								<span id="stepLabel">LANGKAH 01/06 — KATEGORI</span>
+								<span id="costChip">BIAYA: —</span>
+							</div>
+							<div class="phasebar">
+								<div class="ph" data-ph="1"><b>DATA</b><i>LANGKAH 1–3</i></div>
+								<div class="ph" data-ph="2"><b>SOUND</b><i>LANGKAH 4–5</i></div>
+								<div class="ph" data-ph="3"><b>KONFIRMASI</b><i>LANGKAH 6</i></div>
+							</div>
+							<div class="formPanel">
+								<div class="notice" id="rwNotice"></div>
+								<form id="regForm" novalidate autocomplete="off">
+									
+									<!-- STEP 1 -->
+									<div class="fstep active" data-step="1">
+										<h3>Pilih Kategori Kompetisi</h3>
+										<p class="fsub">Biaya pendaftaran otomatis menyesuaikan kategori yang dipilih.</p>
+										<div class="catpick" id="catPick" role="radiogroup" aria-label="Pilih kategori"></div>
+									</div>
+									
+									<!-- STEP 2 -->
+									<div class="fstep" data-step="2">
+										<h3>Identitas Peserta</h3>
+										<p class="fsub">Data utama tim / sound system yang mendaftar.</p>
+										<div class="fgrid">
+											<div class="field span2"><label>NAMA SOUND SYSTEM <em>*</em></label><input class="in" data-bind="participant.soundName" placeholder="cth: Sound Jaya Kutai"><span class="err"></span></div>
+											<div class="field"><label>PENANGGUNG JAWAB / KETUA TIM <em>*</em></label><input class="in" data-bind="participant.leader" placeholder="Nama lengkap"><span class="err"></span></div>
+											<div class="field"><label>NOMOR WHATSAPP <em>*</em></label><input class="in" type="tel" inputmode="tel" data-bind="participant.phone" placeholder="cth: 0812xxxxxxx"><span class="err"></span></div>
+											<div class="field"><label>KABUPATEN / KOTA <em>*</em></label><input class="in" data-bind="participant.city" placeholder="cth: Kutai Kartanegara"><span class="err"></span></div>
+											<div class="field span2"><label>ALAMAT LENGKAP <em>*</em></label><textarea class="in" data-bind="participant.address" placeholder="Alamat lengkap basecamp sound system"></textarea><span class="err"></span></div>
+										</div>
+									</div>
+									
+									<!-- STEP 3 -->
+									<div class="fstep" data-step="3">
+										<h3>Personel Tim</h3>
+										<p class="fsub">Opsional — tambahkan anggota tim yang akan ikut ke lokasi.</p>
+										<div id="memberList"></div>
+										<button type="button" class="addBtn" id="btnAddMember"><svg class="ic" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>TAMBAH PERSONEL</button>
+									</div>
+									
+									<!-- STEP 4 -->
+									<div class="fstep" data-step="4">
+										<h3>Spesifikasi Sound</h3>
+										<p class="fsub" id="specSub">Batas spesifikasi menyesuaikan kategori yang dipilih.</p>
+										<div id="specWrap"></div>
+									</div>
+									
+									<!-- STEP 5 -->
+									<div class="fstep" data-step="5">
+										<h3>Power &amp; Mixer</h3>
+										<p class="fsub">Informasi power amplifier dan mixer yang digunakan.</p>
+										<div class="half">
+											<div class="panelBox">
+												<h4>POWER AMPLIFIER</h4>
+												<div class="fgrid" style="grid-template-columns:1fr">
+													<div class="field"><label>JENIS <em>*</em></label>
+														<select class="in" data-bind="power.type">
+															<option value="">— PILIH JENIS —</option>
+															<option value="rakitan">RAKITAN</option>
+															<option value="buildup">BUILD UP</option>
+														</select><span class="err"></span></div>
+														<div class="field"><label>MERK / TYPE</label><input class="in" data-bind="power.brand" placeholder="cth: Crest Audio Pro 9200"><span class="err"></span></div>
+														<div class="field"><label>JUMLAH UNIT <em>*</em></label><input class="in" type="number" min="1" inputmode="numeric" data-bind="power.units" placeholder="cth: 2"><span class="err"></span></div>
+												</div>
+												<div class="notice" id="powerNote"><strong>PERHATIAN:</strong> Peserta kategori <b>Lokal/Rakitan</b> yang menggunakan power amplifier <b>build up</b> dapat dikategorikan ulang oleh panitia sebagai peserta <b>Build Up</b>.</div>
+											</div>
+											<div class="panelBox">
+												<h4>MIXER <span class="badgeAnalog">WAJIB ANALOG</span></h4>
+												<div class="fgrid" style="grid-template-columns:1fr">
+													<div class="field"><label>MERK <em>*</em></label><input class="in" data-bind="mixer.brand" placeholder="cth: Yamaha"><span class="err"></span></div>
+													<div class="field"><label>TYPE <em>*</em></label><input class="in" data-bind="mixer.model" placeholder="cth: MG16XU"><span class="err"></span></div>
+													<div class="field">
+														<label class="chkRow" style="padding:0;border:0;background:none;margin:0">
+															<input type="checkbox" id="analogChk">
+															<span>Saya menyatakan mixer yang digunakan adalah <b style="color:var(--white)">mixer ANALOG</b>.</span>
+														</label><span class="err"></span></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									
+									<!-- STEP 6 -->
+									<div class="fstep" data-step="6">
+										<h3>Konfirmasi Data</h3>
+										<p class="fsub">Periksa seluruh data sebelum mengirim pendaftaran.</p>
+										<div id="summaryBox"></div>
+										<label class="chkRow" id="agreeRow">
+											<input type="checkbox" id="agreeChk">
+											<span>Saya menyatakan bahwa data yang saya masukkan <b style="color:var(--white)">benar</b> dan bersedia mematuhi seluruh ketentuan <b style="color:var(--white)">KUKAR SOUND FEST 2026</b>.</span>
+										</label>
+										<button type="button" class="btn btn-pri" id="btnSubmit">KIRIM PENDAFTARAN <svg class="ic" viewBox="0 0 24 24"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
+										<p style="font-size:12.5px;color:var(--dim);margin-top:12px;text-align:center">Data lengkap akan otomatis terkirim ke WhatsApp panitia (+62 813-5799-5899) saat tombol ditekan.</p>
+									</div>
+								</form>
+							</div>
+							<div class="formNav">
+								<button class="btn btn-ghost" id="btnPrev" type="button"><svg class="ic" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>KEMBALI</button>
+								<div class="navDots" id="navDots" aria-hidden="true"></div>
+								<button class="btn btn-pri" id="btnNext" type="button">LANJUT<svg class="ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+							</div>
+						</div>
+						
+						<!-- ==== SUCCESS VIEW ==== -->
+						<div class="success" id="regSuccess" hidden>
+							<div class="sTop">
+								<div class="sCheck"><svg class="ic" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
+								<div><h3>PENDAFTARAN BERHASIL</h3><p>Data pendaftaranmu telah kami terima. Simpan nomor registrasi di bawah ini.</p></div>
+							</div>
+							<div class="sNum"><i>NOMOR<br>REGISTRASI</i><b id="regNumEl">KSKF-2026-0000</b><button class="miniBtn js-copy" id="btnCopyReg" data-copy="">SALIN NOMOR</button></div>
+							<div><span class="sStatus"><span class="dotW"></span>MENUNGGU PEMBAYARAN / VERIFIKASI</span></div>
+							<div class="sSum" id="succSummary"></div>
+							<div class="payBox">
+								<h4>DATA PEMBAYARAN</h4>
+								<div class="payRow"><span>BANK</span><b id="payBank" class="phVal"></b><button class="miniBtn js-copy" data-copy-target="payBank">SALIN</button></div>
+								<div class="payRow"><span>NO. REKENING</span><b id="payAcc" class="phVal"></b><button class="miniBtn js-copy" data-copy-target="payAcc">SALIN</button></div>
+								<div class="payRow"><span>ATAS NAMA</span><b id="payHolder" class="phVal"></b><button class="miniBtn js-copy" data-copy-target="payHolder">SALIN</button></div>
+								<p class="payNote">Nomor rekening resmi akan diberikan panitia melalui WhatsApp. Jangan melakukan transfer sebelum menerima nomor rekening resmi dari panitia.</p>
+							</div>
+							<p class="waNote"><b>Data pendaftaran lengkap dikirim otomatis ke WhatsApp panitia</b> saat kamu menekan KIRIM PENDAFTARAN. Jika WhatsApp tidak terbuka otomatis, klik <b>KIRIM ULANG DATA</b>. Setelah melakukan pembayaran, konfirmasi melalui WhatsApp panitia dengan menyertakan nomor registrasi.</p>
+							<div class="sBtns">
+								<button class="btn btn-pri" id="btnResendWA">KIRIM ULANG DATA VIA WHATSAPP</button>
+								<button class="btn btn-ghost" id="btnPayWA">KONFIRMASI PEMBAYARAN VIA WHATSAPP</button>
+								<a class="btn btn-ghost" href="#pembayaran">CEK STATUS PENDAFTARAN</a>
+								<button class="btn btn-ghost" id="btnNewReg">DAFTARKAN PESERTA LAIN</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= PAYMENT / VERIFICATION ================= -->
+			<section class="sec" id="pembayaran">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 08 — PEMBAYARAN &amp; VERIFIKASI</span>
+						<h2 class="big">PEMBAYARAN &amp; VERIFIKASI</h2>
+						<p class="lead">Selesaikan pembayaran sesuai kategori, lalu konfirmasikan melalui WhatsApp panitia. Panitia akan memverifikasi data dan pembayaranmu.</p>
+					</div>
+					<div class="payGrid">
+						<div class="payCol reveal">
+							<h3>ALUR PEMBAYARAN</h3>
+							<ul class="miniFlow">
+								<li><b>P1</b>Kirim form pendaftaran — data lengkap otomatis terkirim ke WhatsApp panitia, status menjadi <b style="color:var(--amber)">&nbsp;MENUNGGU PEMBAYARAN</b>.</li>
+								<li><b>P2</b>Lakukan pembayaran sesuai kategori (Build Up Rp400.000 / Lokal-Rakitan Rp300.000 / Miniatur Rp200.000) ke rekening resmi yang diberikan panitia via WhatsApp.</li>
+								<li><b>P3</b>Konfirmasi pembayaran via WhatsApp panitia dengan menyertakan nomor registrasi.</li>
+								<li><b>P4</b>Panitia memverifikasi data dan pembayaran. Peserta yang terverifikasi siap mengikuti cek sound dan lomba.</li>
+							</ul>
+							<button class="btn btn-pri js-wa">KONFIRMASI PEMBAYARAN VIA WHATSAPP</button>
+							<p style="font-size:12.5px;color:var(--dim);margin-top:14px">WhatsApp panitia aktif: <b style="color:var(--cyan)">+62 813-5799-5899</b>. Nomor rekening resmi akan diberikan panitia melalui WhatsApp.</p>
+						</div>
+						<div class="payCol reveal">
+							<h3>CEK STATUS PENDAFTARAN</h3>
+							<form class="statusForm" id="statusForm">
+								<input class="in" id="statusInput" placeholder="KSKF-2026-0001" aria-label="Nomor registrasi">
+								<button class="btn btn-pri" type="submit">CEK STATUS</button>
+							</form>
+							<div id="statusResult" aria-live="polite"></div>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= FAQ ================= -->
+			<section class="sec" id="faq">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 09 — FAQ</span>
+						<h2 class="big">SERING DITANYAKAN</h2>
+					</div>
+					<div class="acc reveal" id="faqAcc">
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-01</span><span class="acc-title">Apa itu KUKAR SOUND FEST 2026?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Kompetisi sound system sekaligus festival kreativitas, budaya &amp; edukasi audio yang diselenggarakan Komunitas Sound Kutai Kartanegara (KSKK) dengan tema “Bersatu dalam Irama, Berkarya untuk Indonesia”.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-02</span><span class="acc-title">Kapan dan di mana event diselenggarakan?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Pra-event 26 Oktober 2026, lomba berlangsung 27–29 Oktober 2026 di Area Lapangan Parkir Utama Stadion Rondong Demang, Tenggarong, Kutai Kartanegara, Kalimantan Timur.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-03</span><span class="acc-title">Apa saja kategori dan berapa biayanya?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Build Up Rp400.000 — Lokal/Rakitan Rp300.000 — Miniatur Rp200.000. Rincian batas spesifikasi tiap kategori ada di bagian Kategori Kompetisi.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-04</span><span class="acc-title">Kapan pendaftaran dibuka dan ditutup?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p id="faqQ4Body">Memuat jadwal pendaftaran…</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-05</span><span class="acc-title">Apa yang saya dapatkan sebagai peserta?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>1 pcs kaos peserta, 1 paket produk Kalbe Farma, kesempatan mengikuti sound competition, dan kesempatan memenangkan hadiah dengan total hadiah Rp27.000.000.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-06</span><span class="acc-title">Mixer apa yang boleh digunakan?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Wajib menggunakan mixer analog. Mixer digital tidak sesuai ketentuan lomba.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-07</span><span class="acc-title">Berapa lama cek sound dan penampilan?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Cek sound maksimal 3 menit dan waktu lomba/penampilan 3 menit per peserta. Peserta wajib daftar ulang paling lambat 60 menit sebelum acara dimulai. Saat peserta lain cek sound, peserta lain dilarang membunyikan sound system.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-08</span><span class="acc-title">Bagaimana alur setelah mengisi form?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Isi form → klik KIRIM PENDAFTARAN → data lengkap otomatis terkirim ke WhatsApp panitia dan kamu menerima nomor registrasi → lakukan pembayaran sesuai arahan panitia → konfirmasi via WhatsApp → panitia verifikasi → siap mengikuti lomba.</p></div></div>
+						<div class="acc-item"><button class="acc-head" aria-expanded="false"><span class="acc-num">Q-09</span><span class="acc-title">Bagaimana jika spesifikasi sound tidak sesuai?</span><svg class="ic acc-chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+						<div class="acc-body"><p>Panitia berhak memeriksa spesifikasi perangkat dan mendiskualifikasi peserta yang spesifikasi sound-nya tidak sesuai ketentuan.</p></div></div>
+					</div>
+				</div>
+			</section>
+			
+			<!-- ================= CONTACT ================= -->
+			<section class="sec" id="kontak">
+				<div class="wrap">
+					<div class="reveal">
+						<span class="sec-label">// 10 — KONTAK</span>
+						<h2 class="big">HUBUNGI PANITIA</h2>
+					</div>
+					<div class="contactGrid">
+						<div class="conBox reveal">
+							<h3>WHATSAPP PANITIA</h3>
+							<span class="val" id="waVal"></span>
+							<p>Kanal resmi untuk konfirmasi pembayaran &amp; pertanyaan pendaftaran.</p>
+							<button class="btn btn-pri js-wa-generic">KIRIM PESAN VIA WHATSAPP</button>
+						</div>
+						<div class="conBox reveal">
+							<h3>LOKASI VENUE</h3>
+							<span class="val">Stadion Rondong Demang</span>
+							<p>Area Lapangan Parkir Utama — Tenggarong, Kutai Kartanegara, Kalimantan Timur.<br>Pra-event: 26 Oktober 2026.</p>
+						</div>
+						<div class="conBox reveal">
+							<h3>PENYELENGGARA</h3>
+							<span class="val">Komunitas Sound Kutai Kartanegara (KSKK)</span>
+							<p>“Bersatu dalam Irama, Berkarya untuk Indonesia” — KUKAR SOUND FEST 2026.</p>
+						</div>
+					</div>
+					<p class="contactNote">WhatsApp panitia aktif melalui tombol di atas. Kanal lain (media sosial, dsb.) akan diperbarui di halaman ini segera.</p>
+				</div>
+			</section>
+		</main>
+		
+		<!-- ================= FOOTER ================= -->
+		<footer>
+			<svg class="orn" aria-hidden="true"><rect width="100%" height="22" fill="url(#ornPat)"/></svg>
+			<div class="wrap">
+				<div class="footWord" aria-hidden="true">KUKAR SOUND FEST</div>
+				<div class="footGrid">
+					<div>
+						<h4>KUKAR SOUND FEST 2026</h4>
+						<p>Festival Sound System, Kreativitas, Budaya &amp; Edukasi Audio. Diselenggarakan oleh Komunitas Sound Kutai Kartanegara (KSKK).</p>
+						<p style="margin-top:10px;color:var(--dim)">Uji Nyali, Raih Prestasi! — 27–29 Oktober 2026, Stadion Rondong Demang, Tenggarong.</p>
+					</div>
+					<div>
+						<h4>NAVIGASI</h4>
+						<a href="#kategori">Kategori Kompetisi</a><a href="#ketentuan">Ketentuan Lomba</a>
+						<a href="#pendaftaran">Pendaftaran Online</a><a href="#pembayaran">Cek Status</a><a href="#faq">FAQ</a>
+					</div>
+					<div>
+						<h4>INFORMASI</h4>
+						<p>Biaya: Build Up Rp400.000 / Rakitan Rp300.000 / Miniatur Rp200.000</p>
+						<p>Total hadiah: Rp27.000.000</p>
+						<p>WA Panitia: <span id="waValFoot" style="color:var(--cyan)"></span></p>
+						<div class="eq" data-eq style="margin-top:14px"></div>
+					</div>
+				</div>
+				<div class="footBot">
+					<span>© 2026 KOMUNITAS SOUND KUTAI KARTANEGARA (KSKK)</span>
+					<span>SOUND COMPETITION // KUTAI KARTANEGARA // KALIMANTAN TIMUR</span>
+				</div>
+			</div>
+		</footer>
+		
+		<div id="stickyCTA">
+			<div class="sInfo"><b>DAFTAR SEKARANG</b><i>MULAI Rp200.000</i></div>
+			<a href="#pendaftaran" class="btn btn-pri">DAFTAR &nbsp;→</a>
+		</div>
+		<div id="toastWrap" aria-live="polite"></div>
+		
+		<script>
+			(function(){
+				'use strict';
+				/* ================================================================
+					====== KONFIGURASI PANITIA — ISI DATA RESMI DI SINI ======
+					WhatsApp panitia: aktif (6281357995899).
+					Data rekening BELUM tersedia — jangan diisi sembarangan.
+				================================================================ */
+				const CONFIG = {
+					payment: {
+						bank:   "[NAMA BANK]",              // cth: "Bank Kaltimtara"
+						account:"[NOMOR REKENING]",         // cth: "1234567890"
+						holder: "[NAMA PEMILIK REKENING]"   // cth: "PANITIA KSKK — KSF 2026"
+					},
+					whatsapp: "6281357995899", // Nomor WA aktif panitia KSKK — format internasional tanpa "+"
+					registrationWindow: {
+						opens:  "2026-10-05T00:00:00+08:00",  // Senin, 5 Oktober 2026 — 00:00 WITA
+						closes: "2026-10-26T23:59:59+08:00"   // Senin, 26 Oktober 2026 (H-1 lomba) — 23:59 WITA
+					}
+				};
+				/* ================= DATA KATEGORI (SESUAI TDD) ================= */
+				const CATEGORIES = {
+					buildup:  { id:"buildup",  name:"BUILD UP",        price:400000, maxEyes:4, subMaxInch:null },
+					rakitan:  { id:"rakitan",  name:"LOKAL / RAKITAN", price:300000, maxEyes:4, subMaxInch:null },
+					miniatur: { id:"miniatur", name:"MINIATUR",        price:200000, maxEyes:2, subMaxInch:15 }
+				};
+				const SECTION_DEFS = [{key:"sub",label:"SUB"},{key:"low",label:"LOW"},{key:"mid",label:"MID"},{key:"high",label:"HIGH"}];
+				const STEPS = ["KATEGORI","DATA PESERTA","PERSONEL","SPESIFIKASI SOUND","POWER & MIXER","KONFIRMASI"];
+				
+				/* ================= UTIL ================= */
+				function $(s,c){return (c||document).querySelector(s);}
+				function $$(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));}
+				function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(m){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m];});}
+				function dash(v){return esc(v)||"—";}
+				function fmtRp(n){return "Rp"+Number(n||0).toLocaleString("id-ID");}
+				function isPh(v){return !v||String(v).trim().indexOf("[")===0;}
+				function phoneOk(v){var d=String(v||"").replace(/\D/g,"");return d.length>=8&&d.length<=15;}
+				function getPath(o,p){return p.split(".").reduce(function(a,k){return a?a[k]:undefined;},o);}
+				function setPath(o,p,v){var ks=p.split("."),l=ks.pop();ks.reduce(function(a,k){return a[k];},o)[l]=v;}
+				function toast(msg,type){
+					var t=document.createElement("div");
+					t.className="toast"+(type&&type!=="ok"?" "+(type==="warn"?"warn":"errT"):"");
+					var icon=type==="err"?'<path d="M12 8v5M12 16.5v.5"/><circle cx="12" cy="12" r="9"/>':(type==="warn"?'<path d="M12 3l10 18H2L12 3zM12 10v4M12 17.5v.5"/>':'<path d="M20 6L9 17l-5-5"/>');
+					t.innerHTML='<svg class="ic" viewBox="0 0 24 24">'+icon+'</svg><span>'+esc(msg)+'</span>';
+					$("#toastWrap").appendChild(t);
+					setTimeout(function(){t.style.opacity="0";t.style.transition="opacity .3s";setTimeout(function(){t.remove();},320);},3600);
+				}
+				function copyText(v){
+					if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(function(){toast("Berhasil disalin: "+v);}).catch(function(){fallbackCopy(v);});}
+					else fallbackCopy(v);
+				}
+				function fallbackCopy(v){var ta=document.createElement("textarea");ta.value=v;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");toast("Berhasil disalin: "+v);}catch(e){toast("Gagal menyalin.","err");}ta.remove();}
+				
+				/* ================= STORAGE & STATE ================= */
+				var LS_FORM="kskf2026_form",LS_REGS="kskf2026_regs",LS_STEP="kskf2026_step";
+				function blankState(){return{
+					category:"",
+					participant:{soundName:"",leader:"",phone:"",address:"",city:""},
+					members:[{name:"",position:"",phone:""}],
+					specs:{sub:{qty:"",size:"",brand:""},low:{qty:"",size:"",brand:""},mid:{qty:"",size:"",brand:""},high:{qty:"",size:"",brand:""}},
+					power:{type:"",brand:"",units:""},
+					mixer:{brand:"",model:"",analog:false},
+					agree:false
+				};}
+				function normalize(s){
+					s=s||{};
+					var b=blankState(),out=Object.assign({},b,s);
+					out.participant=Object.assign({},b.participant,s.participant||{});
+					var mems=(Array.isArray(s.members)&&s.members.length)?s.members:[{name:"",position:"",phone:""}];
+					out.members=mems.map(function(m){return{name:(m&&m.name)||"",position:(m&&m.position)||"",phone:(m&&m.phone)||""};});
+					out.specs={};
+					SECTION_DEFS.forEach(function(d){out.specs[d.key]=Object.assign({},b.specs[d.key],(s.specs||{})[d.key]||{});});
+					out.power=Object.assign({},b.power,s.power||{});
+					out.mixer=Object.assign({},b.mixer,s.mixer||{});
+					if(!CATEGORIES[out.category])out.category="";
+					return out;
+				}
+				var state=(function(){try{var r=localStorage.getItem(LS_FORM);if(r)return normalize(JSON.parse(r));}catch(e){}return blankState();})();
+				var saveT;
+				function saveForm(){clearTimeout(saveT);saveT=setTimeout(function(){try{localStorage.setItem(LS_FORM,JSON.stringify(state));}catch(e){}},200);}
+				function getRegs(){try{return JSON.parse(localStorage.getItem(LS_REGS)||"[]");}catch(e){return[];}}
+				function setRegs(r){try{localStorage.setItem(LS_REGS,JSON.stringify(r));}catch(e){}}
+				function genRegNumber(){
+					var regs=getRegs(),n;
+					do{n=String(Math.floor(Math.random()*9999)+1).padStart(4,"0");}
+					while(regs.some(function(r){return r.registration_number==="KSKF-2026-"+n;}));
+					return "KSKF-2026-"+n;
+				}
+				
+				/* ================= WHATSAPP ENGINE (WA-FIRST) ================= */
+				var WA_NUMBER=(CONFIG.whatsapp||"").replace(/\D/g,"");
+				function waReady(){return WA_NUMBER.length>=10;}
+				function waOpen(msg){
+					if(!waReady()){toast("Nomor WhatsApp panitia belum dikonfigurasi.","warn");return false;}
+					var w=window.open("https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(msg),"_blank","noopener");
+					if(!w)toast("WhatsApp tidak terbuka otomatis — gunakan tombol KIRIM ULANG DATA.","warn");
+					return !!w;
+				}
+				function buildRegMessage(rec){
+					var L=[];
+					L.push("*PENDAFTARAN KUKAR SOUND FEST 2026*");
+					L.push("No. Registrasi: *"+rec.registration_number+"*");
+					L.push("");
+					L.push("*DATA PESERTA*");
+					L.push("Kategori : "+rec.category+" ("+fmtRp(rec.payment_amount)+")");
+					L.push("Nama Sound : "+rec.sound_name);
+					L.push("Penanggung Jawab : "+rec.team_leader);
+					L.push("No. WA : "+rec.phone);
+					L.push("Alamat : "+rec.address);
+					L.push("Kab/Kota : "+rec.city);
+					var mems=(Array.isArray(rec.members)?rec.members:[]).filter(function(m){return (m.name||"").trim();});
+					if(mems.length){
+						L.push("");
+						L.push("*PERSONEL ("+mems.length+")*");
+						mems.forEach(function(m,i){L.push((i+1)+". "+m.name+(m.position?" — "+m.position:"")+(m.phone?" — "+m.phone:""));});
+					}
+					L.push("");
+					L.push("*SPESIFIKASI SOUND*");
+					SECTION_DEFS.forEach(function(d){
+						var s=(rec.equipment||[]).find(function(e){return e.section===d.key;});
+						if(s)L.push(d.label+" : "+s.quantity+" mata"+(s.size?", "+s.size+" inch":"")+(s.brand?", "+s.brand:""));
+					});
+					if(rec.power){
+						L.push("");
+						L.push("*POWER AMPLIFIER*");
+						L.push("Jenis : "+(rec.power.type==="buildup"?"BUILD UP":"RAKITAN"));
+						if(rec.power.brand)L.push("Merk/Type : "+rec.power.brand);
+						L.push("Jumlah : "+rec.power.units+" unit");
+					}
+					if(rec.mixer){
+						L.push("");
+						L.push("*MIXER (ANALOG)*");
+						L.push("Merk/Type : "+rec.mixer.brand+" "+rec.mixer.model);
+					}
+					if(rec.category_id==="rakitan"&&rec.power&&rec.power.type==="buildup"){
+						L.push("");
+						L.push("Catatan: peserta Rakitan menggunakan power build up — dapat dikategorikan ulang sebagai Build Up oleh panitia.");
+					}
+					L.push("");
+					L.push("Total biaya: *"+fmtRp(rec.payment_amount)+"*");
+					L.push("Status: MENUNGGU PEMBAYARAN / VERIFIKASI");
+					L.push("");
+					L.push("Mohon verifikasi pendaftaran saya. Terima kasih.");
+					return L.join("\n");
+				}
+				function buildPayMessage(rec){
+					return "*KONFIRMASI PEMBAYARAN — KUKAR SOUND FEST 2026*\n"
+					+"No. Registrasi: *"+rec.registration_number+"*\n"
+					+"Nama Sound: "+rec.sound_name+"\n"
+					+"Kategori: "+rec.category+"\n"
+					+"Biaya: "+fmtRp(rec.payment_amount)+"\n\n"
+					+"Saya sudah melakukan pembayaran. Mohon panitia melakukan verifikasi. Terima kasih.";
+				}
+				var WA_GENERIC_MSG="Halo Panitia *KUKAR SOUND FEST 2026*, saya ingin bertanya tentang pendaftaran dan pembayaran.";
+				function fmtWa(n){
+					var d=String(n).replace(/\D/g,"");
+					if(d.indexOf("62")===0&&d.length>=10){var r=d.slice(2);return "+62 "+r.replace(/(\d{3})(\d{4})(\d+)/,"$1-$2-$3");}
+					return n;
+				}
+				
+				/* ================= FORM: RENDER ================= */
+				var regForm=$("#regForm");
+				function renderCatPick(){
+					$("#catPick").innerHTML=Object.values(CATEGORIES).map(function(c){
+						var note=c.subMaxInch?("MAKS "+c.maxEyes+" MATA • SUB ≤ "+c.subMaxInch+" INCH"):("MAKS "+c.maxEyes+" MATA / SEKSI");
+						var sel=(state.category===c.id);
+						return '<label class="pick'+(sel?" sel":"")+'">'
+						+'<input type="radio" name="category" value="'+c.id+'"'+(sel?" checked":"")+'>'
+						+'<span class="pk-check"><svg class="ic" viewBox="0 0 24 24" style="width:14px;height:14px"><path d="M20 6L9 17l-5-5"/></svg></span>'
+						+'<span class="pk-name">'+c.name+'</span><span class="pk-price">'+fmtRp(c.price)+'</span>'
+						+'<span class="pk-note">'+note+'</span></label>';
+					}).join("");
+				}
+				function renderMembers(){
+					$("#memberList").innerHTML=state.members.map(function(m,i){
+						return '<div class="mrow" data-idx="'+i+'"><span class="idx">PERSONEL '+String(i+1).padStart(2,"0")+'</span>'
+						+'<div class="field"><label>NAMA</label><input class="in" data-mem="name" value="'+esc(m.name)+'" placeholder="Nama personel"><span class="err"></span></div>'
+						+'<div class="field"><label>POSISI / TUGAS</label><input class="in" data-mem="position" value="'+esc(m.position)+'" placeholder="cth: Operator"><span class="err"></span></div>'
+						+'<div class="field"><label>NO. WHATSAPP</label><input class="in" type="tel" data-mem="phone" value="'+esc(m.phone)+'" placeholder="cth: 0812xxxxxxx"><span class="err"></span></div>'
+						+'<button type="button" class="mdel" aria-label="Hapus personel"><svg class="ic" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button></div>';
+					}).join("");
+				}
+				function renderSpecs(){
+					var cat=CATEGORIES[state.category];
+					$("#specSub").textContent=cat?("Kategori terpilih: "+cat.name+" — batas "+cat.maxEyes+" mata per seksi"+(cat.subMaxInch?", SUB maksimal "+cat.subMaxInch+" inch.":".")):"Batas spesifikasi menyesuaikan kategori yang dipilih.";
+					$("#specWrap").innerHTML=SECTION_DEFS.map(function(d){
+						var s=state.specs[d.key];
+						var isMiniSub=!!(cat&&cat.subMaxInch&&d.key==="sub");
+						var maxTxt=cat?("MAKS "+cat.maxEyes+" MATA"+(isMiniSub?" • MAKS "+cat.subMaxInch+" INCH":"")):"PILIH KATEGORI DULU";
+						return '<div class="specBlock"><div class="specHead"><b>'+d.label+'</b><span class="specMax'+(isMiniSub?" red":"")+'">'+maxTxt+'</span></div>'
+						+'<div class="specGrid">'
+						+'<div class="field"><label>JUMLAH / MATA <em>*</em></label><input class="in" type="number" min="0" inputmode="numeric" data-bind="specs.'+d.key+'.qty" value="'+esc(s.qty)+'" placeholder="0"><span class="err"></span></div>'
+						+'<div class="field"><label>UKURAN'+(isMiniSub?' <em>*</em>':'')+'</label><div class="inWrap"><input class="in" type="number" min="0" step="0.5" inputmode="decimal" data-bind="specs.'+d.key+'.size" value="'+esc(s.size)+'" placeholder="cth: 18" style="padding-right:52px"><span class="unit">INCH</span></div><span class="err"></span></div>'
+						+'<div class="field"><label>MERK / TYPE</label><input class="in" data-bind="specs.'+d.key+'.brand" value="'+esc(s.brand)+'" placeholder="cth: B&C / PAudio"><span class="err"></span></div>'
+						+'</div></div>';
+					}).join("");
+				}
+				function updateCost(){var c=CATEGORIES[state.category];$("#costChip").textContent="BIAYA: "+(c?fmtRp(c.price):"—");}
+				function updatePowerNote(){
+					var show=(state.category==="rakitan"&&state.power.type==="buildup");
+					$("#powerNote").classList.toggle("show",show);
+				}
+				function applyStaticValues(){
+					$$("[data-bind]",regForm).forEach(function(el){var v=getPath(state,el.dataset.bind);el.value=(v===""||v==null)?"":v;});
+					$("#analogChk").checked=!!state.mixer.analog;
+					$("#agreeChk").checked=!!state.agree;
+				}
+				
+				/* ================= FORM: VALIDASI ================= */
+				function setErr(el,msg){var f=el.closest(".field");if(f){f.classList.add("invalid");var e=f.querySelector(".err");if(e)e.textContent=msg;}}
+				function clearErr(el){var f=el.closest(".field");if(f)f.classList.remove("invalid");}
+				function fieldEl(p){return regForm.querySelector('[data-bind="'+p+'"]');}
+				function validateStep(n){
+					var ok=true,first=null;
+					function mark(el){ok=false;if(!first)first=el;}
+					if(n===1){
+						if(!state.category){toast("Pilih salah satu kategori kompetisi.","warn");return false;}
+					}
+					if(n===2){
+						[["participant.soundName"],["participant.leader"],["participant.phone"],["participant.city"],["participant.address"]].forEach(function(pair){
+							var p=pair[0],el=fieldEl(p),v=(getPath(state,p)||"").trim();
+							if(!v){setErr(el,"Wajib diisi.");mark(el);}
+							else if(p==="participant.phone"&&!phoneOk(v)){setErr(el,"Nomor WhatsApp tidak valid (8–15 digit).");mark(el);}
+							else clearErr(el);
+						});
+					}
+					if(n===3){
+						$$("#memberList .mrow").forEach(function(row){
+							var m=state.members[+row.dataset.idx];if(!m)return;
+							var nameI=row.querySelector('[data-mem="name"]'),phI=row.querySelector('[data-mem="phone"]');
+							var filled=[m.name,m.position,m.phone].some(function(v){return (v||"").trim();});
+							if(filled&&!(m.name||"").trim()){setErr(nameI,"Nama wajib diisi bila baris diisi.");mark(nameI);}else clearErr(nameI);
+							if((m.phone||"").trim()&&!phoneOk(m.phone)){setErr(phI,"Nomor tidak valid.");mark(phI);}else clearErr(phI);
+						});
+					}
+					if(n===4){
+						var cat=CATEGORIES[state.category];
+						if(!cat){toast("Pilih kategori terlebih dahulu.","warn");setStep(1);return false;}
+						SECTION_DEFS.forEach(function(d){
+							var qEl=fieldEl("specs."+d.key+".qty"),q=state.specs[d.key].qty,nv=parseInt(q,10);
+							if(q===""||q===null){setErr(qEl,"Jumlah mata "+d.label+" wajib diisi.");mark(qEl);}
+							else if(!Number.isInteger(nv)||nv<0||nv>cat.maxEyes){setErr(qEl,"Maksimal "+cat.maxEyes+" mata untuk kategori "+cat.name+".");mark(qEl);}
+							else clearErr(qEl);
+							var sEl=fieldEl("specs."+d.key+".size"),s=state.specs[d.key].size;
+							var isMiniSub=!!(cat.subMaxInch&&d.key==="sub");
+							if(isMiniSub){
+								if(s===""||s===null){setErr(sEl,"Wajib diisi (maksimal "+cat.subMaxInch+" inch).");mark(sEl);}
+								else if(!(parseFloat(s)>0&&parseFloat(s)<=cat.subMaxInch)){setErr(sEl,"Maksimal "+cat.subMaxInch+" inch untuk kategori Miniatur.");mark(sEl);}
+								else clearErr(sEl);
+							}else if(s!==""&&s!==null&&!(parseFloat(s)>0)){setErr(sEl,"Ukuran tidak valid.");mark(sEl);}
+							else clearErr(sEl);
+						});
+					}
+					if(n===5){
+						var pT=fieldEl("power.type");
+						if(!state.power.type){setErr(pT,"Pilih jenis power amplifier.");mark(pT);}else clearErr(pT);
+						var uEl=fieldEl("power.units"),u=parseInt(state.power.units,10);
+						if(state.power.units===""||!Number.isInteger(u)||u<1){setErr(uEl,"Minimal 1 unit.");mark(uEl);}else clearErr(uEl);
+						["mixer.brand","mixer.model"].forEach(function(p){var el=fieldEl(p);if(!(getPath(state,p)||"").trim()){setErr(el,"Wajib diisi.");mark(el);}else clearErr(el);});
+						var ac=$("#analogChk"),acf=ac.closest(".field");
+						if(!state.mixer.analog){acf.classList.add("invalid");var e=acf.querySelector(".err");if(e)e.textContent="Wajib dikonfirmasi.";mark(ac);}else acf.classList.remove("invalid");
+						updatePowerNote();
+					}
+					if(n===6){
+						var row=$("#agreeRow");
+						if(!state.agree){row.classList.add("invalid");mark(row);}else row.classList.remove("invalid");
+					}
+					if(!ok&&first){try{first.focus();}catch(e){}}
+					return ok;
+				}
+				
+				/* ================= FORM: NAVIGASI STEP ================= */
+				var cur=1,maxReached=1;
+				try{maxReached=cur=Math.min(6,Math.max(1,parseInt(localStorage.getItem(LS_STEP)||"1",10)||1));}catch(e){}
+				function setStep(n){
+					cur=Math.min(6,Math.max(1,n));maxReached=Math.max(maxReached,cur);
+					$$(".fstep",regForm).forEach(function(s){s.classList.toggle("active",+s.dataset.step===cur);});
+					$("#btnPrev").disabled=(cur===1);
+					$("#btnNext").hidden=(cur===6);
+					$("#btnNext").firstChild.textContent=(cur===5?"KE KONFIRMASI ":"LANJUT ");
+					$("#stepLabel").textContent="LANGKAH "+String(cur).padStart(2,"0")+"/06 — "+STEPS[cur-1];
+					var ph=cur<=3?1:(cur<=5?2:3);
+					$$(".phasebar .ph").forEach(function(el){var k=+el.dataset.ph;el.classList.toggle("on",k===ph);el.classList.toggle("done",k<ph);});
+					$$("#navDots .dot").forEach(function(d,i){d.classList.toggle("on",i+1===cur);d.classList.toggle("done",i+1<cur);});
+					try{localStorage.setItem(LS_STEP,String(cur));}catch(e){}
+					if(cur===6)renderSummary();
+				}
+				$("#navDots").innerHTML=STEPS.map(function(_,i){return '<button type="button" class="dot" data-i="'+(i+1)+'" aria-label="Langkah '+(i+1)+'"></button>';}).join("");
+				$$("#navDots .dot").forEach(function(d){d.addEventListener("click",function(){var i=+d.dataset.i;if(i<=maxReached)setStep(i);});});
+				$("#btnNext").addEventListener("click",function(){
+					if(!validateStep(cur)){toast("Periksa kembali data yang ditandai merah.","warn");return;}
+					setStep(cur+1);
+					$("#formShell").scrollIntoView({behavior:"smooth",block:"start"});
+				});
+				$("#btnPrev").addEventListener("click",function(){setStep(cur-1);$("#formShell").scrollIntoView({behavior:"smooth",block:"start"});});
+				
+				/* ================= FORM: BINDING ================= */
+				function isToggleEl(t){
+					return t.tagName==="SELECT"||t.type==="radio"||t.type==="checkbox";
+				}
+				function onInput(e){
+					var t=e.target;
+					// radio/checkbox/select menembak "input" + "change" → proses HANYA di "change"
+					if(isToggleEl(t)&&e.type==="input")return;
+					// input teks menembak "input" (saat mengetik) + "change" (saat blur) → proses HANYA di "input"
+					if(!isToggleEl(t)&&e.type==="change")return;
+					
+					if(t.name==="category"&&t.checked){
+						state.category=t.value;saveForm();
+						$$("#catPick .pick").forEach(function(l){
+							var inp=l.querySelector("input");
+							l.classList.toggle("sel",!!inp&&inp.value===t.value);
+						});
+						renderSpecs();updateCost();updatePowerNote();clearErr(t);
+						var c=CATEGORIES[t.value];
+						if(c)toast("Kategori "+c.name+" dipilih — biaya "+fmtRp(c.price)+".","ok");
+						return;
+					}
+					if(t.dataset.bind){setPath(state,t.dataset.bind,t.value);saveForm();clearErr(t);updatePowerNote();return;}
+					if(t.dataset.mem){
+						var row=t.closest(".mrow");if(!row)return;
+						state.members[+row.dataset.idx][t.dataset.mem]=t.value;saveForm();clearErr(t);return;
+					}
+					if(t.id==="analogChk"){state.mixer.analog=t.checked;saveForm();var f=t.closest(".field");if(f)f.classList.remove("invalid");return;}
+					if(t.id==="agreeChk"){state.agree=t.checked;saveForm();if(t.checked)$("#agreeRow").classList.remove("invalid");}
+				}
+				regForm.addEventListener("input",onInput);
+				regForm.addEventListener("change",onInput);
+				regForm.addEventListener("click",function(e){
+					var del=e.target.closest(".mdel");
+					if(del){var row=del.closest(".mrow");state.members.splice(+row.dataset.idx,1);saveForm();renderMembers();return;}
+				});
+				$("#btnAddMember").addEventListener("click",function(){
+					state.members.push({name:"",position:"",phone:""});saveForm();renderMembers();
+					var rows=$$("#memberList .mrow");var last=rows[rows.length-1];if(last)last.querySelector('[data-mem="name"]').focus();
+				});
+				
+				/* ================= SUMMARY ================= */
+				function smCol(label,val){return '<div class="col"><i>'+label+'</i><b>'+val+'</b></div>';}
+				function renderSummary(){
+					var cat=CATEGORIES[state.category],p=state.participant;
+					var reclass=(state.category==="rakitan"&&state.power.type==="buildup")?'<span class="warnTag">* DAPAT DIKATEGORIKAN ULANG BUILD UP</span>':"";
+					var html='<div class="sumRow">'+smCol("KATEGORI",cat?esc(cat.name)+reclass:"—")+smCol("BIAYA PENDAFTARAN",'<span class="cost">'+(cat?fmtRp(cat.price):"—")+'</span>')+'<button type="button" class="miniBtn" data-goto="1">UBAH</button></div>';
+					html+='<div class="sumRow">'+smCol("NAMA SOUND SYSTEM",dash(p.soundName))+smCol("PENANGGUNG JAWAB",dash(p.leader))+smCol("WHATSAPP",dash(p.phone))+'<button type="button" class="miniBtn" data-goto="2">UBAH</button></div>';
+					html+='<div class="sumRow">'+smCol("ALAMAT",dash(p.address))+smCol("KAB/KOTA",dash(p.city))+'<button type="button" class="miniBtn" data-goto="2">UBAH</button></div>';
+					var mems=state.members.filter(function(m){return (m.name||"").trim();});
+					html+='<div class="sumRow"><div class="col" style="flex:2"><i>PERSONEL ('+mems.length+')</i><ul>'+(mems.length?mems.map(function(m){return '<li>'+dash(m.name)+(m.position?" — "+dash(m.position):"")+(m.phone?" — "+dash(m.phone):"")+'</li>';}).join(""):"<li>Tidak diisi</li>")+'</ul></div><button type="button" class="miniBtn" data-goto="3">UBAH</button></div>';
+					html+='<div class="sumRow" style="display:block"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><i style="font:600 9.5px var(--mono);letter-spacing:.2em;color:var(--dim)">SPESIFIKASI SOUND — '+(cat?esc(cat.name):"")+'</i><button type="button" class="miniBtn" data-goto="4">UBAH</button></div>';
+					html+='<table class="specTable" style="margin-top:12px"><thead><tr><th>SEKSI</th><th>MATA</th><th>UKURAN</th><th>MERK/TYPE</th></tr></thead><tbody>';
+					SECTION_DEFS.forEach(function(d){var s=state.specs[d.key];
+					html+='<tr><td><b>'+d.label+'</b></td><td>'+(s.qty!==""?esc(s.qty)+" mata":"—")+'</td><td>'+(s.size!==""?esc(s.size)+' inch':"—")+'</td><td>'+(s.brand?esc(s.brand):"—")+'</td></tr>';});
+					html+='</tbody></table></div>';
+					var pw=state.power;
+					html+='<div class="sumRow"><div class="col" style="flex:2"><i>POWER AMPLIFIER</i><b>'+(pw.type?(pw.type==="buildup"?"BUILD UP":"RAKITAN"):"—")+(pw.brand?" • "+esc(pw.brand):"")+(pw.units!==""?" • "+esc(pw.units)+" unit":"")+'</b></div>'
+					+'<div class="col"><i>MIXER (ANALOG)</i><b>'+(state.mixer.brand?esc(state.mixer.brand):"—")+(state.mixer.model?" "+esc(state.mixer.model):"")+'</b></div><button type="button" class="miniBtn" data-goto="5">UBAH</button></div>';
+					if(reclass)html+='<div class="notice show">Peserta kategori Lokal/Rakitan yang menggunakan power amplifier build up dapat dikategorikan ulang oleh panitia sebagai peserta Build Up.</div>';
+					$("#summaryBox").innerHTML=html;
+				}
+				$("#summaryBox").addEventListener("click",function(e){var g=e.target.closest("[data-goto]");if(g)setStep(+g.dataset.goto);});
+				$("#agreeChk").addEventListener("change",function(){if(this.checked)$("#agreeRow").classList.remove("invalid");});
+				
+				/* ================= SUCCESS ================= */
+				var lastReg=null;
+				function showSuccess(rec){
+					lastReg=rec;
+					$("#formWrap").hidden=true;
+					var succ=$("#regSuccess");succ.hidden=false;
+					$("#regNumEl").textContent=rec.registration_number;
+					$("#btnCopyReg").dataset.copy=rec.registration_number;
+					$("#succSummary").innerHTML=
+					'<div class="sumRow">'+smCol("NAMA SOUND",dash(rec.sound_name))+smCol("KATEGORI",dash(rec.category))+smCol("BIAYA",'<span class="cost">'+fmtRp(rec.payment_amount)+'</span>')+'</div>'
+					+'<div class="sumRow">'+smCol("PENANGGUNG JAWAB",dash(rec.team_leader))+smCol("WHATSAPP",dash(rec.phone))+smCol("KOTA",dash(rec.city))+'</div>';
+					var pay=CONFIG.payment;
+					[["payBank",pay.bank],["payAcc",pay.account],["payHolder",pay.holder]].forEach(function(pair){
+						var el=document.getElementById(pair[0]);el.textContent=pair[1];el.classList.toggle("phVal",isPh(pair[1]));
+					});
+					succ.scrollIntoView({behavior:"smooth",block:"start"});
+				}
+				
+				/* ================= SUBMIT (WA-FIRST) ================= */
+				$("#btnSubmit").addEventListener("click",function(){
+					if(!state.agree){$("#agreeRow").classList.add("invalid");toast("Centang pernyataan kebenaran data untuk melanjutkan.","warn");return;}
+					for(var s=1;s<=5;s++){if(!validateStep(s)){setStep(s);toast("Periksa kembali data pada langkah "+s+".","warn");return;}}
+					var cat=CATEGORIES[state.category];
+					var now=new Date().toISOString();
+					var rec={
+						registration_number:genRegNumber(),
+						category:cat.name,category_id:cat.id,
+						sound_name:state.participant.soundName.trim(),
+						team_leader:state.participant.leader.trim(),
+						phone:state.participant.phone.trim(),
+						address:state.participant.address.trim(),
+						city:state.participant.city.trim(),
+						members:state.members.filter(function(m){return (m.name||"").trim();}).map(function(m){return {name:m.name.trim(),position:(m.position||"").trim(),phone:(m.phone||"").trim()};}),
+						equipment:SECTION_DEFS.map(function(d){return {type:"speaker",section:d.key,quantity:String(state.specs[d.key].qty),size:String(state.specs[d.key].size),brand:(state.specs[d.key].brand||"").trim()};}),
+						power:{type:state.power.type,brand:(state.power.brand||"").trim(),units:String(state.power.units)},
+						mixer:{brand:state.mixer.brand.trim(),model:state.mixer.model.trim(),analog:true},
+						payment_amount:cat.price,payment_status:"WAITING_PAYMENT",verification_status:"PENDING",
+						created_at:now,updated_at:now
+					};
+					var regs=getRegs();regs.push(rec);setRegs(regs);
+					showSuccess(rec);
+					try{localStorage.removeItem(LS_FORM);localStorage.removeItem(LS_STEP);}catch(e){}
+					state=blankState();saveForm();
+					applyStaticValues();renderCatPick();renderMembers();renderSpecs();updateCost();updatePowerNote();maxReached=1;setStep(1);
+					// WA-FIRST: buka WhatsApp dengan data lengkap dalam gesture klik yang sama (aman dari popup blocker)
+					var sent=waOpen(buildRegMessage(rec));
+					toast(sent?"Data pendaftaran dikirim ke WhatsApp panitia.":"Gunakan tombol KIRIM ULANG DATA di layar sukses.",sent?"ok":"warn");
+				});
+				$("#btnNewReg").addEventListener("click",function(){
+					$("#regSuccess").hidden=true;$("#formWrap").hidden=false;
+					state=blankState();saveForm();
+					applyStaticValues();renderCatPick();renderMembers();renderSpecs();updateCost();updatePowerNote();maxReached=1;setStep(1);
+					$("#formShell").scrollIntoView({behavior:"smooth",block:"start"});
+				});
+				$("#btnResendWA").addEventListener("click",function(){if(lastReg)waOpen(buildRegMessage(lastReg));});
+				$("#btnPayWA").addEventListener("click",function(){
+					if(lastReg)waOpen(buildPayMessage(lastReg));
+					else waOpen("Halo Panitia *KUKAR SOUND FEST 2026*, saya ingin konfirmasi pembayaran pendaftaran.");
+				});
+				
+				/* ================= STATUS CHECK ================= */
+				function renderStatus(rec){
+					var box=$("#statusResult");
+					if(!rec){box.innerHTML='<div class="stMiss">Nomor registrasi tidak ditemukan pada data perangkat ini.<br><span style="color:var(--dim);font-size:12px">Mode prototype: data tersimpan lokal di browser. Pastikan nomor benar, contoh: KSKF-2026-0001.</span></div>';return;}
+					if(rec.payment_status==="REJECTED"||rec.payment_status==="DISQUALIFIED"){
+						box.innerHTML='<div class="stMiss">Status: '+(rec.payment_status==="REJECTED"?"PENDAFTARAN DITOLAK":"DISKUALIFIKASI")+'. Hubungi panitia untuk informasi lebih lanjut.</div>';return;
+					}
+					var flow=["SUBMITTED","WAITING_PAYMENT","PAYMENT_SUBMITTED","VERIFIED"];
+					var labels={SUBMITTED:"PENDAFTARAN DITERIMA",WAITING_PAYMENT:"MENUNGGU PEMBAYARAN",PAYMENT_SUBMITTED:"PEMBAYARAN DIKIRIM — MENUNGGU VERIFIKASI",VERIFIED:"TERVERIFIKASI — SIAP LOMBA"};
+					var idx=Math.max(0,flow.indexOf(rec.payment_status));
+					var pipe='<div class="pipe">'+flow.map(function(k,i){return '<div class="pnode'+(i<idx?" done":(i===idx?" act":""))+'">'+labels[k]+'</div>';}).join("")+'</div>';
+					var d=new Date(rec.created_at).toLocaleDateString("id-ID",{day:"2-digit",month:"short",year:"numeric"});
+					box.innerHTML='<div class="stFound"><span style="font:600 10px var(--mono);letter-spacing:.22em;color:var(--dim)">NOMOR REGISTRASI</span><div class="num">'+esc(rec.registration_number)+'</div>'
+					+'<div class="stMeta"><span>SOUND: <b>'+dash(rec.sound_name)+'</b></span><span>KATEGORI: <b>'+dash(rec.category)+'</b> • BIAYA: <b>'+fmtRp(rec.payment_amount)+'</b></span><span>DAFTAR: <b>'+d+'</b></span></div>'+pipe
+					+'<div class="sBtns" style="margin-top:18px">'
+					+'<button class="btn btn-ghost" data-act="resend" data-regnum="'+esc(rec.registration_number)+'">KIRIM ULANG DATA</button>'
+					+'<button class="btn btn-pri" data-act="pay" data-regnum="'+esc(rec.registration_number)+'">KONFIRMASI PEMBAYARAN</button>'
+					+'</div></div>';
+				}
+				$("#statusForm").addEventListener("submit",function(e){
+					e.preventDefault();
+					var v=$("#statusInput").value.trim().toUpperCase();
+					if(/^\d{1,4}$/.test(v))v="KSKF-2026-"+v.padStart(4,"0");
+					if(!v){toast("Masukkan nomor registrasi.","warn");return;}
+					var rec=getRegs().find(function(r){return r.registration_number.toUpperCase()===v;});
+					renderStatus(rec||null);
+					if(!rec)toast("Nomor registrasi tidak ditemukan.","err");
+				});
+				$("#statusResult").addEventListener("click",function(e){
+					var b=e.target.closest("button[data-act]");if(!b)return;
+					var rec=getRegs().find(function(r){return r.registration_number===b.dataset.regnum;});if(!rec)return;
+					if(b.dataset.act==="resend")waOpen(buildRegMessage(rec));
+					if(b.dataset.act==="pay")waOpen(buildPayMessage(rec));
+				});
+				
+				/* ================= WHATSAPP BUTTONS & COPY ================= */
+				$$(".js-wa").forEach(function(b){b.addEventListener("click",function(e){
+					e.preventDefault();
+					if(lastReg)waOpen(buildPayMessage(lastReg));
+					else waOpen(WA_GENERIC_MSG);
+				});});
+				$$(".js-wa-generic").forEach(function(b){b.addEventListener("click",function(e){e.preventDefault();waOpen(WA_GENERIC_MSG);});});
+				$$(".js-copy").forEach(function(b){b.addEventListener("click",function(){
+					var v="";
+					if(b.dataset.copyTarget)v=($("#"+b.dataset.copyTarget).textContent||"").trim();
+					else v=b.dataset.copy||"";
+					if(isPh(v)){toast("Data ini belum diisi oleh panitia.","warn");return;}
+					copyText(v);
+				});});
+				$("#waVal").textContent=waReady()?fmtWa(WA_NUMBER):"[NOMOR WHATSAPP PANITIA]";
+				$("#waValFoot").textContent=waReady()?fmtWa(WA_NUMBER):"[NOMOR WHATSAPP PANITIA]";
+				
+				/* ================= CATEGORY CTAs ================= */
+				$$(".cat-cta").forEach(function(b){b.addEventListener("click",function(){
+					var id=b.dataset.cat,c=CATEGORIES[id];
+					state.category=id;saveForm();
+					renderCatPick();renderSpecs();updateCost();updatePowerNote();
+					maxReached=Math.max(maxReached,1);setStep(2);
+					toast("Kategori "+c.name+" dipilih — biaya "+fmtRp(c.price)+". Lanjutkan pengisian data.","ok");
+					$("#pendaftaran").scrollIntoView({behavior:"smooth"});
+				});});
+				
+				/* ================= REGISTRATION WINDOW ================= */
+				var RW={
+					opens:Date.parse(CONFIG.registrationWindow.opens),
+					closes:Date.parse(CONFIG.registrationWindow.closes)
+				};
+				function rwStatus(){var now=Date.now();return now<RW.opens?"UPCOMING":(now>RW.closes?"CLOSED":"OPEN");}
+				function fmtDateID(v){return new Date(v).toLocaleDateString("id-ID",{day:"numeric",month:"long",year:"numeric"});}
+				function renderRW(){
+					var st=rwStatus(),bar=$("#rwBar");
+					var info={UPCOMING:{cls:"upcoming",label:"BELUM DIBUKA"},OPEN:{cls:"open",label:"DIBUKA"},CLOSED:{cls:"closed",label:"DITUTUP"}}[st];
+					if(bar)bar.innerHTML='<span class="rwChip '+info.cls+'"><span class="st"></span>PENDAFTARAN '+info.label+'</span>'
+					+'<span style="font:500 11.5px var(--mono);letter-spacing:.12em;color:var(--muted)">PERIODE: '+fmtDateID(RW.opens).toUpperCase()+' — '+fmtDateID(RW.closes).toUpperCase()+' (WITA)</span>';
+					var faq=$("#faqQ4Body");
+					if(faq)faq.innerHTML='Periode pendaftaran online: <b style="color:var(--white)">'+fmtDateID(RW.opens)+' s.d. '+fmtDateID(RW.closes)+' pukul 23:59 WITA</b> (H-1 lomba).<br><span style="color:var(--dim);font-size:12.5px">Setelah periode berakhir, silakan hubungi panitia via WhatsApp untuk info lebih lanjut.</span>';
+					var notice=$("#rwNotice"),submit=$("#btnSubmit");
+					if(!notice||!submit)return;
+					if(st==="OPEN"){notice.style.display="none";submit.disabled=false;return;}
+					if(st==="UPCOMING"){
+						notice.style.display="block";
+						notice.style.borderColor="rgba(255,194,75,.45)";notice.style.color="var(--amber)";
+						notice.innerHTML='<strong>PENDAFTARAN BELUM DIBUKA.</strong> Pendaftaran online dibuka mulai <b>'+fmtDateID(RW.opens)+'</b> pukul 00:00 WITA. Data yang kamu isi sekarang tetap tersimpan di perangkatmu dan bisa langsung dikirim begitu periode dibuka.';
+						submit.disabled=true;
+						}else{
+						notice.style.display="block";
+						notice.style.borderColor="rgba(255,64,64,.45)";notice.style.color="var(--red)";
+						notice.innerHTML='<strong>PENDAFTARAN ONLINE TELAH DITUTUP.</strong> Periode pendaftaran berakhir '+fmtDateID(RW.closes)+' pukul 23:59 WITA. Silakan hubungi panitia melalui WhatsApp untuk informasi lebih lanjut.';
+						submit.disabled=true;
+					}
+				}
+				renderRW();
+				setInterval(renderRW,60000); // status berubah otomatis begitu tanggal/waktu berganti
+				/* ================= COUNTDOWN ================= */
+				var target=new Date("2026-10-27T00:00:00+08:00").getTime();
+				function pad(n){return String(n).padStart(2,"0");}
+				function tick(){
+					var d=target-Date.now();if(d<0)d=0;
+					$("#cdD").textContent=pad(Math.floor(d/864e5));
+					$("#cdH").textContent=pad(Math.floor(d/36e5)%24);
+					$("#cdM").textContent=pad(Math.floor(d/6e4)%60);
+					$("#cdS").textContent=pad(Math.floor(d/1e3)%60);
+					if(d===0)$("#cdLabel").textContent="HARI-H TELAH TIBA — SAMPAI JUMPA DI TENGGARONG!";
+				}
+				tick();setInterval(tick,1000);
+				
+				/* ================= ACCORDION ================= */
+				$$(".acc").forEach(function(acc){
+					$$(".acc-head",acc).forEach(function(h){h.addEventListener("click",function(){
+						var item=h.parentElement,open=item.classList.contains("open");
+						$$(".acc-item.open",acc).forEach(function(o){o.classList.remove("open");o.querySelector(".acc-body").style.maxHeight=null;o.querySelector(".acc-head").setAttribute("aria-expanded","false");});
+						if(!open){item.classList.add("open");var b=item.querySelector(".acc-body");b.style.maxHeight=b.scrollHeight+"px";h.setAttribute("aria-expanded","true");}
+					});});
+				});
+				
+				/* ================= MOBILE MENU ================= */
+				var burger=$("#burger"),mm=$("#mobileMenu");
+				function closeMenu(){mm.classList.remove("open");document.body.classList.remove("menu-open");burger.setAttribute("aria-expanded","false");}
+				burger.addEventListener("click",function(){
+					var open=mm.classList.toggle("open");document.body.classList.toggle("menu-open",open);burger.setAttribute("aria-expanded",String(open));
+				});
+				$$("#mobileMenu a").forEach(function(a){a.addEventListener("click",closeMenu);});
+				
+				/* ================= EQUALIZER ================= */
+				$$("[data-eq]").forEach(function(eq){
+					var html="";
+					for(var i=0;i<30;i++)html+='<span style="animation-duration:'+(0.55+Math.random()*0.85).toFixed(2)+'s;animation-delay:-'+(Math.random()*1.5).toFixed(2)+'s"></span>';
+					eq.innerHTML=html;
+				});
+				
+				/* ================= REVEAL & STICKY CTA ================= */
+				var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.12});
+				$$(".reveal").forEach(function(el){io.observe(el);});
+				var heroVis=true,formVis=false;
+				var sticky=$("#stickyCTA");
+				function updSticky(){sticky.classList.toggle("show",!heroVis&&!formVis);}
+				new IntersectionObserver(function(en){heroVis=en[0].isIntersecting;updSticky();},{threshold:.12}).observe($("#hero"));
+				new IntersectionObserver(function(en){formVis=en[0].isIntersecting;updSticky();},{threshold:.04}).observe($("#pendaftaran"));
+				
+				/* ================= INIT ================= */
+				applyStaticValues();
+				renderCatPick();renderMembers();renderSpecs();updateCost();updatePowerNote();
+				setStep(cur);
+			})();
+		</script>
+	</body>
+</html>
